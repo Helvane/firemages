@@ -1,0 +1,11 @@
+<ul class="nav nav-tabs navbar-default" ng-controller="menuController">
+
+   <li ng-repeat="menu in menus track by $index" ng-click="goto($index)" class="{{menu.myclass}}">
+  <a><i class="{{menu.icon}}"></i> {{menu.title}} </a>
+    </li>
+
+
+    <li ng-show="person.email" ng-click="logoff()"><a>Welcome {{person.firstname}} {{person.lastname}}</a>
+    </li>
+    <li ng-show="person.photo"><img ng-src="app/assets/images/{{person.photo}}" class="img-responsive smallphoto"/></li>
+</ul>

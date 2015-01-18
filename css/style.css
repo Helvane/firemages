@@ -1,0 +1,29 @@
+@font-face {
+    font-family: "Rebel Pixy Stars";
+    src: url("fonts/rebelpixystars.ttf");
+}
+
+.logo {font-family: "Rebel Pixy Stars"; font-size:100px; letter-spacing:5px;  font-weight: normal;  color:blue; margin-top:60px; text-align: center; border-bottom:1px solid #ccc; margin-bottom:5px;}
+
+
+.menu {display: inline-block; list-style: none;}
+.menu li {display: inline-block; margin-left:30px; border:1px solid purple; padding:10px; border-radius:5px;}
+
+.col1 {width:150px; display:inline-block;}
+.col2 {width:200px; display: inline-block;}
+
+.space {margin-bottom: 10px;}
+
+.message {width:400px; height:300px; background:gray; display:inline-block;}
+.room {width:200px; height:300px; display:inline-block; margin-left:10px; background:gray;}
+.inputtext {width:400px}
+
+
+body {background:black;}
+.container {background:#666666; color:white;}
+.bottomline {border-bottom: 1px solid #bbbbbb; margin-bottom: 10px;}
+.smallphoto {width: 50px; height: 50px;}
+
+.bigspace {height:300px;}
+.photo {width: 100px; height: 100px;}
+.clearall {clear: both;}

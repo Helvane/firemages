@@ -1,0 +1,23 @@
+
+<h2 class="logo">Blog</h2>
+
+<div class="space">
+    What do you want to say?
+</div>
+<div class="space">
+    <textarea ng-model="message" class="form-control" maxlength="250"></textarea>
+</div>
+<div class="space">
+    <button class="btn btn-info" ng-click="save()">Submit</button>
+</div>
+
+<br/>
+
+<div class="media-list" ng-repeat="msg in listmessages track by $index">
+    <div class="media bottomline">
+        <a class="pull-left"><img ng-src="app/assets/images/{{msg.photo}}" class="photo img-circle"/></a>
+       <div class="media-heading"><b>{{msg.username}}</b></div>
+        <div class="media-body">{{$index+1}} . {{msg.message}}</div>
+        <div class="clearall"></div>
+    </div>
+</div>

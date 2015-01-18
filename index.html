@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>FireMages.com</title>
+
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
+    <link href="css/animate.css" rel="stylesheet" type="text/css"/>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-file-upload/angular-file-upload.min.js"></script>
+
+    <!-- custom files -->
+    <script src="config/endpoint.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/loginController.js"></script>
+    <script src="js/controllers/registerController.js"></script>
+    <script src="js/controllers/chatroomController.js"></script>
+    <script src="js/controllers/menuController.js"></script>
+    <script src="js/controllers/blogController.js"></script>
+    <script src="js/controllers/usersController.js"></script>
+
+
+    <script src="js/services/ajaxService.js"></script>
+    <script src="js/services/shareService.js"></script>
+
+</head>
+<body>
+<div class="container container-fluid">
+     <div ng-include="'templates/menu.html'"></div>
+
+    <div ui-view="viewA"></div>
+
+</div>
+</body>
+</html>
