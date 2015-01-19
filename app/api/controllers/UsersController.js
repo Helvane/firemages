@@ -64,7 +64,7 @@ module.exports = {
                 myusers.exec(function(error, result) {
                     if(result.length==0) {
                         Users.create({lastname: params.lastname, firstname: params.firstname, username: params.username, password: params.password,
-                            email: params.email, photo:files[0].filename
+                            email: params.email
                         }).exec(function createCB(err, created) {
                             var result = {};
                             result.status=1;
@@ -73,7 +73,7 @@ module.exports = {
                             result.lastname = created.lastname;
                             result.username = created.username;
                             result.email = created.email;
-                            result.photo = files[0].filename;
+
                             return res.json(result);
                         });
                     } else {
@@ -84,7 +84,7 @@ module.exports = {
                         result.lastname=params.lastname;
                         result.firstname=params.firstname;
                         result.password=params.password;
-                        result.photo=files[0].filename;
+                      
                         return res.json(result);
                     }
             });

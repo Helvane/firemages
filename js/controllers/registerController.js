@@ -20,7 +20,7 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
     $scope.savebtn=function(){
         var mydata={};
         $scope.error="";
-    
+
         myajax = ajaxService.ajaxFactory(REGISTERURLNOPHOTO, $scope.person, "POST");
 
         myajax.then(function(data){
