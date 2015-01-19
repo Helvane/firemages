@@ -1,0 +1,9 @@
+<h2 class="logo">Members</h2>
+
+<ul class="media-list">
+    <li class="media" ng-repeat="user in users track by $index">
+        <a class="pull-left"><img ng-src="app/assets/images/{{user.photo}}" class="photo img-circle"/></a>
+        <div class="media-body">{{user.username}}</div>
+        <div class="clearall"></div>
+    </li>
+</ul>

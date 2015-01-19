@@ -46,6 +46,15 @@ app.config(['$stateProvider','$urlRouterProvider',
                     }
                 }
             })
+            .state('members', {
+                url:'/members',
+                views: {
+                    "viewA": {
+                        templateUrl: 'templates/members.html',
+                        controller: 'membersController'
+                    }
+                }
+            })
             .state('blog', {
                 url:'/blog',
                 views: {
