@@ -20,11 +20,9 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
     $scope.savebtn=function(){
         var mydata={};
         $scope.error="";
-        if(login) {
-            myajax = ajaxService.ajaxFactory(REGISTERURLUPDATE, $scope.person, "POST");
-        } else {
-            myajax = ajaxService.ajaxFactory(REGISTERURL, $scope.person, "POST");
-        }
+    
+        myajax = ajaxService.ajaxFactory(REGISTERURLNOPHOTO, $scope.person, "POST");
+
         myajax.then(function(data){
                 if(data.status==1) {
                     shareService.setlogin(data);
@@ -43,6 +41,7 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
     };
 
     $scope.uploaddata="";
+    $scope.myphoto="";
 
     var uploader=$scope.uploader=new FileUploader({
         url: REGISTERURL,
@@ -64,7 +63,14 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
     });
 
     $scope.save=function(){
-        uploader.uploadAll()
+
+        if($scope.myphoto=="")
+        {
+            $scope.savebtn();
+        } else {
+         uploader.uploadAll();
+        }
+
     };
 
     // CALLBACKS

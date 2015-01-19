@@ -3,6 +3,7 @@
  */
 
 var REGISTERURL='http://www.firemages.com:1337/Users/create';
+var REGISTERURLNOPHOTO='http://www.firemages.com:1337/Users/createnophoto';
 var REGISTERURLUPDATE='http://www.firemages.com:1337/Users/update';
 var USERSURL='http://www.firemages.com:1337/Users/getusers';
 var LOGINURL='http://www.firemages.com:1337/Users/login';

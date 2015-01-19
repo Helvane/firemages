@@ -20,7 +20,7 @@
 
 
 #stage {
-    margin: 1em auto;
+    margin: 0 auto;
     -webkit-perspective: 1200px;
     -moz-perspective: 1200px;
     -ms-perspective: 1200px;

@@ -16,6 +16,8 @@ module.exports = {
 
     create:function(req,res){
         var params = req.params.all();
+
+
         req.file('photo').upload(function (err, files) {
             if (err) {
                 return res.serverError(err);
@@ -54,6 +56,42 @@ module.exports = {
             }
         });
     },
+
+    createnophoto:function(req,res){
+        var params = req.params.all();
+
+               var myusers=Users.find({username:params.username});
+                myusers.exec(function(error, result) {
+                    if(result.length==0) {
+                        Users.create({lastname: params.lastname, firstname: params.firstname, username: params.username, password: params.password,
+                            email: params.email, photo:files[0].filename
+                        }).exec(function createCB(err, created) {
+                            var result = {};
+                            result.status=1;
+                            result._id = created._id;
+                            result.firstname = created.firstname;
+                            result.lastname = created.lastname;
+                            result.username = created.username;
+                            result.email = created.email;
+                            result.photo = files[0].filename;
+                            return res.json(result);
+                        });
+                    } else {
+                        var result={};
+                        result.status=0;
+                        result.email=params.email;
+                        result.username=params.username;
+                        result.lastname=params.lastname;
+                        result.firstname=params.firstname;
+                        result.password=params.password;
+                        result.photo=files[0].filename;
+                        return res.json(result);
+                    }
+            });
+
+
+    },
+
     login:function(req,res){
         var params = req.params.all()
         Users.find({password:params.password,username:params.username},{username:1,email:1,firstname:1,lastname:1,photo:1
