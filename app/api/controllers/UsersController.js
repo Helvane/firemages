@@ -29,10 +29,25 @@ module.exports = {
                 myusers.exec(function(error, result) {
                     if(result.length==0) {
                         Users.create({lastname: params.lastname, firstname: params.firstname, username: params.username, password: params.password,
-                            email: params.email, photo:files[0].filename
+                            email: params.email, photo: files[0].filename
                         }).exec(function createCB(err, created) {
                             var result = {};
-                            result.status=1;
+                            result.status = 1;
+                            result._id = created._id;
+                            result.firstname = created.firstname;
+                            result.lastname = created.lastname;
+                            result.username = created.username;
+                            result.email = created.email;
+                            result.photo = files[0].filename;
+                            return res.json(result);
+                        });
+
+                    } else if(result.length > 0) {
+                        Users.update({username:params.username},{lastname: params.lastname, firstname: params.firstname, password: params.password,
+                            email: params.email, photo: files[0].filename
+                        }).exec(function createCB(err, created) {
+                            var result = {};
+                            result.status = 1;
                             result._id = created._id;
                             result.firstname = created.firstname;
                             result.lastname = created.lastname;
@@ -60,9 +75,9 @@ module.exports = {
     createnophoto:function(req,res){
         var params = req.params.all();
 
-               var myusers=Users.find({username:params.username});
-                myusers.exec(function(error, result) {
-                    if(result.length==0) {
+        var myusers=Users.find({username:params.username});
+        myusers.exec(function(error, result) {
+           if(result.length==0) {
                         Users.create({lastname: params.lastname, firstname: params.firstname, username: params.username, password: params.password,
                             email: params.email
                         }).exec(function createCB(err, created) {
@@ -75,8 +90,25 @@ module.exports = {
                             result.email = created.email;
 
                             return res.json(result);
+
                         });
-                    } else {
+           } else if(result.length > 0) {
+               Users.update({username:params.username},{lastname: params.lastname, firstname: params.firstname, password: params.password,
+                   email: params.email
+               }).exec(function createCB(err, created) {
+                   var result = {};
+                   result.status=1;
+                   result._id = created._id;
+                   result.firstname = created.firstname;
+                   result.lastname = created.lastname;
+                   result.username = created.username;
+                   result.email = created.email;
+
+                   return res.json(result);
+
+               });
+
+           } else {
                         var result={};
                         result.status=0;
                         result.email=params.email;
@@ -84,10 +116,10 @@ module.exports = {
                         result.lastname=params.lastname;
                         result.firstname=params.firstname;
                         result.password=params.password;
-                      
+
                         return res.json(result);
-                    }
-            });
+           }
+        });
 
 
     },
