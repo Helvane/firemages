@@ -14,6 +14,7 @@ var GETBLOGURL='http://www.firemages.com:1337/Blog/getblog';
 
 
 
+
 /*
 var REGISTERURL='http://localhost:1337/Users/create';
 var REGISTERURLNOPHOTO='http://localhost:1337/Users/createnophoto';
