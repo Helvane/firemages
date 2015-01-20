@@ -68,7 +68,7 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
         {
             $scope.savebtn();
         } else {
-         uploader.uploadAll();
+            uploader.uploadAll();
         }
 
     };
@@ -80,6 +80,7 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
     };
     uploader.onAfterAddingFile = function(fileItem) {
         fileItem.formData[0]=$scope.person;
+        $scope.myphoto=fileItem.alias;
 
         //console.info('onAfterAddingFile', fileItem);
     };
