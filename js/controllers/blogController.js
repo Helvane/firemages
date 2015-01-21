@@ -29,7 +29,7 @@ appController.controller("blogController",['$scope','shareService','ajaxService'
         var senddata=ajaxService.ajaxFactory(BLOGURL,param,'POST');
         senddata.then(
             function(data) {
-                alert(JSON.stringify(data));
+
                 $scope.update=Number(new Date);
                 $scope.message="";
             },
