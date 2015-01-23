@@ -34,6 +34,11 @@ module.exports = {
           size:200,
           unique:true
       },
+      steamid: {
+          type: 'string',
+          size:200,
+          unique:true
+      },
       photo:{
           type:'string',
           size:50

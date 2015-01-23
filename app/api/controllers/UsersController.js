@@ -29,7 +29,7 @@ module.exports = {
                 myusers.exec(function(error, result) {
                     if(result.length==0) {
                         Users.create({lastname: params.lastname, firstname: params.firstname, username: params.username, password: params.password,
-                            email: params.email, photo: files[0].filename
+                            email: params.email,steamid:params.steamid, photo: files[0].filename
                         }).exec(function createCB(err, created) {
                             var result = {};
                             result.status = 1;
@@ -44,7 +44,7 @@ module.exports = {
 
                     } else if(result.length > 0) {
                         Users.update({username:params.username},{lastname: params.lastname, firstname: params.firstname, password: params.password,
-                            email: params.email, photo: files[0].filename
+                            email: params.email,steamid:params.steamid, photo: files[0].filename
                         }).exec(function createCB(err, created) {
                             var result = {};
                             result.status = 1;
@@ -79,7 +79,7 @@ module.exports = {
         myusers.exec(function(error, result) {
            if(result.length==0) {
                         Users.create({lastname: params.lastname, firstname: params.firstname, username: params.username, password: params.password,
-                            email: params.email
+                            email: params.email,steamid:params.steamid
                         }).exec(function createCB(err, created) {
                             var result = {};
                             result.status=1;
@@ -94,7 +94,7 @@ module.exports = {
                         });
            } else if(result.length > 0) {
                Users.update({username:params.username},{lastname: params.lastname, firstname: params.firstname, password: params.password,
-                   email: params.email
+                   email: params.email,steamid: params.steamid
                }).exec(function createCB(err, created) {
                    var result = {};
                    result.status=1;

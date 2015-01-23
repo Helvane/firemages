@@ -4,7 +4,7 @@
 
 
 appController.controller("registerController",['$scope','ajaxService','shareService','FileUploader',function($scope,ajaxService,shareService,FileUploader){
-    $scope.person={"lastname":"","firstname":"","username":"","password":"","email":"","photo":""};
+    $scope.person={"lastname":"","firstname":"","username":"","password":"","email":"","steamid":"","photo":""};
     $scope.confirm="";
     $scope.error="";
     $scope.progressflag=false;
