@@ -24,4 +24,4 @@ var LOGINURL='http://localhost:1337/Users/login';
 
 var BLOGURL='http://localhost:1337/Blog/create';
 var GETBLOGURL='http://localhost:1337/Blog/getblog';
-/*
+*/
