@@ -12,7 +12,7 @@ appService.factory('shareService',['$rootScope',function($rootscope){
 
         pService.logindata=data;
         if(window.localStorage) {
-            window.localStorage.setItem('login',JSON.stringify(data));
+            window.localStorage.setItem('loginfiremages',JSON.stringify(data));
 
         }
         $rootscope.$broadcast("loginEvent");
@@ -20,7 +20,7 @@ appService.factory('shareService',['$rootScope',function($rootscope){
 
     pService.getlogin=function(){
         if(window.localStorage) {
-            return JSON.parse(window.localStorage.getItem('login'));
+            return JSON.parse(window.localStorage.getItem('loginfiremages'));
         } else {
 
             return pService.logindata;
