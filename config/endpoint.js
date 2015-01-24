@@ -10,6 +10,7 @@ var USERSURL='http://www.firemages.com:1337/Users/getusers';
 var LOGINURL='http://www.firemages.com:1337/Users/login';
 
 var BLOGURL='http://www.firemages.com:1337/Blog/create';
+ var BLOGURLPHOTO='http://www.firemages.com:1337/Blog/createphoto';
 var GETBLOGURL='http://www.firemages.com:1337/Blog/getblog';
 
 
@@ -23,5 +24,6 @@ var USERSURL='http://localhost:1337/Users/getusers';
 var LOGINURL='http://localhost:1337/Users/login';
 
 var BLOGURL='http://localhost:1337/Blog/create';
+var BLOGURLPHOTO='http://localhost:1337/Blog/createphoto';
 var GETBLOGURL='http://localhost:1337/Blog/getblog';
-*/
+*/ 

@@ -4,7 +4,7 @@
 
 var appController=angular.module('appController',['ui.router','ngResource']);
 
-appController.controller("loginController",['$scope','ajaxService','shareService',function($scope,ajaxService,shareService){
+appController.controller("loginController",['$scope','ajaxService','shareService','$location',function($scope,ajaxService,shareService,$location){
     // initialize json object
     $scope.person={"username":"","password":""};
     $scope.error={"username":false,"password":false};
@@ -26,6 +26,7 @@ appController.controller("loginController",['$scope','ajaxService','shareService
                     } else {
                         $scope.errormsg="";
                         shareService.setlogin(data[0]);
+                        $location.path('/home');
                     }
                 },
                 function (error) {
@@ -40,8 +41,11 @@ appController.controller("loginController",['$scope','ajaxService','shareService
         $scope.error.username=false;
     }
 
-    $scope.resetpassword=function(){
+    $scope.resetpassword=function(event){
         $scope.error.password=false;
+        if(event.which==13){
+            $scope.getlogin();
+        }
     }
 
 

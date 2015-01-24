@@ -13,7 +13,7 @@
 <br/>
 <div class="row">
     <label class="col-md-2">Password</label>
-    <div class="col-md-4"><input type="password" ng-model="person.password" maxlength="30" class="form-control input-sm" ng-keypress="resetpassword()"/></div>
+    <div class="col-md-4"><input type="password" ng-model="person.password" maxlength="30" class="form-control input-sm" ng-keypress="resetpassword($event)"/></div>
     <div class="col-md-6 text-danger" ng-show="error.password==true">Enter your password</div>
 </div>
 

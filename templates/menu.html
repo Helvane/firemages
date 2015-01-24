@@ -1,11 +1,14 @@
-<ul class="nav nav-tabs navbar-default" ng-controller="menuController">
+<ul class="nav nav-tabs navbar-default navbar-fixed-top" ng-controller="menuController">
 
-   <li ng-repeat="menu in menus track by $index" ng-click="goto($index)" class="{{menu.myclass}}">
+   <li ng-repeat="menu in menus track by $index" ng-click="goto($index)" class="{{menu.myclass}}" ng-if="menu.status==0">
   <a><i class="{{menu.icon}}"></i> {{menu.title}} </a>
     </li>
 
 
-    <li ng-show="person.email" ng-click="logoff()"><a>Welcome {{person.firstname}} {{person.lastname}}</a>
+    <li ng-if="person.username" ng-click="logoff()">
+        <a>Log off {{person.username}}</a>
     </li>
-    <li ng-show="person.photo"><img ng-src="app/assets/images/{{person.photo}}" class="img-responsive smallphoto"/></li>
+    <li ng-if="person.photo">
+        <img ng-src="app/assets/images/{{person.photo}}" class="img-responsive smallphoto"/>
+    </li>
 </ul>
