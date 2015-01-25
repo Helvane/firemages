@@ -4,12 +4,13 @@
 
 
 appController.controller("registerController",['$scope','ajaxService','shareService','FileUploader',function($scope,ajaxService,shareService,FileUploader){
-    $scope.person={"lastname":"","firstname":"","username":"","password":"","confirm":"","email":"","steamid":"","photo":""}; 
+    $scope.person={"lastname":"","firstname":"","username":"","password":"","confirm":"","email":"","steamid":"","photo":""};
 
     $scope.error={"lastname":false,"firstname":false,"username":false,"password":false,"confirm":false,"email":false,"steamid":false};
 
-    $scope.confirm="";
+
     $scope.errormsg="";
+    $scope.emailmsg="Enter your E-Mail";
 
     $scope.validate=function(){
         var count=0;
@@ -49,17 +50,25 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
             $scope.error.email=true;
             count++;
         } else {
-            $scope.error.email=false;
+            if(shareService.validateEmail($scope.person.email)==false) {
+                $scope.error.email = true;
+                $scope.emailmsg="You entered the wrong E-Mail make sure that it is spelled right or it is a real E-Mail";
+                count++;
+            } else {
+                $scope.error.email=false;
+
+            }
         }
         if($scope.person.steamid==""){
             $scope.error.steamid=true;
+
             count++;
         } else {
             $scope.error.steamid=false;
         }
 
 
-            return count;
+         return count;
     };
 
             $scope.progressflag=false;

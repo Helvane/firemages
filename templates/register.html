@@ -39,7 +39,7 @@
 
 <div class="row">
     <label class="col-md-2">Confirm Password <span class="text-danger">*</span></label>
-    <div class="col-md-4"><input type="password" ng-model="confirm" maxlength="50" class="form-control input-sm"/></div>
+    <div class="col-md-4"><input type="password" ng-model="person.confirm" maxlength="50" class="form-control input-sm"/></div>
     <div class="col-md-6 text-danger" ng-show="error.confirm==true">Confirm your Password</div>
 </div>
 <br/>
@@ -47,7 +47,7 @@
 <div class="row">
     <label class="col-md-2">E-Mail <span class="text-danger">*</span></label>
     <div class="col-md-4"><input type="email" ng-model="person.email" maxlength="100" class="form-control input-sm"/></div>
-    <div class="col-md-6 text-danger" ng-show="error.email==true">Enter your E-Mail</div>
+    <div class="col-md-6 text-danger" ng-show="error.email==true">{{emailmsg}}</div>
 </div>
 <br/>
 
