@@ -4,10 +4,65 @@
 
 
 appController.controller("registerController",['$scope','ajaxService','shareService','FileUploader',function($scope,ajaxService,shareService,FileUploader){
-    $scope.person={"lastname":"","firstname":"","username":"","password":"","email":"","steamid":"","photo":""};
+    $scope.person={"lastname":"","firstname":"","username":"","password":"","confirm":"","email":"","steamid":"","photo":""}; 
+
+    $scope.error={"lastname":false,"firstname":false,"username":false,"password":false,"confirm":false,"email":false,"steamid":false};
+
     $scope.confirm="";
-    $scope.error="";
-    $scope.progressflag=false;
+    $scope.errormsg="";
+
+    $scope.validate=function(){
+        var count=0;
+        if($scope.person.lastname==""){
+            $scope.error.lastname=true;
+            count++;
+        } else {
+            $scope.error.lastname=false;
+        }
+        if($scope.person.firstname==""){
+            $scope.error.firstname=true;
+            count++;
+        } else {
+            $scope.error.firstname=false;
+        }
+
+        if($scope.person.username==""){
+            $scope.error.username=true;
+            count++;
+        } else {
+            $scope.error.username = false;
+        }
+
+        if($scope.person.password==""){
+            $scope.error.password=true;
+            count++;
+        } else {
+            $scope.error.password=false;
+        }
+        if($scope.person.confirm==""){
+            $scope.error.confirm=true;
+            count++;
+        } else {
+            $scope.error.confirm=false;
+        }
+        if($scope.person.email==""){
+            $scope.error.email=true;
+            count++;
+        } else {
+            $scope.error.email=false;
+        }
+        if($scope.person.steamid==""){
+            $scope.error.steamid=true;
+            count++;
+        } else {
+            $scope.error.steamid=false;
+        }
+
+
+            return count;
+    };
+
+            $scope.progressflag=false;
     var login=shareService.getlogin();
     if(login){
         $scope.person=login;
@@ -19,18 +74,19 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
 
     $scope.savebtn=function(){
         var mydata={};
-        $scope.error="";
+        $scope.errormsg="";
+
 
         myajax = ajaxService.ajaxFactory(REGISTERURLNOPHOTO, $scope.person, "POST");
 
         myajax.then(function(data){
                 if(data.status==1) {
                     shareService.setlogin(data);
-                    $scope.error = "Register a new account is successfully";
+                    $scope.errormsg = "Register a new account is successfully";
                 } else if(data.status==2) {
-                    $scope.error = "Update your account is successfully";
+                    $scope.errormsg = "Update your account is successfully";
                 } else {
-                    $scope.error="This E-Mail and UserName are already existed in our database system";
+                    $scope.errormsg="This E-Mail and UserName are already existed in our database system";
                 }
             },
             function(error){
@@ -62,15 +118,14 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
         }]
     });
 
-    $scope.save=function(){
-
-        if($scope.myphoto=="")
-        {
+    $scope.save=function() {
+        if ($scope.validate()==0) {
+            if ($scope.myphoto == "") {
             $scope.savebtn();
-        } else {
-            uploader.uploadAll();
-        }
-
+            } else {
+                uploader.uploadAll();
+            }
+       }
     };
 
     // CALLBACKS
@@ -116,11 +171,11 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
         var data=response;
         if(data.status==1) {
             shareService.setlogin(data);
-            $scope.error = "Register a new account is successfully";
+            $scope.errormsg = "Register a new account is successfully";
         } else if(data.status==2) {
-            $scope.error = "Update your account is successfully";
+            $scope.errormsg = "Update your account is successfully";
         } else {
-            $scope.error="This E-Mail and UserName are already existed in our database system";
+            $scope.errormsg="This E-Mail and UserName are already existed in our database system";
         }
     };
     uploader.onCompleteAll = function() {

@@ -7,47 +7,54 @@
 <h2 class="logo">Register for your account</h2>
 
 <div class="row">
-    <label class="col-md-2">Last Name</label>
+    <label class="col-md-2">Last Name <span class="text-danger">*</span></label>
     <div class="col-md-4"><input type="text" ng-model="person.lastname" maxlength="20" class="form-control input-sm"/></div>
+    <div class="col-md-6 text-danger" ng-show="error.lastname==true">Enter your LastName</div>
 </div>
 
 <br/>
 
 <div class="row">
-    <label class="col-md-2">First Name</label>
+    <label class="col-md-2">First Name <span class="text-danger">*</span></label>
     <div class="col-md-4"><input type="text" ng-model="person.firstname" maxlength="20" class="form-control input-sm"/></div>
+    <div class="col-md-6 text-danger" ng-show="error.firstname==true">Enter your FirstName</div>
 </div>
 
 <br/>
 
 <div class="row">
-    <label class="col-md-2">UserName</label>
+    <label class="col-md-2">UserName <span class="text-danger">*</span></label>
     <div class="col-md-4"><input type="text" ng-model="person.username" maxlength="20" class="form-control input-sm"/></div>
+    <div class="col-md-6 text-danger" ng-show="error.username==true">Enter your UserName</div>
 </div>
 
 <br/>
 
 <div class="row">
-    <label class="col-md-2">Password</label>
+    <label class="col-md-2">Password <span class="text-danger">*</span></label>
     <div class="col-md-4"><input type="password" ng-model="person.password" maxlength="50" class="form-control input-sm"/></div>
+    <div class="col-md-6 text-danger" ng-show="error.password==true">Enter your Password</div>
 </div>
 <br/>
 
 <div class="row">
-    <label class="col-md-2">Confirm Password</label>
+    <label class="col-md-2">Confirm Password <span class="text-danger">*</span></label>
     <div class="col-md-4"><input type="password" ng-model="confirm" maxlength="50" class="form-control input-sm"/></div>
+    <div class="col-md-6 text-danger" ng-show="error.confirm==true">Confirm your Password</div>
 </div>
 <br/>
 
 <div class="row">
-    <label class="col-md-2">E-Mail</label>
+    <label class="col-md-2">E-Mail <span class="text-danger">*</span></label>
     <div class="col-md-4"><input type="email" ng-model="person.email" maxlength="100" class="form-control input-sm"/></div>
+    <div class="col-md-6 text-danger" ng-show="error.email==true">Enter your E-Mail</div>
 </div>
 <br/>
 
 <div class="row">
-    <label class="col-md-2">Steam id</label>
+    <label class="col-md-2">Steam id <span class="text-danger">*</span></label>
     <div class="col-md-4"><input type="text" ng-model="person.steamid" maxlength="100" class="form-control input-sm"/></div>
+    <div class="col-md-6 text-danger" ng-show="error.steamid==true">Enter your Steam id</div>
 </div>
 <br/>
 
@@ -62,7 +69,7 @@
     <div class="col-md-4"><input type="button" name="savebutton" value="Save" ng-click="save()" class="btn btn-info"/></div>
 </div>
 <br/>
-<div class="greencolor">{{error}}</div>
+<div class="greencolor">{{errormsg}}</div>
 <br/>
 <div class="progress" ng-show="progressflag==true">
     <div class="progress-bar" role="progressbar" aria-valuenow="{{uploader.progress}}" aria-valuemin="0" aria-valuemax="100" style="width:{{uploader.progress}}%">
