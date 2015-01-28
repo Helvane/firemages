@@ -39,6 +39,7 @@ module.exports = {
                             result.username = created.username;
                             result.email = created.email;
                             result.photo = files[0].filename;
+                            result.steamid=created.steamid;
                             return res.json(result);
                         });
 
@@ -54,6 +55,7 @@ module.exports = {
                             result.username = created.username;
                             result.email = created.email;
                             result.photo = files[0].filename;
+                            result.steamid=created.steamid;
                             return res.json(result);
                         });
                     } else {
@@ -65,6 +67,7 @@ module.exports = {
                         result.firstname=params.firstname;
                         result.password=params.password;
                         result.photo=files[0].filename;
+                        result.steamid=params.steamid;
                         return res.json(result);
                     }
                 });
@@ -88,6 +91,7 @@ module.exports = {
                             result.lastname = created.lastname;
                             result.username = created.username;
                             result.email = created.email;
+                            result.steamid=created.steamid;
 
                             return res.json(result);
 
@@ -103,6 +107,7 @@ module.exports = {
                    result.lastname = created.lastname;
                    result.username = created.username;
                    result.email = created.email;
+                   result.steamid=created.steamid;
 
                    return res.json(result);
 
@@ -116,8 +121,9 @@ module.exports = {
                         result.lastname=params.lastname;
                         result.firstname=params.firstname;
                         result.password=params.password;
+                        result.steamid=params.steamid;
 
-                        return res.json(result);
+               return res.json(result);
            }
         });
 
