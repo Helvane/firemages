@@ -16,7 +16,7 @@ module.exports = {
         },
         message: {
             type: 'string',
-            size:700 
+            size:700
         },
         username: {
             type: 'string',

@@ -16,8 +16,6 @@ module.exports = {
 
     create:function(req,res){
         var params = req.params.all();
-
-
         req.file('photo').upload(function (err, files) {
             if (err) {
                 return res.serverError(err);
@@ -28,12 +26,12 @@ module.exports = {
                 var myusers=Users.find({username:params.username});
                 myusers.exec(function(error, result) {
                     if(result.length==0) {
-                        Users.create({lastname: params.lastname, firstname: params.firstname, username: params.username, password: params.password,
+                        Users.create({lastname:params.lastname,firstname:params.firstname,username:params.username,password:params.password,
                             email: params.email,steamid:params.steamid, photo: files[0].filename
-                        }).exec(function createCB(err, created) {
+                        }).exec(function(err, created) {
+                            console.log(created);
                             var result = {};
                             result.status = 1;
-                            result._id = created._id;
                             result.firstname = created.firstname;
                             result.lastname = created.lastname;
                             result.username = created.username;
@@ -48,14 +46,13 @@ module.exports = {
                             email: params.email,steamid:params.steamid, photo: files[0].filename
                         }).exec(function createCB(err, created) {
                             var result = {};
-                            result.status = 1;
-                            result._id = created._id;
-                            result.firstname = created.firstname;
-                            result.lastname = created.lastname;
-                            result.username = created.username;
-                            result.email = created.email;
+                            result.status = 2;
+                            result.firstname = params.firstname;
+                            result.lastname = params.lastname;
+                            result.username = params.username;
+                            result.email = params.email;
                             result.photo = files[0].filename;
-                            result.steamid=created.steamid;
+                            result.steamid=params.steamid;
                             return res.json(result);
                         });
                     } else {
@@ -101,13 +98,12 @@ module.exports = {
                    email: params.email,steamid: params.steamid
                }).exec(function createCB(err, created) {
                    var result = {};
-                   result.status=1;
-                   result._id = created._id;
-                   result.firstname = created.firstname;
-                   result.lastname = created.lastname;
-                   result.username = created.username;
-                   result.email = created.email;
-                   result.steamid=created.steamid;
+                   result.status=2;
+                   result.firstname = params.firstname;
+                   result.lastname = params.lastname;
+                   result.username = params.username;
+                   result.email = params.email;
+                   result.steamid=params.steamid;
 
                    return res.json(result);
 

@@ -85,7 +85,6 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
         var mydata={};
         $scope.errormsg="";
 
-
         myajax = ajaxService.ajaxFactory(REGISTERURLNOPHOTO, $scope.person, "POST");
 
         myajax.then(function(data){
@@ -94,6 +93,9 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
                     $scope.errormsg = "Register a new account is successfully";
                 } else if(data.status==2) {
                     $scope.errormsg = "Update your account is successfully";
+                    var mydata=data;
+                    mydata.photo=angular.copy($scope.person.photo)
+                    shareService.setlogin(mydata);
                 } else {
                     $scope.errormsg="This E-Mail and UserName are already existed in our database system";
                 }
@@ -143,7 +145,7 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
         //console.info('onWhenAddingFileFailed', item, filter, options);
     };
     uploader.onAfterAddingFile = function(fileItem) {
-        fileItem.formData[0]=$scope.person;
+        fileItem.formData[0]=angular.copy($scope.person);
         $scope.myphoto=fileItem.alias;
 
         //console.info('onAfterAddingFile', fileItem);
@@ -152,7 +154,7 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
         //console.info('onAfterAddingAll', addedFileItems);
     };
     uploader.onBeforeUploadItem = function(item) {
-        item.formData[0]=$scope.person;
+        item.formData[0]=angular.copy($scope.person);
         $scope.progressflag=true;
     };
     uploader.onProgressItem = function(fileItem, progress) {
@@ -175,14 +177,15 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
         $scope.progressflag=false;
         $scope.updatedata=Number(new Date);
 
-        console.log(response);
-
         var data=response;
         if(data.status==1) {
             shareService.setlogin(data);
             $scope.errormsg = "Register a new account is successfully";
         } else if(data.status==2) {
             $scope.errormsg = "Update your account is successfully";
+            var mydata=data;
+            mydata.photo=angular.copy($scope.person.photo);
+            shareService.setlogin(mydata);
         } else {
             $scope.errormsg="This E-Mail and UserName are already existed in our database system";
         }
