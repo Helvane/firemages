@@ -11,6 +11,7 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
 
     $scope.errormsg="";
     $scope.emailmsg="Enter your E-Mail";
+    $scope.usernameclass="text-danger";
 
     $scope.validate=function(){
         var count=0;
@@ -28,6 +29,7 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
         }
 
         if($scope.person.username==""){
+            $scope.usernamemsg="Enter your UserName";
             $scope.error.username=true;
             count++;
         } else {
@@ -41,6 +43,7 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
             $scope.error.password=false;
         }
         if($scope.person.confirm==""){
+            $scope.confirmmsg="Enter a confirm password again";
             $scope.error.confirm=true;
             count++;
         } else {
@@ -71,7 +74,7 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
          return count;
     };
 
-            $scope.progressflag=false;
+    $scope.progressflag=false;
     var login=shareService.getlogin();
     if(login){
         $scope.person=login;
@@ -80,12 +83,86 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
     $scope.$on("loginEvent",function(){
         $scope.person=shareService.getlogin();
     });
+    $scope.usernamemsg="";
+    $scope.$watch("person.username",function(){
+        $scope.usernamemsg="";
+        $scope.error.username=false;
+        if(shareService.validateUsername($scope.person.username)==true){
+            $scope.usernamemsg="You can enter only characters and numbers. No special characters";
+            $scope.error.username=true;
+
+        }
+
+        });
+       $scope.confirmmsg="";
+       $scope.$watch("person.confirm",function(){
+           $scope.confirmmsg="";
+           $scope.error.confirm=false;
+           if($scope.person.password!=$scope.person.confirm){
+               $scope.error.confirm=true;
+               $scope.confirmmsg="The password and confirm password dosen't match";
+           }
+
+       });
+
+    $scope.$watch("person.lastname",function(){
+       if($scope.person.lastname!=""){
+           $scope.error.lastname=false;
+       }
+    });
+
+    $scope.$watch("person.firstname",function(){
+        if($scope.person.firstname!=""){
+            $scope.error.firstname=false;
+        }
+    });
+    $scope.$watch("person.password",function(){
+        if($scope.person.password!=""){
+            $scope.error.password=false;
+        }
+    });
+        $scope.$watch("person.email",function(){
+            if($scope.person.email!=""){
+                $scope.error.email=false;
+            }
+
+        });
+    $scope.$watch("person.steamid",function(){
+        if($scope.person.steamid!=""){
+            $scope.error.steamid=false;
+        }
+    });
+
+
+    $scope.verify=function(){
+      var param={};
+        param.username=angular.copy($scope.person.username);
+        param.id=Number(new Date);
+      var myajax = ajaxService.ajaxFactory(REGISTERURLVERIFY,param, "GET");
+      myajax.then(
+        function(data){
+                $scope.error.username=true;
+                $scope.usernamemsg=data.msg;
+                if(data.status==0){
+                    $scope.usernameclass="greencolor"
+                } else {
+                    $scope.usernameclass="text-danger";
+                }
+
+
+        },
+         function(error){
+             alert(error);
+         }
+      );
+
+    };
 
     $scope.savebtn=function(){
         var mydata={};
         $scope.errormsg="";
 
-        myajax = ajaxService.ajaxFactory(REGISTERURLNOPHOTO, $scope.person, "POST");
+        var myajax = ajaxService.ajaxFactory(REGISTERURLNOPHOTO, $scope.person, "POST");
 
         myajax.then(function(data){
                 if(data.status==1) {
@@ -132,7 +209,7 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
     $scope.save=function() {
         if ($scope.validate()==0) {
             if ($scope.myphoto == "") {
-            $scope.savebtn();
+                $scope.savebtn();
             } else {
                 uploader.uploadAll();
             }

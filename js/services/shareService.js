@@ -16,7 +16,7 @@ appService.factory('shareService',['$rootScope',function($rootscope){
 
         }
         $rootscope.$broadcast("loginEvent");
-    }
+    };
 
     pService.getlogin=function(){
         if(window.localStorage) {
@@ -25,16 +25,16 @@ appService.factory('shareService',['$rootScope',function($rootscope){
 
             return pService.logindata;
         }
-        }
+        };
     pService.userdata=[];
     pService.setusers=function(data){
         pService.userdata=data;
 
-    }
+    };
 
     pService.getusers=function(){
         return pService.userdata;
-    }
+    };
 
     pService.enhanceblog=function(blog,users){
         var temp=[];
@@ -49,12 +49,17 @@ appService.factory('shareService',['$rootScope',function($rootscope){
             }
         }
         return temp;
-    }
+    };
 
     pService.validateEmail=function(email) {
         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);
-    }
+    };
+
+    pService.validateUsername=function(username){
+        var regexp=/[\{\(\)\}\$\%\^\!\~\`\#\&\=\+\,\?\<\>\[\]]/;
+        return regexp.test(username);
+    };
 
     return pService;
 }]);

@@ -26,8 +26,8 @@ module.exports = {
                 var myusers=Users.find({username:params.username});
                 myusers.exec(function(error, result) {
                     if(result.length==0) {
-                        Users.create({lastname:params.lastname,firstname:params.firstname,username:params.username,password:params.password,
-                            email: params.email,steamid:params.steamid, photo: files[0].filename
+                        Users.create({lastname:params.lastname,firstname:params.firstname, username:params.username,password:params.password,
+                            email:params.email,steamid:params.steamid, photo: files[0].filename
                         }).exec(function(err, created) {
                             console.log(created);
                             var result = {};
@@ -169,7 +169,18 @@ module.exports = {
            return res.json(result);
        });
     },
-    edit:function(req,res){
+    verify:function(req,res){
+        var params=req.params.all();
+        Users.find({username:params.username}).exec(function(err,result){
+            var obj={};
+            obj.status=0;
+            obj.msg="This UserName is available";
+            if(result.length > 0){
+                obj.status=1;
+                obj.msg="This Username is not available"
+            }
+            return res.json(obj);
+        });
 
     },
     destroy:function(req,res){

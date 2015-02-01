@@ -2,7 +2,7 @@
  * Created by king on 12/27/14.
  */
 
-
+var REGISTERURLVERIFY='http://www.firemages.com:1337/Users/verify';
 var REGISTERURL='http://www.firemages.com:1337/Users/create';
 var REGISTERURLNOPHOTO='http://www.firemages.com:1337/Users/createnophoto';
 var REGISTERURLUPDATE='http://www.firemages.com:1337/Users/update';
@@ -17,6 +17,7 @@ var GETBLOGURL='http://www.firemages.com:1337/Blog/getblog';
 
 
 /*
+var REGISTERURLVERIFY='http://localhost:1337/Users/verify';
 var REGISTERURL='http://localhost:1337/Users/create';
 var REGISTERURLNOPHOTO='http://localhost:1337/Users/createnophoto';
 var REGISTERURLUPDATE='http://localhost:1337/Users/update';

@@ -25,7 +25,9 @@
 <div class="row">
     <label class="col-md-2">UserName <span class="text-danger">*</span></label>
     <div class="col-md-4"><input type="text" ng-model="person.username" maxlength="20" class="form-control input-sm"/></div>
-    <div class="col-md-6 text-danger" ng-show="error.username==true">Enter your UserName</div>
+    <div class="col-md-1"><button class="btn btn-info" ng-click="verify()">Verify</button></div>
+    <div class="col-md-5 {{usernameclass}}" ng-show="error.username==true">{{usernamemsg}}</div>
+
 </div>
 
 <br/>
@@ -40,7 +42,7 @@
 <div class="row">
     <label class="col-md-2">Confirm Password <span class="text-danger">*</span></label>
     <div class="col-md-4"><input type="password" ng-model="person.confirm" maxlength="50" class="form-control input-sm"/></div>
-    <div class="col-md-6 text-danger" ng-show="error.confirm==true">Confirm your Password</div>
+    <div class="col-md-6 text-danger" ng-show="error.confirm==true">{{confirmmsg}}</div>
 </div>
 <br/>
 
