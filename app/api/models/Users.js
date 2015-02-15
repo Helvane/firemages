@@ -42,6 +42,11 @@ module.exports = {
       photo:{
           type:'string',
           size:50
+      },
+      status:{
+          type: 'string',
+          size:30
+
       }
 
 

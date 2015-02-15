@@ -34,5 +34,8 @@
     "url": "git://github.com/king/app.git"
   },
   "author": "king",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "socket.io": "^1.3.4"
+  }
 }

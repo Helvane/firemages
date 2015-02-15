@@ -8,7 +8,8 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
 
     $scope.error={"lastname":false,"firstname":false,"username":false,"password":false,"confirm":false,"email":false,"steamid":false};
 
-
+    $scope.saveflag=false;
+    $scope.saveclass="";
     $scope.errormsg="";
     $scope.emailmsg="Enter your E-Mail";
     $scope.usernameclass="text-danger";
@@ -86,6 +87,8 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
     $scope.usernamemsg="";
     $scope.$watch("person.username",function(){
         $scope.usernamemsg="";
+        $scope.saveflag=false;
+        $scope.saveclass="";
         $scope.error.username=false;
         if(shareService.validateUsername($scope.person.username)==true){
             $scope.usernamemsg="You can enter only characters and numbers. No special characters";
@@ -168,17 +171,21 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
                 if(data.status==1) {
                     shareService.setlogin(data);
                     $scope.errormsg = "Register a new account is successfully";
+                    $scope.saveflag=true;
                 } else if(data.status==2) {
                     $scope.errormsg = "Update your account is successfully";
                     var mydata=data;
                     mydata.photo=angular.copy($scope.person.photo)
                     shareService.setlogin(mydata);
+                    $scope.saveflag=true;
                 } else {
                     $scope.errormsg="This E-Mail and UserName are already existed in our database system";
                 }
+                $scope.saveclass="";
             },
             function(error){
                 alert(error);
+                $scope.saveclass="";
             }
 
         );
@@ -209,8 +216,10 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
     $scope.save=function() {
         if ($scope.validate()==0) {
             if ($scope.myphoto == "") {
+                $scope.saveclass="disable";
                 $scope.savebtn();
             } else {
+                $scope.saveclass="disable";
                 uploader.uploadAll();
             }
        }
@@ -258,16 +267,19 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
         if(data.status==1) {
             shareService.setlogin(data);
             $scope.errormsg = "Register a new account is successfully";
+            $scope.saveflag=true;
         } else if(data.status==2) {
             $scope.errormsg = "Update your account is successfully";
             var mydata=data;
             mydata.photo=angular.copy($scope.person.photo);
             shareService.setlogin(mydata);
+            $scope.saveflag=true;
         } else {
             $scope.errormsg="This E-Mail and UserName are already existed in our database system";
         }
     };
     uploader.onCompleteAll = function() {
-        $scope.progressflag=false;
+        $scope.progressflag=true;
+        $scope.saveclass="";
     };
 }]);

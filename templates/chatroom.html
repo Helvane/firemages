@@ -1,21 +1,32 @@
 
 
 
-
-
 <h2 class="logo">Chatroom</h2>
-<h2>CHATROOM IS CURRENTLY NOT WORKING RIGHT NOW, GO TO THE BLOG SECTION IF YOU WANT TO SAY SOMETHING!!!!! <img src="images/Frown Face.gif" alt="Another of the Firemages"></h2>
 
-<div>
-<div class="message">
+<div class="row">
+    <div class="col-md-8 message">
+        <ul class="list-group">
+            <li class="list-group-item black" ng-repeat="msg in message track by $index">
+                <b>{{msg.username}}</b>: {{msg.message}}
+                {{msg.createdAt}}
+            </li>
+        </ul>
 
-
+    </div>
+    <div class="col-md-4 room">
+        <ul class="list-group">
+            <li class="list-group-item black" ng-repeat="user in members track by $index">
+                {{user.username}}
+            </li>
+        </ul>
+    </div>
 </div>
-<div class="room"></div>
-</div>
 
-<div>
-    <input class="inputtext" type="text" name="chattext" maxlength="100">
-    <input type="button" name="sendbutton" value="Send"/>
+<div class="row">
+    <div class="col-md-8 message2">
+        <input type="text" ng-model="chattext" class="form-control input-sm black" maxlength="250" ng-keypress="sendMessage($event)"/>
+    </div>
+    <div class="col-md-4 room2">
+        <button class="btn btn-info" ng-click="sendMessageclick()">Send</button>
+    </div>
 </div>
-

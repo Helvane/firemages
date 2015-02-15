@@ -26,8 +26,8 @@ module.exports = {
                 var myusers=Users.find({username:params.username});
                 myusers.exec(function(error, result) {
                     if(result.length==0) {
-                        Users.create({lastname:params.lastname,firstname:params.firstname, username:params.username,password:params.password,
-                            email:params.email,steamid:params.steamid, photo: files[0].filename
+                        Users.create({lastname:params.lastname, firstname:params.firstname, username:params.username,password:params.password,
+                            email:params.email,steamid:params.steamid, photo: files[0].filename, status:'Member'
                         }).exec(function(err, created) {
                             console.log(created);
                             var result = {};
@@ -38,6 +38,7 @@ module.exports = {
                             result.email = created.email;
                             result.photo = files[0].filename;
                             result.steamid=created.steamid;
+                            result.status=created.status;
                             return res.json(result);
                         });
 
@@ -79,7 +80,7 @@ module.exports = {
         myusers.exec(function(error, result) {
            if(result.length==0) {
                         Users.create({lastname: params.lastname, firstname: params.firstname, username: params.username, password: params.password,
-                            email: params.email,steamid:params.steamid
+                            email: params.email,steamid:params.steamid,status:'Member'
                         }).exec(function createCB(err, created) {
                             var result = {};
                             result.status=1;
@@ -89,7 +90,7 @@ module.exports = {
                             result.username = created.username;
                             result.email = created.email;
                             result.steamid=created.steamid;
-
+                            result.status=created.status;
                             return res.json(result);
 
                         });
