@@ -44,6 +44,7 @@ appService.factory('shareService',['$rootScope',function($rootscope){
                 if(blog[j].username==users[k].username){
                     temp[i]=blog[j];
                     temp[i].myphoto=users[k].photo;
+                    temp[i].status=users[k].status;
                     i++;
                 }
             }

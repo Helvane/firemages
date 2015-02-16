@@ -14,8 +14,8 @@
 
 .space {margin-bottom: 10px;}
 
-.message {width:400px; height:400px; background:gray; color: #000000;}
-.room {width:200px; height:400px; margin-left:10px; background:gray; color: #000000;}
+.message {width:400px; height:400px; background:gray; color: #000000; overflow: scroll;}
+.room {width:200px; height:400px; margin-left:10px; background:gray; color: #000000; overflow: scroll;}
 .message2 {width: 400px; color: #000000 background:#000000;}
 .room2 {width: 200px; color: #000000; background: #808080}
 
@@ -28,7 +28,7 @@ body {background:black;}
 .smallphoto {width: 50px; height: 50px;}
 
 .bigspace {height:300px;}
-.photo {width: 100px; height: 100px;}
+.photo {width: 170px; height: 170px;}
 .clearall {clear: both;}
 
 .center {margin:0 auto; width: 100%; text-align: center}
@@ -38,3 +38,12 @@ body {background:black;}
 .text-danger {color: #ff0000;}
 .lightblue {color: #0000ff;}
 .darkcreator {color:#00ffff;}
+.advisor {color: hotpink}
+.owner {color: darkmagenta}
+
+.boxrect {margin-right: 10px;}
+.boxrectimg {border:1px solid #0000ff;}
+.boxrectimgcreator {border: 1px solid #00ffff;}
+.rect {background-color:#0000ff; color: #ffffff; padding:2px; margin-top:10px; text-align: center;}
+.rectcreator {background-color:#00ffff; color: #ffffff; padding:2px; margin-top:10px; text-align: center;}
+#blog .media-heading {padding-right: 0px;}

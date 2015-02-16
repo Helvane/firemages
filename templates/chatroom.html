@@ -7,19 +7,23 @@
     <div class="col-md-8 message">
         <ul class="list-group">
             <li class="list-group-item black" ng-repeat="msg in message track by $index">
-                <b>{{msg.username}}</b>: {{msg.message}}
+                <b>{{msg.username}}</b>: <span ng-bind-html="msg.message | emoji"> </span>
                 {{msg.createdAt}}
             </li>
         </ul>
 
     </div>
-    <div class="col-md-4 room">
+    <div class="col-md-2 room">
         <ul class="list-group">
             <li class="list-group-item black" ng-repeat="user in members track by $index">
-                {{user.username}}
+                {{user.username}} {{user.status}}
             </li>
         </ul>
     </div>
+    <div class="col-md-2">
+        <div ui-view="viewC"></div>
+    </div>
+
 </div>
 
 <div class="row">
@@ -28,5 +32,6 @@
     </div>
     <div class="col-md-4 room2">
         <button class="btn btn-info" ng-click="sendMessageclick()">Send</button>
+        <button class="btn btn-primary" ng-click="emoticon()">Emoticon</button>
     </div>
 </div>

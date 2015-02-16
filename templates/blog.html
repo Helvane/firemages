@@ -10,13 +10,16 @@
 </div>
 
 
-<div class="row">
-    <label class="col-md-2">Photo</label>
-    <div class="col-md-4"><input type="file" nv-file-select uploader="uploader" class="form-control input-sm"/></div>
-</div>
+<ul class="list-unstyled list-inline">
+    <li>Photo</li>
+    <li><input type="file" nv-file-select uploader="uploader" class="form-control input-sm"/></li>
+</ul>
+
+<br/>
 
 <div class="space">
     <button class="btn btn-info" ng-click="save()">Submit</button>
+    <button class="btn btn-primary" ng-click="emoticon()">Emoticon</button>
 </div>
 
 <br/>
@@ -31,11 +34,22 @@
 <br/>
 
 <div class="media-list" ng-repeat="msg in listmessages track by $index">
-    <div class="media bottomline">
-        <a class="pull-left" ng-if="msg.myphoto"><img src="app/assets/images/{{msg.myphoto}}" class="photo img-circle"/></a>
-       <div class="media-heading"><b>{{msg.username}}</b></div>
+    <div class="media bottomline" id="blog">
+        <div class="media-heading boxrect pull-left">
+
+        <a ng-if="msg.status=='Member'">
+            <img src="app/assets/images/{{msg.myphoto}}" class="photo boxrectimg"/>
+        </a>
+        <a ng-if="msg.status=='Website Creator'">
+                <img src="app/assets/images/{{msg.myphoto}}" class="photo boxrectimgcreator"/>
+        </a>
+
+            <div ng-if="msg.status=='Member'" class="rect">{{msg.status}}</div>
+            <div ng-if="msg.status=='Website Creator'" class="rectcreator">{{msg.status}}</div>
+        </div>
         <div class="media-body">
-            {{$index+1}} . {{msg.message}}
+            <b>{{msg.username}}</b>
+            {{$index+1}} . <span ng-bind-html="msg.message | emoji"></span>
             <div ng-if="msg.photo"><img src="app/assets/blogimages/{{msg.photo}}" class="img-responsive"/></div>
         </div>
 

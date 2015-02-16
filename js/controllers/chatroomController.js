@@ -4,7 +4,7 @@
 
 
 
-appController.controller("chatroomController",['$scope','chatSocket','shareService','ajaxService',function($scope, chatSocket, shareService, ajaxService){
+appController.controller("chatroomController",['$scope','chatSocket','shareService','ajaxService','$location',function($scope, chatSocket, shareService, ajaxService, $location){
     $scope.chattext="";
     $scope.members=[];
     $scope.message=[];
@@ -65,5 +65,10 @@ appController.controller("chatroomController",['$scope','chatSocket','shareServi
         console.log("** getmessage from server **");
         $scope.message=data;
     });
+
+
+    $scope.emoticon=function(){
+        $location.path('/chatroom/emoji');
+    }
 
 }]);

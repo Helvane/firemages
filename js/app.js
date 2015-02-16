@@ -2,7 +2,7 @@
  * Created by king on 12/25/14.
  */
 
-var app=angular.module("app",['ui.router','appController', 'appService','ngSanitize','angularFileUpload']);
+var app=angular.module("app",['ui.router','appController', 'appService','ngSanitize','angularFileUpload','emoji','ui.bootstrap']);
 
 app.config(['$stateProvider','$urlRouterProvider',
     function ($stateProvider, $urlRouterProvider){
@@ -44,6 +44,7 @@ app.config(['$stateProvider','$urlRouterProvider',
                         templateUrl: 'templates/chatroom.html',
                         controller: 'chatroomController'
                     }
+
                 }
             })
             .state('members', {

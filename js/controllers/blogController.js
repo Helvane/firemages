@@ -2,7 +2,7 @@
  * Created by king on 1/10/15.
  */
 
-appController.controller("blogController",['$scope','shareService','ajaxService','FileUploader',function($scope,shareService,ajaxService,FileUploader){
+appController.controller("blogController",['$scope','shareService','ajaxService','FileUploader','$modal',function($scope,shareService,ajaxService,FileUploader,$modal){
 
     $scope.users=shareService.getusers();
     if($scope.users.length == 0) {
@@ -139,5 +139,25 @@ appController.controller("blogController",['$scope','shareService','ajaxService'
         $scope.progressflag=false;
         $scope.update=Number(new Date);
     };
+
+    $scope.items = ['item1', 'item2', 'item3'];
+
+    $scope.emoticon = function () {
+
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/emoji.html',
+            controller: 'emojiController',
+            resolve: {
+                items: function () {
+                    return $scope.items;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+            $scope.message=angular.copy($scope.message) + selectedItem.title;
+        });
+    };
+
 
 }]);
