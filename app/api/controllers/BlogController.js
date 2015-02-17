@@ -52,7 +52,7 @@ module.exports = {
     },
 
     getblog:function(req,res){
-       Blog.find().sort({"createdAt":"desc"}).exec(function(err,result){
+       Blog.find({sort:"_id desc"}).exec(function(err,result){
            return res.json(result);
        });
          }

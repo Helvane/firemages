@@ -1,18 +1,28 @@
 <h2 class="logo"> <img src="images/Blue Lights.gif" alt="Another of the Firemages">Members<img src="images/Blue Lights.gif" alt="Another of the Firemages"></h2>
 
-<ul class="media-list">
-    <li class="media" ng-repeat="user in users track by $index">
-        <div class="media-heading boxrect pull-left">
+
+
+<table class="table-condensed">
+<tr>
+    <th>&nbsp;</th><th>Member</th><th>Joined</th><th>Last Online</th>
+</tr>
+
+
+    <tr ng-repeat="user in users track by $index">
+        <td>
 
         <a ng-if="user.status=='Member'"><img ng-src="app/assets/images/{{user.photo}}" class="photo boxrectimg"/></a>
         <a ng-if="user.status=='Website Creator'"><img ng-src="app/assets/images/{{user.photo}}" class="photo boxrectimgcreator"/></a>
 
             <div ng-if="user.status=='Member'" class="rect">{{user.status}}</div>
             <div ng-if="user.status=='Website Creator'" class="rectcreator">{{user.status}}</div>
-        </div>
-        <div class="media-body">
-            {{user.username}}
-        </div>
-        <div class="clearall"></div>
-    </li>
-</ul>
+
+
+        </td>
+        <td>{{user.username}}</td>
+        <td>{{user.createdAt}}</td>
+        <td>{{user.updatedAt}}</td>
+    </tr>
+
+
+</table>

@@ -23,7 +23,8 @@ module.exports = {
       },
       username: {
           type: 'string',
-          size:30
+          size:30,
+          unique:true
       },
       password: {
           type: 'string',
@@ -31,13 +32,13 @@ module.exports = {
       },
       email: {
           type: 'string',
-          size:200,
-          unique:true
+          size:200
+
       },
       steamid: {
           type: 'string',
-          size:200,
-          unique:true
+          size:200
+
       },
       photo:{
           type:'string',

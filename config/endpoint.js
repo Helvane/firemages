@@ -14,6 +14,7 @@ var BLOGURL='http://www.firemages.com:1337/Blog/create';
 var GETBLOGURL='http://www.firemages.com:1337/Blog/getblog';
 
 var CHATURL='http://www.firemages.com:1337';
+ var LOGOFFURL='http://www.firemages.com:1337/Users/logoff';
 
 
 /*
@@ -29,4 +30,6 @@ var BLOGURLPHOTO='http://localhost:1337/Blog/createphoto';
 var GETBLOGURL='http://localhost:1337/Blog/getblog';
 
  var CHATURL='http://localhost:1337';
+
+var LOGOFFURL='http://localhost:1337/Users/logoff';
 */

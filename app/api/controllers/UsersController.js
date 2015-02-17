@@ -134,6 +134,20 @@ module.exports = {
             if(err){
                 return res.json({"id":0,"msg":"No email or password match in our database","error":err});
             } else {
+                res.cookie('username', params.username, { expires: new Date(Date.now() + 900000)});
+                return res.json(result);
+            }
+        });
+    },
+
+    logoff:function(req,res){
+        var params = req.params.all()
+        Users.find({username:params.username},{username:1,email:1
+        }).exec(function createCB(err,result){
+            if(err){
+                return res.json({"id":0,"msg":"No email or password match in our database","error":err});
+            } else {
+                res.cookie('username', params.username, { expires: new Date(Date.now() - 900000)});
                 return res.json(result);
             }
         });
@@ -166,7 +180,7 @@ module.exports = {
 
     },
     getusers:function(req,res){
-       Users.find().exec(function(err,result){
+       Users.find({sort:"_id desc"}).exec(function(err,result){
            return res.json(result);
        });
     },

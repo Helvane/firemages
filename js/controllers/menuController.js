@@ -47,12 +47,22 @@ appController.controller("menuController",['$scope','shareService','$location','
     });
     // when a user clicks on the log off button, then it clears the local data.
     $scope.logoff=function(){
+        var param={};
+        param.username=angular.copy($scope.person.username);
+        var myajax=ajaxService.ajaxFactory(LOGOFFURL,param,'POST');
+        myajax.then(
+            function(data){
+                console.log(data);
+                shareService.setlogin({});
+                window.localStorage.clear();
+                $scope.$emit("loginEvent");
+                $location.path('/login');
+            },
+            function(error){
+                alert(error);
+            }
+        )
 
-        shareService.setlogin({});
-
-        window.localStorage.clear();
-        $scope.$emit("loginEvent");
-        $location.path('/login');
     }
 
 }]);
