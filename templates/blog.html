@@ -48,6 +48,7 @@
             <div ng-if="msg.status=='Website Creator'" class="rectcreator">{{msg.status}}</div>
         </div>
         <div class="media-body">
+            <i>{{msg.createdAt|datetimefilter}}</i> <br/>
             <b>{{msg.username}}</b>
             {{$index+1}} . <span ng-bind-html="msg.message | emoji"></span>
             <div ng-if="msg.photo"><img src="app/assets/blogimages/{{msg.photo}}" class="img-responsive"/></div>

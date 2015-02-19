@@ -4,10 +4,11 @@
 
 
 
-appController.controller("chatroomController",['$scope','chatSocket','shareService','ajaxService','$location',function($scope, chatSocket, shareService, ajaxService, $location){
+appController.controller("chatroomController",['$scope','chatSocket','shareService','ajaxService','$location','$modal',function($scope, chatSocket, shareService, ajaxService, $location,$modal){
     $scope.chattext="";
     $scope.members=[];
     $scope.message=[];
+    $scope.messageEvent=1;
 
 
     $scope.person=shareService.getlogin();
@@ -20,21 +21,54 @@ appController.controller("chatroomController",['$scope','chatSocket','shareServi
         var objmsg = {};
         objmsg.username = angular.copy($scope.person.username);
         objmsg.photo = angular.copy($scope.person.photo);
-        socket.emit("joinchat",objmsg);
-        // listen to event
-        socket.on("getmessage", function (data) {
-            console.log("*** get message ***");
-            $scope.message = data;
-            $scope.$apply();
+        var myajax=ajaxService.ajaxFactory(CHATURL+'/Chat/join',objmsg,'POST');
+        myajax.then(
+            function(data){
+                $scope.members=data;
+                socket.emit("joinchat",objmsg);
+            },
+            function(error){
+                alert(error);
+            }
+        );
 
-        });
         // listen to event
         socket.on("chatroom", function (data) {
-            console.log("**** receive new user  ****");
-            $scope.members = data;
-            $scope.$apply();
+            var myajax=ajaxService.ajaxFactory(CHATURL+'/Chat/getmembers',objmsg,'GET');
+            myajax.then(
+                function(data){
+                    $scope.members=data;
+                },
+                function(error){
+                    alert(error);
+                }
+            );
 
         });
+    });
+
+    // listen to event
+    socket.on("getmessage", function (data) {
+        console.log("*** get message ***");
+        $scope.messageEvent=Number(new Date);
+
+    });
+
+    socket.on("disconnect",function(data){
+        console.log("*** disconnect ***");
+        var objmsg = {};
+        objmsg.username = angular.copy($scope.person.username);
+        objmsg.id = Number(new Date);
+        var myajax=ajaxService.ajaxFactory(CHATURL+'/Chat/logout',objmsg,'POST');
+        myajax.then(
+            function(data){
+                $scope.members=data;
+                socket.emit("joinchat",objmsg);
+            },
+            function(error){
+                alert(error);
+            }
+        );
     });
 
 
@@ -50,8 +84,18 @@ appController.controller("chatroomController",['$scope','chatSocket','shareServi
         objmsg.username = angular.copy($scope.person.username);
         objmsg.message = angular.copy($scope.chattext);
         objmsg.photo="";
-        socket.emit("sendmessage",objmsg);
-        $scope.chattext = "";
+        var myajax=ajaxService.ajaxFactory(CHATURL+'/Chatroom/createmessage',objmsg,'POST');
+        myajax.then(
+            function(data){
+                $scope.chattext = "";
+                $scope.messageEvent=Number(new Date);
+                socket.emit("sendmessage",objmsg);
+            },
+            function(error){
+                alert(error);
+            }
+        );
+
     };
 
     $scope.sendMessage = function (event) {
@@ -61,14 +105,38 @@ appController.controller("chatroomController",['$scope','chatSocket','shareServi
     };
 
 
-    $scope.$on("getmessage",function(data){
-        console.log("** getmessage from server **");
-        $scope.message=data;
+    $scope.$watch("messageEvent",function(data){
+        var objmsg = {};
+        objmsg.username = angular.copy($scope.person.username);
+        objmsg.photo = angular.copy($scope.person.photo);
+        objmsg.id=Number(new Date);
+        var myajax=ajaxService.ajaxFactory(CHATURL+'/Chatroom/getmessage',objmsg,'GET');
+        myajax.then(
+            function(data){
+                $scope.message=data;
+            },
+            function(error){
+                alert(error);
+            }
+        );
     });
 
 
-    $scope.emoticon=function(){
-        $location.path('/chatroom/emoji');
-    }
+    $scope.emoticon = function () {
+
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/emoji.html',
+            controller: 'emojiController',
+            resolve: {
+                items: function () {
+                    return $scope.items;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+            $scope.chattext=angular.copy($scope.chattext) + selectedItem.title;
+        });
+    };
 
 }]);

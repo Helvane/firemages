@@ -7,8 +7,8 @@
     <div class="col-md-8 message">
         <ul class="list-group">
             <li class="list-group-item black" ng-repeat="msg in message track by $index">
-                <b>{{msg.username}}</b>: <span ng-bind-html="msg.message | emoji"> </span>
-                {{msg.createdAt}}
+                <b>{{msg.username}}</b>: <span ng-bind-html="msg.message | emoji"></span>
+                {{msg.createdAt|datetimefilter}}
             </li>
         </ul>
 

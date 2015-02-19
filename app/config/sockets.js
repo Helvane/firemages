@@ -23,72 +23,33 @@ module.exports.sockets = {
      ***************************************************************************/
     onConnect: function(session, socket) {
 
-        console.log(session);
 
         var socketId=socket.id;
 
         socket.on("connect",function(data){
+            socket.emit("chatroom","A new user join chat room");
+            socket.emit("getmessage","Welcome a new user");
 
-            // get all messages
-            Chat.find().exec(function created(err, data) {
-                Chat.subscribe("Chat",data);
-                Chat.publishCreate({id:"Chat",username:data.username,message:data.message,photo:data.photo});
-                socket.emit("getmessage",data);
-
-
-            });
-
-            // retrieve all users and send back to client
-            Chatroom.find().exec(function(err,data){
-                Chatroom.subscribe("Chatroom",data);
-                Chatroom.publishCreate({id:"Chatroom",username:data.username,photo:data.photo});
-                socket.emit("chatroom",data);
-
-            });
         });
 
         socket.on("joinchat",function(data){
-            // create a new user
-            Chatroom.create({username: data.username, photo: data.photo}).exec(function created(err, result) {
-                console.log("create new user");
-                Chatroom.publishCreate({id:"Chatroom",username:data.username,photo:data.photo});
-
-            });
-
-            // retrieve all users and send back to client
-            Chatroom.find().exec(function(err,result){
-                socket.emit("chatroom",result);
-
-            });
-
+            socket.emit("chatroom","A new user join chat room");
+            console.log("joinchat Event");
         });
 
         socket.on("sendmessage",function(data){
-            // create a new message
-            Chat.create({username: data.username, message: data.message,photo:data.photo}).exec(function created(err, result) {
-                console.log("create new message");
-                Chat.publishCreate({id:"Chat",username:data.username,message:data.message,photo:data.photo});
-
-            });
-
-            // get all messages
-            Chat.find().exec(function created(err, result) {
-                socket.emit("getmessage",result);
-
-            });
+            socket.emit("getmessage","you have a new message");
+            console.log("sendmessage Event");
 
         });
 
         //delete user when disconnect
         socket.on("disconnect",function(data){
-            Chatroom.destroy({username:data.username}).exec(function(err,result){
-                console.log("**** leftchatroom ****");
-                console.log(result);
-            });
+            console.log("*** disconnect 2 ***");
+            socket.emit("disconnect","A user left the chat room");
         });
 
     },
-
 
     /***************************************************************************
      *                                                                          *
@@ -97,17 +58,8 @@ module.exports.sockets = {
      *                                                                          *
      ***************************************************************************/
     onDisconnect: function(session, socket) {
-
-        console.log("**** disconnect ****");
-
-        //delete user when disconnect
-        socket.on("disconnect",function(data){
-            Chatroom.destroy({username:data.username}).exec(function(err,result){
-                console.log("**** leftchatroom ****");
-                console.log(result);
-            });
-        });
-
+        socket.emit("disconnect","left chat room");
+        console.log("**** disconnect socket ****");
     },
 
 

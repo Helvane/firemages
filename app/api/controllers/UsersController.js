@@ -147,6 +147,10 @@ module.exports = {
             if(err){
                 return res.json({"id":0,"msg":"No email or password match in our database","error":err});
             } else {
+                var mydate=new Date();
+                Users.update({username:params.username},{updatedAt:mydate}).exec(function(error,updatedata){
+                    //do nothing
+                });
                 res.cookie('username', params.username, { expires: new Date(Date.now() - 900000)});
                 return res.json(result);
             }
