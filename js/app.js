@@ -14,7 +14,8 @@ app.config(['$stateProvider','$urlRouterProvider',
                 url:'/home',
                 views: {
                     "viewA": {
-                        templateUrl: 'templates/home.html'
+                        templateUrl: 'templates/home.html',
+                        controller: 'homeController'
 
                     }
                 }
