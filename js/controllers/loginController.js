@@ -21,12 +21,12 @@ appController.controller("loginController",['$scope','ajaxService','shareService
         if ($scope.error.username == false && $scope.error.password == false) {
             var myajax = ajaxService.ajaxFactory(LOGINURL, $scope.person, "GET");
             myajax.then(function (data) {
-                    if(data.length==0){
+                    if(data.id==0){
                         $scope.errormsg="There is no UserName or Password match in your database";
                     } else {
-                        $scope.errormsg="";
-                        shareService.setlogin(data[0]);
-                        $cookies.username=data[0].username;
+                        $scope.errormsg=data.msg;
+                        shareService.setlogin(data);
+                        $cookies.username=data.username;
                         $location.path('/home');
                     }
                 },

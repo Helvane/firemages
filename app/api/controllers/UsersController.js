@@ -6,6 +6,7 @@
  */
 
 var fs = require('fs');
+var bcrypt = require('bcrypt');
 
 module.exports = {
     index:function(req,res){
@@ -31,7 +32,7 @@ module.exports = {
                         }).exec(function(err, created) {
                             console.log(created);
                             var result = {};
-                            result.status = 1;
+                            result.state = 1;
                             result.firstname = created.firstname;
                             result.lastname = created.lastname;
                             result.username = created.username;
@@ -47,7 +48,7 @@ module.exports = {
                             email: params.email,steamid:params.steamid, photo: files[0].filename
                         }).exec(function createCB(err, created) {
                             var result = {};
-                            result.status = 2;
+                            result.state = 2;
                             result.firstname = params.firstname;
                             result.lastname = params.lastname;
                             result.username = params.username;
@@ -58,7 +59,7 @@ module.exports = {
                         });
                     } else {
                         var result={};
-                        result.status=0;
+                        result.state=0;
                         result.email=params.email;
                         result.username=params.username;
                         result.lastname=params.lastname;
@@ -74,54 +75,59 @@ module.exports = {
     },
 
     createnophoto:function(req,res){
+
         var params = req.params.all();
 
+        console.log(params);
+
         var myusers=Users.find({username:params.username});
-        myusers.exec(function(error, result) {
-           if(result.length==0) {
-                        Users.create({lastname: params.lastname, firstname: params.firstname, username: params.username, password: params.password,
-                            email: params.email,steamid:params.steamid,status:'Member'
-                        }).exec(function createCB(err, created) {
-                            var result = {};
-                            result.status=1;
-                            result._id = created._id;
-                            result.firstname = created.firstname;
-                            result.lastname = created.lastname;
-                            result.username = created.username;
-                            result.email = created.email;
-                            result.steamid=created.steamid;
-                            result.status=created.status;
-                            return res.json(result);
+        myusers.exec(function(error, result2) {
+            if(result2.length==0) {
+                Users.create({lastname: params.lastname, firstname: params.firstname, username: params.username, password: params.password,
+                    email: params.email,steamid:params.steamid,status:'Member'
+                }).exec(function createCB(err, created) {
+                    var result = {};
+                    result.state=1;
+                    result.firstname = created.firstname;
+                    result.lastname = created.lastname;
+                    result.username = created.username;
+                    result.email = created.email;
+                    result.steamid=created.steamid;
+                    result.status=created.status;
+                    console.log("*** create new user ***");
+                    console.log(result);
+                    return res.json(result);
 
-                        });
-           } else if(result.length > 0) {
-               Users.update({username:params.username},{lastname: params.lastname, firstname: params.firstname, password: params.password,
-                   email: params.email,steamid: params.steamid
-               }).exec(function createCB(err, created) {
-                   var result = {};
-                   result.status=2;
-                   result.firstname = params.firstname;
-                   result.lastname = params.lastname;
-                   result.username = params.username;
-                   result.email = params.email;
-                   result.steamid=params.steamid;
+                });
+            } else if(result2.length > 0) {
+                Users.update({username:params.username},{lastname: params.lastname, firstname: params.firstname, password: params.password,
+                    email: params.email,steamid: params.steamid
+                }).exec(function createCB(err, created) {
+                    var result = {};
+                    result.state=2;
+                    result.firstname = params.firstname;
+                    result.lastname = params.lastname;
+                    result.username = params.username;
+                    result.email = params.email;
+                    result.steamid=params.steamid;
+                    console.log("**** update user ****");
 
-                   return res.json(result);
+                    return res.json(result);
 
-               });
+                });
 
-           } else {
-                        var result={};
-                        result.status=0;
-                        result.email=params.email;
-                        result.username=params.username;
-                        result.lastname=params.lastname;
-                        result.firstname=params.firstname;
-                        result.password=params.password;
-                        result.steamid=params.steamid;
+            } else {
+                var result={};
+                result.state=0;
+                result.email=params.email;
+                result.username=params.username;
+                result.lastname=params.lastname;
+                result.firstname=params.firstname;
+                result.password=params.password;
+                result.steamid=params.steamid;
 
-               return res.json(result);
-           }
+                return res.json(result);
+            }
         });
 
 
@@ -129,14 +135,36 @@ module.exports = {
 
     login:function(req,res){
         var params = req.params.all()
-        Users.find({password:params.password,username:params.username},{username:1,email:1,firstname:1,lastname:1,photo:1
+        Users.find({username:params.username},{password:1,username:1,email:1,firstname:1,lastname:1,photo:1
         }).exec(function createCB(err,result){
-            if(err){
-                return res.json({"id":0,"msg":"No email or password match in our database","error":err});
+
+            var result=result[0];
+            var output={};
+            output.id=0;
+            if (result) {
+                bcrypt.compare(params.password, result.password, function (err, match) {
+
+                    if (match) {
+                        // password match
+                        output.id=1;
+                        output.username=result.username;
+                        output.lastname=result.lastname;
+                        output.firstname=result.firstname;
+                        output.email=result.email;
+                        req.session.username=result.username;
+                        return res.json(output);
+                    } else {
+                        // invalid password
+                        output.msg="You enter the wrong password";
+                        if (req.session.username) req.session.username = null;
+                        return res.json(output);
+                    }
+                });
             } else {
-                res.cookie('username', params.username, { expires: new Date(Date.now() + 900000)});
-                return res.json(result);
+                output.msg="There is no E-Mail and Password found";
+                return res.json(output);
             }
+
         });
     },
 
@@ -173,7 +201,7 @@ module.exports = {
                 } else {
                     // Otherwise send a success message and a 200 status
                     var result={};
-                    result.status=2;
+                    result.state=2;
                     result.firstname=params.firstname;
                     result.lastname=params.lastname;
                     result.email=params.email;
@@ -184,9 +212,9 @@ module.exports = {
 
     },
     getusers:function(req,res){
-       Users.find({sort:"_id desc"}).exec(function(err,result){
-           return res.json(result);
-       });
+        Users.find({sort:"_id desc"}).exec(function(err,result){
+            return res.json(result);
+        });
     },
     verify:function(req,res){
         var params=req.params.all();
@@ -195,7 +223,7 @@ module.exports = {
             obj.status=0;
             obj.msg="This UserName is available";
             if(result.length > 0){
-                obj.status=1;
+                obj.state=1;
                 obj.msg="This Username is not available"
             }
             return res.json(obj);

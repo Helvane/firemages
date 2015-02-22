@@ -146,7 +146,7 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
         function(data){
                 $scope.error.username=true;
                 $scope.usernamemsg=data.msg;
-                if(data.status==0){
+                if(data.state==0){
                     $scope.usernameclass="greencolor"
                 } else {
                     $scope.usernameclass="text-danger";
@@ -168,11 +168,11 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
         var myajax = ajaxService.ajaxFactory(REGISTERURLNOPHOTO, $scope.person, "POST");
 
         myajax.then(function(data){
-                if(data.status==1) {
+                if(data.state==1) {
                     shareService.setlogin(data);
                     $scope.errormsg = "Register a new account is successfully";
                     $scope.saveflag=true;
-                } else if(data.status==2) {
+                } else if(data.state==2) {
                     $scope.errormsg = "Update your account is successfully";
                     var mydata=data;
                     mydata.photo=angular.copy($scope.person.photo)
@@ -264,11 +264,11 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
         $scope.updatedata=Number(new Date);
 
         var data=response;
-        if(data.status==1) {
+        if(data.state==1) {
             shareService.setlogin(data);
             $scope.errormsg = "Register a new account is successfully";
             $scope.saveflag=true;
-        } else if(data.status==2) {
+        } else if(data.state==2) {
             $scope.errormsg = "Update your account is successfully";
             var mydata=data;
             mydata.photo=angular.copy($scope.person.photo);
@@ -279,7 +279,7 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
         }
     };
     uploader.onCompleteAll = function() {
-        $scope.progressflag=true;
+        $scope.progressflag=false;
         $scope.saveclass="";
     };
 }]);

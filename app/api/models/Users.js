@@ -28,11 +28,13 @@ module.exports = {
       },
       password: {
           type: 'string',
-          size:100
+          required: true,
+          minLength: 6
       },
       email: {
           type: 'string',
           size:200
+
 
       },
       steamid: {
@@ -51,6 +53,23 @@ module.exports = {
       }
 
 
-  }
+  },
+
+    beforeCreate: function (attrs, next) {
+        var bcrypt = require('bcrypt');
+
+        bcrypt.genSalt(10, function(err, salt) {
+            if (err) return next(err);
+
+            bcrypt.hash(attrs.password, salt, function(err, hash) {
+                if (err) return next(err);
+
+                attrs.password = hash;
+                next();
+            });
+        });
+    }
+
+
 };
 

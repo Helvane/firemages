@@ -32,4 +32,4 @@ var GETBLOGURL='http://localhost:1337/Blog/getblog';
  var CHATURL='http://localhost:1337';
 
 var LOGOFFURL='http://localhost:1337/Users/logoff';
-*/
+*/ 
