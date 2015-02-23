@@ -50,3 +50,5 @@ body {background:black;}
 .button3d {background: #008080; color: #ffffff; padding: 5px; border-radius: 5px; border: 1px solid #808080;}
 
 textarea {height: 400px; width: 100%;}
+.designerbot {background: deeppink; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
+.boxrectimgdesigner {border: 1px solid deeppink;}
