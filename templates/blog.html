@@ -43,9 +43,13 @@
         <a ng-if="msg.status=='Website Creator'">
                 <img src="app/assets/images/{{msg.myphoto}}" class="photo boxrectimgcreator"/>
         </a>
+            <a ng-if="msg.status=='Designer Bot'">
+                <img src="app/assets/images/{{msg.myphoto}}" class="photo boxrectimgdesigner"/> 
+            </a>
 
             <div ng-if="msg.status=='Member'" class="rect">{{msg.status}}</div>
             <div ng-if="msg.status=='Website Creator'" class="rectcreator">{{msg.status}}</div>
+            <div ng-if="msg.status=='Designer Bot'" class="designerbot">{{msg.status}}</div>
         </div>
         <div class="media-body">
             <i>{{msg.createdAt|datetimefilter}}</i> <br/>
