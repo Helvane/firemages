@@ -13,11 +13,13 @@
 
         <a ng-if="user.status=='Member'"><img ng-src="app/assets/images/{{user.photo}}" class="photo boxrectimg"/></a>
         <a ng-if="user.status=='Website Creator'"><img ng-src="app/assets/images/{{user.photo}}" class="photo boxrectimgcreator"/></a>
-            <a ng-if="user.status=='Designer Bot'"><img ng-src="app/assets/images/{{user.photo}}" class="photo boxrectimgdesigner"/></a>
+        <a ng-if="user.status=='Designer Bot'"><img ng-src="app/assets/images/{{user.photo}}" class="photo boxrectimgdesigner"/></a>
+        <a ng-if="user.status=='Server Owner'"><img ng-src="app/assets/images/{{user.photo}}" class="photo boxrectimgowner"/></a>
 
             <div ng-if="user.status=='Member'" class="rect">{{user.status}}</div>
             <div ng-if="user.status=='Website Creator'" class="rectcreator">{{user.status}}</div>
             <div ng-if="user.status=='Designer Bot'" class="designerbot">{{user.status}}</div>
+            <div ng-if="user.status=='Server Owner'" class="rectowner">{{user.status}}</div>
 
 
         </td>
