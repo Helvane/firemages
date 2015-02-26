@@ -71,6 +71,7 @@ module.exports = {
     },
 
     beforeUpdate: function(values, next) {
+        var bcrypt = require('bcrypt');
         if(values.password) {
             bcrypt.hash(values.password, 10, function (err, hash) {
                 if (err) {

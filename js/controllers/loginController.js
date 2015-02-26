@@ -18,6 +18,8 @@ appController.controller("loginController",['$scope','ajaxService','shareService
             $scope.error.password = true;
         }
 
+
+
         if ($scope.error.username == false && $scope.error.password == false) {
             var myajax = ajaxService.ajaxFactory(LOGINURL, $scope.person, "GET");
             myajax.then(function (data) {
@@ -37,6 +39,7 @@ appController.controller("loginController",['$scope','ajaxService','shareService
         }
 
     };
+
 
     $scope.resetemail=function(){
         $scope.error.username=false;
