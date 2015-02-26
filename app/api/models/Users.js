@@ -68,6 +68,20 @@ module.exports = {
                 next();
             });
         });
+    },
+
+    beforeUpdate: function(values, next) {
+        if(values.password) {
+            bcrypt.hash(values.password, 10, function (err, hash) {
+                if (err) {
+                    return next(err);
+                }
+                values.password = hash;
+                next();
+            });
+        } else {
+            next();
+        }
     }
 
 
