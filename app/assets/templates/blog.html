@@ -1,0 +1,68 @@
+
+<h2 class="logo">Blog</h2>
+
+<div class="space">
+    What do you want to say?
+
+</div>
+<div class="space">
+    <textarea ng-model="message"  maxlength="4000"></textarea>
+</div>
+
+
+<ul class="list-unstyled list-inline">
+    <li>Photo</li>
+    <li><input type="file" nv-file-select uploader="uploader" class="form-control input-sm"/></li>
+</ul>
+
+<br/>
+
+<div class="space">
+    <button class="btn btn-info" ng-click="save()">Submit</button>
+    <button class="btn btn-primary" ng-click="emoticon()">Emoticon</button>
+</div>
+
+<br/>
+<div class="greencolor">{{error}}</div>
+<br/>
+<div class="progress" ng-show="progressflag==true">
+    <div class="progress-bar" role="progressbar" aria-valuenow="{{uploader.progress}}" aria-valuemin="0" aria-valuemax="100" style="width:{{uploader.progress}}%">
+        {{uploader.progress}} %
+    </div>
+</div>
+
+<br/>
+
+<div class="media-list" ng-repeat="msg in listmessages track by $index">
+    <div class="media bottomline" id="blog">
+        <div class="media-heading boxrect pull-left">
+
+        <a ng-if="msg.status=='Member'">
+            <img src="app/assets/images/{{msg.myphoto}}" class="photo boxrectimg"/>
+        </a>
+        <a ng-if="msg.status=='Website Creator'">
+                <img src="app/assets/images/{{msg.myphoto}}" class="photo boxrectimgcreator"/>
+        </a>
+         <a ng-if="msg.status=='Designer Bot'">
+                <img src="app/assets/images/{{msg.myphoto}}" class="photo boxrectimgdesigner"/>
+         </a>
+
+            <a ng-if="msg.status=='Server Owner'">
+                <img src="app/assets/images/{{msg.myphoto}}" class="photo boxrectimgowner"/>
+            </a>
+
+            <div ng-if="msg.status=='Member'" class="rect">{{msg.status}}</div>
+            <div ng-if="msg.status=='Website Creator'" class="rectcreator">{{msg.status}}</div>
+            <div ng-if="msg.status=='Designer Bot'" class="designerbot">{{msg.status}}</div>
+            <div ng-if="msg.status=='Server Owner'" class="rectowner">{{msg.status}}</div>
+        </div>
+        <div class="media-body">
+            <i>{{msg.createdAt|datetimefilter}}</i> <br/>
+            <b>{{msg.username}}</b>
+            {{$index+1}} . <span ng-bind-html="msg.message | emoji"></span>
+            <div ng-if="msg.photo"><img src="app/assets/blogimages/{{msg.photo}}" class="img-responsive"/></div>
+        </div>
+
+        <div class="clearall"></div>
+    </div>
+</div>
