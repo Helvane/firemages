@@ -2,7 +2,7 @@
  * Created by king on 12/26/14.
  */
 
-var appService=angular.module('appService',['ngResource']);
+
 
 
 appService.factory('ajaxService',['$http','$q',function($http,$q){

@@ -2,7 +2,7 @@
  * Created by king on 12/26/14.
  */
 
-var appController=angular.module('appController',['ui.router','ngResource','ngCookies']);
+
 
 appController.controller("loginController",['$scope','ajaxService','shareService','$location','$cookies',function($scope,ajaxService,shareService,$location,$cookies){
     // initialize json object

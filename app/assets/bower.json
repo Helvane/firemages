@@ -19,9 +19,15 @@
     "tests"
   ],
   "dependencies": {
-    "angular-bootstrap": "~0.12.0",
+    "angular-bootstrap": "~0.12.1",
     "angular-emoji-filter": "~0.0.2",
-    "angular-socket-io": "~0.7.0"
+    "bootstrap": "~3.3.2",
+    "angular-cookies": "~1.3.14",
+    "angular-ui-router": "~0.2.13",
+    "angular-sanitize": "~1.3.14",
+    "angular-file-upload": "~1.1.5",
+    "font-awesome": "~4.3.0",
+    "angular-resource": "~1.3.14"
   },
   "devDependencies": {
     "angular-cookies": "~1.3.13"

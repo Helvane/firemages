@@ -70,3 +70,11 @@ app.config(['$stateProvider','$urlRouterProvider',
     }
 
     ]);
+
+
+
+var appController=angular.module('appController',['ui.router','ngResource','ngCookies']);
+
+var appService=angular.module('appService',['ngResource']);
+
+var appFilter=angular.module("appFilter",[]);

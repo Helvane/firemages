@@ -4,7 +4,7 @@
 
 
 
-var appFilter=angular.module("appFilter",[]);
+
 
 appFilter.filter("datefilter",function(){
     return function(input) {
