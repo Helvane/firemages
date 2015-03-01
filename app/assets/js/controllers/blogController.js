@@ -136,6 +136,7 @@ appController.controller("blogController",['$scope','shareService','ajaxService'
 
     };
     uploader.onCompleteAll = function() {
+        $scope.message="";
         $scope.progressflag=false;
         $scope.update=Number(new Date);
     };
@@ -158,6 +159,10 @@ appController.controller("blogController",['$scope','shareService','ajaxService'
             $scope.message=angular.copy($scope.message) + selectedItem.title;
         });
     };
+
+    $scope.deleteitem=function(item){
+        item.remove();
+    }
 
 
 }]);

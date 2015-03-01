@@ -17,6 +17,7 @@ module.exports = {
 
         // retrieve all users and send back to client
         Chat.find().exec(function(err,result){
+            sails.sockets.blast("joinEvent");
             return res.json(result);
 
         });
@@ -28,6 +29,7 @@ module.exports = {
         Chat.destroy({username:param.username}).exec(function(err,result){
             console.log("**** leftchatroom ****");
             console.log(result);
+            sails.sockets.blast("joinEvent");
             return res.json(param);
         });
     },

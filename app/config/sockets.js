@@ -24,31 +24,6 @@ module.exports.sockets = {
     onConnect: function(session, socket) {
 
 
-        var socketId=socket.id;
-
-        socket.on("connect",function(data){
-            socket.emit("chatroom","A new user join chat room");
-            socket.emit("getmessage","Welcome a new user");
-
-        });
-
-        socket.on("joinchat",function(data){
-            socket.emit("chatroom","A new user join chat room");
-            console.log("joinchat Event");
-        });
-
-        socket.on("sendmessage",function(data){
-            socket.emit("getmessage","you have a new message");
-            console.log("sendmessage Event");
-
-        });
-
-        //delete user when disconnect
-        socket.on("disconnect",function(data){
-            console.log("*** disconnect 2 ***");
-            socket.emit("disconnect","A user left the chat room");
-        });
-
     },
 
     /***************************************************************************
@@ -58,8 +33,7 @@ module.exports.sockets = {
      *                                                                          *
      ***************************************************************************/
     onDisconnect: function(session, socket) {
-        socket.emit("disconnect","left chat room");
-        console.log("**** disconnect socket ****");
+
     },
 
 

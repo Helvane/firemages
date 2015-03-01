@@ -4,19 +4,20 @@
 
 
 
-appController.controller("chatroomController",['$scope','chatSocket','shareService','ajaxService','$location','$modal',function($scope, chatSocket, shareService, ajaxService, $location,$modal){
+appController.controller("chatroomController",['$scope','shareService','ajaxService','$location','$modal',function($scope, shareService, ajaxService, $location,$modal){
     $scope.chattext="";
     $scope.members=[];
     $scope.message=[];
     $scope.messageEvent=1;
 
+    var CHATURL="";
 
     $scope.person=shareService.getlogin();
 
-    var socket=io.connect(CHATURL);
 
 
-    socket.on("connect",function(data){
+   $scope.memberEvent="";
+   $scope.$watch("memberEvent",function(){
         console.log("*** connect server ***");
         var objmsg = {};
         objmsg.username = angular.copy($scope.person.username);
@@ -25,7 +26,7 @@ appController.controller("chatroomController",['$scope','chatSocket','shareServi
         myajax.then(
             function(data){
                 $scope.members=data;
-                socket.emit("joinchat",objmsg);
+
             },
             function(error){
                 alert(error);
@@ -33,7 +34,7 @@ appController.controller("chatroomController",['$scope','chatSocket','shareServi
         );
 
         // listen to event
-        socket.on("chatroom", function (data) {
+
             var myajax=ajaxService.ajaxFactory(CHATURL+'/Chat/getmembers',objmsg,'GET');
             myajax.then(
                 function(data){
@@ -44,17 +45,17 @@ appController.controller("chatroomController",['$scope','chatSocket','shareServi
                 }
             );
 
-        });
+       
     });
 
     // listen to event
-    socket.on("getmessage", function (data) {
+    io.socket.on("getmessage", function (data) {
         console.log("*** get message ***");
         $scope.messageEvent=Number(new Date);
 
     });
 
-    socket.on("disconnect",function(data){
+    io.socket.on("disconnect",function(data){
         console.log("*** disconnect ***");
         var objmsg = {};
         objmsg.username = angular.copy($scope.person.username);
@@ -89,7 +90,7 @@ appController.controller("chatroomController",['$scope','chatSocket','shareServi
             function(data){
                 $scope.chattext = "";
                 $scope.messageEvent=Number(new Date);
-                socket.emit("sendmessage",objmsg);
+
             },
             function(error){
                 alert(error);

@@ -30,7 +30,7 @@ module.exports.session = {
   * the example below is for 24 hours                                        *
   *                                                                          *
   ***************************************************************************/
-
+ /*
    cookie: {
      maxAge: 24 * 60 * 60 * 1000
    },
@@ -39,7 +39,7 @@ module.exports.session = {
       cookie: {
           secure: true
       }
-
+   */
   /***************************************************************************
   *                                                                          *
   * In production, uncomment the following lines to set up a shared redis    *

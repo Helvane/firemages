@@ -21,9 +21,12 @@ module.exports = {
             if (err) {
                 return res.serverError(err);
             } else {
-                fs.rename(files[0].fd, "./assets/images/" +files[0].filename, function(err){
-                    //console.log("error = " +err);
+                fs.link(files[0].fd, "./tmp/public/images/" +files[0].filename, function(err){
+                    fs.rename(files[0].fd, "./assets/images/" +files[0].filename, function(err){
+                        //console.log("error = " +err);
+                    });
                 });
+
                 var myusers=Users.find({username:params.username});
                 myusers.exec(function(error, result) {
                     if(result.length==0) {
