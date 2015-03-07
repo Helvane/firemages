@@ -14,7 +14,7 @@ var USERSURL='/Users/getusers';
 var LOGINURL='/Users/login';
 
 var BLOGURL='/Blog/create';
-var BLOGURLPHOTO='/Blog/createphoto';
+var BLOGURLPHOTO='/Photo/createphoto';
 var GETBLOGURL='/Blog/getblog';
 
 

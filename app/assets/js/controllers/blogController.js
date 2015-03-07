@@ -4,6 +4,7 @@
 
 appController.controller("blogController",['$scope','shareService','ajaxService','FileUploader','$modal',function($scope,shareService,ajaxService,FileUploader,$modal){
 
+    $scope.blogid=0;
     $scope.users=shareService.getusers();
     if($scope.users.length == 0) {
         var myusers=ajaxService.ajaxFactory(USERSURL,{},'GET');
@@ -29,9 +30,15 @@ appController.controller("blogController",['$scope','shareService','ajaxService'
         var senddata=ajaxService.ajaxFactory(BLOGURL,param,'POST');
         senddata.then(
             function(data) {
-
+                $scope.blogid=data.blogid;
                 $scope.update=Number(new Date);
                 $scope.message="";
+
+                if(uploader.queue.length > 0) {
+                    uploader.uploadAll();
+
+                }
+
             },
             function(error){
                 alert(error);
@@ -49,8 +56,8 @@ appController.controller("blogController",['$scope','shareService','ajaxService'
        var mydata=ajaxService.ajaxFactory(GETBLOGURL,param,"GET");
         mydata.then(
           function(data){
-
-           $scope.listmessages=shareService.enhanceblog(data,$scope.users);
+            console.log(data);
+           $scope.listmessages=data;
           },
           function(error){
               alert(error);
@@ -85,13 +92,8 @@ appController.controller("blogController",['$scope','shareService','ajaxService'
     });
 
     $scope.save=function(){
+     $scope.savebtn();
 
-        if($scope.myphoto=="")
-        {
-            $scope.savebtn();
-        } else {
-            uploader.uploadAll();
-        }
 
     };
 
@@ -101,8 +103,7 @@ appController.controller("blogController",['$scope','shareService','ajaxService'
         //console.info('onWhenAddingFileFailed', item, filter, options);
     };
     uploader.onAfterAddingFile = function(fileItem) {
-        fileItem.formData[0]={"message":$scope.message,"username":$scope.person.username};
-        $scope.myphoto=fileItem.alias;
+
 
         //console.info('onAfterAddingFile', fileItem);
     };
@@ -110,7 +111,7 @@ appController.controller("blogController",['$scope','shareService','ajaxService'
         //console.info('onAfterAddingAll', addedFileItems);
     };
     uploader.onBeforeUploadItem = function(item) {
-        item.formData[0]={"message":$scope.message,"username":$scope.person.username};
+        item.formData[0]={"blogid":$scope.blogid};
         $scope.progressflag=true;
     };
     uploader.onProgressItem = function(fileItem, progress) {

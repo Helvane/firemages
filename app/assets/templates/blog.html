@@ -52,30 +52,30 @@
     <div class="media bottomline" id="blog">
         <div class="media-heading boxrect pull-left">
 
-        <a ng-if="msg.status=='Member'">
-            <img src="/images/{{msg.myphoto}}" class="photo boxrectimg"/>
+        <a ng-if="msg.userid.status=='Member'">
+            <img src="/images/{{msg.userid.photo}}" class="photo boxrectimg"/>
         </a>
-        <a ng-if="msg.status=='Website Creator'">
-                <img src="/images/{{msg.myphoto}}" class="photo boxrectimgcreator"/>
+        <a ng-if="msg.userid.status=='Website Creator'">
+                <img src="/images/{{msg.userid.photo}}" class="photo boxrectimgcreator"/>
         </a>
-         <a ng-if="msg.status=='Designer Bot'">
-                <img src="/images/{{msg.myphoto}}" class="photo boxrectimgdesigner"/>
+         <a ng-if="msg.userid.status=='Designer Bot'">
+                <img src="/images/{{msg.userid.photo}}" class="photo boxrectimgdesigner"/>
          </a>
 
-            <a ng-if="msg.status=='Server Owner'">
-                <img src="/images/{{msg.myphoto}}" class="photo boxrectimgowner"/>
+            <a ng-if="msg.userid.status=='Server Owner'">
+                <img src="/images/{{msg.userid.photo}}" class="photo boxrectimgowner"/>
             </a>
 
-            <div ng-if="msg.status=='Member'" class="rect">{{msg.status}}</div>
-            <div ng-if="msg.status=='Website Creator'" class="rectcreator">{{msg.status}}</div>
-            <div ng-if="msg.status=='Designer Bot'" class="designerbot">{{msg.status}}</div>
-            <div ng-if="msg.status=='Server Owner'" class="rectowner">{{msg.status}}</div>
+            <div ng-if="msg.userid.status=='Member'" class="rect">{{msg.userid.status}}</div>
+            <div ng-if="msg.userid.status=='Website Creator'" class="rectcreator">{{msg.userid.status}}</div>
+            <div ng-if="msg.userid.status=='Designer Bot'" class="designerbot">{{msg.userid.status}}</div>
+            <div ng-if="msg.userid.status=='Server Owner'" class="rectowner">{{msg.userid.status}}</div>
         </div>
         <div class="media-body">
             <i>{{msg.createdAt|datetimefilter}}</i> <br/>
-            <b>{{msg.username}}</b>
+            <b>{{msg.userid.username}}</b>
             {{$index+1}} . <span ng-bind-html="msg.message | emoji"></span>
-            <div ng-if="msg.photo"><img src="/blogimages/{{msg.photo}}" class="img-responsive"/></div>
+            <div ng-repeat="photo in msg.photoid track by $index"><img src="/blogimages/{{photo.filename}}" class="img-responsive"/></div>
         </div>
 
         <div class="clearall"></div>

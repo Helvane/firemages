@@ -45,7 +45,7 @@ appController.controller("chatroomController",['$scope','shareService','ajaxServ
                 }
             );
 
-       
+
     });
 
     // listen to event

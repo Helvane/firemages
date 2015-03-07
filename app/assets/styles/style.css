@@ -28,7 +28,7 @@ body {background:black;}
 .smallphoto {width: 50px; height: 50px;}
 
 .bigspace {height:300px;}
-.photo {width: 170px; height: 170px;}
+.photo {width: 150px; height: 150px;}
 .clearall {clear: both;}
 
 .center {margin:0 auto; width: 100%; text-align: center}
@@ -37,19 +37,19 @@ body {background:black;}
 
 .text-danger {color: #ff0000;}
 .lightblue {color: #0000ff;}
-.darkcreator {color:#00ffff;}
+.darkcreator {color:#99CCFF;}
 .advisor {color: hotpink}
-.boxrectimgowner {border: 1px solid darkmagenta;}
+.boxrectimgowner {border: 3px solid darkmagenta;}
 .rectowner {background-color: darkmagenta; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
 
 .boxrect {margin-right: 10px;}
-.boxrectimg {border:1px solid #0000ff;}
-.boxrectimgcreator {border: 1px solid #00ffff;}
+.boxrectimg {border:3px solid #0000ff;}
+.boxrectimgcreator {border: 3px solid #99CCFF;}
 .rect {background-color:#0000ff; color: #ffffff; padding:2px; margin-top:10px; text-align: center;}
-.rectcreator {background-color:#00ffff; color: #ffffff; padding:2px; margin-top:10px; text-align: center;}
+.rectcreator {background-color:#99CCFF; color: #ffffff; padding:2px; margin-top:10px; text-align: center;}
 #blog .media-heading {padding-right: 0px;}
 .button3d {background: #008080; color: #ffffff; padding: 5px; border-radius: 5px; border: 1px solid #808080;}
 
 textarea {height: 400px; width: 100%; color: black;}
 .designerbot {background: deeppink; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
-.boxrectimgdesigner {border: 1px solid deeppink;}
+.boxrectimgdesigner {border: 3px solid deeppink;}

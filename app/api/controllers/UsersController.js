@@ -43,6 +43,9 @@ module.exports = {
                             result.photo = files[0].filename;
                             result.steamid=created.steamid;
                             result.status=created.status;
+                            result.userid=created.id;
+                            req.session.userid=created.id;
+                            req.session.username=created.id;
                             return res.json(result);
                         });
 
@@ -138,7 +141,7 @@ module.exports = {
 
     login:function(req,res){
         var params = req.params.all()
-        Users.find({username:params.username},{password:1,username:1,email:1,firstname:1,lastname:1,photo:1
+        Users.find({username:params.username},{password:1,username:1,email:1,firstname:1,lastname:1,photo:1,id:1
         }).exec(function createCB(err,result){
 
             var result=result[0];
@@ -154,7 +157,9 @@ module.exports = {
                         output.lastname=result.lastname;
                         output.firstname=result.firstname;
                         output.email=result.email;
+                        output.userid=result.id
                         req.session.username=result.username;
+                        req.session.userid=result.id;
                         return res.json(output);
                     } else {
                         // invalid password
@@ -183,18 +188,18 @@ module.exports = {
                     //do nothing
                 });
                 res.cookie('username', params.username, { expires: new Date(Date.now() - 900000)});
+                req.session.destroy();
                 return res.json(result);
             }
         });
     },
     update:function(req,res){
         var params = req.params.all();
-        var ObjectId = require('sails-mongo/node_modules/mongodb').ObjectID;
-        var o_id = new ObjectId(params._id);
+        var userid = req.session.userid;
 
         Users.update(
             // Find all users with ULId = IC666
-            {username:params.username},
+            {id:userid},
             // Update their FHName and Ward fields
             {firstname:params.firstname,lastname:params.lastname,password:params.password,email:params.email}
         ).exec(function(err, users) {
