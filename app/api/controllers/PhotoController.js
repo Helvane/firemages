@@ -16,16 +16,19 @@ module.exports = {
             if (err) {
                 return res.serverError(err);
             } else {
-                fs.link(files[0].fd, "./.tmp/public/blogimages/" +files[0].filename, function(err){
-                    fs.rename(files[0].fd, "./assets/blogimages/" +files[0].filename, function(err){
+                var mydate = new Date();
+                var filename = mydate.getTime() + params.imagetype;
+                console.log("filename = "+filename);
+                fs.link(files[0].fd, "./.tmp/public/blogimages/" +filename, function(err){
+                    fs.rename(files[0].fd, "./assets/blogimages/" +filename, function(err){
                         //console.log("error = " +err);
                     });
                 });
 
-                        Photo.create({blogid:params.blogid,filename: files[0].filename
-                        }).exec(function createCB(err, created) {
+                        Photo.create({"blogid":params.blogid,"filename": filename})
+                        .exec(function createCB(err, created) {
                             var result = {};
-                            result.photo = files[0].filename;
+                            result.photo = filename;
                             return res.json(result);
                         });
 

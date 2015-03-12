@@ -61,6 +61,27 @@ appService.factory('shareService',['$rootScope',function($rootscope){
         var regexp=/[\{\(\)\}\$\%\^\!\~\`\#\&\=\+\,\?\<\>\[\]]/;
         return regexp.test(username);
     };
+    // get image type by passing image type
+    pService.getImageType=function(imagetype){
+        switch (imagetype){
+            case 'image/png':
+                return'.png';
+            break;
+            case 'image/jpg':
+                return'.jpg';
+            break;
+            case 'image/jpeg':
+                return'.jpeg';
+            break;
+            case 'image/gif':
+                return'.gif';
+            break;
+            case 'image/pdf':
+                return'.pdf';
+            break;
+
+        }
+    };
 
     return pService;
 }]);

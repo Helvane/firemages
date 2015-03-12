@@ -13,7 +13,7 @@ appController.controller("menuController",['$scope','shareService','$location','
             $scope.$broadcast("loginEvent");
         },
         function(error){
-           alert("Menu error");
+           //alert("Menu error");
         }
     );
     // when a user click on the menu, it loads the page.
@@ -59,10 +59,30 @@ appController.controller("menuController",['$scope','shareService','$location','
                 $location.path('/login');
             },
             function(error){
-                alert(error);
+                //alert(error);
             }
         )
 
-    }
+    };
+
+    var param={};
+    param.number=Number(new Date);
+    var myajax=ajaxService.ajaxFactory(GETSESSIONURL,param,'GET');
+    myajax.then(
+        function(data){
+            if(!data.userid) {
+            console.log(data);
+            shareService.setlogin({});
+            window.localStorage.clear();
+            $scope.$emit("loginEvent");
+            $location.path('/login');
+           }
+        },
+        function(error){
+            //alert(error);
+        }
+    )
+
+
 
 }]);

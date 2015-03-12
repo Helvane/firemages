@@ -65,7 +65,7 @@
             <a ng-if="msg.userid.status=='Server Owner'">
                 <img src="/images/{{msg.userid.photo}}" class="photo boxrectimgowner"/>
             </a>
-
+             <div class="text-center smallfont">{{msg.userid.username}}</div>
             <div ng-if="msg.userid.status=='Member'" class="rect">{{msg.userid.status}}</div>
             <div ng-if="msg.userid.status=='Website Creator'" class="rectcreator">{{msg.userid.status}}</div>
             <div ng-if="msg.userid.status=='Designer Bot'" class="designerbot">{{msg.userid.status}}</div>
@@ -73,7 +73,6 @@
         </div>
         <div class="media-body">
             <i>{{msg.createdAt|datetimefilter}}</i> <br/>
-            <b>{{msg.userid.username}}</b>
             {{$index+1}} . <span ng-bind-html="msg.message | emoji"></span>
             <div ng-repeat="photo in msg.photoid track by $index"><img src="/blogimages/{{photo.filename}}" class="img-responsive"/></div>
         </div>

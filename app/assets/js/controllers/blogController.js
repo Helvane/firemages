@@ -105,13 +105,18 @@ appController.controller("blogController",['$scope','shareService','ajaxService'
     uploader.onAfterAddingFile = function(fileItem) {
 
 
+        console.log(fileItem);
+
         //console.info('onAfterAddingFile', fileItem);
     };
     uploader.onAfterAddingAll = function(addedFileItems) {
         //console.info('onAfterAddingAll', addedFileItems);
     };
     uploader.onBeforeUploadItem = function(item) {
-        item.formData[0]={"blogid":$scope.blogid};
+        var imagetype = shareService.getImageType(item.file.type);
+        console.log("imagetype = "+imagetype);
+
+        item.formData[0]={"blogid":$scope.blogid,"imagetype":imagetype};
         $scope.progressflag=true;
     };
     uploader.onProgressItem = function(fileItem, progress) {
@@ -157,7 +162,11 @@ appController.controller("blogController",['$scope','shareService','ajaxService'
         });
 
         modalInstance.result.then(function (selectedItem) {
-            $scope.message=angular.copy($scope.message) + selectedItem.title;
+            if(selectedItem.title) {
+                $scope.message = angular.copy($scope.message) + selectedItem.title;
+            } else {
+                $scope.message = angular.copy($scope.message) + selectedItem;
+            }
         });
     };
 

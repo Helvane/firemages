@@ -20,3 +20,5 @@ var GETBLOGURL='/Blog/getblog';
 
 
 var LOGOFFURL='/Users/logoff';
+
+var GETSESSIONURL='/Users/getsession';

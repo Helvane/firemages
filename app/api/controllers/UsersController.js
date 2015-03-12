@@ -241,8 +241,11 @@ module.exports = {
     destroy:function(req,res){
 
     },
-    hello:function(req,res){
-        res.send("Hello world how are you");
+    getsession:function(req,res){
+        var login={};
+        login.userid=req.session.userid;
+        login.username=req.session.username;
+        return res.json(login);
     }
 
 };

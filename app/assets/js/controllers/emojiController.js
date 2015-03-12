@@ -20,4 +20,8 @@ appController.controller("emojiController",['$scope','$modalInstance', 'items',f
         $modalInstance.dismiss('cancel');
     };
 
+    $scope.getIcon=function(index){
+       var icon='<div class="icon'+index+'"></div>';
+        $modalInstance.close(icon);
+    };
 }]);
