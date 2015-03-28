@@ -141,7 +141,7 @@ module.exports = {
 
     login:function(req,res){
         var params = req.params.all()
-        Users.find({username:params.username},{password:1,username:1,email:1,firstname:1,lastname:1,photo:1,id:1
+        Users.find({username:params.username},{password:1,username:1,email:1,firstname:1,lastname:1,photo:1,id:1,online:1,admin:1
         }).exec(function createCB(err,result){
 
             var result=result[0];
@@ -157,7 +157,11 @@ module.exports = {
                         output.lastname=result.lastname;
                         output.firstname=result.firstname;
                         output.email=result.email;
-                        output.userid=result.id
+                        output.userid=result.id;
+                        output.online=true;
+                        // call userService to updateLogin
+                        userService.updateLogin(output);
+
                         req.session.username=result.username;
                         req.session.userid=result.id;
                         return res.json(output);
@@ -177,21 +181,18 @@ module.exports = {
     },
 
     logoff:function(req,res){
-        var params = req.params.all()
-        Users.find({username:params.username},{username:1,email:1
-        }).exec(function createCB(err,result){
-            if(err){
-                return res.json({"id":0,"msg":"No email or password match in our database","error":err});
-            } else {
-                var mydate=new Date();
-                Users.update({username:params.username},{updatedAt:mydate}).exec(function(error,updatedata){
+        var params = req.params.all();
+        var userid = req.session.userid;
+
+        var mydate=new Date();
+        Users.update({id:userid},{online:false}).exec(function(error,updatedata){
                     //do nothing
-                });
-                res.cookie('username', params.username, { expires: new Date(Date.now() - 900000)});
-                req.session.destroy();
-                return res.json(result);
-            }
         });
+        res.cookie('username', params.username, { expires: new Date(Date.now() - 900000)});
+        req.session.destroy();
+        return res.send(200);
+
+
     },
     update:function(req,res){
         var params = req.params.all();

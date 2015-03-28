@@ -10,9 +10,10 @@ module.exports = {
     attributes: {
         // Both fields are set to required
         username:{
-            type:'string',
-            unique:true
+            type:'string'
+
         },
+        message:'string',
         photo:{
             type:'string'
         }

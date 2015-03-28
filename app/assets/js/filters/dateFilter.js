@@ -2,10 +2,6 @@
  * Created by king on 2/18/15.
  */
 
-
-
-
-
 appFilter.filter("datefilter",function(){
     return function(input) {
         var mydate=new Date(input);
@@ -22,5 +18,16 @@ appFilter.filter("datetimefilter",function(){
         var myhour=mydate.getHours() > 12?mydate.getHours() - 12 : mydate.getHours();
         var mynewdate = (mydate.getUTCMonth()+1) +"/"+mydate.getUTCDate() + "/" + mydate.getUTCFullYear() +' Time  '+myhour + ':' + mydate.getMinutes() + ':'+ mydate.getUTCSeconds() + ' '+ timezone;
         return mynewdate;
+    };
+});
+
+appFilter.filter("onlinefilter",function(){
+    return function(flag) {
+        var str="Offline";
+        if(flag==true){
+            str="Online";
+
+        }
+        return str;
     };
 });

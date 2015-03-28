@@ -8,15 +8,10 @@
 module.exports = {
 
     attributes: {
-        username:{
-            type:'string'
-        },
-        photo:{
-            type:'string'
-        },
-        message: {
-            type:'string'
-        }
+      userid:{
+          model:'users'
+      },
+      socketid:'string'
     }
 };
 

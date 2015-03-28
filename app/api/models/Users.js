@@ -50,6 +50,14 @@ module.exports = {
           type: 'string',
           size:30
 
+      },
+      online:{
+          type:'boolean',
+          defaultsTo:false
+      },
+      admin:{
+          type:'boolean',
+          defaultsTo:false
       }
 
 

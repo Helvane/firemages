@@ -4,7 +4,7 @@
 
 <table class="table-condensed">
 <tr>
-    <th>&nbsp;</th><th>Member</th><th>Joined</th><th>Last Online</th>
+    <th>&nbsp;</th><th>Member</th><th>Joined</th><th>Last Online</th><th>Online</th>
 </tr>
 
 
@@ -26,6 +26,7 @@
         <td>{{user.username}}</td>
         <td>{{user.createdAt|datefilter}}</td>
         <td>{{user.updatedAt|datetimefilter}}</td>
+        <td>{{user.online|onlinefilter}}</td>
     </tr>
 
 

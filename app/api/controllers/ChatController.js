@@ -8,35 +8,21 @@
 
 
 module.exports = {
-    join:function(req,res){
+    getmessage:function(req,res){
+        // get all messages
+        Chat.find().exec(function created(err, result) {
+            return res.json(result);
+
+        });
+
+    },
+    createmessage:function(req,res){
         var data=req.params.all();
-        Chat.create({username: data.username, photo: data.photo}).exec(function created(err, result) {
-            console.log("*** create new user ****");
-            Chatroom.publishCreate({id:"Chatroom",username:data.username,photo:data.photo});
-        });
+        Chat.create({username: data.username, message: data.message,photo:data.photo}).exec(function created(err, result) {
+            console.log("** create new message *** ");
+            sails.socket.broadcast("chatroom","messageEvent",result);
 
-        // retrieve all users and send back to client
-        Chat.find().exec(function(err,result){
-            sails.sockets.blast("joinEvent");
-            return res.json(result);
-
-        });
-    },
-
-    logout:function(req,res){
-        var param=req.params.all();
-        console.log(param);
-        Chat.destroy({username:param.username}).exec(function(err,result){
-            console.log("**** leftchatroom ****");
-            console.log(result);
-            sails.sockets.blast("joinEvent");
-            return res.json(param);
-        });
-    },
-    getmembers:function(req,res){
-        Chat.find().exec(function(err,result){
-            return res.json(result);
-
+            return res.json(data);
         });
     }
 
