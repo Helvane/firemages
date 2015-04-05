@@ -14,56 +14,55 @@ appController.controller("chatroomController",['$scope','shareService','ajaxServ
 
     $scope.person=shareService.getlogin();
 
+    var objmsg = {};
+    objmsg.username = angular.copy($scope.person.username);
+    objmsg.photo = angular.copy($scope.person.photo);
+    io.socket.get('/Chatroom/join',objmsg,function(data){
+        console.log(data);
+    });
 
 
-   $scope.memberEvent="";
-   $scope.$watch("memberEvent",function(){
-        console.log("*** connect server ***");
-        var objmsg = {};
-        objmsg.username = angular.copy($scope.person.username);
-        objmsg.photo = angular.copy($scope.person.photo);
-        var myajax=ajaxService.ajaxFactory(CHATURL+'/Chat/join',objmsg,'POST');
-        myajax.then(
-            function(data){
-                $scope.members=data;
-
-            },
-            function(error){
-                alert(error);
-            }
-        );
-
-        // listen to event
-
-            var myajax=ajaxService.ajaxFactory(CHATURL+'/Chat/getmembers',objmsg,'GET');
-            myajax.then(
-                function(data){
-                    $scope.members=data;
-                },
-                function(error){
-                    alert(error);
-                }
-            );
-
+    io.socket.on("joinEvent",function(){
+        var objmsg={};
+        objmsg.number=Number(new Date);
+        io.socket.get('/Chatroom/getmembers',objmsg,function(data){
+            $scope.members=data;
+            console.log("**** members ****");
+            console.log(data);
+            $scope.$digest();
+        });
 
     });
 
+
     // listen to event
     io.socket.on("messageEvent", function (data) {
-        console.log("*** get message ***");
         var param={};
         param.number=Number(new Date);
         io.socket.get('/Chat/getmessage',param,function(data){
            $scope.message=data;
            $scope.$digest();
+            var element = angular.element('#messages');
+            var height=element.innerHeight()+8000;
+            angular.element('#messages').animate({scrollTop: height}, "slow");
+
         });
 
     });
+
+
    var param={};
    param.number=Number(new Date);
    io.socket.get("/Chat/getmessage",param,function(data){
        $scope.message=data;
-       $scope.$digest();
+
+
+       var element = angular.element('#messages');
+       var height=element.innerHeight()+8000;
+       angular.element('#messages').animate({scrollTop: height}, "slow");
+
+       $scope.$digest(); 
+
    });
 
 
@@ -84,6 +83,7 @@ appController.controller("chatroomController",['$scope','shareService','ajaxServ
         io.socket.post("/Chat/createmessage",objmsg,function(data){
             console.log(data);
         });
+        $scope.chattext="";
 
     };
 
@@ -92,9 +92,6 @@ appController.controller("chatroomController",['$scope','shareService','ajaxServ
             $scope.sendMessageclick();
         }
     };
-
-
-
 
 
     $scope.emoticon = function () {

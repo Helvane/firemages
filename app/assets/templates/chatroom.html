@@ -5,7 +5,7 @@
 
 <div class="row">
     <div class="col-md-8 message">
-        <ul class="list-group">
+        <ul class="list-group" id="messages">
             <li class="list-group-item black" ng-repeat="msg in message track by $index">
                 <b>{{msg.username}}</b>: <span ng-bind-html="msg.message | emoji"></span>
                 {{msg.createdAt|datetimefilter}}
@@ -16,7 +16,7 @@
     <div class="col-md-2 room">
         <ul class="list-group">
             <li class="list-group-item black" ng-repeat="user in members track by $index">
-                {{user.username}} {{user.status}}
+              <img src="images/{{user.userid.photo}}" class="photo img-responsive"/>  {{user.userid.username}} {{user.userid.status}}
             </li>
         </ul>
     </div>

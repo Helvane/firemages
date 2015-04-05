@@ -9,9 +9,12 @@ module.exports = {
 
     attributes: {
       userid:{
-          model:'users'
+          model:'users',
+          unique:true,
+          required:true
       },
       socketid:'string'
+
     }
 };
 

@@ -20,7 +20,7 @@ module.exports = {
         var data=req.params.all();
         Chat.create({username: data.username, message: data.message,photo:data.photo}).exec(function created(err, result) {
             console.log("** create new message *** ");
-            sails.socket.broadcast("chatroom","messageEvent",result);
+            sails.sockets.broadcast("chatroom","messageEvent",result);
 
             return res.json(data);
         });

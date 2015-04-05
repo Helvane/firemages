@@ -11,14 +11,15 @@ module.exports = {
     join:function(req,res){
         var data=req.params.all();
         var userid=req.session.userid;
-        Chatroom.create({"userid":userid,"socketid":req.socket}).exec(function created(err, result) {
+        Chatroom.create({"userid":userid,"socketid":req.socket.id}).exec(function created(err, result) {
             console.log("*** create new user ****");
             // we subscribe a user to a chatroom
-            sails.sockets.join(req.socket, "chatroom");
+            sails.sockets.join(req.socket.id, "chatroom");
             // broadcast a new user to joinEvent
-            sails.socket.broadcast("chatroom","joinEvent",result);
+            sails.sockets.broadcast("chatroom","joinEvent",result);
 
-            return result;
+            return res.json(result);
+
         });
 
 
@@ -30,8 +31,8 @@ module.exports = {
 
         Chatroom.destroy({"userid":userid}).exec(function(err,result){
             console.log("**** leftchatroom ****");
-            sails.sockets.leave(req.socket,"chatroom");
-            sails.socket.broadcast("chatroom","joinEvent",result);
+            sails.sockets.leave(req.socket.id,"chatroom");
+            sails.sockets.broadcast("chatroom","joinEvent",result);
 
             return res.json(result);
         });
@@ -39,8 +40,8 @@ module.exports = {
     getmembers:function(req,res){
         Chatroom.find().populateAll().exec(function(err,result){
             for(var i=0; i < result.length; i++){
-                result[i].userid.password="";
-                result[i].userid.email="";
+                //result[i].userid.password="";
+                //result[i].userid.email="";
             }
             return res.json(result);
 
