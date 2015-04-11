@@ -61,7 +61,7 @@ appController.controller("chatroomController",['$scope','shareService','ajaxServ
        var height=element.innerHeight()+8000;
        angular.element('#messages').animate({scrollTop: height}, "slow");
 
-       $scope.$digest(); 
+       $scope.$digest();
 
    });
 

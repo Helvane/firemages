@@ -66,6 +66,15 @@ app.config(['$stateProvider','$urlRouterProvider',
                     }
                 }
             })
+            .state('forums', {
+                url:'/forums',
+                views: {
+                    "viewA": {
+                        templateUrl: 'templates/forums.html',
+                        controller: 'forumsController'
+                    }
+                }
+            })
 
     }
 

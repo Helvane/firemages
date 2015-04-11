@@ -55,7 +55,7 @@
         <a ng-if="msg.userid.status=='Member'">
             <img src="/images/{{msg.userid.photo}}" class="photo boxrectimg"/>
         </a>
-        <a ng-if="msg.userid.status=='Website Creator'">
+        <a ng-if="msg.userid.status=='Website/Server Guidance'">
                 <img src="/images/{{msg.userid.photo}}" class="photo boxrectimgcreator"/>
         </a>
          <a ng-if="msg.userid.status=='Designer Bot'">
@@ -67,7 +67,7 @@
             </a>
              <div class="text-center smallfont">{{msg.userid.username}}</div>
             <div ng-if="msg.userid.status=='Member'" class="rect">{{msg.userid.status}}</div>
-            <div ng-if="msg.userid.status=='Website Creator'" class="rectcreator">{{msg.userid.status}}</div>
+            <div ng-if="msg.userid.status=='Website/Server Guidance'" class="rectcreator">{{msg.userid.status}}</div>
             <div ng-if="msg.userid.status=='Designer Bot'" class="designerbot">{{msg.userid.status}}</div>
             <div ng-if="msg.userid.status=='Server Owner'" class="rectowner">{{msg.userid.status}}</div>
         </div>
