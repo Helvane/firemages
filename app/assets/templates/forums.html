@@ -1,14 +1,33 @@
-<h1 class="logo">Forums</h1>
+<h1 class="logo" xmlns="http://www.w3.org/1999/html">Forums</h1>
 
-<p>
-<label>Choose A Topic</label>
-<select class="form-control" ng-model="Topic">
+
+<div class="form-group">
+
+<label class="control-label">Choose A Topic</label>
+<select class="form-control" ng-model="forum.topic">
     <option value="0" style="color: #7A2B2B">Ban Request</option>
-    <option value="1" style="color: #1d526f">Adminship Request</option>
+    <option value="1" style="color: #1d526f">Admin Application</option>
     <option value="2" style="color: #CE412B">Gag & Unmute Request</option>
 </select>
-</p>
-<p>
-    <label>Summary</label>
-    <textarea class="form-control" ng-model="summary"></textarea>
-</p>
+</div>
+
+<div class="form-group">
+    <label>Title</label>
+    <input type="text" class="form-control" ng-model="forum.title">
+</div>
+
+<div class="form-group">
+    <label class="control-label">Summary</label>
+    <textarea class="form-control" ng-model="forum.summary"></textarea>
+</div>
+
+<div class="form-group">
+    <label class="control-label">Photo</label>
+    <input type="file" nv-file-select uploader="uploader" class="form-control input-sm"/>
+</div>
+
+<div class="form-group">
+    <label class="control-label"></label>
+    <button class="btn btn-info" ng-click="save()">Save</button> &nbsp;
+    <button class="btn btn-primary" ng-click="emoticon()">Emoticon</button>
+</div>
