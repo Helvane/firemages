@@ -38,9 +38,9 @@ body {background:black;}
 .text-danger {color: #ff0000;}
 .lightblue {color: #0066ff;}
 .darkcreator {color:#99CCFF;}
-.advisor {color: hotpink}
-.boxrectimgowner {border: 3px solid #800080;}
-.rectowner {background-color: #800080; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
+.advisor {color: hotpink} 
+.boxrectimgowner {border: 3px solid #660066;}
+.rectowner {background-color: #660066; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
 
 .boxrect {margin-right: 10px;}
 .boxrectimg {border:3px solid #0066ff;}
