@@ -5,9 +5,8 @@
 
 <label class="control-label">Choose A Topic</label>
 <select class="form-control" ng-model="forum.topic">
-    <option value="0" style="color: #7A2B2B">Ban Request</option>
-    <option value="1" style="color: #1d526f">Admin Application</option>
-    <option value="2" style="color: #CE412B">Gag & Unmute Request</option>
+    <option ng-repeat="topic in topics track by $index" value="{{topic.id}}">{{topic.name}}</option>
+
 </select>
 </div>
 
@@ -31,3 +30,16 @@
     <button class="btn btn-info" ng-click="save()">Save</button> &nbsp;
     <button class="btn btn-primary" ng-click="emoticon()">Emoticon</button>
 </div>
+
+<br/>
+<table class="table table-hover">
+    <tr>
+        <th>#</th><th>Status</th><th>Title</th><th>Topic</th>
+    </tr>
+    <tr ng-repeat="f in myforum track by $index">
+        <td>{{$index+1}}</td>
+        <td>{{f.userid.username}}</td>
+        <td><a ng-click="gotosummary(f)">{{f.title}}</a></td>
+        <td>{{f.topic.name}}</td>
+    </tr>
+</table>

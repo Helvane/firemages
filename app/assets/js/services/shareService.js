@@ -83,5 +83,15 @@ appService.factory('shareService',['$rootScope',function($rootscope){
         }
     };
 
+    pService.forum={};
+    pService.setForum=function(data){
+        pService.forum=data;
+    };
+
+    pService.getForum=function(){
+        return pService.forum;
+    };
+
+
     return pService;
 }]);

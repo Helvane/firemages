@@ -22,3 +22,8 @@ var GETBLOGURL='/Blog/getblog';
 var LOGOFFURL='/Users/logoff';
 
 var GETSESSIONURL='/Users/getsession';
+
+var TOPICURL='/Forum/getTopic';
+var CREATEFORUMURL='/Forum/create';
+
+var GETFORUMURL='/Forum/getForum';

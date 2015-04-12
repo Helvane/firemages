@@ -75,6 +75,15 @@ app.config(['$stateProvider','$urlRouterProvider',
                     }
                 }
             })
+            .state('summary', {
+                url:'/summary',
+                views: {
+                    "viewA": {
+                        templateUrl: 'templates/summary.html',
+                        controller: 'summaryController'
+                    }
+                }
+            })
 
     }
 

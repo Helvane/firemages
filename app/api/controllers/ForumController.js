@@ -8,7 +8,17 @@
 var fs=require('fs');
 
 module.exports = {
-	create:function(req,res){
+    create:function(req,res){
+        var param=req.params.all();
+        var userID=req.session.userid;
+        Forum.create({topic:param.topic,userid:userID,title:param.title,summary:param.summary})
+            .exec(function createCB(err, created) {
+
+                return res.json(created);
+            });
+
+    },
+	createphoto:function(req,res){
         var param=req.params.all();
         var userID=req.session.userid;
 
@@ -50,6 +60,17 @@ module.exports = {
 
 
             }
+        });
+    },
+
+    getTopic:function(req,res){
+        Topic.find().exec(function(err,result){
+           return res.json(result);
+        });
+    },
+    getForum:function(req, res){
+        Forum.find().populateAll().exec(function(err,result){
+           return res.json(result);
         });
     }
 };
