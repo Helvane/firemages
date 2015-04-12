@@ -39,8 +39,8 @@ body {background:black;}
 .lightblue {color: #0066ff;}
 .darkcreator {color:#99CCFF;}
 .advisor {color: hotpink}
-.boxrectimgowner {border: 3px solid darkmagenta;}
-.rectowner {background-color: darkmagenta; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
+.boxrectimgowner {border: 3px solid #800080;}
+.rectowner {background-color: #800080; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
 
 .boxrect {margin-right: 10px;}
 .boxrectimg {border:3px solid #0066ff;}
@@ -56,3 +56,19 @@ textarea {height: 400px; width: 100%; color: black;}
 .smallfont {font-size: 13px;}
 
 .space50 {margin-bottom:50px;}
+
+
+.boxrectimgnorank {border: 3px solid #454545;}
+.rectnorank {background-color: #454545; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
+
+.boxrectimgtech {border: 3px solid #EF9AD8;}
+.recttech {background-color: #EF9AD8; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
+
+.boxrectimgheadadmin {border: 3px solid #D1651D;}
+.rectheadadmin {background-color: #D1651D; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
+
+.boxrectimgcoowner {border: 3px solid #330066;}
+.rectcoowner {background-color: #330066; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
+
+.boxrectimgadmin {border: 3px solid #1D526F;}
+.rectadmin {background-color: #1D526F; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}

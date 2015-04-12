@@ -14,12 +14,24 @@
         <a ng-if="user.status=='Member'"><img ng-src="/images/{{user.photo}}" class="photo boxrectimg"/></a>
         <a ng-if="user.status=='Community Guidance'"><img ng-src="/images/{{user.photo}}" class="photo boxrectimgcreator"/></a>
         <a ng-if="user.status=='Designer Bot'"><img ng-src="/images/{{user.photo}}" class="photo boxrectimgdesigner"/></a>
-        <a ng-if="user.status=='Server Owner'"><img ng-src="/images/{{user.photo}}" class="photo boxrectimgowner"/></a>
+        <a ng-if="user.status=='Community Founder'"><img ng-src="/images/{{user.photo}}" class="photo boxrectimgowner"/></a>
+        <a ng-if="user.status=='No Ranking'"><img ng-src="/images/{{user.photo}}" class="photo boxrectimgnorank"/></a>
+        <a ng-if="user.status=='Server Banned'"><img ng-src="/images/{{user.photo}}" class="photo boxrectimgnorank"/></a>
+        <a ng-if="user.status=='Head Admin'"><img ng-src="/images/{{user.photo}}" class="photo boxrectimgheadadmin"/></a>
+        <a ng-if="user.status=='Server Tech'"><img ng-src="/images/{{user.photo}}" class="photo boxrectimgtech"/></a>
+        <a ng-if="user.status=='Server Admin'"><img ng-src="/images/{{user.photo}}" class="photo boxrectimgadmin"/></a>
+        <a ng-if="user.status=='Co-Owner'"><img ng-src="/images/{{user.photo}}" class="photo boxrectimgcoowner"/></a>
 
             <div ng-if="user.status=='Member'" class="rect">{{user.status}}</div>
             <div ng-if="user.status=='Community Guidance'" class="rectcreator">{{user.status}}</div>
             <div ng-if="user.status=='Designer Bot'" class="designerbot">{{user.status}}</div>
-            <div ng-if="user.status=='Server Owner'" class="rectowner">{{user.status}}</div>
+            <div ng-if="user.status=='Community Founder'" class="rectowner">{{user.status}}</div>
+            <div ng-if="user.status=='No Ranking'" class="rectnorank">{{user.status}}</div>
+            <div ng-if="user.status=='Server Banned'" class="rectnorank">{{user.status}}</div>
+            <div ng-if="user.status=='Server Admin'" class="rectadmin">{{user.status}}</div>
+            <div ng-if="user.status=='Head Admin'" class="rectheadadmin">{{user.status}}</div>
+            <div ng-if="user.status=='Server Tech'" class="recttech">{{user.status}}</div>
+            <div ng-if="user.status=='Co-Owner'" class="rectcoowner">{{user.status}}</div>
 
 
         </td>
