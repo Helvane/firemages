@@ -62,8 +62,68 @@
         </td>
         <td class="col-sm-10">
             <div ng-show="replyflag==true">
+                <div class="space">
             <textarea ng-model="responseText" class="form-control" maxlength="4000"></textarea>
+                </div>
+                <div class="space">
+                    <button class="btn btn-info" ng-click="save()">Submit</button>
+                    <button class="btn btn-primary" ng-click="emoticon()">Emoticon</button>
+                </div>
             </div>
+        </td>
+    </tr>
+
+    <tr ng-repeat="a in answers track by $index">
+        <td class="col-sm-2">
+
+            <a ng-if="a.userid.status=='Member'">
+                <img src="/images/{{a.userid.photo}}" class="photo boxrectimg"/>
+            </a>
+            <a ng-if="a.userid.status=='Community Guidance'">
+                <img src="/images/{{a.userid.photo}}" class="photo boxrectimgcreator"/>
+            </a>
+            <a ng-if="a.userid.status=='Designer Bot'">
+                <img src="/images/{{a.userid.photo}}" class="photo boxrectimgdesigner"/>
+            </a>
+
+            <a ng-if="a.userid.status=='Community Founder'">
+                <img src="/images/{{a.userid.photo}}" class="photo boxrectimgowner"/>
+            </a>
+            <a ng-if="a.userid.status=='No Ranking'">
+                <img src="/images/{{a.userid.photo}}" class="photo boxrectimgnorank"/>
+            </a>
+            <a ng-if="a.userid.status=='Server Banned'">
+                <img src="/images/{{a.userid.photo}}" class="photo boxrectimgnorank"/>
+            </a>
+            <a ng-if="a.userid.status=='Head Admin'">
+                <img src="/images/{{a.userid.photo}}" class="photo boxrectimgheadadmin"/>
+            </a>
+            <a ng-if="a.userid.status=='Server Tech'">
+                <img src="/images/{{a.userid.photo}}" class="photo boxrectimgtech"/>
+            </a>
+            <a ng-if="a.userid.status=='Server Admin'">
+                <img src="/images/{{a.userid.photo}}" class="photo boxrectimgadmin"/>
+            </a>
+            <a ng-if="a.userid.status=='Co-Owner'">
+                <img src="/images/{{a.userid.photo}}" class="photo boxrectimgcoowner"/>
+            </a>
+
+            <div class="text-center smallfont">{{a.userid.username}}</div>
+            <div ng-if="a.userid.status=='Member'" class="rect">{{a.userid.status}}</div>
+            <div ng-if="a.userid.status=='Community Guidance'" class="rectcreator">{{a.userid.status}}</div>
+            <div ng-if="a.userid.status=='Designer Bot'" class="designerbot">{{a.userid.status}}</div>
+            <div ng-if="a.userid.status=='Community Founder'" class="rectowner">{{a.userid.status}}</div>
+            <div ng-if="a.userid.status=='No Ranking'" class="rectnorank">{{a.userid.status}}</div>
+            <div ng-if="a.userid.status=='Server Banned'" class="rectnorank">{{a.userid.status}}</div>
+            <div ng-if="a.userid.status=='Head Admin'" class="rectheadadmin">{{a.userid.status}}</div>
+            <div ng-if="a.userid.status=='Server Tech'" class="recttech">{{a.userid.status}}</div>
+            <div ng-if="a.userid.status=='Server Admin'" class="rectadmin">{{a.userid.status}}</div>
+            <div ng-if="a.userid.status=='Co-Owner'" class="rectcoowner">{{a.userid.status}}</div>
+
+
+        </td>
+        <td class="col-sm-10">
+            <pre>{{a.answer}}</pre>
         </td>
     </tr>
 </table>

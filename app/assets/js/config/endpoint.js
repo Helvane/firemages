@@ -27,3 +27,6 @@ var TOPICURL='/Forum/getTopic';
 var CREATEFORUMURL='/Forum/create';
 
 var GETFORUMURL='/Forum/getForum';
+
+var CREATEANSWERURL='/Forumanswer/create';
+var GETANSWERURL='/Forumanswer/getAnswer';

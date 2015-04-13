@@ -38,9 +38,9 @@ body {background:black;}
 .text-danger {color: #ff0000;}
 .lightblue {color: #0066ff;}
 .darkcreator {color:#99CCFF;}
-.advisor {color: hotpink} 
-.boxrectimgowner {border: 3px solid #660066;}
-.rectowner {background-color: #660066; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
+.advisor {color: hotpink}
+.boxrectimgowner {border: 3px solid #330066;}
+.rectowner {background-color: #330066; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
 
 .boxrect {margin-right: 10px;}
 .boxrectimg {border:3px solid #0066ff;}
@@ -67,8 +67,8 @@ textarea {height: 400px; width: 100%; color: black;}
 .boxrectimgheadadmin {border: 3px solid #D1651D;}
 .rectheadadmin {background-color: #D1651D; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
 
-.boxrectimgcoowner {border: 3px solid #330066;}
-.rectcoowner {background-color: #330066; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
+.boxrectimgcoowner {border: 3px solid darkmagenta;}
+.rectcoowner {background-color: darkmagenta; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
 
 .boxrectimgadmin {border: 3px solid #1D526F;}
 .rectadmin {background-color: #1D526F; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
