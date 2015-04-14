@@ -1,11 +1,11 @@
 [
     {
-        "name": "Band Request"
+        "name": "Unbanned Request"
     },
     {
         "name": "Admin Application"
     },
     {
-        "name": "Gag & Unmute Request"
+        "name": "Ungag & Unmute Request"
     }
 ]

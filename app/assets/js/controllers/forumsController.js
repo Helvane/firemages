@@ -58,6 +58,15 @@ appController.controller("forumsController",['$scope','ajaxService','shareServic
 
     };
 
+    $scope.gotoforumlayout=function(){
+        // you use a setter
+
+
+        $location.path('/forumlayout');
+
+    };
+
+
     //emoticon button
     $scope.emoticon = function () {
 
