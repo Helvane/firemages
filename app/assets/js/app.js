@@ -76,7 +76,7 @@ app.config(['$stateProvider','$urlRouterProvider',
                 }
             })
             .state('summary', {
-                url:'/summary',
+                url:'/summary/:forumid',
                 views: {
                     "viewA": {
                         templateUrl: 'templates/summary.html',

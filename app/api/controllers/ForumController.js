@@ -72,6 +72,12 @@ module.exports = {
         Forum.find().populateAll().exec(function(err,result){
            return res.json(result);
         });
+    },
+    getAForum:function(req, res){
+        var param=req.params.all();
+        Forum.findOne({id:param.forumid}).populateAll().exec(function(err,result){
+            return res.json(result);
+        });
     }
 };
 

@@ -2,11 +2,12 @@
  * Created by king on 4/10/15.
  */
 
-appController.controller("forumsController",['$scope','ajaxService','shareService','$location',function($scope, ajaxService, shareService, $location){
+appController.controller("forumsController",['$scope','ajaxService','shareService','$location','$modal',function($scope, ajaxService, shareService, $location,$modal){
     $scope.forum={"topic":"","title":"","summary":""};
     $scope.topics=[];
     $scope.myforum=[];
     $scope.update='';
+    $scope.logindata=shareService.getlogin();
 
     $scope.$watch("update",function() {
     var param={};
@@ -47,14 +48,37 @@ appController.controller("forumsController",['$scope','ajaxService','shareServic
               console.log(err);
           }
         );
-    }
+    };
 
     $scope.gotosummary=function(data){
         // you use a setter
         shareService.setForum(data);
 
-        $location.path('/summary');
+        $location.path('/summary/'+data.id);
 
-    }
+    };
+
+    //emoticon button
+    $scope.emoticon = function () {
+
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/emoji.html',
+            controller: 'emojiController',
+            resolve: {
+                items: function () {
+                    return $scope.items;
+                }
+            }
+        });
+
+        // this data return when you close the modal dialog
+        modalInstance.result.then(function (selectedItem) {
+            if(selectedItem.title) {
+                $scope.forum.summary = angular.copy($scope.forum.summary) + selectedItem.title;
+            } else {
+                $scope.forum.summary = angular.copy($scope.forum.summary) + selectedItem;
+            }
+        });
+    };
 
 }]);

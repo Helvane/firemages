@@ -141,7 +141,7 @@ module.exports = {
 
     login:function(req,res){
         var params = req.params.all()
-        Users.find({username:params.username},{password:1,username:1,email:1,firstname:1,lastname:1,photo:1,id:1,online:1,admin:1
+        Users.find({username:params.username},{password:1,username:1,email:1,firstname:1,lastname:1,photo:1,id:1,online:1,status:1
         }).exec(function createCB(err,result){
 
             var result=result[0];
@@ -159,6 +159,7 @@ module.exports = {
                         output.email=result.email;
                         output.userid=result.id;
                         output.online=true;
+                        output.status=result.status;
                         // call userService to updateLogin
                         userService.updateLogin(output);
 

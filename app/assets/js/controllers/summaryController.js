@@ -2,12 +2,32 @@
  * Created by king on 4/12/15.
  */
 
-appController.controller("summaryController",['$scope','ajaxService','shareService',function($scope, ajaxService, shareService){
+appController.controller("summaryController",['$scope','ajaxService','shareService','$modal','$stateParams',function($scope, ajaxService, shareService, $modal,$stateParams){
 
+    $scope.forumid=$stateParams.forumid;
     $scope.forum=shareService.getForum();
+
+    if(!$scope.forum.id){
+        var param={};
+        param.forumid=$scope.forumid;
+        var myajax=ajaxService.ajaxFactory(GETAFORUMURL,param,'get');
+        myajax.then(
+          function(data){
+              $scope.forum=data;
+              $scope.update=Number(new Date);
+          },
+            function(err){
+                console.log(err);
+            }
+
+        );
+    }
+
+
     $scope.responseText='';
     $scope.answers=[];
     $scope.update='';
+    $scope.logindata=shareService.getlogin();
 
     $scope.$watch('update',function(){
        var param={};
@@ -52,9 +72,27 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
         );
     };
 
-    $scope.emoticon=function(){
+    //emoticon button
+    $scope.emoticon = function () {
 
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/emoji.html',
+            controller: 'emojiController',
+            resolve: {
+                items: function () {
+                    return $scope.items;
+                }
+            }
+        });
 
+        // this data return when you close the modal dialog
+        modalInstance.result.then(function (selectedItem) {
+            if(selectedItem.title) {
+                $scope.responseText = angular.copy($scope.responseText) + selectedItem.title;
+            } else {
+                $scope.responseText = angular.copy($scope.responseText) + selectedItem;
+            }
+        });
     };
 
 }]);
