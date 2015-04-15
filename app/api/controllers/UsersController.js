@@ -5,7 +5,10 @@
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 
+var easyimg = require('easyimage');
 var fs = require('fs');
+
+
 var bcrypt = require('bcrypt');
 
 module.exports = {
@@ -23,7 +26,26 @@ module.exports = {
             } else {
                 fs.link(files[0].fd, "./tmp/public/images/" +files[0].filename, function(err){
                     fs.rename(files[0].fd, "./assets/images/" +files[0].filename, function(err){
-                        //console.log("error = " +err);
+                        var srcimage='./assets/images/'+files[0].filename;
+                        easyimg.info(srcimage).then(
+                            function(file) {
+                                if(file.width > 150) {
+                                    easyimg.rescrop(
+                                        {
+                                            src:srcimage, dst:srcimage,
+                                            width:150, height:150,
+                                            gravity:'NorthWest'
+                                        },
+                                        function(err, stdout, stderr) {
+                                            if (err) throw err;
+                                            console.log('Resized and cropped');
+                                        }
+                                    );
+                                }
+                            }, function (err) {
+                                console.log(err);
+                            }
+                        )
                     });
                 });
 

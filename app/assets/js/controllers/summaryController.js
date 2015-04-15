@@ -56,15 +56,17 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
         }
     };
 
-    $scope.save=function(){
+    $scope.save=function(text){
          var param={};
         param.forumid=$scope.forum.id;
-        param.answer=$scope.responseText;
+        param.answer=text
         var myajax=ajaxService.ajaxFactory(CREATEANSWERURL,param,'post');
         myajax.then(
           function(data){
               // it will trigger the watch
               $scope.update=Number(new Date);
+              text='';
+              $scope.responseText='';
           },
             function(err){
                 console.log(err);

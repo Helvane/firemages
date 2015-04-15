@@ -4,7 +4,10 @@
  * @description :: Server-side logic for managing photos
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
+var easyimg = require('easyimage');
 var fs = require('fs');
+
+
 module.exports = {
 
     createphoto:function(req,res){
