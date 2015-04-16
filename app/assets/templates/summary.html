@@ -63,10 +63,10 @@
         <td class="col-sm-10">
             <div ng-show="replyflag==true">
                 <div class="space">
-            <textarea ng-model="responseText" class="form-control" maxlength="4000"></textarea>
+            <textarea ng-model=" msg.responseText" class="form-control" maxlength="4000"></textarea>
                 </div>
                 <div class="space">
-                    <button class="btn btn-info" ng-click="save(responseText)">Submit</button>
+                    <button class="btn btn-info" ng-click="save()">Submit</button>
                     <button class="btn btn-primary" ng-click="emoticon()">Emoticon</button>
                 </div>
             </div>

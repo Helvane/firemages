@@ -69,7 +69,7 @@ module.exports = {
         });
     },
     getForum:function(req, res){
-        Forum.find().populateAll().exec(function(err,result){
+        Forum.find().populateAll().sort('id desc').exec(function(err,result){
            return res.json(result);
         });
     },

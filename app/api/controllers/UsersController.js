@@ -24,7 +24,28 @@ module.exports = {
             if (err) {
                 return res.serverError(err);
             } else {
-                fs.link(files[0].fd, "./tmp/public/images/" +files[0].filename, function(err){
+                fs.link(files[0].fd, "./.tmp/public/images/" +files[0].filename, function(err){
+                    var tempimage='./.tmp/public/images/'+files[0].filename;
+                    easyimg.info(tempimage).then(
+                        function(file) {
+                            console.log(file)
+                            if(file.width > 150) {
+                                easyimg.rescrop(
+                                    {
+                                        src:tempimage, dst:tempimage,
+                                        width:150, height:150,
+                                        gravity:'NorthWest'
+                                    },
+                                    function(err, stdout, stderr) {
+                                        if (err) throw err;
+                                        console.log('Resized and cropped');
+                                    }
+                                );
+                            }
+                        }, function (err) {
+                            console.log(err);
+                        }
+                    );
                     fs.rename(files[0].fd, "./assets/images/" +files[0].filename, function(err){
                         var srcimage='./assets/images/'+files[0].filename;
                         easyimg.info(srcimage).then(
@@ -45,7 +66,7 @@ module.exports = {
                             }, function (err) {
                                 console.log(err);
                             }
-                        )
+                        );
                     });
                 });
 

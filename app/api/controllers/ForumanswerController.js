@@ -18,7 +18,7 @@ module.exports = {
 
     getAnswer:function(req, res){
         var param=req.params.all();
-        Forumanswer.find({forumid:param.forumid}).populateAll().exec(function(err, result){
+        Forumanswer.find({forumid:param.forumid}).populateAll().sort('id desc').exec(function(err, result){
            return res.json(result);
         });
     }

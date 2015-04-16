@@ -24,7 +24,7 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
     }
 
 
-    $scope.responseText='';
+    $scope.msg={responseText:''};
     $scope.answers=[];
     $scope.update='';
     $scope.logindata=shareService.getlogin();
@@ -56,17 +56,18 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
         }
     };
 
-    $scope.save=function(text){
+    $scope.save=function(){
          var param={};
         param.forumid=$scope.forum.id;
-        param.answer=text
+        param.answer=$scope.msg.responseText;
+
         var myajax=ajaxService.ajaxFactory(CREATEANSWERURL,param,'post');
         myajax.then(
           function(data){
               // it will trigger the watch
               $scope.update=Number(new Date);
               text='';
-              $scope.responseText='';
+              $scope.msg.responseText='';
           },
             function(err){
                 console.log(err);
@@ -90,9 +91,9 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
         // this data return when you close the modal dialog
         modalInstance.result.then(function (selectedItem) {
             if(selectedItem.title) {
-                $scope.responseText = angular.copy($scope.responseText) + selectedItem.title;
+                $scope.msg.responseText = angular.copy($scope.msg.responseText) + selectedItem.title;
             } else {
-                $scope.responseText = angular.copy($scope.responseText) + selectedItem;
+                $scope.msg.responseText = angular.copy($scope.msg.responseText) + selectedItem;
             }
         });
     };
