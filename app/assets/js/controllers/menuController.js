@@ -85,8 +85,8 @@ appController.controller("menuController",['$scope','shareService','$location','
 
     var param={};
     param.number=Number(new Date);
-    var mymenu=ajaxService.ajaxFactory(TOPICURL,param,'GET');
-    mymenu.then(
+    var mymenu2=ajaxService.ajaxFactory(TOPICURL,param,'GET');
+    mymenu2.then(
         function(data){
             shareService.setTopic(data);
         },

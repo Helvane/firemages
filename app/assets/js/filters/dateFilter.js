@@ -11,12 +11,10 @@ appFilter.filter("datefilter",function(){
 });
 
 
-appFilter.filter("datetimefilter",function(){
+appFilter.filter("datetimefilter",function($filter){
     return function(input) {
-        var mydate=new Date(input);
-        var timezone=mydate.getHours()>12?'PM':'AM';
-        var myhour=mydate.getHours() > 12?mydate.getHours() - 12 : mydate.getHours();
-        var mynewdate = (mydate.getUTCMonth()+1) +"/"+mydate.getUTCDate() + "/" + mydate.getUTCFullYear() +' Time  '+myhour + ':' + mydate.getMinutes() + ':'+ mydate.getUTCSeconds() + ' '+ timezone;
+      
+        var mynewdate=$filter('date')(input,'MM/dd/yyyy h:mm a');
         return mynewdate;
     };
 });

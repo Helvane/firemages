@@ -3,9 +3,6 @@
  */
 
 
-
-
-
 var REGISTERURLVERIFY='/Users/verify';
 var REGISTERURL='/Users/create';
 var REGISTERURLNOPHOTO='/Users/createnophoto';

@@ -5,17 +5,16 @@
 
 appController.controller("mediaController",['$scope','$location','ajaxService','shareService','$filter',function($scope,$location,ajaxService, shareService, $filter){
 
-    $scope.$on('topicEvent',function(){
+    $scope.update='';
+
+    $scope.$watch('update',function(){
         $scope.topic=shareService.getTopic();
         $scope.atopic=$filter('filter')($scope.topic,{name: 'Media'})[0];
 
-
-
-    $scope.forums=[];
-    var param={};
-    param.topic=$scope.atopic.id;
-    param.number=Number(new Date);
-
+        $scope.forums=[];
+        var param={};
+        param.topic=$scope.atopic.id;
+        param.number=Number(new Date);
     var mymenu=ajaxService.ajaxFactory(GETMEDIAFORUMURL,param,'GET');
     mymenu.then(
         function(data){
@@ -29,9 +28,16 @@ appController.controller("mediaController",['$scope','$location','ajaxService','
     );
 
     });
-    // when a user click on the menu, it loads the page.
-    $scope.goto=function(index){
 
+    $scope.$on('topicEvent',function(){
+       $scope.update=Number(new Date);
+    });
+
+    $scope.gotosummary=function(data){
+        // you use a setter
+        shareService.setForum(data);
+
+        $location.path('/summary/'+data.id);
 
     };
 
