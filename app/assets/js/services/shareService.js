@@ -93,5 +93,16 @@ appService.factory('shareService',['$rootScope',function($rootscope){
     };
 
 
+    pService.topic={};
+    pService.setTopic=function(data){
+        pService.topic=data;
+        $rootscope.$broadcast('topicEvent');
+    };
+
+    pService.getTopic=function(){
+        return pService.topic;
+    };
+
+
     return pService;
 }]);

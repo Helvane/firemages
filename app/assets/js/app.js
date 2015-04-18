@@ -17,6 +17,10 @@ app.config(['$stateProvider','$urlRouterProvider',
                         templateUrl: 'templates/home.html',
                         controller: 'homeController'
 
+                    },
+                    'viewB@home':{
+                        templateUrl: 'templates/media.html',
+                        controller: 'mediaController'
                     }
                 }
             })

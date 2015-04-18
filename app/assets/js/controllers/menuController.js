@@ -81,8 +81,18 @@ appController.controller("menuController",['$scope','shareService','$location','
         function(error){
             //alert(error);
         }
-    )
+    );
 
-
+    var param={};
+    param.number=Number(new Date);
+    var mymenu=ajaxService.ajaxFactory(TOPICURL,param,'GET');
+    mymenu.then(
+        function(data){
+            shareService.setTopic(data);
+        },
+        function(error){
+            //alert("Menu error");
+        }
+    );
 
 }]);

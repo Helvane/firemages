@@ -2,16 +2,18 @@
  * Created by king on 4/10/15.
  */
 
-appController.controller("forumsController",['$scope','ajaxService','shareService','$location','$modal',function($scope, ajaxService, shareService, $location,$modal){
+appController.controller("forumsController",['$scope','ajaxService','shareService','$location','$modal','$filter',function($scope, ajaxService, shareService, $location,$modal, $filter){
     $scope.forum={"topic":"","title":"","summary":""};
     $scope.topics=[];
     $scope.myforum=[];
     $scope.update='';
     $scope.logindata=shareService.getlogin();
+    $scope.atopic='';
 
     $scope.$watch("update",function() {
     var param={};
     param.number=new Date();
+    param.topic=$scope.atopic;
     var myajax=ajaxService.ajaxFactory(GETFORUMURL,param,'get');
     myajax.then(
         function(data){
@@ -28,6 +30,8 @@ appController.controller("forumsController",['$scope','ajaxService','shareServic
     myajax.then(
       function(data){
           $scope.topics=data;
+          $scope.atopic=$filter('filter')(data,{name: 'Media'})[0];
+          $scope.update=Number(new Date);
       },
       function(err){
           console.log(err);

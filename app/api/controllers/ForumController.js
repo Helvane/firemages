@@ -69,7 +69,8 @@ module.exports = {
         });
     },
     getForum:function(req, res){
-        Forum.find().populateAll().sort('id desc').exec(function(err,result){
+        var param=req.params.all();
+        Forum.find({topic:{'!':param.topic}}).populateAll().sort('id desc').exec(function(err,result){
            return res.json(result);
         });
     },
@@ -78,6 +79,13 @@ module.exports = {
         Forum.findOne({id:param.forumid}).populateAll().exec(function(err,result){
             return res.json(result);
         });
+    },
+    getMediaForum:function(req, res){
+        var param=req.params.all();
+        Forum.find({topic:param.topic}).populateAll().sort('id desc').exec(function(err,result){
+            return res.json(result);
+        });
     }
+
 };
 

@@ -53,10 +53,10 @@
         </td>
         <td class="col-sm-10">
             <h1>{{forum.title}}</h1>
-            <pre>{{forum.summary}}</pre>
+            <pre ng-bind-html="forum.summary | emoji"></pre>
         </td>
     </tr>
-    <tr ng-show="logindata" ng-if="logindata.status=='Community Guidance'||logindata.status=='Community Founder'||logindata.userid==forum.userid.id">
+    <tr ng-show="logindata" ng-if="logindata.status=='Community Guidance'||logindata.status=='Community Founder'||logindata.userid==forum.userid.id || forum.topic.name=='Media'">
         <td class="col-sm-2">
             <button class="btn btn-info" ng-click="reply()">Reply</button>
         </td>
