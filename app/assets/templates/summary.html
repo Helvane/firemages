@@ -53,7 +53,10 @@
         </td>
         <td class="col-sm-10">
             <h1>{{forum.title}}</h1>
-            <pre ng-bind-html="forum.summary | emoji"></pre>
+            <pre ng-bind-html="forum.summary |newlinefilter | emoji | linky:'_blank'"></pre>
+            <p ng-if="forum.photo">
+                <img ng-src="/forumimages/{{forum.photo}}" class="img-responsive"/>
+            </p>
         </td>
     </tr>
     <tr ng-show="logindata" ng-if="logindata.status=='Community Guidance'||logindata.status=='Community Founder'||logindata.userid==forum.userid.id || forum.topic.name=='Media'">
@@ -63,7 +66,7 @@
         <td class="col-sm-10">
             <div ng-show="replyflag==true">
                 <div class="space">
-            <textarea ng-model=" msg.responseText" class="form-control" maxlength="4000"></textarea>
+            <textarea ng-model=" msg.responseText" class="form-control" maxlength="4000" wrap="hard"></textarea>
                 </div>
                 <div class="space">
                     <button class="btn btn-info" ng-click="save()">Submit</button>
@@ -123,7 +126,9 @@
 
         </td>
         <td class="col-sm-10">
-            <pre ng-bind-html="a.answer|emoji"></pre>
+            <div class="row">
+            <pre ng-bind-html="a.answer|newlinefilter|emoji|linky:'_blank'"></pre>
+                </div>
         </td>
     </tr>
 </table>

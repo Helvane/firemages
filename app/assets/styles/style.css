@@ -83,3 +83,5 @@ textarea {height: 400px; width: 100%; color: black;}
 
 .pointer {cursor: pointer;}
 .moveup {top: -20px; position: relative;}
+
+pre {color: #ffffff; border: none; font-family: tahoma,Arial,Helvetica,sans-serif; background:transparent !important;}

@@ -5,6 +5,7 @@
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 
+var easyimg = require('easyimage');
 var fs=require('fs');
 
 module.exports = {
@@ -43,16 +44,39 @@ module.exports = {
                 }
 
                 var mydate = new Date();
-                var filename = mydate.getTime() + params.imagetype;
+                var filename = mydate.getTime() + param.imagetype;
                 console.log("filename = "+filename);
                 fs.link(files[0].fd, "./.tmp/public/forum/" +filename, function(err){
                     fs.rename(files[0].fd, "./assets/forum/" +filename, function(err){
-                        //console.log("error = " +err);
+
+                        var srcimage='./assets/forum/'+filename;
+
+                        easyimg.info(srcimage).then(
+                            function(file) {
+                                if(file.width > 600) {
+                                    easyimg.rescrop(
+                                        {
+                                            src:srcimage, dst:srcimage,
+                                            width:600, height:500,
+                                            gravity:'NorthWest'
+                                        },
+                                        function(err, stdout, stderr) {
+                                            if (err) throw err;
+                                            console.log('Resized and cropped');
+                                        }
+                                    );
+                                }
+                            }, function (err) {
+                                console.log(err);
+                            }
+                        );
                     });
                 });
 
                 Forum.create({topic:param.topic,userid:userID,title:param.title,summary:param.summary,photo:filename})
                     .exec(function createCB(err, created) {
+
+                        console.log(created)
 
                         return res.json(created);
                     });

@@ -22,6 +22,7 @@ var GETSESSIONURL='/Users/getsession';
 
 var TOPICURL='/Forum/getTopic';
 var CREATEFORUMURL='/Forum/create';
+var CREATEFORUMURLPHOTO='/Forum/createphoto';
 
 var GETFORUMURL='/Forum/getForum';
 var GETAFORUMURL='/Forum/getAForum';

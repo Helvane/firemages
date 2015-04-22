@@ -13,19 +13,44 @@ appFilter.filter("datefilter",function(){
 
 appFilter.filter("datetimefilter",function($filter){
     return function(input) {
-      
+
         var mynewdate=$filter('date')(input,'MM/dd/yyyy h:mm a');
         return mynewdate;
     };
 });
 
-appFilter.filter("onlinefilter",function(){
-    return function(flag) {
-        var str="Offline";
-        if(flag==true){
-            str="Online";
+appFilter.filter("onlinefilter",function() {
+    return function (flag) {
+        var str = "Offline";
+        if (flag == true) {
+            str = "Online";
 
         }
         return str;
     };
+
+});
+
+appFilter.filter("urlfilter",function(){
+    return function(str) {
+        var pattern=/[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+        var regex = new RegExp(pattern);
+        if(regex.test(str)){
+
+        }
+
+        return str;
+    };
+
+
+});
+
+appFilter.filter("newlinefilter",function(){
+    return function(str) {
+        if(str) {
+            str = str.replace(/(?:\r\n|\r|\n)/g, '<br/>');
+        }
+        return str;
+    };
+
 });

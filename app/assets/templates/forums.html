@@ -10,6 +10,7 @@
     You must be logged in, in order for you to post on these forums.
 </div>
 
+<div ng-if="error" class="alert alert-warning">{{error}}</div>
 
 <div class="form-group">
 
@@ -27,7 +28,7 @@
 
 <div class="form-group">
     <label class="control-label">Summary</label>
-    <textarea class="form-control" ng-model="forum.summary"></textarea>
+    <textarea class="form-control" ng-model="forum.summary" wrap="hard"></textarea>
 </div>
 
 <div class="form-group">
@@ -37,7 +38,7 @@
 
 <div class="form-group" ng-show="logindata">
     <label class="control-label"></label>
-    <button class="btn btn-info" ng-click="save()">Save</button> &nbsp;
+    <button class="btn btn-info" ng-click="save()">Submit</button> &nbsp;
     <button class="btn btn-primary" ng-click="emoticon()">Emoticon</button>
 </div>
 

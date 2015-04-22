@@ -40,20 +40,29 @@ appController.controller("forumsController",['$scope','ajaxService','shareServic
       }
     );
 
-
+    $scope.error='';
     $scope.savebtn=function(){
-        var mycreate=ajaxService.ajaxFactory(CREATEFORUMURL,$scope.forum,'post');
-        mycreate.then(
-          function(data){
-              $scope.forum.topic='';
-              $scope.forum.title='';
-              $scope.forum.summary='';
-              $scope.update=Number(new Date);
-          },
-          function(err){
-              console.log(err);
-          }
-        );
+        if($scope.forum.topic==''){
+            $scope.error='Please select a topic.';
+        } else if($scope.forum.title==''){
+            $scope.error='Please enter a title.';
+        } else if($scope.forum.summary==''){
+            $scope.error='Please write a brief summary.';
+        } else {
+
+            var mycreate = ajaxService.ajaxFactory(CREATEFORUMURL, $scope.forum, 'post');
+            mycreate.then(
+                function (data) {
+                    $scope.forum.topic = '';
+                    $scope.forum.title = '';
+                    $scope.forum.summary = '';
+                    $scope.update = Number(new Date);
+                },
+                function (err) {
+                    console.log(err);
+                }
+            );
+        }
     };
 
     $scope.gotosummary=function(data){
@@ -66,8 +75,6 @@ appController.controller("forumsController",['$scope','ajaxService','shareServic
 
     $scope.gotoforumlayout=function(){
         // you use a setter
-
-
         $location.path('/forumlayout');
 
     };
@@ -102,11 +109,11 @@ appController.controller("forumsController",['$scope','ajaxService','shareServic
     $scope.progressflag=false;
 
     var uploader=$scope.uploader=new FileUploader({
-        url: BLOGURLPHOTO,
-        formData:[$scope.message],
+        url: CREATEFORUMURLPHOTO,
+        formData:[$scope.forum],
         alias:"photo",
         removeAfterUpload:true,
-        queueLimit:5,
+        queueLimit:1,
         filters: [{
             name: 'photofilter',
             // A user-defined filter
@@ -121,8 +128,12 @@ appController.controller("forumsController",['$scope','ajaxService','shareServic
     });
 
     $scope.save=function(){
-        $scope.savebtn();
+        if(uploader.queue.length > 0) {
+            uploader.uploadAll();
 
+        } else {
+            $scope.savebtn();
+        }
 
     };
 
@@ -144,7 +155,7 @@ appController.controller("forumsController",['$scope','ajaxService','shareServic
         var imagetype = shareService.getImageType(item.file.type);
         console.log("imagetype = "+imagetype);
 
-        item.formData[0]={"blogid":$scope.blogid,"imagetype":imagetype};
+        item.formData[0]={"topic":$scope.forum.topic,"title":$scope.forum.title,"summary":$scope.forum.summary,"imagetype":imagetype};
         $scope.progressflag=true;
     };
     uploader.onProgressItem = function(fileItem, progress) {
@@ -170,10 +181,24 @@ appController.controller("forumsController",['$scope','ajaxService','shareServic
 
     };
     uploader.onCompleteAll = function() {
-        $scope.message="";
+        $scope.forum.topic="";
+        $scope.forum.title="";
+        $scope.forum.summary="";
         $scope.progressflag=false;
         $scope.update=Number(new Date);
     };
+
+    $scope.$watch('forum.topic',function(){
+        $scope.error='';
+    });
+
+    $scope.$watch('forum.title',function(){
+        $scope.error='';
+    });
+
+    $scope.$watch('forum.summary',function(){
+        $scope.error='';
+    });
 
 
 }]);
