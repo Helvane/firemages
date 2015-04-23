@@ -53,7 +53,7 @@
         </td>
         <td class="col-sm-10">
             <h1>{{forum.title}}</h1>
-            <pre ng-bind-html="forum.summary |newlinefilter | emoji | linky:'_blank'"></pre>
+            <pre ng-bind-html="forum.summary | linky:'_blank'|newlinefilter|emoji"></pre>
             <p ng-if="forum.photo">
                 <img ng-src="/forumimages/{{forum.photo}}" class="img-responsive"/>
             </p>
@@ -127,7 +127,7 @@
         </td>
         <td class="col-sm-10">
             <div class="row">
-            <pre ng-bind-html="a.answer|newlinefilter|emoji|linky:'_blank'"></pre>
+            <pre ng-bind-html="a.answer|linky:'_blank'|newlinefilter|emoji"></pre>
                 </div>
         </td>
     </tr>

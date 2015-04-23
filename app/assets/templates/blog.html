@@ -100,7 +100,7 @@
         </div>
         <div class="media-body">
             <i>{{msg.createdAt|datetimefilter}}</i> <br/>
-            {{$index+1}} . <pre ng-bind-html="msg.message |newlinefilter | emoji | linky:'_blank'"></pre>
+            {{$index+1}} . <pre ng-bind-html="msg.message | linky:'_blank' |newlinefilter | emoji "></pre>
             <div ng-repeat="photo in msg.photoid track by $index"><img src="/blogimages/{{photo.filename}}" class="img-responsive"/></div>
         </div>
 
