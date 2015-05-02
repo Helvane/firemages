@@ -33,6 +33,15 @@ app.config(['$stateProvider','$urlRouterProvider',
                     }
                 }
             })
+            .state('updateRegister', {
+                url:'/updateRegister',
+                views: {
+                    "viewA": {
+                        templateUrl: 'templates/updateRegister.html',
+                        controller: 'updateRegisterController'
+                    }
+                }
+            })
             .state('register', {
                 url:'/register',
                 views: {

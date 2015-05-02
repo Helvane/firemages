@@ -93,13 +93,11 @@ module.exports = {
                         });
 
                     } else if(result.length > 0) {
-                        Users.update({username:params.username},{lastname: params.lastname, firstname: params.firstname, password: params.password,
+                        Users.update({username:params.username},{password: params.password,
                             email: params.email,steamid:params.steamid, photo: files[0].filename
                         }).exec(function createCB(err, created) {
                             var result = {};
                             result.state = 2;
-                            result.firstname = params.firstname;
-                            result.lastname = params.lastname;
                             result.username = params.username;
                             result.email = params.email;
                             result.photo = files[0].filename;
@@ -144,18 +142,17 @@ module.exports = {
                     result.steamid=created.steamid;
                     result.status=created.status;
                     console.log("*** create new user ***");
-                    console.log(result);
+
                     return res.json(result);
 
                 });
             } else if(result2.length > 0) {
-                Users.update({username:params.username},{lastname: params.lastname, firstname: params.firstname, password: params.password,
-                    email: params.email,steamid: params.steamid
+                Users.update({username:params.username},{password: params.password,
+                email: params.email,steamid: params.steamid
                 }).exec(function createCB(err, created) {
                     var result = {};
                     result.state=2;
-                    result.firstname = params.firstname;
-                    result.lastname = params.lastname;
+
                     result.username = params.username;
                     result.email = params.email;
                     result.steamid=params.steamid;
@@ -184,7 +181,7 @@ module.exports = {
 
     login:function(req,res){
         var params = req.params.all()
-        Users.find({username:params.username},{password:1,username:1,email:1,firstname:1,lastname:1,photo:1,id:1,online:1,status:1,photo:1
+        Users.find({username:params.username},{password:1,username:1,email:1,firstname:1,lastname:1,photo:1,id:1,online:1,status:1,steamid:1
         }).exec(function createCB(err,result){
 
             var result=result[0];

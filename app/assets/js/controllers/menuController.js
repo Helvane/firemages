@@ -4,6 +4,9 @@
 
 appController.controller("menuController",['$scope','shareService','$location','ajaxService',function($scope,shareService,$location,ajaxService){
 
+    // get user login information that store in share Service factory
+    $scope.person=shareService.getlogin();
+
     $scope.menus=[];
     // use ajax to retrieve menu file.
     var mymenu=ajaxService.ajaxFactory('json/menu.js',{},'GET');
@@ -23,11 +26,14 @@ appController.controller("menuController",['$scope','shareService','$location','
         }
 
         $scope.menus[index].myclass="active";
-        $location.path($scope.menus[index].link);
+        if($scope.person.username && $scope.menus[index].link=='/register'){
+          $location.path('updateRegister');
+        } else {
+            $location.path($scope.menus[index].link);
+        }
 
     };
-     // get user login information that store in share Service factory
-     $scope.person=shareService.getlogin();
+
 
 
     // listen to loginEvent when there is a broadcast trigger.

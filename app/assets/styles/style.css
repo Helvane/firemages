@@ -3,7 +3,7 @@
     src: url("fonts/FatTats.ttf");
 }
 
-.logo {font-family: "Rebel Pixy Stars"; font-size:100px; letter-spacing:5px;  font-weight: normal;  color:deepskyblue; margin-top:60px; text-align: center; border-bottom:1px solid #cccccc; margin-bottom:5px;}
+.logo {font-family: "Rebel Pixy Stars"; font-size:75px; letter-spacing:5px;  font-weight: normal;  color:deepskyblue; margin-top:60px; text-align: center; border-bottom:1px solid #cccccc; margin-bottom:15px;}
 
 
 .menu {display: inline-block; list-style: none;}
