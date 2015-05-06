@@ -1,4 +1,28 @@
-<ul class="nav nav-tabs navbar-default navbar-fixed-top" ng-controller="menuController">
+
+<div ng-controller="menuController">
+    <!-- This is for small screen size -->
+    <div class="dropdown hidden-sm hidden-md hidden-lg">
+         <button class="btn btn-default" ng-click="toggle()"><il class="fa fa-bars"></il></button>
+
+        <ul class="nav nav-pills nav-stacked navbar-default popmenu" ng-show="menuflag">
+
+            <li ng-repeat="menu in menus track by $index" ng-click="goto($index)" class="{{menu.myclass}}" ng-if="menu.status==0">
+                <a><i class="{{menu.icon}}"></i> {{menu.title}} </a>
+            </li>
+
+
+            <li ng-if="person.username" ng-click="logoff()">
+                <a>Log off {{person.username}}</a>
+            </li>
+            <li ng-if="person.photo">
+                <img ng-src="/images/{{person.photo}}" class="img-responsive smallphoto"/>
+            </li>
+        </ul>
+
+    </div>
+
+<!-- This is for big screen size -->
+<ul class="nav nav-tabs navbar-default navbar-fixed-top hidden-xs">
 
    <li ng-repeat="menu in menus track by $index" ng-click="goto($index)" class="{{menu.myclass}}" ng-if="menu.status==0">
   <a><i class="{{menu.icon}}"></i> {{menu.title}} </a>
@@ -12,3 +36,4 @@
         <img ng-src="/images/{{person.photo}}" class="img-responsive smallphoto"/>
     </li>
 </ul>
+</div>

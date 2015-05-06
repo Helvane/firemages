@@ -21,12 +21,13 @@ appController.controller("menuController",['$scope','shareService','$location','
     );
     // when a user click on the menu, it loads the page.
     $scope.goto=function(index){
+        $scope.menuflag=false;
         for(var i=0; i < $scope.menus.length; i++){
             $scope.menus[i].myclass="";
         }
 
         $scope.menus[index].myclass="active";
-        if($scope.person.username && $scope.menus[index].link=='/register'){
+        if($scope.person && $scope.person.username && $scope.menus[index].link=='/register'){
           $location.path('updateRegister');
         } else {
             $location.path($scope.menus[index].link);
@@ -39,17 +40,18 @@ appController.controller("menuController",['$scope','shareService','$location','
     // listen to loginEvent when there is a broadcast trigger.
     $scope.$on("loginEvent",function(){
         $scope.person=shareService.getlogin();
-        if($scope.person){
-            // if a user login, it changes the register to update.
-            $scope.menus[4].title="Update";
+        if($scope.menus) {
+            if ($scope.person) {
+                // if a user login, it changes the register to update.
+                $scope.menus[4].title = "Update";
 
-            $scope.menus[5].status=1;
-        } else {
-            // if a user is not login, it changes the update to register.
-            $scope.menus[4].title="Register";
-            $scope.menus[5].status=0;
+                $scope.menus[4].status = 1;
+            } else {
+                // if a user is not login, it changes the update to register.
+                $scope.menus[4].title = "Register";
+                $scope.menus[4].status = 0;
+            }
         }
-
     });
     // when a user clicks on the log off button, then it clears the local data.
     $scope.logoff=function(){
@@ -77,7 +79,7 @@ appController.controller("menuController",['$scope','shareService','$location','
     myajax.then(
         function(data){
             if(!data.userid) {
-            console.log(data);
+
             shareService.setlogin({});
             window.localStorage.clear();
             $scope.$emit("loginEvent");
@@ -100,5 +102,14 @@ appController.controller("menuController",['$scope','shareService','$location','
             //alert("Menu error");
         }
     );
+
+    $scope.menuflag=false;
+    $scope.toggle=function(){
+      if($scope.menuflag==false){
+          $scope.menuflag=true;
+      } else {
+          $scope.menuflag=false;
+      }
+    };
 
 }]);
