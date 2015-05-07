@@ -9,6 +9,7 @@ var REGISTERURLNOPHOTO='/Users/createnophoto';
 var REGISTERURLUPDATE='/Users/update';
 var USERSURL='/Users/getusers';
 var LOGINURL='/Users/login';
+var USERSURLONLINE='/Users/getonline';
 
 var BLOGURL='/Blog/create';
 var BLOGURLPHOTO='/Photo/createphoto';

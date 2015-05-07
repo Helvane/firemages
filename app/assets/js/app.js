@@ -21,6 +21,10 @@ app.config(['$stateProvider','$urlRouterProvider',
                     'viewB@home':{
                         templateUrl: 'templates/media.html',
                         controller: 'mediaController'
+                    },
+                    'viewC@home':{
+                        templateUrl: 'templates/online.html',
+                        controller: 'onlineController'
                     }
                 }
             })
@@ -106,6 +110,7 @@ app.config(['$stateProvider','$urlRouterProvider',
                     }
                 }
             })
+
 
     }
 

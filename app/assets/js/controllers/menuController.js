@@ -7,13 +7,32 @@ appController.controller("menuController",['$scope','shareService','$location','
     // get user login information that store in share Service factory
     $scope.person=shareService.getlogin();
 
+    $scope.checkmenu=function(){
+        $scope.person=shareService.getlogin();
+        if($scope.menus.length > 0){
+        if($scope.menus) {
+            if ($scope.person) {
+                // if a user login, it changes the register to update.
+                $scope.menus[4].title = "Update";
+
+                $scope.menus[5].status = 1;
+
+            } else {
+                // if a user is not login, it changes the update to register.
+                $scope.menus[4].title = "Register";
+            }
+
+        }
+        }
+    };
+
     $scope.menus=[];
     // use ajax to retrieve menu file.
     var mymenu=ajaxService.ajaxFactory('json/menu.js',{},'GET');
     mymenu.then(
         function(data){
             $scope.menus=data;
-            $scope.$broadcast("loginEvent");
+            $scope.checkmenu();
         },
         function(error){
            //alert("Menu error");
@@ -39,20 +58,9 @@ appController.controller("menuController",['$scope','shareService','$location','
 
     // listen to loginEvent when there is a broadcast trigger.
     $scope.$on("loginEvent",function(){
-        $scope.person=shareService.getlogin();
-        if($scope.menus) {
-            if ($scope.person) {
-                // if a user login, it changes the register to update.
-                $scope.menus[4].title = "Update";
-
-                $scope.menus[4].status = 1;
-            } else {
-                // if a user is not login, it changes the update to register.
-                $scope.menus[4].title = "Register";
-                $scope.menus[4].status = 0;
-            }
-        }
+      $scope.checkmenu();
     });
+
     // when a user clicks on the log off button, then it clears the local data.
     $scope.logoff=function(){
         var param={};
@@ -60,16 +68,20 @@ appController.controller("menuController",['$scope','shareService','$location','
         var myajax=ajaxService.ajaxFactory(LOGOFFURL,param,'POST');
         myajax.then(
             function(data){
-                console.log(data);
                 shareService.setlogin({});
                 window.localStorage.clear();
-                $scope.$emit("loginEvent");
+                $scope.menus[4].title ='Register';
+                $scope.menus[5].status =0;
+                $scope.menus[5].myclass ='active';
                 $location.path('/login');
+                if(!$scope.$$phase){
+                    $scope.$digest();
+                }
             },
             function(error){
                 //alert(error);
             }
-        )
+        );
 
     };
 

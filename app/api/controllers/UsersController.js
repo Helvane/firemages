@@ -263,6 +263,11 @@ module.exports = {
 
     },
     getusers:function(req,res){
+        Users.find({online:true}).exec(function(err,result){
+            return res.json(result);
+        });
+    },
+    getonline:function(req,res){
         Users.find({sort:"_id desc"}).exec(function(err,result){
             return res.json(result);
         });
