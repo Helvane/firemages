@@ -52,14 +52,14 @@ body
 .lightblue {color: #0066ff;}
 .darkcreator {color:#99CCFF;}
 .advisor {color: hotpink}
-.boxrectimgowner {border: 3px solid #330066;}
-.rectowner {background-color: #330066; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
+.boxrectimgowner {border: 3px solid #cccccc;}
+.rectowner {background-color: #cccccc; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
 
 .boxrect {margin-right: 10px;}
-.boxrectimg {border:3px solid #0066ff;}
-.boxrectimgcreator {border: 3px solid #99CCFF;}
-.rect {background-color:#0066ff; color: #ffffff; padding:2px; margin-top:10px; text-align: center;}
-.rectcreator {background-color:#99CCFF; color: #ffffff; padding:2px; margin-top:10px; text-align: center;}
+.boxrectimg {border:3px solid #528CE0;}
+.boxrectimgcreator {border: 3px solid lightskyblue;}
+.rect {background-color:#528CE0; color: #ffffff; padding:2px; margin-top:10px; text-align: center;}
+.rectcreator {background-color:lightskyblue; color: #ffffff; padding:2px; margin-top:10px; text-align: center;}
 #blog .media-heading {padding-right: 0px;}
 .button3d {background: #008080; color: #ffffff; padding: 5px; border-radius: 5px; border: 1px solid #808080;}
 
@@ -97,4 +97,6 @@ pre {color: #ffffff; border: none; font-family: tahoma,Arial,Helvetica,sans-seri
 
 .popmenu { position:absolute; z-index: 1000; width: 100%;}
 
-.container {padding-left: 0px; padding-right: 0px;}
+.color1 {color:#528CE0;}
+.color2 {color:#cccccc;}
+.color3 {color:lightskyblue}

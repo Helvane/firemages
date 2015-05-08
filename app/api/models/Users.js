@@ -58,6 +58,21 @@ module.exports = {
       admin:{
           type:'boolean',
           defaultsTo:false
+      },
+      cssclass:{
+          type: 'string',
+          size:30
+
+      },
+      cssclass2:{
+          type: 'string',
+          size:30
+
+      },
+      fontcolor:{
+          type: 'string',
+          size:30
+
       }
 
 
