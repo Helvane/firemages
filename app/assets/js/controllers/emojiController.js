@@ -7,7 +7,8 @@ appController.controller("emojiController",['$scope','$modalInstance', 'items',f
 
     $scope.icons=[{"title":":smiley:"},
         {"title":":heart:"}, {"title":":apple:"}, {"title":":anger:"}, {"title":":angry:"}, {"title":":kiss:"}, {"title":":kissing:"},
-        {"title":":heart_eyes:"}, {"title":":cry:"}, {"title":":joy:"}, {"title":":information_desk_person:"}
+        {"title":":heart_eyes:"}, {"title":":cry:"}, {"title":":joy:"}, {"title":":information_desk_person:"},{"title":":Crying:"},
+        {"title":":Face 2:"}
 
     ];
 

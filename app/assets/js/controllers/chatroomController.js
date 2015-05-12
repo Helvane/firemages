@@ -41,10 +41,13 @@ appController.controller("chatroomController",['$scope','shareService','ajaxServ
         param.number=Number(new Date);
         io.socket.get('/Chat/getmessage',param,function(data){
            $scope.message=data;
-           $scope.$digest();
-            var element = angular.element('#messages');
+            if (!$scope.$$phase) {
+                $scope.$digest();
+            }
+
+            var element = $('#chatmsg');
             var height=element.innerHeight()+8000;
-            angular.element('#messages').animate({scrollTop: height}, "slow");
+            $('#chatmsg').animate({scrollTop: height}, "slow");
 
         });
 

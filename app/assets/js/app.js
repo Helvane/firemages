@@ -25,6 +25,10 @@ app.config(['$stateProvider','$urlRouterProvider',
                     'viewC@home':{
                         templateUrl: 'templates/online.html',
                         controller: 'onlineController'
+                    },
+                    'viewD@home':{
+                        templateUrl: 'templates/gaming.html',
+                        controller: 'gamingController'
                     }
                 }
             })

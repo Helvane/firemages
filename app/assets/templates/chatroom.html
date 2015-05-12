@@ -4,34 +4,45 @@
 <h2 class="logo">Chatroom</h2>
 
 <div class="row">
-    <div class="col-md-8 message">
-        <ul class="list-group" id="messages">
-            <li class="list-group-item black" ng-repeat="msg in message track by $index">
-                <b>{{msg.username}}</b>: <span ng-bind-html="msg.message | emoji | linky:'_blank'"></span>
-                {{msg.createdAt|datetimefilter}}
+    <div class="col-md-9">
+        <div class="message" id="chatmsg">
+         <table class="table-condensed">
+            <tr ng-repeat="msg in message track by $index">
+                <td nowrap>{{msg.username}}:</td>
+                <td>
+                <div ng-bind-html="msg.message | emoji | linky:'_blank'"></div>
+                </td>
+                <td class="smallfont">{{msg.createdAt|datetimefilter}}</td>
+            </tr>
+         </table>
+         </div>
+    </div>
+    <div class="col-md-3">
+        <div class="room">
+        <ul class="media-list">
+            <li class="media" ng-repeat="user in members track by $index">
+              <a class="pull-left"><img src="images/{{user.userid.photo}}" class="smallphoto img-thumbnail img-responsive"/></a>
+                <div class="media-body">{{user.userid.username}} <span class="{{user.userid.fontcolor}}">({{user.userid.status}})</span></div>
+                <div class="clearfix"></div>
+                <hr/>
             </li>
         </ul>
-
+        </div>
     </div>
-    <div class="col-md-2 room">
-        <ul class="list-group">
-            <li class="list-group-item black" ng-repeat="user in members track by $index">
-              <img src="images/{{user.userid.photo}}" class="photo img-responsive"/>  {{user.userid.username}} {{user.userid.status}}
-            </li>
-        </ul>
-    </div>
-    <div class="col-md-2">
-        <div ui-view="viewC"></div>
-    </div>
-
 </div>
 
+
+    <div ui-view="viewC"></div>
+   <div class="space"></div>
+
 <div class="row">
-    <div class="col-md-8 message2">
+    <div class="col-md-9">
         <input type="text" ng-model="chattext" class="form-control input-sm black" maxlength="250" ng-keypress="sendMessage($event)"/>
     </div>
-    <div class="col-md-4 room2">
+    <div class="col-md-3">
+        <div class="btn-group">
         <button class="btn btn-info" ng-click="sendMessageclick()">Send</button>
         <button class="btn btn-primary" ng-click="emoticon()">Emoticon</button>
+            </div>
     </div>
 </div>

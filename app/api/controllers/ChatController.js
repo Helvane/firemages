@@ -10,7 +10,14 @@
 module.exports = {
     getmessage:function(req,res){
         // get all messages
-        Chat.find().exec(function created(err, result) {
+        Chat.find({limit:40}).sort('id asc').exec(function created(err, result) {
+            var myid=[];
+            for(var i=0; i < result.length; i++){
+                myid[i]=result[i].id;
+            }
+            Chat.destroy({'id':{'!':myid}}).exec(function(err,output){
+                //console.log(output);
+            });
             return res.json(result);
 
         });

@@ -9,11 +9,12 @@ appController.controller("forumsController",['$scope','ajaxService','shareServic
     $scope.update='';
     $scope.logindata=shareService.getlogin();
     $scope.atopic={'id':0};
+    $scope.atopic2={'id':0};
 
     $scope.$watch("update",function() {
     var param={};
         param.number=new Date();
-        param.topic=$scope.atopic.id;
+        param.topic=[$scope.atopic.id,$scope.atopic2.id];
         param.number=Number(new Date);
     var myajax=ajaxService.ajaxFactory(GETFORUMURL,param,'get');
     myajax.then(
@@ -33,6 +34,7 @@ appController.controller("forumsController",['$scope','ajaxService','shareServic
       function(data){
           $scope.topics=data;
           $scope.atopic=$filter('filter')(data,{name: 'Media'})[0];
+          $scope.atopic2=$filter('filter')(data,{name: 'Gaming'})[0];
           $scope.update=Number(new Date);
       },
       function(err){
