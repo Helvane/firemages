@@ -99,7 +99,9 @@ pre {color: #ffffff; border: none; font-family: tahoma,Arial,Helvetica,sans-seri
 
 .color1 {color:#5890AD;}
 .color2 {color:#cccccc;}
-.color3 {color:lightskyblue}
+.color3 {color:lightskyblue;}
+
+.alertColor {color:#ff00ff;}
 
 .table-hover > tbody > tr:hover {
     background-color: #999999;

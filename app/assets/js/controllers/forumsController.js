@@ -8,6 +8,10 @@ appController.controller("forumsController",['$scope','ajaxService','shareServic
     $scope.myforum=[];
     $scope.update='';
     $scope.logindata=shareService.getlogin();
+    if(!$scope.logindata){
+        shareService.setAlert('You must login before you can view the forums.');
+        $location.path('/login');
+    }
     $scope.atopic={'id':0};
     $scope.atopic2={'id':0};
 

@@ -103,6 +103,15 @@ appService.factory('shareService',['$rootScope',function($rootscope){
         return pService.topic;
     };
 
+    pService.alert="";
+    pService.setAlert=function(msg){
+        pService.alert=msg;
+        $rootscope.$broadcast('alertEvent')
+    };
+
+    pService.getAlert=function(){
+        return pService.alert;
+    };
 
     return pService;
 }]);
