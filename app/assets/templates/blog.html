@@ -80,8 +80,11 @@
             <a ng-if="msg.userid.status=='Server Admin'">
                 <img src="/images/{{msg.userid.photo}}" class="boxrectimgadmin"/>
             </a>
-            <a ng-if="msg.userid.status=='Co-Owner'">
+            <a ng-if="msg.userid.status=='Community Owner'">
                 <img src="/images/{{msg.userid.photo}}" class="boxrectimgcoowner"/>
+            </a>
+            <a ng-if="msg.userid.status=='Announcement Bot'">
+                <img src="/images/{{msg.userid.photo}}" class="boxrectimgannouncement"/>
             </a>
 
              <div class="text-center smallfont">{{msg.userid.username}}</div>
@@ -94,7 +97,8 @@
             <div ng-if="msg.userid.status=='Head Admin'" class="rectheadadmin">{{msg.userid.status}}</div>
             <div ng-if="msg.userid.status=='Server Tech'" class="recttech">{{msg.userid.status}}</div>
             <div ng-if="msg.userid.status=='Server Admin'" class="rectadmin">{{msg.userid.status}}</div>
-            <div ng-if="msg.userid.status=='Co-Owner'" class="rectcoowner">{{msg.userid.status}}</div>
+            <div ng-if="msg.userid.status=='Community Owner'" class="rectcoowner">{{msg.userid.status}}</div>
+            <div ng-if="msg.userid.status=='Announcement Bot'" class="rectannouncement">{{msg.userid.status}}</div>
 
 
         </div>

@@ -34,8 +34,11 @@
             <a ng-if="forum.userid.status=='Server Admin'">
                 <img src="/images/{{forum.userid.photo}}" class="boxrectimgadmin"/>
             </a>
-            <a ng-if="forum.userid.status=='Co-Owner'">
+            <a ng-if="forum.userid.status=='Community Owner'">
                 <img src="/images/{{forum.userid.photo}}" class="boxrectimgcoowner"/>
+            </a>
+            <a ng-if="forum.userid.status=='Announcement Bot'">
+                <img src="/images/{{forum.userid.photo}}" class="boxrectimgannouncement"/>
             </a>
 
             <div class="text-center smallfont">{{forum.userid.username}}</div>
@@ -48,7 +51,8 @@
             <div ng-if="forum.userid.status=='Head Admin'" class="rectheadadmin">{{forum.userid.status}}</div>
             <div ng-if="forum.userid.status=='Server Tech'" class="recttech">{{forum.userid.status}}</div>
             <div ng-if="forum.userid.status=='Server Admin'" class="rectadmin">{{forum.userid.status}}</div>
-            <div ng-if="forum.userid.status=='Co-Owner'" class="rectcoowner">{{forum.userid.status}}</div>
+            <div ng-if="forum.userid.status=='Community Owner'" class="rectcoowner">{{forum.userid.status}}</div>
+            <div ng-if="forum.userid.status=='Announcement Bot'" class="rectannouncement">{{forum.userid.status}}</div>
 
         </td>
         <td class="col-sm-10">
@@ -110,6 +114,9 @@
             <a ng-if="a.userid.status=='Co-Owner'">
                 <img src="/images/{{a.userid.photo}}" class="boxrectimgcoowner"/>
             </a>
+            <a ng-if="a.userid.status=='Announcement Bot'">
+                <img src="/images/{{a.userid.photo}}" class="boxrectimgannouncement"/>
+            </a>
 
             <div class="text-center smallfont">{{a.userid.username}}</div>
             <div ng-if="a.userid.status=='Member'" class="rect">{{a.userid.status}}</div>
@@ -122,6 +129,7 @@
             <div ng-if="a.userid.status=='Server Tech'" class="recttech">{{a.userid.status}}</div>
             <div ng-if="a.userid.status=='Server Admin'" class="rectadmin">{{a.userid.status}}</div>
             <div ng-if="a.userid.status=='Co-Owner'" class="rectcoowner">{{a.userid.status}}</div>
+            <div ng-if="a.userid.status=='Announcement Bot'" class="rectannouncement">{{a.userid.status}}</div>
 
 
         </td>

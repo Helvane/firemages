@@ -20,7 +20,8 @@
         <a ng-if="user.status=='Head Admin'"><img ng-src="/images/{{user.photo}}" class="boxrectimgheadadmin"/></a>
         <a ng-if="user.status=='Server Tech'"><img ng-src="/images/{{user.photo}}" class="boxrectimgtech"/></a>
         <a ng-if="user.status=='Server Admin'"><img ng-src="/images/{{user.photo}}" class="boxrectimgadmin"/></a>
-        <a ng-if="user.status=='Co-Owner'"><img ng-src="/images/{{user.photo}}" class="boxrectimgcoowner"/></a>
+        <a ng-if="user.status=='Community Owner'"><img ng-src="/images/{{user.photo}}" class="boxrectimgcoowner"/></a>
+        <a ng-if="user.status=='Announcement Bot'"><img ng-src="/images/{{user.photo}}" class="boxrectimgannouncement"/></a>
 
             <div ng-if="user.status=='Member'" class="rect">{{user.status}}</div>
             <div ng-if="user.status=='Community Guidance'" class="rectcreator">{{user.status}}</div>
@@ -31,7 +32,8 @@
             <div ng-if="user.status=='Server Admin'" class="rectadmin">{{user.status}}</div>
             <div ng-if="user.status=='Head Admin'" class="rectheadadmin">{{user.status}}</div>
             <div ng-if="user.status=='Server Tech'" class="recttech">{{user.status}}</div>
-            <div ng-if="user.status=='Co-Owner'" class="rectcoowner">{{user.status}}</div>
+            <div ng-if="user.status=='Community Owner'" class="rectcoowner">{{user.status}}</div>
+            <div ng-if="user.status=='Announcement Bot'" class="rectannouncement">{{user.status}}</div>
 
 
         </td>
