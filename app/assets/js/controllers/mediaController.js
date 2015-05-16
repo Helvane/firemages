@@ -42,8 +42,4 @@ appController.controller("mediaController",['$scope','$location','ajaxService','
     };
 
 
-
-
-
-
 }]);

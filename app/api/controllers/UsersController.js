@@ -74,7 +74,7 @@ module.exports = {
                 myusers.exec(function(error, result) {
                     if(result.length==0) {
                         Users.create({lastname:params.lastname, firstname:params.firstname, username:params.username,password:params.password,
-                            email:params.email,steamid:params.steamid, photo: files[0].filename, status:'Member',cssclass:'boxrectimage',cssclass2:'rect',fontcolor:'color1'
+                            email:params.email,steamid:params.steamid, photo: files[0].filename, status:'Community Member',cssclass:'boxrectimage',cssclass2:'rect',fontcolor:'color1'
                         }).exec(function(err, created) {
                             console.log(created);
                             var result = {};
@@ -131,7 +131,7 @@ module.exports = {
         myusers.exec(function(error, result2) {
             if(result2.length==0) {
                 Users.create({lastname: params.lastname, firstname: params.firstname, username: params.username, password: params.password,
-                    email: params.email,steamid:params.steamid,status:'Member',cssclass:'boxrectimage',cssclass2:'rect',fontcolor:'color1'
+                    email: params.email,steamid:params.steamid,status:'Community Member',cssclass:'boxrectimage',cssclass2:'rect',fontcolor:'color1'
                 }).exec(function createCB(err, created) {
                     var result = {};
                     result.state=1;

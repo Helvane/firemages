@@ -29,6 +29,10 @@ app.config(['$stateProvider','$urlRouterProvider',
                     'viewD@home':{
                         templateUrl: 'templates/gaming.html',
                         controller: 'gamingController'
+                    },
+                    'viewE@home':{
+                        templateUrl: 'templates/announcement.html',
+                        controller: 'announcementController'
                     }
                 }
             })

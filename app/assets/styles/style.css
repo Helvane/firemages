@@ -104,6 +104,7 @@ pre {color: #ffffff; border: none; font-family: tahoma,Arial,Helvetica,sans-seri
 .color2 {color:#cccccc;}
 .color3 {color:lightskyblue;}
 .color4 {color:#7A2B2B;}
+.color5 {color:deeppink;}
 
 .alertColor {color:#ff00ff;}
 
@@ -114,6 +115,11 @@ pre {color: #ffffff; border: none; font-family: tahoma,Arial,Helvetica,sans-seri
 .alink {color: #67B168;}
 .alink:hover{color: #67B168}
 
+.alink2 {color: #ff00ff;}
+.alink2:hover{color: #ff00ff}
+
 
 pre a{color: #33CC33}
 pre a:hover{color: #33CC33;}
+
+.mycolortest {color: #0040D0; font-family: tahoma,Arial,Helvetica,sans-serif;}
