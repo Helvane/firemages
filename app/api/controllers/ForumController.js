@@ -109,6 +109,12 @@ module.exports = {
         Forum.find({topic:param.topic}).populateAll().sort('id desc').exec(function(err,result){
             return res.json(result);
         });
+    },
+    lockForum:function(req, res){
+        var param=req.params.all();
+        Forum.update({id:param.forumid},{lock:param.lock}).exec(function(err,result){
+            return res.json(result);
+        });
     }
 
 };

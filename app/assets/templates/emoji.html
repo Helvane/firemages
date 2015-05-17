@@ -1,9 +1,9 @@
 <div>
-    <i class="fa fa-remove fa-2x pull-right" ng-click="cancel()"></i>
+    <i class="fa fa-remove fa-2x pull-right pointer" ng-click="cancel()"></i>
 </div>
 <table class="table">
     <tr ng-repeat="icon in icons track by $index" ng-click="ok($index)">
-        <td>{{icon.title}}</td>
+        <td class="pointer">{{icon.title}}</td>
 
         <td ng-bind-html="icon.title | emoji"></td>
     </tr>

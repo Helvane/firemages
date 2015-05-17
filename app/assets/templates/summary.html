@@ -1,5 +1,7 @@
 <div class="space50">&nbsp;</div>
 
+<img class="pointer" ng-if="forum.lock==true" src="/myphoto/Forum-Locked-Button.png" alt="" ng-click="lockpopup()">
+
 <table class="table">
     <tr>
         <th class="col-sm-2">Author</th><th class="col-sm-10">Message</th>
@@ -63,9 +65,12 @@
             </p>
         </td>
     </tr>
-    <tr ng-show="logindata" ng-if="logindata.status=='Community Guidance'||logindata.status=='Community Founder'||logindata.userid==forum.userid.id || forum.topic.name=='Media' || forum.topic.name=='Announcement' || forum.topic.name=='Gaming'">
+    <tr ng-show="logindata && forum.lock==false" ng-if="logindata.status=='Community Guidance'||logindata.status=='Community Founder' || (logindata.status=='Community Owner' && forum.topic.name !='Admin Application') ||logindata.userid==forum.userid.id || forum.topic.name=='Media' || forum.topic.name=='Announcement' || forum.topic.name=='Gaming'">
         <td class="col-sm-2">
             <button class="btn btn-info" ng-click="reply()">Reply</button>
+            <br/>
+            <br/>
+            <button ng-if="logindata.status=='Community Owner' || logindata.status=='Community Guidance' || logindata.status=='Community Founder'" class="btn btn-info" ng-click="lock()">Lock This Forum</button>
         </td>
         <td class="col-sm-10">
             <div ng-show="replyflag==true">

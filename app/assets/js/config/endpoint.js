@@ -28,6 +28,7 @@ var CREATEFORUMURLPHOTO='/Forum/createphoto';
 var GETFORUMURL='/Forum/getForum';
 var GETAFORUMURL='/Forum/getAForum';
 var GETMEDIAFORUMURL='/Forum/getMediaForum';
+var LOCKFORUMURL='/Forum/lockForum';
 
 var CREATEANSWERURL='/Forumanswer/create';
 var GETANSWERURL='/Forumanswer/getAnswer';

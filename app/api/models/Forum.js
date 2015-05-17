@@ -27,6 +27,10 @@ module.exports = {
       photo:{
           type:'string',
           size:30
+      },
+      lock:{
+          type:'boolean',
+          defaultsTo:false
       }
   }
 };

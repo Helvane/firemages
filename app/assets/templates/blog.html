@@ -1,6 +1,6 @@
 
 <h2 class="logo">Blog</h2>
-
+<div ng-if="person">
 <div class="space">
     What do you want to say?
 
@@ -47,6 +47,7 @@
 </div>
 
 <br/>
+</div>
 
 <div class="media-list" ng-repeat="msg in listmessages track by $index">
     <div class="media bottomline" id="blog">

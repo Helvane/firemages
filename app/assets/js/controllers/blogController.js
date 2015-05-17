@@ -4,6 +4,7 @@
 
 appController.controller("blogController",['$scope','shareService','ajaxService','FileUploader','$modal',function($scope,shareService,ajaxService,FileUploader,$modal){
 
+     $scope.person=shareService.getlogin();
     $scope.blogid=0;
     $scope.users=shareService.getusers();
     if($scope.users.length == 0) {
@@ -21,12 +22,12 @@ appController.controller("blogController",['$scope','shareService','ajaxService'
     $scope.message="";
 
     $scope.savebtn=function() {
-        var person=shareService.getlogin();
+
 
         var param={};
         param.message=angular.copy($scope.message);
-        param.username=person.username;
-        param.photo=person.photo;
+        param.username=$scope.person.username;
+        param.photo=$scope.person.photo;
         var senddata=ajaxService.ajaxFactory(BLOGURL,param,'POST');
         senddata.then(
             function(data) {

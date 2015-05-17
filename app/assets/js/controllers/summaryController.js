@@ -4,6 +4,7 @@
 
 appController.controller("summaryController",['$scope','ajaxService','shareService','$modal','$stateParams',function($scope, ajaxService, shareService, $modal,$stateParams){
 
+    $scope.logindata=shareService.getlogin();
     $scope.forumid=$stateParams.forumid;
     $scope.forum=shareService.getForum();
 
@@ -27,7 +28,7 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
     $scope.msg={responseText:''};
     $scope.answers=[];
     $scope.update='';
-    $scope.logindata=shareService.getlogin();
+
 
     $scope.$watch('update',function(){
        var param={};
@@ -94,6 +95,47 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
                 $scope.msg.responseText = angular.copy($scope.msg.responseText) + selectedItem.title;
             } else {
                 $scope.msg.responseText = angular.copy($scope.msg.responseText) + selectedItem;
+            }
+        });
+    };
+
+    // this is for lock forum
+    $scope.lock=function(){
+        var param={};
+        param.forumid=$scope.forum.id;
+        param.lock=true;
+
+        var myajax=ajaxService.ajaxFactory(LOCKFORUMURL,param,'post');
+        myajax.then(
+            function(data){
+                // it will trigger the watch
+                $scope.update=Number(new Date);
+                $scope.forum.lock=true;
+
+            },
+            function(err){
+                console.log(err);
+            }
+        );
+    };
+
+    $scope.lockpopup = function () {
+
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/lock.html',
+            controller: 'lockController',
+            resolve: {
+                items: function () {
+                    return $scope.items;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+            if(selectedItem.title) {
+                $scope.message = angular.copy($scope.message) + selectedItem.title;
+            } else {
+                $scope.message = angular.copy($scope.message) + selectedItem;
             }
         });
     };
