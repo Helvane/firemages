@@ -63,7 +63,7 @@
             </p>
         </td>
     </tr>
-    <tr ng-show="logindata" ng-if="logindata.status=='Community Guidance'||logindata.status=='Community Founder'||logindata.userid==forum.userid.id || forum.topic.name=='Media'">
+    <tr ng-show="logindata" ng-if="logindata.status=='Community Guidance'||logindata.status=='Community Founder'||logindata.userid==forum.userid.id || forum.topic.name=='Media' || forum.topic.name=='Announcement' || forum.topic.name=='Gaming'">
         <td class="col-sm-2">
             <button class="btn btn-info" ng-click="reply()">Reply</button>
         </td>
