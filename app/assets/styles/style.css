@@ -124,3 +124,7 @@ pre a{color: #33CC33}
 pre a:hover{color: #33CC33;}
 
 .mycolortest {color: #0040D0; font-family: tahoma,Arial,Helvetica,sans-serif;}
+
+.btnmain {background: #454545; color: #ffffff; display: inline-block; border: 1px solid #0066FF; padding:10px;}
+
+.btnmain:hover {display: inline-block; border: 1px solid #ffffff;}
