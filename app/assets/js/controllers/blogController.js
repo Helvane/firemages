@@ -19,13 +19,11 @@ appController.controller("blogController",['$scope','shareService','ajaxService'
         );
     }
 
-    $scope.message="";
+    $scope.message={"msg":""};
 
     $scope.savebtn=function() {
-
-
         var param={};
-        param.message=angular.copy($scope.message);
+        param.message=angular.copy($scope.message.msg);
         param.username=$scope.person.username;
         param.photo=$scope.person.photo;
         var senddata=ajaxService.ajaxFactory(BLOGURL,param,'POST');
@@ -33,7 +31,7 @@ appController.controller("blogController",['$scope','shareService','ajaxService'
             function(data) {
                 $scope.blogid=data.blogid;
                 $scope.update=Number(new Date);
-                $scope.message="";
+                $scope.message.msg="";
 
                 if(uploader.queue.length > 0) {
                     uploader.uploadAll();
@@ -45,7 +43,7 @@ appController.controller("blogController",['$scope','shareService','ajaxService'
                 alert(error);
             }
         );
-    }
+    };
 
    //get blog message
     $scope.update="";
@@ -174,6 +172,27 @@ appController.controller("blogController",['$scope','shareService','ajaxService'
     $scope.deleteitem=function(item){
         item.remove();
     }
+
+    $scope.formattingpopup = function () {
+
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/formatting.html',
+            controller: 'formattingController',
+            resolve: {
+                items: function () {
+                    return $scope.items;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+            if(selectedItem.title) {
+                $scope.message = angular.copy($scope.message) + selectedItem.title;
+            } else {
+                $scope.message = angular.copy($scope.message) + selectedItem;
+            }
+        });
+    };
 
 
 }]);

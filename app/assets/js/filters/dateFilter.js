@@ -54,3 +54,15 @@ appFilter.filter("newlinefilter",function(){
     };
 
 });
+
+
+
+appFilter.filter("unsafe",function($sce,$sanitize,$filter){
+    return function(str) {
+        //var str2=$filter('linky')(str);
+        var str3=$filter('emoji')(str);
+
+        return $sce.trustAsHtml(str3);
+    };
+
+});

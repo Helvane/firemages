@@ -208,5 +208,26 @@ appController.controller("forumsController",['$scope','ajaxService','shareServic
         $scope.error='';
     });
 
+    
+    $scope.formattingpopup = function () {
+
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/formatting.html',
+            controller: 'formattingController',
+            resolve: {
+                items: function () {
+                    return $scope.items;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+            if(selectedItem.title) {
+                $scope.message = angular.copy($scope.message) + selectedItem.title;
+            } else {
+                $scope.message = angular.copy($scope.message) + selectedItem;
+            }
+        });
+    };
 
 }]);

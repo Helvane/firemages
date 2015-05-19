@@ -126,7 +126,7 @@ app.config(['$stateProvider','$urlRouterProvider',
 
 
 
-var appController=angular.module('appController',['ui.router','ngResource','ngCookies']);
+var appController=angular.module('appController',['ui.router','ngResource','ngCookies','ngSanitize','emoji']);
 
 var appService=angular.module('appService',['ngResource']);
 
