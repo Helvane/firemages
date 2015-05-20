@@ -208,7 +208,7 @@ appController.controller("forumsController",['$scope','ajaxService','shareServic
         $scope.error='';
     });
 
-    
+
     $scope.formattingpopup = function () {
 
         var modalInstance = $modal.open({

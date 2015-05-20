@@ -89,6 +89,12 @@ textarea {height: 400px; width: 100%; color: black;}
 .boxrectimgannouncement {border: 3px solid #7A2B2B;}
 .rectannouncement {background-color: #7A2B2B; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
 
+.boxrectimggmod {border: 3px solid #EF9AD8;}
+.rectgmod {background-color: #EF9AD8; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
+
+.boxrectimgmc {border: 3px solid #339900;}
+.rectmc {background-color: #339900; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
+
 .pointer {cursor: pointer;}
 .moveup {top: -20px; position: relative;}
 
@@ -107,6 +113,9 @@ pre {color: #ffffff; border: none; font-family: tahoma,Arial,Helvetica,sans-seri
 .color5 {color:deeppink;}
 .color6 {color: #6633FF;}
 .color7 {color: #1D526F;}
+.color8 {color: #D1651D;}
+.color9 {color: #EF9AD8;}
+.color10 {color: #339900;}
 
 .alertColor {color:#ff00ff;}
 
