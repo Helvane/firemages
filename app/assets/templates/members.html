@@ -9,7 +9,7 @@
 
 
     <tr ng-repeat="user in users track by $index">
-        <td>
+        <td class="col-sm-2">
 
         <a ng-if="user.status=='Community Member'"><img ng-src="/images/{{user.photo}}" class="boxrectimg"/></a>
         <a ng-if="user.status=='Community Guidance'"><img ng-src="/images/{{user.photo}}" class="boxrectimgcreator"/></a>
