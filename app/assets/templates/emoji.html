@@ -3,15 +3,9 @@
 </div>
 <table class="table">
     <tr ng-repeat="icon in icons track by $index" ng-click="ok($index)">
-        <td class="pointer">{{icon.title}}</td>
-
-        <td ng-bind-html="icon.title | emoji"></td>
+        <td class="pointer">
+            <img src="{{icon.url}}" class="img-responsive" ng-click="getIcon($index)"/>
+        </td>
     </tr>
 
 </table>
-
-<ul class="list-unstyled">
-    <li><div class="icon0" ng-click="getIcon(0)"></div></li>
-    <li><div class="icon1" ng-click="getIcon(1)"></div></li>
-
-</ul>

@@ -5,16 +5,35 @@
 
 appController.controller("emojiController",['$scope','$modalInstance', 'items',function($scope,$modalInstance, items){
 
-    $scope.icons=[{"title":":smiley:"},
-        {"title":":heart:"}, {"title":":apple:"}, {"title":":anger:"}, {"title":":angry:"}, {"title":":kiss:"}, {"title":":kissing:"},
-        {"title":":heart_eyes:"}, {"title":":cry:"}, {"title":":joy:"}, {"title":":information_desk_person:"},{"title":":Crying:"},
-        {"title":":Face 2:"}
+    $scope.icons=[
+        {"url":"/myphoto/Face 2.gif"},
+        {"url":"/myphoto/Face 3.gif"},
+        {"url":"/myphoto/Face 4.gif"},
+        {"url":"/myphoto/Face 5.gif"},
+        {"url":"/myphoto/Crying.gif"},
+        {"url":"/myphoto/Chef Face.gif"},
+        {"url":"/myphoto/Winky Face.gif"},
+        {"url":"/myphoto/Lol Face.gif"},
+        {"url":"/myphoto/Confuse Face.gif"},
+        {"url":"/myphoto/Santa Face.png"},
+        {"url":"/myphoto/Smile Face [2].gif"},
+        {"url":"/myphoto/Troll Face.png"},
+        {"url":"/myphoto/Thumbs Up.gif"},
+        {"url":"/myphoto/Movie Face.gif"},
+        {"url":"/myphoto/Support.gif"},
+        {"url":"/myphoto/Support [2].gif"},
+        {"url":"/myphoto/Welcome Sign.gif"},
+        {"url":"/myphoto/Censored Face.gif"},
+        {"url":"/myphoto/Chair Face.gif"},
+        {"url":"/myphoto/Torch Fire.gif"},
+        {"url":"/myphoto/Jason Slayer.gif"},
+        {"url":"/myphoto/Canadian Flag.png"}
+
 
     ];
 
     $scope.ok = function (index) {
-        var icon=$scope.icons[index];
-        $modalInstance.close(icon);
+       $scope.getIcon(index);
     };
 
     $scope.cancel = function () {
@@ -22,7 +41,7 @@ appController.controller("emojiController",['$scope','$modalInstance', 'items',f
     };
 
     $scope.getIcon=function(index){
-       var icon='<div class="icon'+index+'"></div>';
+       var icon='<span><img src="'+$scope.icons[index].url+'"></span>';
         $modalInstance.close(icon);
     };
 }]);
