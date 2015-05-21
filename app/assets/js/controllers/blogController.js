@@ -162,9 +162,9 @@ appController.controller("blogController",['$scope','shareService','ajaxService'
 
         modalInstance.result.then(function (selectedItem) {
             if(selectedItem.title) {
-                $scope.message = angular.copy($scope.message) + selectedItem.title;
+                $scope.message.msg = angular.copy($scope.message.msg) + selectedItem.title;
             } else {
-                $scope.message = angular.copy($scope.message) + selectedItem;
+                $scope.message.msg = angular.copy($scope.message.msg) + selectedItem;
             }
         });
     };
