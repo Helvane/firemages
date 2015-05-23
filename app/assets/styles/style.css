@@ -71,8 +71,8 @@ textarea {height: 400px; width: 100%; color: black;}
 .space50 {margin-bottom:50px;}
 
 
-.boxrectimgnorank {border: 3px solid #454545;}
-.rectnorank {background-color: #454545; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
+.boxrectimgnorank {border: 3px solid #777777;}
+.rectnorank {background-color: #777777; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
 
 .boxrectimgtech {border: 3px solid #EF9AD8;}
 .recttech {background-color: #EF9AD8; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
@@ -116,6 +116,7 @@ pre {color: #ffffff; border: none; font-family: tahoma,Arial,Helvetica,sans-seri
 .color8 {color: #D1651D;}
 .color9 {color: #EF9AD8;}
 .color10 {color: #339900;}
+.color11 {color: #ffffff; font-size: 11px;}
 
 .alertColor {color:#ff00ff;}
 

@@ -10,6 +10,7 @@ appController.controller("emojiController",['$scope','$modalInstance', 'items',f
         {"url":"/myphoto/Face 3.gif"},
         {"url":"/myphoto/Face 4.gif"},
         {"url":"/myphoto/Face 5.gif"},
+        {"url":"/myphoto/Nodding Face.gif"},
         {"url":"/myphoto/Crying.gif"},
         {"url":"/myphoto/Chef Face.gif"},
         {"url":"/myphoto/Winky Face.gif"},
@@ -27,7 +28,11 @@ appController.controller("emojiController",['$scope','$modalInstance', 'items',f
         {"url":"/myphoto/Chair Face.gif"},
         {"url":"/myphoto/Torch Fire.gif"},
         {"url":"/myphoto/Jason Slayer.gif"},
-        {"url":"/myphoto/Canadian Flag.png"}
+        {"url":"/myphoto/Canadian Flag.png"},
+        {"url":"/myphoto/British Flag.png"},
+        {"url":"/myphoto/American Flag.png"},
+        {"url":"/myphoto/German Flag.png"}
+
 
 
     ];
