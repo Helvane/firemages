@@ -45,6 +45,15 @@ app.config(['$stateProvider','$urlRouterProvider',
                     }
                 }
             })
+            .state('profile', {
+                url:'/profile/:id',
+                views: {
+                    "viewA": {
+                        templateUrl: 'templates/profile.html',
+                        controller: 'profileController'
+                    }
+                }
+            })
             .state('updateRegister', {
                 url:'/updateRegister',
                 views: {

@@ -3,21 +3,15 @@
 
 <table class="table table-hover">
     <tr>
-        <th>#</th><th>Username</th><th>Title</th><th>Date</th>
+        <th>#</th><th colspan="2">Username</th><th>Title</th><th>Date</th>
     </tr>
     <tr ng-repeat="f in forums track by $index">
         <td class="col-sm-1">{{$index+1}}</td>
-        <td class="col-sm-3">
-            <ul class="list-inline list-unstyled">
-                <li>
-                    <img src="/images/{{f.userid.photo}}" class="img-responsive smallphoto"/>
-                </li>
-                <li class="moveup">
-
-                    {{f.userid.username}}
-                </li>
-
-            </ul>
+        <td class="col-sm-1">
+            <img src="/images/{{f.userid.photo}}" class="img-responsive smallphoto"/>
+        </td>
+        <td class="col-sm-2">
+            <a href="#/profile/{{f.userid.id}}" class="whiteColor">{{f.userid.username}}</a>
         </td>
 
         <td class="pointer col-sm-6"><a class="alink2" ng-click="gotosummary(f)">{{f.title}}</a></td>

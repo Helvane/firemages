@@ -294,6 +294,15 @@ module.exports = {
         login.userid=req.session.userid;
         login.username=req.session.username;
         return res.json(login);
+    },
+
+    getprofile:function(req,res){
+        var param=req.params.all();
+        Users.findOne({id:param.userid},{lastname:1,firstname:1,username:1,steamid:1,photo:1,online:1,status:1,cssclass:1,cssclass2:1,fontcolor:1}).exec(
+            function(err,result){
+                return res.json(result);
+            }
+        )
     }
 
 };

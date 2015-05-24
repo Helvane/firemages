@@ -1,0 +1,18 @@
+<h1 class="logo">Profile</h1>
+<div class="panel panel-primary">
+    <div class="panel-heading">{{person.username}}</div>
+    <div class="panel-body BGgrey">
+        <div class="row">
+          <div class="col-sm-4">
+              <img src="images/{{person.photo}}"/>
+          </div>
+            <div class="col-sm-8">
+               <ul class="list-unstyled">
+                   <li>Steam ID : {{person.steamid}}</li>
+                   <li>Status : {{person.online|onlinefilter}}</li>
+               </ul>
+            </div>
+
+        </div>
+    </div>
+</div>

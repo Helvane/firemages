@@ -5655,4 +5655,15 @@ button.close {
 .btn-black {
   background: #454545; }
 
+.BGgrey {
+  background: #888888; }
+
+.whiteColor {
+  color: #ffffff;
+  font-weight: bold; }
+
+.whiteColor:hover {
+  color: #ffffff;
+  font-weight: bold; }
+
 /*# sourceMappingURL=app.css.map */

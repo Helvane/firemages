@@ -3,6 +3,7 @@
 
 <h2 class="logo">Chatroom</h2>
 
+<div ng-if="person.status!='Server Banned'">
 <div class="row">
     <div class="col-md-9">
         <div class="message" id="chatmsg">
@@ -45,4 +46,5 @@
         <button class="btn btn-primary" ng-click="emoticon()">Emoticon</button>
             </div>
     </div>
+</div>
 </div>

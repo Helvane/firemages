@@ -49,7 +49,7 @@
                 <img src="/images/{{forum.userid.photo}}" class="boxrectimgmc"/>
             </a>
 
-            <div class="text-center smallfont">{{forum.userid.username}}</div>
+            <div class="text-center smallfont"><a href="#/profile/{{forum.userid.id}}" class="whiteColor">{{forum.userid.username}}</a></div>
             <div ng-if="forum.userid.status=='Community Member'" class="rect">{{forum.userid.status}}</div>
             <div ng-if="forum.userid.status=='Community Guidance'" class="rectcreator">{{forum.userid.status}}</div>
             <div ng-if="forum.userid.status=='Designer Bot'" class="designerbot">{{forum.userid.status}}</div>
@@ -73,7 +73,8 @@
             </p>
         </td>
     </tr>
-    <tr ng-show="logindata && forum.lock==false" ng-if="logindata.status=='Community Guidance'||logindata.status=='Community Founder' || (logindata.status=='Community Owner' && forum.topic.name !='Admin Application') ||logindata.userid==forum.userid.id || forum.topic.name=='Media' || forum.topic.name=='Announcement' || forum.topic.name=='Gaming'">
+    <tr ng-show="logindata && forum.lock==false" ng-if="logindata.status=='Community Guidance'||logindata.status=='Community Founder' || (logindata.status=='Community Owner' && (forum.topic.name !='Admin Application'&& forum.topic.name !='Head-Admin Application')) ||(logindata.userid==forum.userid.id && logindata.status!='Server Banned') || (forum.topic.name=='Media' && logindata.status!='Server Banned') || (forum.topic.name=='Announcement' && logindata.status!='Server Banned') || (forum.topic.name=='Gaming' && logindata.status!='Server Banned')">
+
         <td class="col-sm-2">
             <button class="btn btn-info" ng-click="reply()">Reply</button>
             <br/>
@@ -138,7 +139,7 @@
                 <img src="/images/{{a.userid.photo}}" class="boxrectimgmc"/>
             </a>
 
-            <div class="text-center smallfont">{{a.userid.username}}</div>
+            <div class="text-center smallfont"><a href="#/profile/{{a.userid.id}}" class="whiteColor">{{a.userid.username}}</a></div>
             <div ng-if="a.userid.status=='Community Member'" class="rect">{{a.userid.status}}</div>
             <div ng-if="a.userid.status=='Community Guidance'" class="rectcreator">{{a.userid.status}}</div>
             <div ng-if="a.userid.status=='Designer Bot'" class="designerbot">{{a.userid.status}}</div>

@@ -15,12 +15,12 @@
 
 <div ng-if="error" class="alert alert-warning">{{error}}</div>
 
-<div class="form-group">
 
+<div ng-if="logindata.status!='Server Banned'">
+<div class="form-group">
 <label class="control-label">Choose A Topic</label>
 <select class="form-control" ng-model="forum.topic">
     <option ng-repeat="topic in topics track by $index" value="{{topic.id}}">{{topic.name}}</option>
-
 </select>
 </div>
 
@@ -45,6 +45,7 @@
     <button class="btn btn-primary" ng-click="emoticon()">Emoticon</button>
     <button class="btnmain" ng-click="formattingpopup()">Formatting Help</button>
 </div>
+</div>
 
 <br/>
 <table class="table table-hover">
@@ -57,7 +58,7 @@
         <td class="col-sm-3">
             <ul class="list-inline list-unstyled">
             <li><img src="/images/{{f.userid.photo}}" class="img-responsive smallphoto"/></li>
-            <li class="moveup"> {{f.userid.username}}</li>
+            <li class="moveup"> <a href="#/profile/{{f.user.id}}" class="whiteColor">{{f.userid.username}}</a></li>
                 </ul>
         </td>
         <td class="pointer col-sm-4"><a class="alink" ng-click="gotosummary(f)">{{f.title}}</a></td>

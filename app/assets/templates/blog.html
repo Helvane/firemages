@@ -1,6 +1,6 @@
 
 <h2 class="logo">Blog</h2>
-<div ng-if="person">
+<div ng-if="person && person.status!='Server Banned'">
 <div class="space">
     What do you want to say?
 
@@ -95,7 +95,7 @@
                 <img src="/images/{{msg.userid.photo}}" class="boxrectimgmc"/>
             </a>
 
-             <div class="text-center smallfont">{{msg.userid.username}}</div>
+             <div class="text-center smallfont"><a href="#/profile/{{msg.userid.id}}" class="whiteColor">{{msg.userid.username}}</a></div>
             <div ng-if="msg.userid.status=='Community Member'" class="rect">{{msg.userid.status}}</div>
             <div ng-if="msg.userid.status=='Community Guidance'" class="rectcreator">{{msg.userid.status}}</div>
             <div ng-if="msg.userid.status=='Designer Bot'" class="designerbot">{{msg.userid.status}}</div>

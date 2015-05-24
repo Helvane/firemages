@@ -1,6 +1,6 @@
 <h3>Who is online</h3>
 <table class="table table-strip">
     <tr ng-repeat="u in users track by $index">
-        <td><span class="{{u.fontcolor}}">{{u.username}}</span></td>
+        <td><a href="#/profile/{{u.id}}" class="{{u.fontcolor}}">{{u.username}}</a></td>
     </tr>
 </table>
