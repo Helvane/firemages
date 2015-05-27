@@ -94,6 +94,9 @@
             <a ng-if="msg.userid.status=='Community Head-Admin (MC)'">
                 <img src="/images/{{msg.userid.photo}}" class="boxrectimgmc"/>
             </a>
+            <a ng-if="msg.userid.status=='Community Advisor'">
+                <img src="/images/{{msg.userid.photo}}" class="boxrectimgadvisor"/>
+            </a>
 
              <div class="text-center smallfont"><a href="#/profile/{{msg.userid.id}}" class="whiteColor">{{msg.userid.username}}</a></div>
             <div ng-if="msg.userid.status=='Community Member'" class="rect">{{msg.userid.status}}</div>
@@ -109,6 +112,7 @@
             <div ng-if="msg.userid.status=='Announcement Bot'" class="rectannouncement">{{msg.userid.status}}</div>
             <div ng-if="msg.userid.status=='Community Head-Admin (Gmod)'" class="rectgmod">{{msg.userid.status}}</div>
             <div ng-if="msg.userid.status=='Community Head-Admin (MC)'" class="rectmc">{{msg.userid.status}}</div>
+            <div ng-if="msg.userid.status=='Community Advisor'" class="rectadvisor">{{msg.userid.status}}</div>
 
 
         </div>

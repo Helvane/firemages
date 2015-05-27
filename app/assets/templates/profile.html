@@ -10,7 +10,23 @@
                <ul class="list-unstyled">
                    <li>Steam ID : {{person.steamid}}</li>
                    <li>Status : {{person.online|onlinefilter}}</li>
+                   <li>Rank : <span class="{{person.fontcolor}}">{{person.status}}</span></li>
                </ul>
+                <pre>
+                    {{person.summary}}
+                </pre>
+                <div ng-show="logindata.userid==person.id">
+
+                <div class="space">
+                    <div>Summary Of Yourself</div>
+                  <textarea class="form-control" ng-model="info.message" maxlength="4500"></textarea>
+                    <div ng-if="errors.message" class="alert alert-warning redColor">{{errors.message}}</div>
+                </div>
+                <div class="space">
+                    <button class="btn btn-info" ng-click="save()">Save</button>
+                </div>
+                </div>
+
             </div>
 
         </div>

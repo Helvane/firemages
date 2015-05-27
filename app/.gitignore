@@ -119,3 +119,5 @@ nbproject
 .tmp
 assets/blogimages
 assets/images
+app/.sass-cache
+.sass-cache

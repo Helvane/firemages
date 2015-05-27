@@ -24,6 +24,7 @@
         <a ng-if="user.status=='Announcement Bot'"><img ng-src="/images/{{user.photo}}" class="boxrectimgannouncement"/></a>
         <a ng-if="user.status=='Community Head-Admin (Gmod)'"><img ng-src="/images/{{user.photo}}" class="boxrectimggmod"/></a>
         <a ng-if="user.status=='Community Head-Admin (MC)'"><img ng-src="/images/{{user.photo}}" class="boxrectimgmc"/></a>
+        <a ng-if="user.status=='Community Advisor'"><img ng-src="/images/{{user.photo}}" class="boxrectimgadvisor"/></a>
 
             <div ng-if="user.status=='Community Member'" class="rect">{{user.status}}</div>
             <div ng-if="user.status=='Community Guidance'" class="rectcreator">{{user.status}}</div>
@@ -38,6 +39,7 @@
             <div ng-if="user.status=='Announcement Bot'" class="rectannouncement">{{user.status}}</div>
             <div ng-if="user.status=='Community Head-Admin (Gmod)'" class="rectgmod">{{user.status}}</div>
             <div ng-if="user.status=='Community Head-Admin (MC)'" class="rectmc">{{user.status}}</div>
+            <div ng-if="user.status=='Community Advisor'" class="rectadvisor">{{user.status}}</div>
 
 
         </td>

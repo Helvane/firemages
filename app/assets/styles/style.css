@@ -45,7 +45,7 @@ body
 .clearall {clear: both;}
 
 .center {margin:0 auto; width: 100%; text-align: center}
-.greencolor {color:green;}
+.greencolor {color:#009900}
 .smallspace {height: 100px;}
 
 .text-danger {color: #ff0000;}
@@ -95,6 +95,9 @@ textarea {height: 400px; width: 100%; color: black;}
 .boxrectimgmc {border: 3px solid #339900;}
 .rectmc {background-color: #339900; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
 
+.boxrectimgadvisor {border: 3px solid #99CCFF;}
+.rectadvisor {background-color: #99CCFF; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
+
 .pointer {cursor: pointer;}
 .moveup {top: -20px; position: relative;}
 
@@ -108,7 +111,7 @@ pre {color: #ffffff; border: none; font-family: tahoma,Arial,Helvetica,sans-seri
 
 .color1 {color:#5890AD; font-weight: bold;}
 .color2 {color:#cccccc; font-weight: bold;}
-.color3 {color:lightskyblue; font-weight: bold;}
+.color3 {color: lightskyblue; font-weight: bold;}
 .color4 {color:#7A2B2B; font-weight: bold;}
 .color5 {color:deeppink; font-weight: bold;}
 .color6 {color: #6633FF; font-weight: bold;}
@@ -117,6 +120,7 @@ pre {color: #ffffff; border: none; font-family: tahoma,Arial,Helvetica,sans-seri
 .color9 {color: #EF9AD8; font-weight: bold;}
 .color10 {color: #339900; font-weight: bold;}
 .color11 {color: #ffffff; font-size: 11px; font-weight: bold;}
+.color12 {color: #99CCFF; font-weight: bold;}
 
 a.color1:hover{ text-decoration:none; border-bottom:1px solid #5890AD; color: #5890AD;}
 a.color2:hover{ text-decoration:none; border-bottom:1px solid #cccccc; color: #cccccc;}
@@ -129,6 +133,7 @@ a.color8:hover{ text-decoration:none; border-bottom:1px solid #D1651D; color: #D
 a.color9:hover{ text-decoration:none; border-bottom:1px solid #EF9AD8; color: #EF9AD8;}
 a.color10:hover{ text-decoration:none; border-bottom:1px solid #339900; color: #339900;}
 a.color11:hover{ text-decoration:none; border-bottom:1px solid #ffffff; color: #ffffff;}
+a.color12:hover{ text-decoration:none; border-bottom:1px solid #99CCFF; color: #99CCFF;}
 
 
 .alertColor {color:#ff00ff;}
@@ -162,6 +167,8 @@ pre a:hover{color: #33CC33;}
 }
 
 .panel-primary {border: 1px solid #665599;}
+
+.picwidth {width: 650px;}
 
 
 

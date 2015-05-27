@@ -16,10 +16,12 @@ appController.controller("menuController",['$scope','shareService','$location','
                 $scope.menus[4].title = "Update";
 
                 $scope.menus[5].status = 1;
+                $scope.menus[7].status=0;
 
             } else {
                 // if a user is not login, it changes the update to register.
                 $scope.menus[4].title = "Register";
+                $scope.menus[7].status=1;
             }
 
         }

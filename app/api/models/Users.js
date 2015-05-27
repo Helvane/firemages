@@ -33,7 +33,9 @@ module.exports = {
       },
       email: {
           type: 'string',
-          size:200
+          size:200,
+          unique:true,
+          required:true
 
 
       },
@@ -73,6 +75,10 @@ module.exports = {
           type: 'string',
           size:30
 
+      },
+      summary:{
+          type:'string',
+          size:4500
       }
 
 

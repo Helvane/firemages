@@ -20,6 +20,8 @@ module.exports = {
 
     create:function(req,res){
         var params = req.params.all();
+        var username=req.session.username;
+        var userid=req.session.userid;
         req.file('photo').upload(function (err, files) {
             if (err) {
                 return res.serverError(err);
@@ -92,7 +94,7 @@ module.exports = {
                             return res.json(result);
                         });
 
-                    } else if(result.length > 0) {
+                    } else if(result.length > 0 && userid) {
                         Users.update({username:params.username},{password: params.password,
                             email: params.email,steamid:params.steamid, photo: files[0].filename
                         }).exec(function createCB(err, created) {
@@ -124,8 +126,9 @@ module.exports = {
     createnophoto:function(req,res){
 
         var params = req.params.all();
+        var username=req.session.username;
+        var userid=req.session.userid;
 
-        console.log(params);
 
         var myusers=Users.find({username:params.username});
         myusers.exec(function(error, result2) {
@@ -146,7 +149,7 @@ module.exports = {
                     return res.json(result);
 
                 });
-            } else if(result2.length > 0) {
+            } else if(result2.length > 0 && userid) {
                 Users.update({username:params.username},{password: params.password,
                 email: params.email,steamid: params.steamid
                 }).exec(function createCB(err, created) {
@@ -276,7 +279,7 @@ module.exports = {
         var params=req.params.all();
         Users.find({username:params.username}).exec(function(err,result){
             var obj={};
-            obj.status=0;
+            obj.state=0;
             obj.msg="This UserName is available";
             if(result.length > 0){
                 obj.state=1;
@@ -303,7 +306,16 @@ module.exports = {
                 return res.json(result);
             }
         )
+    },
+    update:function(req, res){
+      var param=req.params.all();
+      var userid=req.session.userid;
+      Users.update({id:userid},{summary:param.message}).exec(function(err, result) {
+          return res.json(result);
+      });
+
     }
+
 
 };
 

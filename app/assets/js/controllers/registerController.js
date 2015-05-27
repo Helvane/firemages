@@ -12,7 +12,7 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
     $scope.saveclass="";
     $scope.errormsg="";
     $scope.emailmsg="Enter your E-Mail";
-    $scope.usernameclass="text-danger";
+    $scope.usernameclass="";
 
     $scope.validate=function(){
         var count=0;
@@ -30,6 +30,7 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
         }
 
         if($scope.person.username==""){
+            $scope.usernameclass='text-danger';
             $scope.usernamemsg="Enter your UserName";
             $scope.error.username=true;
             count++;
@@ -86,6 +87,7 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
     });
     $scope.usernamemsg="";
     $scope.$watch("person.username",function(){
+        $scope.usernameclass="";
         $scope.usernamemsg="";
         $scope.saveflag=false;
         $scope.saveclass="";
@@ -170,15 +172,18 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
         myajax.then(function(data){
                 if(data.state==1) {
                     shareService.setlogin(data);
+                    $scope.usernameclass='greencolor';
                     $scope.errormsg = "Register a new account is successfully";
                     $scope.saveflag=true;
                 } else if(data.state==2) {
+                    $scope.usernameclass='greencolor';
                     $scope.errormsg = "Update your account is successfully";
                     var mydata=data;
                     mydata.photo=angular.copy($scope.person.photo)
                     shareService.setlogin(mydata);
                     $scope.saveflag=true;
                 } else {
+                    $scope.usernameclass='text-danger';
                     $scope.errormsg="This E-Mail and UserName are already existed in our database system";
                 }
                 $scope.saveclass="";
@@ -266,15 +271,18 @@ appController.controller("registerController",['$scope','ajaxService','shareServ
         var data=response;
         if(data.state==1) {
             shareService.setlogin(data);
+            $scope.usernameclass='greencolor';
             $scope.errormsg = "Register a new account is successfully";
             $scope.saveflag=true;
         } else if(data.state==2) {
+            $scope.usernameclass='greencolor';
             $scope.errormsg = "Update your account is successfully";
             var mydata=data;
             mydata.photo=angular.copy($scope.person.photo);
             shareService.setlogin(mydata);
             $scope.saveflag=true;
         } else {
+            $scope.usernameclass='text-danger';
             $scope.errormsg="This E-Mail and UserName are already existed in our database system";
         }
     };

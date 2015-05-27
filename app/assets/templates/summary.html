@@ -1,6 +1,6 @@
 <div class="space50">&nbsp;</div>
 
-<img class="pointer" ng-if="forum.lock==true" src="/myphoto/Forum-Locked-Button.png" alt="" ng-click="lockpopup()">
+<img class="pointer" ng-if="forum.lock==true" src="/myphoto/Thread-Locked-Button.png" alt="" ng-click="lockpopup()">
 
 <table class="table">
     <tr>
@@ -48,6 +48,9 @@
             <a ng-if="forum.userid.status=='Community Head-Admin (MC)'">
                 <img src="/images/{{forum.userid.photo}}" class="boxrectimgmc"/>
             </a>
+            <a ng-if="forum.userid.status=='Community Advisor'">
+                <img src="/images/{{forum.userid.photo}}" class="boxrectimgadvisor"/>
+            </a>
 
             <div class="text-center smallfont"><a href="#/profile/{{forum.userid.id}}" class="whiteColor">{{forum.userid.username}}</a></div>
             <div ng-if="forum.userid.status=='Community Member'" class="rect">{{forum.userid.status}}</div>
@@ -63,6 +66,7 @@
             <div ng-if="forum.userid.status=='Announcement Bot'" class="rectannouncement">{{forum.userid.status}}</div>
             <div ng-if="forum.userid.status=='Community Head-Admin (Gmod)'" class="rectgmod">{{forum.userid.status}}</div>
             <div ng-if="forum.userid.status=='Community Head-Admin (MC)'" class="rectmc">{{forum.userid.status}}</div>
+            <div ng-if="forum.userid.status=='Community Advisor'" class="rectadvisor">{{forum.userid.status}}</div>
 
         </td>
         <td class="col-sm-10">
@@ -73,13 +77,13 @@
             </p>
         </td>
     </tr>
-    <tr ng-show="logindata && forum.lock==false" ng-if="logindata.status=='Community Guidance'||logindata.status=='Community Founder' || (logindata.status=='Community Owner' && (forum.topic.name !='Admin Application'&& forum.topic.name !='Head-Admin Application')) ||(logindata.userid==forum.userid.id && logindata.status!='Server Banned') || (forum.topic.name=='Media' && logindata.status!='Server Banned') || (forum.topic.name=='Announcement' && logindata.status!='Server Banned') || (forum.topic.name=='Gaming' && logindata.status!='Server Banned')">
+    <tr ng-show="logindata && forum.lock==false" ng-if="logindata.status=='Community Guidance' ||logindata.status=='Community Advisor' ||logindata.status=='Community Founder' || (logindata.status=='Community Owner' && (forum.topic.name !='Admin Application'&& forum.topic.name !='Head-Admin Application')) ||(logindata.userid==forum.userid.id && logindata.status!='Server Banned') || (forum.topic.name=='Media' && logindata.status!='Server Banned') || (forum.topic.name=='Announcement' && logindata.status!='Server Banned') || (forum.topic.name=='Gaming' && logindata.status!='Server Banned')">
 
         <td class="col-sm-2">
             <button class="btn btn-info" ng-click="reply()">Reply</button>
             <br/>
             <br/>
-            <button ng-if="logindata.status=='Community Owner' || logindata.status=='Community Guidance' || logindata.status=='Community Founder'" class="btn btn-info" ng-click="lock()">Lock This Forum</button>
+            <button ng-if="logindata.status=='Community Owner' || logindata.status=='Community Guidance' || logindata.status=='Community Advisor' || logindata.status=='Community Founder'" class="btn btn-info" ng-click="lock()">Lock This Thread</button>
         </td>
         <td class="col-sm-10">
             <div ng-show="replyflag==true">
@@ -138,6 +142,9 @@
             <a ng-if="a.userid.status=='Community Head-Admin (MC)'">
                 <img src="/images/{{a.userid.photo}}" class="boxrectimgmc"/>
             </a>
+            <a ng-if="a.userid.status=='Community Advisor'">
+                <img src="/images/{{a.userid.photo}}" class="boxrectimgadvisor"/>
+            </a>
 
             <div class="text-center smallfont"><a href="#/profile/{{a.userid.id}}" class="whiteColor">{{a.userid.username}}</a></div>
             <div ng-if="a.userid.status=='Community Member'" class="rect">{{a.userid.status}}</div>
@@ -153,6 +160,8 @@
             <div ng-if="a.userid.status=='Announcement Bot'" class="rectannouncement">{{a.userid.status}}</div>
             <div ng-if="a.userid.status=='Community Head-Admin (Gmod)'" class="rectgmod">{{a.userid.status}}</div>
             <div ng-if="a.userid.status=='Community Head-Admin (MC)'" class="rectmc">{{a.userid.status}}</div>
+            <div ng-if="a.userid.status=='Community Advisor'" class="rectadvisor">{{a.userid.status}}</div>
+
 
 
         </td>

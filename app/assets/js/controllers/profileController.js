@@ -7,9 +7,15 @@ appController.controller("profileController",['$scope','shareService','$location
     // get user login information that store in share Service factory
     $scope.logindata=shareService.getlogin();
     $scope.person={};
+    $scope.info={"message":""};
+    $scope.errors={"message":""};
 
     var param={};
-    param.userid=$stateParams.id;
+    if($stateParams.id==0) {
+    param.userid=$scope.logindata.userid;
+    } else {
+    param.userid = $stateParams.id;
+   }
     param.number=Number(new Date);
     var myajax=ajaxService.ajaxFactory('/Users/getprofile',param,'get');
     myajax.then(
@@ -20,5 +26,27 @@ appController.controller("profileController",['$scope','shareService','$location
             console.log(err);
         }
     );
+
+    $scope.$watch("info.message",function(){
+       $scope.errors.message="";
+    });
+
+    $scope.save=function(){
+       $scope.info.userid=$scope.logindata.userid;
+        if($scope.info.message==""){
+            $scope.errors.message="Please write a brief summary about yourself"
+        } else {
+            var ajax = ajaxService.ajaxFactory('/Users/update', $scope.info, 'post');
+            ajax.then(function (data) {
+                    $scope.person.summary = angular.copy ($scope.info.message);
+                    $scope.info.message="";
+                },
+                function (err) {
+                    console.log(err);
+                }
+            )
+        }
+
+    };
 
 }]);
