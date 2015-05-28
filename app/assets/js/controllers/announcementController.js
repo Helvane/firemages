@@ -7,6 +7,7 @@
 appController.controller("announcementController",['$scope','$location','ajaxService','shareService','$filter',function($scope,$location,ajaxService, shareService, $filter){
 
     $scope.update='';
+    $scope.logindata=shareService.getlogin();
 
     $scope.$watch('update',function(){
         $scope.topic=shareService.getTopic();
@@ -42,6 +43,13 @@ appController.controller("announcementController",['$scope','$location','ajaxSer
 
     };
 
-
+    $scope.gotoprofile=function(url){
+        if(!$scope.logindata){
+            shareService.setAlert('You must be logged in to view profiles.');
+            $location.path('/login');
+        } else {
+            $location.path(url);
+        }
+    }
 
 }]);

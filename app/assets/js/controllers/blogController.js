@@ -2,7 +2,7 @@
  * Created by king on 1/10/15.
  */
 
-appController.controller("blogController",['$scope','shareService','ajaxService','FileUploader','$modal',function($scope,shareService,ajaxService,FileUploader,$modal){
+appController.controller("blogController",['$scope','shareService','ajaxService','FileUploader','$modal','$location',function($scope,shareService,ajaxService,FileUploader,$modal,$location){
 
      $scope.person=shareService.getlogin();
     $scope.blogid=0;
@@ -193,6 +193,15 @@ appController.controller("blogController",['$scope','shareService','ajaxService'
             }
         });
     };
+
+    $scope.gotoprofile=function(url){
+        if(!$scope.person){
+            shareService.setAlert('You must be logged in to view profiles.');
+            $location.path('/login');
+        } else {
+            $location.path(url);
+        }
+    }
 
 
 }]);

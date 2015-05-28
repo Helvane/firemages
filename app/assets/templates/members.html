@@ -43,7 +43,7 @@
 
 
         </td>
-        <td><a href="#/profile/{{user.id}}" class="whiteColor">{{user.username}}</a></td>
+        <td><a ng-click="gotoprofile('/profile/'+user.id)" class="whiteColor pointer">{{user.username}}</a></td>
         <td>{{user.createdAt|datefilter}}</td>
         <td>{{user.updatedAt|datetimefilter}}</td>
 

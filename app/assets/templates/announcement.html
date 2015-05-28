@@ -11,7 +11,7 @@
             <img src="/images/{{f.userid.photo}}" class="img-responsive smallphoto"/>
         </td>
         <td class="col-sm-2">
-            <a href="#/profile/{{f.userid.id}}" class="whiteColor">{{f.userid.username}}</a>
+            <a ng-click="gotoprofile('/profile/'+f.userid.id)" class="whiteColor pointer">{{f.userid.username}}</a>
         </td>
 
         <td class="pointer col-sm-6"><a class="alink2" ng-click="gotosummary(f)">{{f.title}}</a></td>

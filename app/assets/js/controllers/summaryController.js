@@ -2,7 +2,7 @@
  * Created by king on 4/12/15.
  */
 
-appController.controller("summaryController",['$scope','ajaxService','shareService','$modal','$stateParams',function($scope, ajaxService, shareService, $modal,$stateParams){
+appController.controller("summaryController",['$scope','ajaxService','shareService','$modal','$stateParams','$location',function($scope, ajaxService, shareService, $modal,$stateParams,$location){
 
     $scope.logindata=shareService.getlogin();
     $scope.forumid=$stateParams.forumid;
@@ -159,5 +159,14 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
             }
         });
     };
+
+    $scope.gotoprofile=function(url){
+        if(!$scope.logindata){
+            shareService.setAlert('You must be logged in to view profiles.');
+            $location.path('/login');
+        } else {
+            $location.path(url);
+        }
+    }
 
 }]);
