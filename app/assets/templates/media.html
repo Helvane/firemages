@@ -6,7 +6,9 @@
         <th>#</th><th colspan="2">Username</th><th>Title</th><th>Date</th>
     </tr>
     <tr ng-repeat="f in forums track by $index">
-        <td class="col-sm-1">{{$index+1}}</td>
+        <td class="col-sm-1">
+            <span class="bgBlack" ng-if="f.lock==true"><i class="fa fa-lock"></i></span>
+        </td>
         <td class="col-sm-1">
             <img src="/images/{{f.userid.photo}}" class="img-responsive smallphoto"/>
         </td>

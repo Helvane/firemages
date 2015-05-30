@@ -5669,4 +5669,11 @@ button.close {
 .redColor {
   color: #ff0000; }
 
+.bgBlack {
+  background: #454545; }
+
+.smallsize {
+  width: 20px;
+  height: 20px; }
+
 /*# sourceMappingURL=app.css.map */
