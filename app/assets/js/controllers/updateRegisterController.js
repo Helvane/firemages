@@ -4,9 +4,9 @@
 
 
 appController.controller("updateRegisterController",['$scope','ajaxService','shareService','FileUploader',function($scope,ajaxService,shareService,FileUploader){
-    $scope.person={"password":"","confirm":"","email":"","steamid":"","photo":""};
+    $scope.person={"password":"","confirm":"","email":"","steamid":"","photo":"","fursona":""};
 
-    $scope.error={"password":false,"confirm":false,"email":false,"steamid":false};
+    $scope.error={"password":false,"confirm":false,"email":false,"steamid":false,"fursona":false};
 
     $scope.saveflag=false;
     $scope.saveclass="";
@@ -111,6 +111,7 @@ appController.controller("updateRegisterController",['$scope','ajaxService','sha
     $scope.savebtn=function(){
         var mydata={};
         $scope.errormsg="";
+
 
         var myajax = ajaxService.ajaxFactory(REGISTERURLNOPHOTO, $scope.person, "POST");
 

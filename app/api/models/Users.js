@@ -79,6 +79,10 @@ module.exports = {
       summary:{
           type:'string',
           size:4500
+      },
+      fursona:{
+          type:'string',
+          size:15
       }
 
 

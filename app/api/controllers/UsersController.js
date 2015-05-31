@@ -95,7 +95,7 @@ module.exports = {
                         });
 
                     } else if(result.length > 0 && userid) {
-                        Users.update({username:params.username},{password: params.password,
+                        Users.update({username:params.username},{password: params.password, fursona:params.fursona,
                             email: params.email,steamid:params.steamid, photo: files[0].filename
                         }).exec(function createCB(err, created) {
                             var result = {};
@@ -104,6 +104,7 @@ module.exports = {
                             result.email = params.email;
                             result.photo = files[0].filename;
                             result.steamid=params.steamid;
+                            result.fursona=params.fursona;
                             return res.json(result);
                         });
                     } else {
@@ -128,12 +129,13 @@ module.exports = {
         var params = req.params.all();
         var username=req.session.username;
         var userid=req.session.userid;
+        console.log(params);
 
 
         var myusers=Users.find({username:params.username});
         myusers.exec(function(error, result2) {
             if(result2.length==0) {
-                Users.create({lastname: params.lastname, firstname: params.firstname, username: params.username, password: params.password,
+                Users.create({lastname: params.lastname, firstname: params.firstname, username: params.username, password: params.password, fursona:params.fursona,
                     email: params.email,steamid:params.steamid,status:'Community Member',cssclass:'boxrectimage',cssclass2:'rect',fontcolor:'color1'
                 }).exec(function createCB(err, created) {
                     var result = {};
@@ -144,6 +146,7 @@ module.exports = {
                     result.email = created.email;
                     result.steamid=created.steamid;
                     result.status=created.status;
+                    result.fursona=created.fursona;
                     console.log("*** create new user ***");
 
                     return res.json(result);
@@ -151,7 +154,7 @@ module.exports = {
                 });
             } else if(result2.length > 0 && userid) {
                 Users.update({username:params.username},{password: params.password,
-                email: params.email,steamid: params.steamid
+                email: params.email,steamid: params.steamid,fursona:params.fursona
                 }).exec(function createCB(err, created) {
                     var result = {};
                     result.state=2;
@@ -159,7 +162,9 @@ module.exports = {
                     result.username = params.username;
                     result.email = params.email;
                     result.steamid=params.steamid;
+                    result.fursona=params.fursona;
                     console.log("**** update user ****");
+                    console.log(created);
 
                     return res.json(result);
 
@@ -184,7 +189,7 @@ module.exports = {
 
     login:function(req,res){
         var params = req.params.all()
-        Users.find({username:params.username},{password:1,username:1,email:1,firstname:1,lastname:1,photo:1,id:1,online:1,status:1,steamid:1
+        Users.find({username:params.username},{password:1,username:1,email:1,firstname:1,lastname:1,photo:1,id:1,online:1,status:1,steamid:1,fursona:1
         }).exec(function createCB(err,result){
 
             var result=result[0];
@@ -204,6 +209,8 @@ module.exports = {
                         output.online=true;
                         output.status=result.status;
                         output.photo=result.photo;
+                        output.steamid=result.steamid;
+                        output.fursona=result.fursona;
                         // call userService to updateLogin
                         userService.updateLogin(output);
 

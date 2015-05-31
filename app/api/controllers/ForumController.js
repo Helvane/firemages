@@ -115,6 +115,18 @@ module.exports = {
         Forum.update({id:param.forumid},{lock:param.lock}).exec(function(err,result){
             return res.json(result);
         });
+    },
+
+    gettotalpost:function(req, res){
+        var param=req.params.all();
+        var total=0;
+        Forum.count({userid:param.userid}).exec(function(err, result){
+            total=result;
+            Forumanswer.count({userid:param.userid}).exec(function(err,output){
+                total=total+output;
+                return res.json(total);
+            });
+        });
     }
 
 };

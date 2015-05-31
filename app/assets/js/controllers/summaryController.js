@@ -7,14 +7,36 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
     $scope.logindata=shareService.getlogin();
     $scope.forumid=$stateParams.forumid;
     $scope.forum=shareService.getForum();
+    $scope.totalpost=0;
+
+    $scope.getcount=function(userid){
+        var param={};
+        param.userid=userid;
+        var ajax=ajaxService.ajaxFactory('/Forum/gettotalpost',param,'get');
+        ajax.then(
+            function(data){
+              $scope.totalpost=data;
+
+            },
+            function(err){
+                console.log(err);
+            }
+
+        );
+    };
+
+    if($scope.forum.userid) {
+    $scope.getcount($scope.forum.userid.id);
+    }
 
     if(!$scope.forum.id){
         var param={};
-        param.forumid=$scope.forumid;
+        param.forumid=$stateParams.forumid;
         var myajax=ajaxService.ajaxFactory(GETAFORUMURL,param,'get');
         myajax.then(
           function(data){
               $scope.forum=data;
+              $scope.getcount($scope.forum.userid.id);
               $scope.update=Number(new Date);
           },
             function(err){
