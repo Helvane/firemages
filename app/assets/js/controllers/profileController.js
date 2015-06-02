@@ -2,7 +2,7 @@
  * Created by king on 5/23/15.
  */
 
-appController.controller("profileController",['$scope','shareService','$location','ajaxService','$stateParams',function($scope,shareService,$location,ajaxService,$stateParams){
+appController.controller("profileController",['$scope','shareService','$location','ajaxService','$stateParams','$modal',function($scope,shareService,$location,ajaxService,$stateParams,$modal){
 
     // get user login information that store in share Service factory
     $scope.logindata=shareService.getlogin();
@@ -47,6 +47,24 @@ appController.controller("profileController",['$scope','shareService','$location
             )
         }
 
+    };
+
+    //changeinfo function has 2 parameters
+    $scope.changeinfo = function (urlcontroller, templatefile) {
+
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/'+templatefile,
+            controller: urlcontroller,
+            resolve: {
+                items: function () {
+                    return $scope.person;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+            console.log(selectedItem);
+        });
     };
 
 }]);

@@ -4,7 +4,13 @@
     <div class="panel-body profilebackground">
         <div class="row">
           <div class="col-sm-4">
-              <img src="images/{{person.photo}}"/>
+              <div class="space"><img src="images/{{person.photo}}"/></div>
+              <ul class="nav nav-stacked nav-pills">
+                  <li><a><i class="fa fa-envelope-o"></i> Inbox</a></li>
+                  <li><a ng-click="changeinfo('changepasswordController','changepassword.html')"><i class="fa fa-lock"></i> Change Password</a></li>
+                  <li><a href="#/updateRegister"><i class="fa fa-edit"></i> Update Profile</a></li>
+              </ul>
+
           </div>
             <div class="col-sm-8">
                <ul class="list-unstyled">
@@ -23,7 +29,7 @@
                     <div ng-if="errors.message" class="alert alert-warning redColor">{{errors.message}}</div>
                 </div>
                 <div class="space">
-                    <button class="btn btn-info" ng-click="save()">Save</button>
+                    <button class="btnmain" ng-click="save()">Save</button>
                 </div>
                 </div>
 

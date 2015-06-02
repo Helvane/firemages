@@ -4,9 +4,9 @@
 
 
 appController.controller("updateRegisterController",['$scope','ajaxService','shareService','FileUploader',function($scope,ajaxService,shareService,FileUploader){
-    $scope.person={"password":"","confirm":"","email":"","steamid":"","photo":"","fursona":""};
+    $scope.person={"email":"","steamid":"","photo":"","fursona":""};
 
-    $scope.error={"password":false,"confirm":false,"email":false,"steamid":false,"fursona":false};
+    $scope.error={"email":false,"steamid":false,"fursona":false};
 
     $scope.saveflag=false;
     $scope.saveclass="";
@@ -16,20 +16,6 @@ appController.controller("updateRegisterController",['$scope','ajaxService','sha
 
     $scope.validate=function(){
         var count=0;
-
-        if($scope.person.password==""){
-            $scope.error.password=true;
-            count++;
-        } else {
-            $scope.error.password=false;
-        }
-        if($scope.person.confirm==""){
-            $scope.confirmmsg="Enter a confirm password again";
-            $scope.error.confirm=true;
-            count++;
-        } else {
-            $scope.error.confirm=false;
-        }
         if($scope.person.email==""){
             $scope.error.email=true;
             count++;
@@ -77,24 +63,9 @@ appController.controller("updateRegisterController",['$scope','ajaxService','sha
         }
 
     });
-    $scope.confirmmsg="";
-    $scope.$watch("person.confirm",function(){
-        $scope.confirmmsg="";
-        $scope.error.confirm=false;
-        if($scope.person.password!=$scope.person.confirm){
-            $scope.error.confirm=true;
-            $scope.confirmmsg="The password and confirm password dosen't match";
-        }
-
-    });
 
 
 
-    $scope.$watch("person.password",function(){
-        if($scope.person.password!=""){
-            $scope.error.password=false;
-        }
-    });
     $scope.$watch("person.email",function(){
         if($scope.person.email!=""){
             $scope.error.email=false;

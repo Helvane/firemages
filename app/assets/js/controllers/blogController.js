@@ -171,7 +171,7 @@ appController.controller("blogController",['$scope','shareService','ajaxService'
 
     $scope.deleteitem=function(item){
         item.remove();
-    }
+    };
 
     $scope.formattingpopup = function () {
 

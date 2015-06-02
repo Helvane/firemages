@@ -2,21 +2,6 @@
 <h2 class="logo">Update your account</h2>
 
 
-
-<div class="row">
-    <label class="col-md-2">Password <span class="text-danger">*</span></label>
-    <div class="col-md-4"><input type="password" ng-model="person.password" maxlength="50" class="form-control input-sm"/></div>
-    <div class="col-md-6 text-danger" ng-show="error.password==true">Enter your Password</div>
-</div>
-<br/>
-
-<div class="row">
-    <label class="col-md-2">Confirm Password <span class="text-danger">*</span></label>
-    <div class="col-md-4"><input type="password" ng-model="person.confirm" maxlength="50" class="form-control input-sm"/></div>
-    <div class="col-md-6 text-danger" ng-show="error.confirm==true">{{confirmmsg}}</div>
-</div>
-<br/>
-
 <div class="row">
     <label class="col-md-2">E-Mail <span class="text-danger">*</span></label>
     <div class="col-md-4"><input type="email" ng-model="person.email" maxlength="100" class="form-control input-sm"/></div>
@@ -27,7 +12,8 @@
 <div class="row">
     <label class="col-md-2">Steam id <span class="text-danger">*</span></label>
     <div class="col-md-4"><input type="text" ng-model="person.steamid" maxlength="100" class="form-control input-sm"/></div>
-    <div class="col-md-6 text-danger" ng-show="error.steamid==true">Enter your Steam id</div> <p><b><a href="http://steamidfinder.com" target="_blank" style="color:#33CC33">Steam ID finder</a></b></p>
+    <div class="col-md-6 text-danger" ng-show="error.steamid==true">Enter your Steam id</div> <b><a href="http://steamidfinder.com" target="_blank" style="color:#33CC33">Steam ID Finder</a></b>
+
 </div>
 <br/>
 

@@ -95,7 +95,7 @@ module.exports = {
                         });
 
                     } else if(result.length > 0 && userid) {
-                        Users.update({username:params.username},{password: params.password, fursona:params.fursona,
+                        Users.update({username:params.username},{fursona:params.fursona,
                             email: params.email,steamid:params.steamid, photo: files[0].filename
                         }).exec(function createCB(err, created) {
                             var result = {};
@@ -153,7 +153,7 @@ module.exports = {
 
                 });
             } else if(result2.length > 0 && userid) {
-                Users.update({username:params.username},{password: params.password,
+                Users.update({username:params.username},{
                 email: params.email,steamid: params.steamid,fursona:params.fursona
                 }).exec(function createCB(err, created) {
                     var result = {};
@@ -321,6 +321,41 @@ module.exports = {
           return res.json(result);
       });
 
+    },
+
+    updatepassword:function(req,res){
+        var params = req.params.all();
+        var userid=req.session.userid;
+
+        Users.findOne({id:userid},{password:1,username:1,id:1
+        }).exec(function createCB(err,result){
+
+
+            var output={};
+            output.id=0;
+            if (result) {
+                bcrypt.compare(params.oldpassword, result.password, function (err, match) {
+
+                    if (match) {
+                        // password match
+                        Users.update({id:userid},{password:params.newpassword}).exec(function(err, mydata){
+                            output.id=1;
+                            output.msg="Update your password is successful.";
+                          return res.json(output);
+                        });
+
+                    } else {
+                        // invalid password
+                        output.msg="You entered the wrong old password.";
+                        return res.json(output);
+                    }
+                });
+            } else {
+                output.msg="You entered the wrong old password.";
+                return res.json(output);
+            }
+
+        });
     }
 
 
