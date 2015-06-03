@@ -83,6 +83,10 @@ module.exports = {
       fursona:{
           type:'string',
           size:15
+      },
+      location:{
+          type:'string',
+          size:30
       }
 
 

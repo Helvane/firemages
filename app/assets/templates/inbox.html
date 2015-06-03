@@ -1,0 +1,15 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">Inbox</div>
+    <div class="panel-body">
+      <table class="table BGgrey">
+          <tr ng-repeat="i in inbox track by $index">
+              <td><img ng-src="/images/{{i.senderid.photo}}" class="img-thumbnail"></td>
+              <td>{{i.senderid.username}}</td>
+              <td>{{i.message}}</td>
+          </tr>
+      </table>
+
+
+
+    </div>
+</div>

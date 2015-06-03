@@ -45,6 +45,15 @@ app.config(['$stateProvider','$urlRouterProvider',
                     }
                 }
             })
+            .state('inbox', {
+                url:'/inbox/:userid',
+                views: {
+                    "viewA": {
+                        templateUrl: 'templates/inbox.html',
+                        controller: 'inboxController'
+                    }
+                }
+            })
             .state('profile', {
                 url:'/profile/:id',
                 views: {

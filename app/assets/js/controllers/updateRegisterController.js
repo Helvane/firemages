@@ -4,9 +4,9 @@
 
 
 appController.controller("updateRegisterController",['$scope','ajaxService','shareService','FileUploader',function($scope,ajaxService,shareService,FileUploader){
-    $scope.person={"email":"","steamid":"","photo":"","fursona":""};
+    $scope.person={"email":"","steamid":"","photo":"","fursona":"","location":""};
 
-    $scope.error={"email":false,"steamid":false,"fursona":false};
+    $scope.error={"email":false,"steamid":false,"fursona":false,"location":false};
 
     $scope.saveflag=false;
     $scope.saveclass="";

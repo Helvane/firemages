@@ -9,6 +9,7 @@ appController.controller("profileController",['$scope','shareService','$location
     $scope.person={};
     $scope.info={"message":""};
     $scope.errors={"message":""};
+    $scope.myid=$stateParams.id;
 
     var param={};
     if($stateParams.id==0) {

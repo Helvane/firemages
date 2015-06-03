@@ -95,7 +95,7 @@ module.exports = {
                         });
 
                     } else if(result.length > 0 && userid) {
-                        Users.update({username:params.username},{fursona:params.fursona,
+                        Users.update({username:params.username},{fursona:params.fursona,location:params.location,
                             email: params.email,steamid:params.steamid, photo: files[0].filename
                         }).exec(function createCB(err, created) {
                             var result = {};
@@ -105,6 +105,7 @@ module.exports = {
                             result.photo = files[0].filename;
                             result.steamid=params.steamid;
                             result.fursona=params.fursona;
+                            result.location=params.location;
                             return res.json(result);
                         });
                     } else {
@@ -154,7 +155,7 @@ module.exports = {
                 });
             } else if(result2.length > 0 && userid) {
                 Users.update({username:params.username},{
-                email: params.email,steamid: params.steamid,fursona:params.fursona
+                email: params.email,steamid: params.steamid,fursona:params.fursona, location:params.location
                 }).exec(function createCB(err, created) {
                     var result = {};
                     result.state=2;
@@ -163,8 +164,7 @@ module.exports = {
                     result.email = params.email;
                     result.steamid=params.steamid;
                     result.fursona=params.fursona;
-                    console.log("**** update user ****");
-                    console.log(created);
+                    result.location=params.location;
 
                     return res.json(result);
 
@@ -189,7 +189,7 @@ module.exports = {
 
     login:function(req,res){
         var params = req.params.all()
-        Users.find({username:params.username},{password:1,username:1,email:1,firstname:1,lastname:1,photo:1,id:1,online:1,status:1,steamid:1,fursona:1
+        Users.find({username:params.username},{password:1,username:1,email:1,firstname:1,lastname:1,photo:1,id:1,online:1,status:1,steamid:1,fursona:1,location:1
         }).exec(function createCB(err,result){
 
             var result=result[0];
@@ -211,6 +211,7 @@ module.exports = {
                         output.photo=result.photo;
                         output.steamid=result.steamid;
                         output.fursona=result.fursona;
+                        output.location=result.location;
                         // call userService to updateLogin
                         userService.updateLogin(output);
 

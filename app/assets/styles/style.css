@@ -173,8 +173,10 @@ pre a:hover{color: #33CC33;}
 .profilebackground {background-color: #444444;}
 
 .changepasswordbackground {background-color: #666666;}
+.sendmessagebackground {background-color: #666666;}
+.sendmsgmodalbackground {background-color: #000000; color: #ffffff}
 
-
+.informationfonts {color: #CCC; font-size: 11px;}
 
 .steamprofile * {
     font-size: 10px;
