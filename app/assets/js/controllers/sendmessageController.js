@@ -3,7 +3,7 @@
  */
 
 
-appController.controller("sendmessageController",['$scope','$modalInstance', 'items','ajaxService','shareService',function($scope,$modalInstance, items, ajaxService, shareService){
+appController.controller("sendmessageController",['$scope','$modalInstance', 'items','ajaxService','shareService','$modal',function($scope,$modalInstance, items, ajaxService, shareService, $modal){
 
     $scope.person=items;
     $scope.logindata=shareService.getlogin();
@@ -44,6 +44,48 @@ appController.controller("sendmessageController",['$scope','$modalInstance', 'it
 
     $scope.close = function () {
         $modalInstance.dismiss('cancel');
+    };
+
+    $scope.emoticon = function () {
+
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/emoji.html',
+            controller: 'emojiController',
+            resolve: {
+                items: function () {
+                    return $scope.person;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+            if(selectedItem.title) {
+                $scope.msg.summary = angular.copy($scope.msg.summary) + selectedItem.title;
+            } else {
+                $scope.msg.summary = angular.copy($scope.msg.summary) + selectedItem;
+            }
+        });
+    };
+
+    $scope.formattingpopup = function () {
+
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/formatting.html',
+            controller: 'formattingController',
+            resolve: {
+                items: function () {
+                    return $scope.person;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+            if(selectedItem.title) {
+                $scope.msg.summary = angular.copy($scope.msg.summary) + selectedItem.title;
+            } else {
+                $scope.msg.summary = angular.copy($scope.msg.summary) + selectedItem;
+            }
+        });
     };
 
 

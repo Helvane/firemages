@@ -5,7 +5,9 @@
           <tr ng-repeat="i in inbox track by $index">
               <td><img ng-src="/images/{{i.senderid.photo}}" class="img-thumbnail"></td>
               <td>{{i.senderid.username}}</td>
-              <td>{{i.message}}</td>
+              <td>
+                  <pre ng-bind-html="i.message | unsafe"></pre>
+              </td>
           </tr>
       </table>
 

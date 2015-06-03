@@ -68,4 +68,46 @@ appController.controller("profileController",['$scope','shareService','$location
         });
     };
 
+    $scope.emoticon = function () {
+
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/emoji.html',
+            controller: 'emojiController',
+            resolve: {
+                items: function () {
+                    return $scope.person;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+            if(selectedItem.title) {
+                $scope.info.message = angular.copy($scope.info.message) + selectedItem.title;
+            } else {
+                $scope.info.message = angular.copy($scope.info.message) + selectedItem;
+            }
+        });
+    };
+
+    $scope.formattingpopup = function () {
+
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/formatting.html',
+            controller: 'formattingController',
+            resolve: {
+                items: function () {
+                    return $scope.person;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+            if(selectedItem.title) {
+                $scope.info.message = angular.copy($scope.info.message) + selectedItem.title;
+            } else {
+                $scope.info.message = angular.copy($scope.info.message) + selectedItem;
+            }
+        });
+    };
+
 }]);
