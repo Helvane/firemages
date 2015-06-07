@@ -1,0 +1,20 @@
+<div class="modal-header sendmsgmodalbackground">
+    <h3 class="modal-title">Reply Message</h3>
+</div>
+<div class="modal-body sendmessagebackground">
+    <div>
+        <img ng-src="images/{{person.senderid.photo}}" class="img-thumbnail pull-left">
+        <pre ng-bind-html="person.message|unsafe"></pre>
+    </div>
+    <div class="clearall"></div>
+
+    <div ng-if="errors.summary" class="alert alert-warning">{{errors.summary}}</div>
+    <textarea class="form-control" ng-model="msg.summary"></textarea>
+
+</div>
+<div class="modal-footer sendmessagebackground">
+    <button class="btnmain" ng-click="send()">Send</button>
+    <button class="btnmain" ng-click="emoticon()">Emoticon</button>
+    <button class="btnmain" ng-click="formattingpopup()">Formatting Help</button>
+    <button class="btnmain" ng-click="close()">Close</button>
+</div>

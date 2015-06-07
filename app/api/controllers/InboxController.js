@@ -23,6 +23,13 @@ module.exports = {
             }
             return res.json(result);
         });
+    },
+    delete:function(req, res){
+        var param=req.params.all();
+        var userid=req.session.userid;
+        Inbox.destroy({id:param.id,'userid':userid}).exec(function(err, result){
+            return res.json(result);
+        });
     }
 
 };

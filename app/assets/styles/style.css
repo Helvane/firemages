@@ -168,7 +168,7 @@ pre a:hover{color: #33CC33;}
 
 .panel-primary {border: 1px solid #665599;}
 
-.picwidth {width: 650px;}
+
 
 .profilebackground {background-color: #444444;}
 
@@ -179,6 +179,43 @@ pre a:hover{color: #33CC33;}
 .informationfonts {color: #CCC; font-size: 11px;}
 
 .textbox {height: 200px; width: 100%;}
+
+.quotetitle, .attachtitle, .codetitle {
+    margin: 10px 5px 0px 5px;
+    padding: 2px 4px;
+    border: solid 1px #090909;
+    color: #D0D0D0;
+    background-color: #2E2E2E;
+    font-size: 0.85em;
+    font-weight: bold;
+}
+
+.quotetitle .quotetitle {
+    font-size: 1em;
+}
+
+.quotecontent, .attachcontent {
+    margin: 0px 5px 10px 5px;
+    padding: 5px;
+    border-color: #090909;
+    border-width: 0px 1px 1px 1px;
+    border-style: solid;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.4em;
+    /*	font-family: "Lucida Grande", "Trebuchet MS", Helvetica, Arial, sans-serif; */
+    background-color: #2E2E2E;
+    color: #EEE;
+}
+
+.quotewrapper .quotetitle, .codewrapper .codetitle, .attachwrapper .attachtitle {
+    margin: 0;
+    border-width: 0 0 1px 1px;
+}
+.quotewrapper .quotecontent, .codewrapper .codecontent, .attachwrapper .attachcontent {
+    margin: 0;
+    border-width: 0 0 0 1px;
+}
 
 
 
