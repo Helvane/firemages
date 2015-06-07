@@ -1,0 +1,88 @@
+[
+ {
+    name:'Community Member',
+    cssclass: 'boxrectimg',
+    cssclass2:'rect'
+ },
+
+    {
+        name:'Community Guidance',
+        cssclass: 'boxrectimgcreator',
+        cssclass2:'rectcreator'
+    },
+
+    {
+        name:'Designer Bot',
+        cssclass: 'boxrectimgdesigner',
+        cssclass2:'designerbot'
+    },
+
+    {
+        name:'Community Founder',
+        cssclass: 'boxrectimgowner',
+        cssclass2:'rectowner'
+    },
+
+    {
+        name:'No Ranking',
+        cssclass: 'boxrectimgnorank',
+        cssclass2:'rectnorank'
+    },
+
+    {
+        name:'Server Banned',
+        cssclass: 'boxrectimgnorank',
+        cssclass2:'rectnorank'
+    },
+
+    {
+        name:'Community Head-Admin (TF2)',
+        cssclass: 'boxrectimgheadadmin',
+        cssclass2:'rectheadadmin'
+    },
+
+    {
+        name:'Community Tech',
+        cssclass: 'boxrectimgtech',
+        cssclass2:'recttech'
+    },
+
+    {
+        name:'Community Admin',
+        cssclass: 'boxrectimgadmin',
+        cssclass2:'rectadmin'
+    },
+
+    {
+        name:'Community Owner',
+        cssclass: 'boxrectimgcoowner',
+        cssclass2:'rectcoowner'
+    },
+
+    {
+        name:'Announcement Bot',
+        cssclass: 'boxrectimgannouncement',
+        cssclass2:'rectannouncement'
+    },
+
+    {
+        name:'Community Head-Admin (Gmod)',
+        cssclass: 'boxrectimggmod',
+        cssclass2:'rectgmod'
+    },
+
+    {
+        name:'Community Head-Admin (MC)',
+        cssclass: 'boxrectimgmc',
+        cssclass2:'rectmc'
+    },
+
+    {
+        name:'Community Advisor',
+        cssclass: 'boxrectimgadvisor',
+        cssclass2:'rectadvisor'
+    },
+
+
+
+]

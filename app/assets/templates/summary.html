@@ -181,3 +181,7 @@
         </td>
     </tr>
 </table>
+
+<div ng-if="total > 10">
+ <pagination total-items="total" ng-model="currentPage" ng-click="nextpage(currentPage)" max-size="5" class="pagination-sm" boundary-links="true" rotate="true" items-per-page="10" previous-text="Prev" next-text="Next"></pagination>
+</div>

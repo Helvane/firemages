@@ -8,6 +8,9 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
     $scope.forumid=$stateParams.forumid;
     $scope.forum=shareService.getForum();
     $scope.totalpost=0;
+    $scope.currentPage=1;
+    $scope.total=0;
+    $scope.forumdata=[];
 
     $scope.getcount=function(userid){
         var param={};
@@ -51,10 +54,27 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
     $scope.answers=[];
     $scope.update='';
 
+    $scope.getanswercount=function(forum_id){
+        var param={};
+        param.forumid=$scope.forum.id;
+        param.number=Number(new Date);
+        var myajax2=ajaxService.ajaxFactory('/Forumanswer/getcount',param,'get');
+        myajax2.then(
+            function(data){
+                $scope.total=data;
+            },
+            function(err){
+                console.log(err);
+            }
+        );
+
+    };
+
 
     $scope.$watch('update',function(){
        var param={};
        param.forumid=$scope.forum.id;
+       param.page=$scope.currentPage;
        param.number=Number(new Date);
        var myajax=ajaxService.ajaxFactory(GETANSWERURL,param,'get');
        myajax.then(
@@ -67,6 +87,8 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
        );
 
     });
+
+    $scope.getanswercount();
 
     $scope.replyflag=false;
 
@@ -189,6 +211,12 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
         } else {
             $location.path(url);
         }
+    };
+
+    $scope.nextpage=function(page){
+        $scope.currentPage=page;
+        $scope.update=Number(new Date);
+
     }
 
 }]);
