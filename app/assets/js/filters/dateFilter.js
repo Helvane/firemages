@@ -66,3 +66,19 @@ appFilter.filter("unsafe",function($sce,$sanitize,$filter){
     };
 
 });
+
+
+appFilter.filter("statusfilter",function(shareService){
+    return function(str) {
+        var status={};
+        var mystatus=shareService.getStatus();
+        for(var i=0; i < mystatus.length; i ++){
+            if(mystatus[i].name==str){
+                status=mystatus[i];
+            }
+        }
+
+        return status;
+    };
+
+});

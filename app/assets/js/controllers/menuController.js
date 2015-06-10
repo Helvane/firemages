@@ -29,6 +29,17 @@ appController.controller("menuController",['$scope','shareService','$location','
         }
     };
 
+    // load member status
+    var mystatus=ajaxService.ajaxFactory('json/status.json',{},'GET');
+    mystatus.then(
+        function(data){
+        shareService.setStatus(data);
+        },
+        function(error){
+            //alert("Menu error");
+        }
+    );
+
     $scope.menus=[];
     // use ajax to retrieve menu file.
     var mymenu=ajaxService.ajaxFactory('json/menu.js',{},'GET');

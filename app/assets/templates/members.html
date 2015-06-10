@@ -4,46 +4,21 @@
 
 <table class="table-condensed">
 <tr>
-    <th>&nbsp;</th><th>Member</th><th>Joined</th><th>Last Online</th>
+    <th>&nbsp;</th><th>Member</th><th>Rank</th><th>Joined</th><th>Last Online</th>
 </tr>
 
 
     <tr ng-repeat="user in users track by $index">
         <td class="col-sm-2">
 
-        <a ng-if="user.status=='Community Member'"><img ng-src="/images/{{user.photo}}" class="boxrectimg"/></a>
-        <a ng-if="user.status=='Community Guidance'"><img ng-src="/images/{{user.photo}}" class="boxrectimgcreator"/></a>
-        <a ng-if="user.status=='Designer Bot'"><img ng-src="/images/{{user.photo}}" class="boxrectimgdesigner"/></a>
-        <a ng-if="user.status=='Community Founder'"><img ng-src="/images/{{user.photo}}" class="boxrectimgowner"/></a>
-        <a ng-if="user.status=='No Ranking'"><img ng-src="/images/{{user.photo}}" class="boxrectimgnorank"/></a>
-        <a ng-if="user.status=='Server Banned'"><img ng-src="/images/{{user.photo}}" class="boxrectimgnorank"/></a>
-        <a ng-if="user.status=='Community Head-Admin (TF2)'"><img ng-src="/images/{{user.photo}}" class="boxrectimgheadadmin"/></a>
-        <a ng-if="user.status=='Community Tech'"><img ng-src="/images/{{user.photo}}" class="boxrectimgtech"/></a>
-        <a ng-if="user.status=='Community Admin'"><img ng-src="/images/{{user.photo}}" class="boxrectimgadmin"/></a>
-        <a ng-if="user.status=='Community Owner'"><img ng-src="/images/{{user.photo}}" class="boxrectimgcoowner"/></a>
-        <a ng-if="user.status=='Announcement Bot'"><img ng-src="/images/{{user.photo}}" class="boxrectimgannouncement"/></a>
-        <a ng-if="user.status=='Community Head-Admin (Gmod)'"><img ng-src="/images/{{user.photo}}" class="boxrectimggmod"/></a>
-        <a ng-if="user.status=='Community Head-Admin (MC)'"><img ng-src="/images/{{user.photo}}" class="boxrectimgmc"/></a>
-        <a ng-if="user.status=='Community Advisor'"><img ng-src="/images/{{user.photo}}" class="boxrectimgadvisor"/></a>
+        <a><img ng-src="/images/{{user.photo}}"/></a>
 
-            <div ng-if="user.status=='Community Member'" class="rect">{{user.status}}</div>
-            <div ng-if="user.status=='Community Guidance'" class="rectcreator">{{user.status}}</div>
-            <div ng-if="user.status=='Designer Bot'" class="designerbot">{{user.status}}</div>
-            <div ng-if="user.status=='Community Founder'" class="rectowner">{{user.status}}</div>
-            <div ng-if="user.status=='No Ranking'" class="rectnorank">{{user.status}}</div>
-            <div ng-if="user.status=='Server Banned'" class="rectnorank">{{user.status}}</div>
-            <div ng-if="user.status=='Community Admin'" class="rectadmin">{{user.status}}</div>
-            <div ng-if="user.status=='Community Head-Admin (TF2)'" class="rectheadadmin">{{user.status}}</div>
-            <div ng-if="user.status=='Community Tech'" class="recttech">{{user.status}}</div>
-            <div ng-if="user.status=='Community Owner'" class="rectcoowner">{{user.status}}</div>
-            <div ng-if="user.status=='Announcement Bot'" class="rectannouncement">{{user.status}}</div>
-            <div ng-if="user.status=='Community Head-Admin (Gmod)'" class="rectgmod">{{user.status}}</div>
-            <div ng-if="user.status=='Community Head-Admin (MC)'" class="rectmc">{{user.status}}</div>
-            <div ng-if="user.status=='Community Advisor'" class="rectadvisor">{{user.status}}</div>
+
 
 
         </td>
         <td><a ng-click="gotoprofile('/profile/'+user.id)" class="whiteColor pointer">{{user.username}}</a></td>
+        <td>{{user.status}}</td>
         <td>{{user.createdAt|datefilter}}</td>
         <td>{{user.updatedAt|datetimefilter}}</td>
 
