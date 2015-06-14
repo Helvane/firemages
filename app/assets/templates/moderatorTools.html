@@ -1,0 +1,16 @@
+<div class="panel panel-info" ng-if="logindata.status=='Community Owner' || logindata.status=='Community Guidance' || logindata.status=='Community Advisor' || logindata.status=='Community Founder'">
+
+    <div class="panel-heading">Moderator Tools</div>
+    <div class="panel-body">
+        <ul class="list-group">
+            <li class="list-group-item colorBlack pointer" ng-show="info.delete==false"><button class="btn btn-danger" ng-click="delete()"><i class="fa fa-trash"></i> Delete This Thread</button> </li>
+            <li class="list-group-item colorBlack pointer" ng-show="forum.lock==false"><button class="btn btn-info" ng-click="lock()"><i class="fa fa-lock"></i> Lock This Thread</button> </li>
+            <li class="list-group-item colorBlack pointer" ng-show="info.delete==false"><button ng-show="pinflag==false" class="btn btn-info" ng-click="pin()"><i class="fa fa-thumb-tack"></i> Pin This Thread</button> </li>
+            <li class="list-group-item colorBlack pointer" ng-show="forum.lock==false"><button class="btn btn-info" ng-click="edit()"><i class="fa fa-edit"></i> Edit This Thread</button> </li>
+
+
+        </ul>
+
+
+    </div>
+</div>

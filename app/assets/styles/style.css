@@ -52,8 +52,8 @@ body
 .lightblue {color: #0066ff;}
 .darkcreator {color:#99CCFF;}
 .advisor {color: hotpink}
-.boxrectimgowner {border: 3px solid #cccccc;}
-.rectowner {background-color: #cccccc; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
+.boxrectimgowner {border: 3px solid #AA0000;}
+.rectowner {background-color: #AA0000; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
 
 .boxrect {margin-right: 10px;}
 .boxrectimg {border:3px solid #5890AD;}
@@ -86,8 +86,8 @@ textarea {height: 400px; width: 100%; color: black;}
 .boxrectimgadmin {border: 3px solid #1D526F;}
 .rectadmin {background-color: #1D526F; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
 
-.boxrectimgannouncement {border: 3px solid #7A2B2B;}
-.rectannouncement {background-color: #7A2B2B; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
+.boxrectimgannouncement {border: 3px solid #000088;}
+.rectannouncement {background-color: #000088; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
 
 .boxrectimggmod {border: 3px solid #EF9AD8;}
 .rectgmod {background-color: #EF9AD8; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
@@ -95,8 +95,8 @@ textarea {height: 400px; width: 100%; color: black;}
 .boxrectimgmc {border: 3px solid #339900;}
 .rectmc {background-color: #339900; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
 
-.boxrectimgadvisor {border: 3px solid #99CCFF;}
-.rectadvisor {background-color: #99CCFF; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
+.boxrectimgadvisor {border: 3px solid #cccccc;}
+.rectadvisor {background-color: #cccccc; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
 
 .pointer {cursor: pointer;}
 .moveup {top: -20px; position: relative;}
@@ -110,9 +110,9 @@ pre {color: #ffffff; border: none; font-family: tahoma,Arial,Helvetica,sans-seri
 .popmenu { position:absolute; z-index: 1000; width: 100%;}
 
 .color1 {color:#5890AD; font-weight: bold;}
-.color2 {color:#cccccc; font-weight: bold;}
+.color2 {color:#AA0000; font-weight: bold;}
 .color3 {color: lightskyblue; font-weight: bold;}
-.color4 {color:#7A2B2B; font-weight: bold;}
+.color4 {color:#000088; font-weight: bold;}
 .color5 {color:deeppink; font-weight: bold;}
 .color6 {color: #6633FF; font-weight: bold;}
 .color7 {color: #1D526F; font-weight: bold;}
@@ -120,12 +120,12 @@ pre {color: #ffffff; border: none; font-family: tahoma,Arial,Helvetica,sans-seri
 .color9 {color: #EF9AD8; font-weight: bold;}
 .color10 {color: #339900; font-weight: bold;}
 .color11 {color: #ffffff; font-size: 11px; font-weight: bold;}
-.color12 {color: #99CCFF; font-weight: bold;}
+.color12 {color: #cccccc; font-weight: bold;}
 
 a.color1:hover{ text-decoration:none; border-bottom:1px solid #5890AD; color: #5890AD;}
-a.color2:hover{ text-decoration:none; border-bottom:1px solid #cccccc; color: #cccccc;}
+a.color2:hover{ text-decoration:none; border-bottom:1px solid #AA0000; color: #AA0000;}
 a.color3:hover{ text-decoration:none; border-bottom:1px solid lightskyblue; color: lightskyblue;}
-a.color4:hover{ text-decoration:none; border-bottom:1px solid #7A2B2B; color: #7A2B2B;}
+a.color4:hover{ text-decoration:none; border-bottom:1px solid #000088; color: #000088;}
 a.color5:hover{ text-decoration:none; border-bottom:1px solid deeppink; color: deeppink;}
 a.color6:hover{ text-decoration:none; border-bottom:1px solid #6633FF; color: #6633FF;}
 a.color7:hover{ text-decoration:none; border-bottom:1px solid #1D526F; color: #1D526F;}
@@ -133,7 +133,7 @@ a.color8:hover{ text-decoration:none; border-bottom:1px solid #D1651D; color: #D
 a.color9:hover{ text-decoration:none; border-bottom:1px solid #EF9AD8; color: #EF9AD8;}
 a.color10:hover{ text-decoration:none; border-bottom:1px solid #339900; color: #339900;}
 a.color11:hover{ text-decoration:none; border-bottom:1px solid #ffffff; color: #ffffff;}
-a.color12:hover{ text-decoration:none; border-bottom:1px solid #99CCFF; color: #99CCFF;}
+a.color12:hover{ text-decoration:none; border-bottom:1px solid #cccccc; color: #cccccc;}
 
 
 .alertColor {color:#ff00ff;}

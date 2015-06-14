@@ -97,6 +97,11 @@ app.config(['$stateProvider','$urlRouterProvider',
                     "viewA": {
                         templateUrl: 'templates/members.html',
                         controller: 'membersController'
+                    },
+                    "statusView@members":{
+                        templateUrl: 'templates/statusTopic.html',
+                        controller: 'statusTopicController'
+
                     }
                 }
             })
@@ -115,6 +120,10 @@ app.config(['$stateProvider','$urlRouterProvider',
                     "viewA": {
                         templateUrl: 'templates/forums.html',
                         controller: 'forumsController'
+                    },
+                    "pinView@forums":{
+                        templateUrl: 'templates/pindata.html',
+                        controller: 'pindataController'
                     }
                 }
             })
@@ -124,6 +133,10 @@ app.config(['$stateProvider','$urlRouterProvider',
                     "viewA": {
                         templateUrl: 'templates/summary.html',
                         controller: 'summaryController'
+                    },
+                    "moderatorView@summary":{
+                        templateUrl: 'templates/moderatorTools.html'
+
                     }
                 }
             })

@@ -123,5 +123,15 @@ appService.factory('shareService',['$rootScope',function($rootscope){
         return pService.status;
     };
 
+    pService.mstatus="";
+    pService.setmstatus=function(msg){
+        pService.mstatus=msg;
+        $rootscope.$broadcast('mstatusEvent')
+    };
+
+    pService.mstatus=function(){
+        return pService.mstatus;
+    };
+
     return pService;
 }]);

@@ -1,0 +1,23 @@
+<h2>Forums</h2>
+
+
+<table class="table table-hover">
+    <tr>
+        <th>#</th><th colspan="2">Username</th><th colspan="2">Title</th><th>Date</th>
+    </tr>
+    <tr ng-repeat="f in forums track by $index">
+        <td class="col-sm-1">
+            <span class="bgBlack" ng-if="f.lock==true"><i class="fa fa-lock"></i></span>
+        </td>
+        <td class="col-sm-1">
+            <img src="/images/{{f.userid.photo}}" class="img-responsive smallphoto"/>
+        </td>
+        <td class="col-sm-2">
+            <a ng-click="gotoprofile('/profile/'+f.forumid.userid.id)" class="whiteColor pointer">{{f.userid.username}}</a>
+        </td>
+
+        <td class="col-sm-1" style="color: #00ffff"> PINNED:</td>
+        <td class="pointer col-sm-5"><a class="alink" ng-click="gotosummary(f.forumid)">{{f.forumid.title}}</a></td>
+        <td class="col-sm-2">{{f.forumid.createdAt|datetimefilter}}</td>
+    </tr>
+</table>

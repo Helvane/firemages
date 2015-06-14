@@ -127,6 +127,13 @@ module.exports = {
                 return res.json(total);
             });
         });
+    },
+
+    edit:function(req, res){
+        var param=req.params.all();
+        Forum.update({id:param.forumid},{title:param.title,summary:param.summary,topic:param.topic}).exec(function(err,result){
+            return res.json(result);
+        });
     }
 
 };

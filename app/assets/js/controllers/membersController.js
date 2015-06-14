@@ -5,6 +5,11 @@
 appController.controller("membersController",['$scope','shareService','$location','ajaxService',function($scope,shareService,$location,ajaxService){
 
     $scope.users=[];
+    $scope.update='';
+
+    $scope.$watch('update',function(){
+
+
     var param={};
     param.id=Number(new Date);
     $scope.logindata=shareService.getlogin();
@@ -17,6 +22,8 @@ appController.controller("membersController",['$scope','shareService','$location
             alert("users error");
         }
     );
+
+    });
 
     $scope.gotoprofile=function(url){
         if(!$scope.logindata){

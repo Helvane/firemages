@@ -5672,6 +5672,9 @@ button.close {
 .bgBlack {
   background: #454545; }
 
+.colorBlack {
+  color: #2e2e2e; }
+
 .smallsize {
   width: 20px;
   height: 20px; }

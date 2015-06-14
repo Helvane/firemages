@@ -11,6 +11,8 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
     $scope.currentPage=1;
     $scope.total=0;
     $scope.forumdata=[];
+    $scope.updateforum='';
+    $scope.info={"delete":false};
 
     $scope.getcount=function(userid){
         var param={};
@@ -32,7 +34,7 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
     $scope.getcount($scope.forum.userid.id);
     }
 
-    if(!$scope.forum.id){
+    $scope.$watch('updateforum',function(){
         var param={};
         param.forumid=$stateParams.forumid;
         var myajax=ajaxService.ajaxFactory(GETAFORUMURL,param,'get');
@@ -47,7 +49,8 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
             }
 
         );
-    }
+
+    });
 
 
     $scope.msg={responseText:''};
@@ -217,6 +220,96 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
         $scope.currentPage=page;
         $scope.update=Number(new Date);
 
-    }
+    };
+
+    $scope.delete=function(){
+        var param={};
+        param.forumid=$scope.forum.id;
+        param.todo='delete';
+
+        var myajax=ajaxService.ajaxFactory('/Forumanswer/delete',param,'post');
+        myajax.then(
+            function(data){
+                // it will trigger the watch
+                $scope.updateforum=Number(new Date);
+                $scope.update=Number(new Date);
+                $scope.info.delete=true;
+
+
+            },
+            function(err){
+                console.log(err);
+            }
+        );
+    };
+
+
+
+    $scope.pin=function(){
+        var param={};
+        param.forumid=$scope.forum.id;
+        param.todo='pin';
+
+        var myajax=ajaxService.ajaxFactory('/Forumanswer/pin',param,'post');
+        myajax.then(
+            function(data){
+                // it will trigger the watch
+                $scope.update=Number(new Date);
+
+
+            },
+            function(err){
+                console.log(err);
+            }
+        );
+
+
+    };
+
+    $scope.editflag=false;
+    $scope.edit=function(){
+        $scope.editflag==false?$scope.editflag=true:$scope.editflag=false;
+    };
+
+    $scope.editsave=function(){
+        var param={};
+        param.forumid=$scope.forum.id;
+        param.title=$scope.forum.title;
+        param.summary=$scope.forum.summary;
+        param.topic=$scope.forum.topic;
+
+        var myajax=ajaxService.ajaxFactory('/Forum/edit',param,'post');
+        myajax.then(
+            function(data){
+                // it will trigger the watch
+                $scope.update=Number(new Date);
+                $scope.editflag=false;
+
+
+            },
+            function(err){
+                console.log(err);
+            }
+        );
+
+
+    };
+
+    $scope.pinflag=false;
+    var param={};
+    param.forumid=$stateParams.forumid;
+    param.number=Number(new Date);
+    var myajax2=ajaxService.ajaxFactory('/Forumanswer/getapin',param,'get');
+    myajax2.then(
+        function(data){
+           if(data.forumid){
+               $scope.pinflag=true;
+           }
+        },
+        function(err){
+            console.log(err);
+        }
+
+    );
 
 }]);
