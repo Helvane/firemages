@@ -28,7 +28,15 @@ body
 
 
 }
-.container {background:#666666; color:white;}
+.container {
+    background: #222222;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding: 5px 5px 5px 5px;
+    margin-bottom: 6px;
+    color: #ffffff;
+}
 .bottomline {border-bottom: 1px solid #bbbbbb; margin-bottom: 10px;}
 .smallphoto {width: 50px; height: 50px;}
 
@@ -57,9 +65,9 @@ body
 
 .boxrect {margin-right: 10px;}
 .boxrectimg {border:3px solid #5890AD;}
-.boxrectimgcreator {border: 3px solid lightskyblue;}
+.boxrectimgcreator {border: 3px solid #99CCFF;}
 .rect {background-color:#5890AD; color: #ffffff; padding:2px; margin-top:10px; text-align: center;}
-.rectcreator {background-color:lightskyblue; color: #ffffff; padding:2px; margin-top:10px; text-align: center;}
+.rectcreator {background-color:#99CCFF; color: #ffffff; padding:2px; margin-top:10px; text-align: center;}
 #blog .media-heading {padding-right: 0px;}
 .button3d {background: #008080; color: #ffffff; padding: 5px; border-radius: 5px; border: 1px solid #808080;}
 
@@ -95,8 +103,8 @@ textarea {height: 400px; width: 100%; color: black;}
 .boxrectimgmc {border: 3px solid #339900;}
 .rectmc {background-color: #339900; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
 
-.boxrectimgadvisor {border: 3px solid #cccccc;}
-.rectadvisor {background-color: #cccccc; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
+.boxrectimgadvisor {border: 3px solid #E0D400;}
+.rectadvisor {background-color: #E0D400; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
 
 .pointer {cursor: pointer;}
 .moveup {top: -20px; position: relative;}
@@ -111,7 +119,7 @@ pre {color: #ffffff; border: none; font-family: tahoma,Arial,Helvetica,sans-seri
 
 .color1 {color:#5890AD; font-weight: bold;}
 .color2 {color:#AA0000; font-weight: bold;}
-.color3 {color: lightskyblue; font-weight: bold;}
+.color3 {color: #99CCFF; font-weight: bold;}
 .color4 {color:#000088; font-weight: bold;}
 .color5 {color:deeppink; font-weight: bold;}
 .color6 {color: #6633FF; font-weight: bold;}
@@ -120,11 +128,11 @@ pre {color: #ffffff; border: none; font-family: tahoma,Arial,Helvetica,sans-seri
 .color9 {color: #EF9AD8; font-weight: bold;}
 .color10 {color: #339900; font-weight: bold;}
 .color11 {color: #ffffff; font-size: 11px; font-weight: bold;}
-.color12 {color: #cccccc; font-weight: bold;}
+.color12 {color: #E0D400; font-weight: bold;}
 
 a.color1:hover{ text-decoration:none; border-bottom:1px solid #5890AD; color: #5890AD;}
 a.color2:hover{ text-decoration:none; border-bottom:1px solid #AA0000; color: #AA0000;}
-a.color3:hover{ text-decoration:none; border-bottom:1px solid lightskyblue; color: lightskyblue;}
+a.color3:hover{ text-decoration:none; border-bottom:1px solid #99CCFF; color: lightskyblue;}
 a.color4:hover{ text-decoration:none; border-bottom:1px solid #000088; color: #000088;}
 a.color5:hover{ text-decoration:none; border-bottom:1px solid deeppink; color: deeppink;}
 a.color6:hover{ text-decoration:none; border-bottom:1px solid #6633FF; color: #6633FF;}
@@ -133,7 +141,7 @@ a.color8:hover{ text-decoration:none; border-bottom:1px solid #D1651D; color: #D
 a.color9:hover{ text-decoration:none; border-bottom:1px solid #EF9AD8; color: #EF9AD8;}
 a.color10:hover{ text-decoration:none; border-bottom:1px solid #339900; color: #339900;}
 a.color11:hover{ text-decoration:none; border-bottom:1px solid #ffffff; color: #ffffff;}
-a.color12:hover{ text-decoration:none; border-bottom:1px solid #cccccc; color: #cccccc;}
+a.color12:hover{ text-decoration:none; border-bottom:1px solid #E0D400; color: #E0D400;}
 
 
 .alertColor {color:#ff00ff;}
@@ -160,14 +168,15 @@ pre a:hover{color: #33CC33;}
 
 .textspace {width: 100%; height: 200px; }
 
-.panel-primary .panel-heading {background: -webkit-linear-gradient(left top, darkmagenta , #330066); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(bottom right, darkmagenta, #330066); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(bottom right, darkmagenta, #330066); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to bottom right, darkmagenta , #330066); /* Standard syntax */
+.panel-primary .panel-heading {background: -webkit-linear-gradient(left top, royalblue , #00008b); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right, royalblue , #00008b); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right, royalblue , #00008b); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right, royalblue  , #00008b); /* Standard syntax */
 }
 
-.panel-primary {border: 1px solid #665599;}
+.panel-primary {border: 1px solid cornflowerblue;}
 
+.toolsbackground {background-color: #222222;}
 
 
 .profilebackground {background-color: #444444;}
@@ -178,45 +187,87 @@ pre a:hover{color: #33CC33;}
 
 .informationfonts {color: #CCC; font-size: 11px;}
 
-.textbox {height: 200px; width: 100%;}
+.toolsbackground2 {background-color: #333333;}
 
-.quotetitle, .attachtitle, .codetitle {
-    margin: 10px 5px 0px 5px;
-    padding: 2px 4px;
-    border: solid 1px #090909;
-    color: #D0D0D0;
-    background-color: #2E2E2E;
-    font-size: 0.85em;
-    font-weight: bold;
-}
 
-.quotetitle .quotetitle {
+.button2 {background: linear-gradient(#666666, #2e2e2e); color: #ffffff; font-size: 14px; border-radius: 4px;}
+.button2:hover {border: 1px solid #33CC33; color: #33CC33;}
+
+.button3 {background: linear-gradient(#666666, #2e2e2e); color: #ffffff; font-size: 14px; border-radius: 4px;}
+.button3:hover {border: 1px solid #ff0000; color: #ff0000;}
+
+.button4 {background-color: #888888; color: #ffffff; font-size: 14px; border-radius: 4px;}
+.button4:hover {border: 1px solid #33CC33; color: #33CC33;}
+
+.button5 {background: linear-gradient(#666666, #2e2e2e); color: #ffffff; font-size: 14px; border-radius: 4px;}
+.button5:hover {background: linear-gradient(#444444, #111111); color: #ffffff;}
+
+.button6 {background: linear-gradient(#666666, #2e2e2e); color: #ffffff; font-size: 14px; border-radius: 4px;}
+.button6:hover {border: 1px solid #ffffff; color: #ffffff;}
+
+
+
+.gensmall {
+    margin: 1px 1px;
     font-size: 1em;
 }
 
-.quotecontent, .attachcontent {
-    margin: 0px 5px 10px 5px;
+.cat-head {
+    background: #252524 url("/myphoto/cat-head.png") repeat-x 50% 50%;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #141414;
+    -webkit-box-shadow: 0px 1px 4px rgba(0,0,0,0.3), inset 0px 1px 0px rgba(255,255,255,0.13);
+    -moz-box-shadow: 0px 1px 4px rgba(0,0,0,0.3), inset 0px 1px 0px rgba(255,255,255,0.13);
+    box-shadow: 0px 1px 4px rgba(0,0,0,0.3), inset 0px 1px 0px rgba(255,255,255,0.13);
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    color: #a2a2a2;
+    text-transform: uppercase;
     padding: 5px;
-    border-color: #090909;
-    border-width: 0px 1px 1px 1px;
-    border-style: solid;
-    font-weight: normal;
-    font-size: 1em;
-    line-height: 1.4em;
-    /*	font-family: "Lucida Grande", "Trebuchet MS", Helvetica, Arial, sans-serif; */
-    background-color: #2E2E2E;
-    color: #EEE;
+    font-size: 12px;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 4px;
 }
 
-.quotewrapper .quotetitle, .codewrapper .codetitle, .attachwrapper .attachtitle {
-    margin: 0;
-    border-width: 0 0 1px 1px;
+.cat-head a:link {
+    color: #a2a2a2;
+    text-decoration: none;
+    -webkit-transition: color 350ms ease-in-out;
+    -moz-transition: color 350ms ease-in-out;
+    -o-transition: color 350ms ease-in-out;
+    transition: color 350ms ease-in-out;
 }
-.quotewrapper .quotecontent, .codewrapper .codecontent, .attachwrapper .attachcontent {
-    margin: 0;
-    border-width: 0 0 0 1px;
+
+.cat-head a:hover {
+    color: #0a78ba;
 }
 
+div.cat-title {
+    background: transparent url("/myphoto/cat-title-r.png") no-repeat scroll top right;
+    float: left;
+    height: 24px;
+    padding-right: 12px;
+    margin-top: 1px;
+    line-height: 23px;
+}
 
+div.cat-title span {
+    background: transparent url("/myphoto/cat-title-l.png") no-repeat;
+    display: block;
+    padding-left: 11px;
+    height: 24px;
+}
 
-
+div.cat-title span, div.cat-title span a {
+    font-weight: bold;
+    font-family: Verdana, Geneva, sans-serif;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #a2a2a2;
+    text-shadow: none;
+}

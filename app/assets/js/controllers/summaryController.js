@@ -14,6 +14,18 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
     $scope.updateforum='';
     $scope.info={"delete":false};
 
+    var param={};
+    param.number=Number(new Date);
+    var myajax2=ajaxService.ajaxFactory(TOPICURL,param,'get');
+    myajax2.then(
+        function(data){
+            $scope.topics=data;
+        },
+        function(err){
+            console.log(err);
+        }
+    );
+
     $scope.getcount=function(userid){
         var param={};
         param.userid=userid;
@@ -142,6 +154,28 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
                 $scope.msg.responseText = angular.copy($scope.msg.responseText) + selectedItem.title;
             } else {
                 $scope.msg.responseText = angular.copy($scope.msg.responseText) + selectedItem;
+            }
+        });
+    };
+
+    $scope.emoticon2 = function () {
+
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/emoji.html',
+            controller: 'emojiController',
+            resolve: {
+                items: function () {
+                    return $scope.items;
+                }
+            }
+        });
+
+        // this data return when you close the modal dialog
+        modalInstance.result.then(function (selectedItem) {
+            if(selectedItem.title) {
+                $scope.forum.summary = angular.copy($scope.forum.summary) + selectedItem.title;
+            } else {
+                $scope.forum.summary = angular.copy($scope.forum.summary) + selectedItem;
             }
         });
     };
@@ -276,7 +310,7 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
         param.forumid=$scope.forum.id;
         param.title=$scope.forum.title;
         param.summary=$scope.forum.summary;
-        param.topic=$scope.forum.topic;
+        param.topic=$scope.forum.topic.id;
 
         var myajax=ajaxService.ajaxFactory('/Forum/edit',param,'post');
         myajax.then(

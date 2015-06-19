@@ -31,9 +31,9 @@
 <br/>
 
 <div class="space">
-    <button class="btn btn-info" ng-click="save()">Submit</button>
-    <button class="btn btn-primary" ng-click="emoticon()">Emoticon</button>
-    <button class="btnmain" ng-click="formattingpopup()">Formatting Help</button>
+    <button class="btn button6" ng-click="save()">Submit</button>
+    <button class="btn button6" ng-click="emoticon()">Emoticon</button>
+    <button class="btn button6" ng-click="formattingpopup()">Formatting Help</button>
 </div>
 
 <br/>
@@ -105,7 +105,7 @@
             </a>
 
              <div class="text-center smallfont"><a ng-click="gotoprofile('/profile/'+msg.userid.id)" class="whiteColor pointer">{{msg.userid.username}}</a></div>
-            <div ng-if="msg.userid.status=='Community Member'" class="rect">{{msg.userid.status}}</div>
+            <div ng-if="msg.userid.status=='Community Member'" class="rect">Registered User</div>
             <div ng-if="msg.userid.status=='Community Guidance'" class="rectcreator">Server & Website</div>
             <div ng-if="msg.userid.status=='Designer Bot'" class="designerbot">{{msg.userid.status}}</div>
             <div ng-if="msg.userid.status=='Community Founder'" class="rectowner">{{msg.userid.status}}</div>

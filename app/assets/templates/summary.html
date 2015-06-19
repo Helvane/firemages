@@ -1,6 +1,6 @@
 <div class="space50">&nbsp;</div>
 
-<img class="pointer" ng-if="forum.lock==true" src="/myphoto/Locked.png" alt="" ng-click="lockpopup()">
+<img class="pointer" ng-if="forum.lock==true" src="/myphoto/Locked.png" alt="This Forum Is Locked." title="This Forum Is Locked." ng-click="lockpopup()">
 
 <table class="table">
     <tr>
@@ -59,7 +59,7 @@
             </a>
 
             <div class="text-center smallfont"><a ng-click="gotoprofile('/profile/'+forum.userid.id)" class="whiteColor pointer">{{forum.userid.username}}</a></div>
-            <div ng-if="forum.userid.status=='Community Member'" class="rect">{{forum.userid.status}}</div>
+            <div ng-if="forum.userid.status=='Community Member'" class="rect">Registered User</div>
             <div ng-if="forum.userid.status=='Community Guidance'" class="rectcreator">Server & Website</div>
             <div ng-if="forum.userid.status=='Designer Bot'" class="designerbot">{{forum.userid.status}}</div>
             <div ng-if="forum.userid.status=='Community Founder'" class="rectowner">{{forum.userid.status}}</div>
@@ -84,24 +84,39 @@
         </td>
         <td class="col-sm-7">
             <div ng-show="editflag==false">
-            <h1>{{forum.title}}</h1>
+            <div class="cat-head">
+                <div class="cat-title"><span>{{forum.title}}</span></div>
+            </div>
             <pre ng-bind-html="forum.summary|unsafe"></pre>
             <p ng-if="forum.photo">
                 <img ng-src="/forumimages/{{forum.photo}}" class="img-responsive"/>
             </p>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <div>Last edited by <b>{{forum.userid.username}}</b> on <b>{{forum.updatedAt|datetimefilter}}</b></div>
             </div>
 
 
             <div ng-show="editflag==true">
                 <div class="space">
                     <input type="text" ng-model="forum.title" class="form-control">/
-
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Choose A Topic</label>
+                    <select class="form-control" ng-model="forum.topic.id">
+                        <option ng-repeat="topic in topics track by $index" value="{{topic.id}}" ng-selected="topic.id==forum.topic.id">{{topic.name}}</option>
+                    </select>
                 </div>
                 <div class="space">
                 <textarea ng-model="forum.summary"></textarea>
                 </div>
                 <div class="space">
-                    <button class="btn btn-info" ng-click="editsave()">Save</button>
+                    <button class="btn button6" ng-click="editsave()">Save</button>
+                    <button class="btn button6" ng-click="emoticon2()">Emoticon</button>
+                    <button class="btn button6" ng-click="formattingpopup()">Formatting Help</button>
                 </div>
             </div>
         </td>
@@ -112,7 +127,7 @@
     <tr ng-show="logindata && forum.lock==false" ng-if="logindata.status=='Community Guidance' ||logindata.status=='Community Advisor' ||logindata.status=='Community Founder' || logindata.status=='Community Owner' ||(logindata.userid==forum.userid.id && logindata.status!='Server Banned') || (forum.topic.name=='Media' && logindata.status!='Server Banned') || (forum.topic.name=='Announcement' && logindata.status!='Server Banned') || (forum.topic.name=='Gaming' && logindata.status!='Server Banned')">
 
         <td class="col-sm-2">
-            <button class="btn btn-info" ng-click="reply()">Reply</button>
+            <button class="btn button5" ng-click="reply()">Reply</button>
             <br/>
         </td>
         <td class="col-sm-10" colspan="2">
@@ -121,9 +136,9 @@
             <textarea ng-model=" msg.responseText" class="form-control" maxlength="4000" wrap="hard"></textarea>
                 </div>
                 <div class="space">
-                    <button class="btn btn-info" ng-click="save()">Submit</button>
-                    <button class="btn btn-primary" ng-click="emoticon()">Emoticon</button>
-                    <button class="btnmain" ng-click="formattingpopup()">Formatting Help</button>
+                    <button class="btn button6" ng-click="save()">Submit</button>
+                    <button class="btn button6" ng-click="emoticon()">Emoticon</button>
+                    <button class="btn button6" ng-click="formattingpopup()">Formatting Help</button>
                 </div>
             </div>
         </td>
@@ -183,7 +198,7 @@
             </a>
 
             <div class="text-center smallfont"><a ng-click="gotoprofile('/profile/'+a.userid.id)" class="whiteColor pointer">{{a.userid.username}}</a></div>
-            <div ng-if="a.userid.status=='Community Member'" class="rect">{{a.userid.status}}</div>
+            <div ng-if="a.userid.status=='Community Member'" class="rect">Registered User</div>
             <div ng-if="a.userid.status=='Community Guidance'" class="rectcreator">Server & Website</div>
             <div ng-if="a.userid.status=='Designer Bot'" class="designerbot">{{a.userid.status}}</div>
             <div ng-if="a.userid.status=='Community Founder'" class="rectowner">{{a.userid.status}}</div>

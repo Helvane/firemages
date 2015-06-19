@@ -1,11 +1,7 @@
 <h1 class="logo" xmlns="http://www.w3.org/1999/html">Forums</h1>
 
-<h4 style="color: #00FFFF">Note: All media, gaming, and announcement topics will be displayed on the home page! <img src="/myphoto/Face 2.gif" alt="Happy face by Helvane"></h4>
 
-<br/>
-<br/>
-
-<div class="btnmain pointer" ng-click="gotoforumlayout()">FORUM LAYOUT!</div>
+<div class="btn button5 pointer" ng-click="gotoforumlayout()">FORUM LAYOUT!</div>
 <br/>
 <br/>
 
@@ -41,9 +37,9 @@
 
 <div class="form-group" ng-show="logindata">
     <label class="control-label"></label>
-    <button class="btn btn-info" ng-click="save()">Submit</button> &nbsp;
-    <button class="btn btn-primary" ng-click="emoticon()">Emoticon</button>
-    <button class="btnmain" ng-click="formattingpopup()">Formatting Help</button>
+    <button class="btn button6" ng-click="save()">Submit</button> &nbsp;
+    <button class="btn button6" ng-click="emoticon()">Emoticon</button>
+    <button class="btn button6" ng-click="formattingpopup()">Formatting Help</button>
 </div>
 </div>
 <br/>
@@ -59,7 +55,8 @@
     <tr ng-repeat="f in myforum track by $index">
         <td class="col-sm-1">
 
-            <span ng-if="f.lock==true"><img src="/myphoto/Forum Locked.png" alt="This forum is locked."></span>
+            <span ng-if="f.lock==true"><img src="/myphoto/Forum (Locked).png" alt="Forum Locked." title="This Forum Is Locked."></span>
+            <span ng-if="f.lock==false"><img src="/myphoto/Forum (Read).png" alt="No Unread Posts." title="No Unread Posts."></span>
         </td>
 
         <td class="col-sm-3">

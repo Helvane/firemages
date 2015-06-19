@@ -6,7 +6,8 @@
     </tr>
     <tr ng-repeat="f in forums track by $index">
         <td class="col-sm-1">
-            <span ng-if="f.lock==true"><img src="/myphoto/Forum Locked.png" alt="This forum is locked."></span>
+            <span ng-if="f.lock==true"><img src="/myphoto/Forum (Locked).png" alt="Forum Locked." title="This Forum Is Locked."></span>
+            <span ng-if="f.lock==false"><img src="/myphoto/Forum (Read).png" alt="No Unread Posts." title="No Unread Posts."></span>
         </td>
         <td class="col-sm-1">
             <img src="/images/{{f.userid.photo}}" class="img-responsive smallphoto"/>
