@@ -118,6 +118,16 @@ app.config(['$stateProvider','$urlRouterProvider',
                 url:'/forums',
                 views: {
                     "viewA": {
+                        templateUrl: 'templates/forumTopic.html',
+                        controller: 'forumTopicController'
+                    }
+                }
+            })
+            /*
+            .state('forums', {
+                url:'/forums',
+                views: {
+                    "viewA": {
                         templateUrl: 'templates/forums.html',
                         controller: 'forumsController'
                     },
@@ -127,6 +137,7 @@ app.config(['$stateProvider','$urlRouterProvider',
                     }
                 }
             })
+            */
             .state('summary', {
                 url:'/summary/:forumid',
                 views: {

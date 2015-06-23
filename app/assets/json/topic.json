@@ -1,11 +1,13 @@
-[
-    {
-        "name": "Unbanned Request"
+[{"id":"1","name":"Announcements","subtopic":[]},
+    {"id":"2","name":"General Discussion","subtopic":[
+        {"name":"New To The Community","id":"1"},
+        {"name":"Media","id":"2"},
+        {"name":"Art","id":"3"},
+        {"name":"The Internet","id":"4"},
+        {"name":"Advise","id":"5"}]
     },
-    {
-        "name": "Admin Application"
-    },
-    {
-        "name": "Ungag & Unmute Request"
-    }
-]
+    {"id":"3","name":"Gaming","subtopic":[
+        {"name":"Team Fortress 2","id":"1","subcat":[{"name":"Apply for Admin","id":"1"},{"name":"Unband request","id":"2"},{"name":"Unmute  Ungag Request","id":"3"},{"name":"Report a problem  abuse","id":"4"}]},
+        {"name":"Garrys Mod","id":"2","subcat":[{"name":"Apply for Admin","id":"5"},{"name":"Unband request","id":"6"},{"name":"Unmute  Ungag Request","id":"7"},{"name":"Report a problem  abuse","id":"8"}]},
+        {"name":"Minecraft","id":"3","subcat":[{"name":"Apply for Admin","id":"9"},{"name":"Unband request","id":"10"},{"name":"Unmute  Ungag Request","id":"11"},{"name":"Report a problem  abuse","id":"12"}]}
+    ]}]

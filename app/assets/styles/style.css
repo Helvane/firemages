@@ -179,7 +179,7 @@ pre a:hover{color: #33CC33;}
 .toolsbackground {background-color: #222222;}
 
 
-.profilebackground {background-color: #444444;}
+.profilebackground {background-color: #454545;}
 
 .changepasswordbackground {background-color: #666666;}
 .sendmessagebackground {background-color: #666666;}
@@ -189,6 +189,27 @@ pre a:hover{color: #33CC33;}
 
 .toolsbackground2 {background-color: #333333;}
 
+.forumtopicbackground {text-align:center; padding: 4px 0 4px 0; color:#FFF; background:#601c2e; font-size:larger; font-weight:bold; width:100%; float:left;}
+
+.forumbackground {border-right: none; text-align: left;}
+
+.forumborderstyle {border-top: 1px solid #999; border-bottom: 1px solid #999;}
+
+.forum-container {
+    background-color: #161616;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding: 0 5px 5px 5px;
+    color: #ffffff;
+}
+
+dd.posts, dd.topics, dd.views {
+    width: 8%;
+    text-align: center;
+    line-height: 2.2em;
+    font-size: 1.2em;
+}
 
 .button2 {background: linear-gradient(#666666, #2e2e2e); color: #ffffff; font-size: 14px; border-radius: 4px;}
 .button2:hover {border: 1px solid #33CC33; color: #33CC33;}
@@ -206,6 +227,10 @@ pre a:hover{color: #33CC33;}
 .button6:hover {border: 1px solid #ffffff; color: #ffffff;}
 
 
+.tablebg {
+    border: solid 1px #000;
+    background: #313131 url(/myphoto/cell.gif) top left repeat-x;
+}
 
 .gensmall {
     margin: 1px 1px;
