@@ -55,14 +55,14 @@
 
     {
         "name":"MC Admin",
-        "cssclass": "boxrectimgadmin",
-        "cssclass2":"rectadmin"
+        "cssclass": "boxrectimgmcadmin",
+        "cssclass2":"rectmcadmin"
     },
 
     {
         "name":"Gmod Admin",
-        "cssclass": "boxrectimgadmin",
-        "cssclass2":"rectadmin"
+        "cssclass": "boxrectimggmodadmin",
+        "cssclass2":"rectgmodadmin"
     },
 
     {
@@ -93,6 +93,12 @@
         "name":"Community Advisor",
         "cssclass": "boxrectimgadvisor",
         "cssclass2":"rectadvisor"
+    },
+
+    {
+        "name":"Registered User",
+        "cssclass": "boxrectimgregistered",
+        "cssclass2":"rectregistered"
     }
 
 ]

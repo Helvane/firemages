@@ -123,9 +123,18 @@ app.config(['$stateProvider','$urlRouterProvider',
                     }
                 }
             })
-            /*
-            .state('forums', {
-                url:'/forums',
+            .state('subcat', {
+                url:'/subcat/:id',
+                views: {
+                    "viewA": {
+                        templateUrl: 'templates/subcat.html',
+                        controller: 'subcatController'
+                    }
+                }
+            })
+
+            .state('forumtopic', {
+                url:'/forumtopic/:id',
                 views: {
                     "viewA": {
                         templateUrl: 'templates/forums.html',
@@ -137,7 +146,7 @@ app.config(['$stateProvider','$urlRouterProvider',
                     }
                 }
             })
-            */
+
             .state('summary', {
                 url:'/summary/:forumid',
                 views: {

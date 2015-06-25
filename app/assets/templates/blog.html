@@ -83,10 +83,10 @@
                 <img src="/images/{{msg.userid.photo}}" class="boxrectimgadmin"/>
             </a>
             <a ng-if="msg.userid.status=='MC Admin'">
-                <img src="/images/{{msg.userid.photo}}" class="boxrectimgadmin"/>
+                <img src="/images/{{msg.userid.photo}}" class="boxrectimgmcadmin"/>
             </a>
             <a ng-if="msg.userid.status=='Gmod Admin'">
-                <img src="/images/{{msg.userid.photo}}" class="boxrectimgadmin"/>
+                <img src="/images/{{msg.userid.photo}}" class="boxrectimggmodadmin"/>
             </a>
             <a ng-if="msg.userid.status=='Community Owner'">
                 <img src="/images/{{msg.userid.photo}}" class="boxrectimgcoowner"/>
@@ -103,9 +103,12 @@
             <a ng-if="msg.userid.status=='Community Advisor'">
                 <img src="/images/{{msg.userid.photo}}" class="boxrectimgadvisor"/>
             </a>
+            <a ng-if="msg.userid.status=='Registered User'">
+                <img src="/images/{{msg.userid.photo}}" class="boxrectimgregistered"/>
+            </a>
 
              <div class="text-center smallfont"><a ng-click="gotoprofile('/profile/'+msg.userid.id)" class="whiteColor pointer">{{msg.userid.username}}</a></div>
-            <div ng-if="msg.userid.status=='Community Member'" class="rect">Registered User</div>
+            <div ng-if="msg.userid.status=='Community Member'" class="rect">{{msg.userid.status}}</div>
             <div ng-if="msg.userid.status=='Community Guidance'" class="rectcreator">Server & Website</div>
             <div ng-if="msg.userid.status=='Designer Bot'" class="designerbot">{{msg.userid.status}}</div>
             <div ng-if="msg.userid.status=='Community Founder'" class="rectowner">{{msg.userid.status}}</div>
@@ -114,13 +117,14 @@
             <div ng-if="msg.userid.status=='Community Head-Admin (TF2)'" class="rectheadadmin">Community Head-Admin</div>
             <div ng-if="msg.userid.status=='Community Tech'" class="recttech">{{msg.userid.status}}</div>
             <div ng-if="msg.userid.status=='TF2 Admin'" class="rectadmin">Community Admin</div>
-            <div ng-if="msg.userid.status=='MC Admin'" class="rectadmin">Community Admin</div>
-            <div ng-if="msg.userid.status=='Gmod Admin'" class="rectadmin">Community Admin</div>
+            <div ng-if="msg.userid.status=='MC Admin'" class="rectmcadmin">Community Admin</div>
+            <div ng-if="msg.userid.status=='Gmod Admin'" class="rectgmodadmin">Community Admin</div>
             <div ng-if="msg.userid.status=='Community Owner'" class="rectcoowner">{{msg.userid.status}}</div>
             <div ng-if="msg.userid.status=='Announcement Bot'" class="rectannouncement">{{msg.userid.status}}</div>
             <div ng-if="msg.userid.status=='Community Head-Admin (Gmod)'" class="rectgmod">Community Head-Admin</div>
             <div ng-if="msg.userid.status=='Community Head-Admin (MC)'" class="rectmc">Community Head-Admin</div>
             <div ng-if="msg.userid.status=='Community Advisor'" class="rectadvisor">{{msg.userid.status}}</div>
+            <div ng-if="msg.userid.status=='Registered User'" class="rectregistered">{{msg.userid.status}}</div>
 
 
         </div>

@@ -24,11 +24,15 @@ appController.controller("forumTopicController",['$scope','$location','ajaxServi
         );
 
 
-    $scope.gotosummary=function(data){
+    $scope.goto=function(data){
         // you use a setter
         shareService.setForum(data);
 
-        $location.path('/summary/'+data.id);
+        if(data.subcat.length > 0) {
+            $location.path('/subcat/' + data.id);
+        } else {
+            $location.path('/forumtopic/' + data.id);
+        }
 
     };
 

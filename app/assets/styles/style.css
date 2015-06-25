@@ -91,8 +91,8 @@ textarea {height: 400px; width: 100%; color: black;}
 .boxrectimgcoowner {border: 3px solid #6633FF;}
 .rectcoowner {background-color: #6633FF; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
 
-.boxrectimgadmin {border: 3px solid #1D526F;}
-.rectadmin {background-color: #1D526F; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
+.boxrectimgadmin {border: 3px solid #33CC99;}
+.rectadmin {background-color: #33CC99; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
 
 .boxrectimgannouncement {border: 3px solid #000088;}
 .rectannouncement {background-color: #000088; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
@@ -105,6 +105,15 @@ textarea {height: 400px; width: 100%; color: black;}
 
 .boxrectimgadvisor {border: 3px solid #E0D400;}
 .rectadvisor {background-color: #E0D400; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
+
+.boxrectimgmcadmin {border: 3px solid #8A6343;}
+.rectmcadmin {background-color: #8A6343; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
+
+.boxrectimggmodadmin {border: 3px solid #880066;}
+.rectgmodadmin {background-color: #880066; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
+
+.boxrectimgregistered {border: 3px solid #444444;}
+.rectregistered {color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
 
 .pointer {cursor: pointer;}
 .moveup {top: -20px; position: relative;}
@@ -123,12 +132,15 @@ pre {color: #ffffff; border: none; font-family: tahoma,Arial,Helvetica,sans-seri
 .color4 {color:#000088; font-weight: bold;}
 .color5 {color:deeppink; font-weight: bold;}
 .color6 {color: #6633FF; font-weight: bold;}
-.color7 {color: #1D526F; font-weight: bold;}
+.color7 {color: #33CC99; font-weight: bold;}
 .color8 {color: #D1651D; font-weight: bold;}
 .color9 {color: #EF9AD8; font-weight: bold;}
 .color10 {color: #339900; font-weight: bold;}
 .color11 {color: #ffffff; font-size: 11px; font-weight: bold;}
 .color12 {color: #E0D400; font-weight: bold;}
+.color13 {color: #8A6343; font-weight: bold;}
+.color14 {color: #880066; font-weight: bold;}
+.color15 {color: #ffffff; font-weight: bold;}
 
 a.color1:hover{ text-decoration:none; border-bottom:1px solid #5890AD; color: #5890AD;}
 a.color2:hover{ text-decoration:none; border-bottom:1px solid #AA0000; color: #AA0000;}
@@ -136,12 +148,15 @@ a.color3:hover{ text-decoration:none; border-bottom:1px solid #99CCFF; color: li
 a.color4:hover{ text-decoration:none; border-bottom:1px solid #000088; color: #000088;}
 a.color5:hover{ text-decoration:none; border-bottom:1px solid deeppink; color: deeppink;}
 a.color6:hover{ text-decoration:none; border-bottom:1px solid #6633FF; color: #6633FF;}
-a.color7:hover{ text-decoration:none; border-bottom:1px solid #1D526F; color: #1D526F;}
+a.color7:hover{ text-decoration:none; border-bottom:1px solid #33CC99; color: #33CC99;}
 a.color8:hover{ text-decoration:none; border-bottom:1px solid #D1651D; color: #D1651D;}
 a.color9:hover{ text-decoration:none; border-bottom:1px solid #EF9AD8; color: #EF9AD8;}
 a.color10:hover{ text-decoration:none; border-bottom:1px solid #339900; color: #339900;}
 a.color11:hover{ text-decoration:none; border-bottom:1px solid #ffffff; color: #ffffff;}
 a.color12:hover{ text-decoration:none; border-bottom:1px solid #E0D400; color: #E0D400;}
+a.color13:hover{ text-decoration:none; border-bottom:1px solid #8A6343; color: #8A6343;}
+a.color14:hover{ text-decoration:none; border-bottom:1px solid #880066; color: #880066;}
+a.color15:hover{ text-decoration:none; border-bottom:1px solid #ffffff; color: #ffffff;}
 
 
 .alertColor {color:#ff00ff;}
@@ -176,7 +191,7 @@ pre a:hover{color: #33CC33;}
 
 .panel-primary {border: 1px solid cornflowerblue;}
 
-.toolsbackground {background-color: #222222;}
+.toolsbackground {background-color: #000000;}
 
 
 .profilebackground {background-color: #454545;}
@@ -204,11 +219,32 @@ pre a:hover{color: #33CC33;}
     color: #ffffff;
 }
 
-dd.posts, dd.topics, dd.views {
-    width: 8%;
-    text-align: center;
-    line-height: 2.2em;
-    font-size: 1.2em;
+.forumrowbackground {
+    display: block;
+    padding-left: 5px;
+    width: 17%;
+    font-size: 1.1em;
+}
+
+.forabg {
+    background: #000000 none repeat-x 0 0;
+    border: 1px solid #000000;
+    margin-bottom: 4px;
+    padding: 0 5px;
+    clear: both;
+}
+
+.row1 {
+    border-left: solid 1px #404040;
+    border-right: solid 1px #121212;
+    border-top: solid 1px #3C3C3C;
+    border-bottom: solid 1px #131313;
+    background: #313131 url(/myphoto/cell.gif) top left repeat-x;
+    padding: 8px;
+}
+
+.nobold {
+    font-weight: normal;
 }
 
 .button2 {background: linear-gradient(#666666, #2e2e2e); color: #ffffff; font-size: 14px; border-radius: 4px;}
