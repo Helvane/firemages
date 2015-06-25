@@ -147,6 +147,16 @@ app.config(['$stateProvider','$urlRouterProvider',
                 }
             })
 
+            .state('forumpost', {
+                url:'/forumpost/:id',
+                views: {
+                    "viewA": {
+                        templateUrl: 'templates/forumpost.html',
+                        controller: 'forumpostController'
+                    }
+                }
+            })
+
             .state('summary', {
                 url:'/summary/:forumid',
                 views: {

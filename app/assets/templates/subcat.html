@@ -5,10 +5,10 @@
         </div>
         <table class="table tablebg">
             <tr>
-                <th class="col-sm-6">Forum</th><th class="col-sm-1">Topics</th><th class="col-sm-1">Posts</th><th class="col-sm-12">Last Post</th>
+                <th class="col-sm-6 forumrowbackground">Forum</th><th class="col-sm-1 forumrowbackground">Topics</th><th class="col-sm-1 forumrowbackground">Posts</th><th class="col-sm-12 forumrowbackground">Last Post</th>
             </tr>
             <tr ng-repeat="subcat in subtopic.subcat track by $index">
-                <td class="col-sm-6 pointer" ng-click="goto(subtopic)">{{subcat.name}}</td>
+                <td class="col-sm-6 pointer" ng-click="goto(subcat)">{{subcat.name}}</td>
                 <td class="col-sm-1">24</td>
                 <td class="col-sm-1">100</td>
                 <td class="col-sm-4">Last Message post by Kitty</td>

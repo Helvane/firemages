@@ -13,10 +13,8 @@ appController.controller("subcatController",['$scope','$location','ajaxService',
 
     $scope.goto=function(subcat){
         // you use a setter
-        shareService.setForum(obj);
-
-
-            $location.path('/forum/' + data.id);
+        shareService.setForum(subcat);
+            $location.path('/forumtopic/' + subcat.id);
 
 
     };

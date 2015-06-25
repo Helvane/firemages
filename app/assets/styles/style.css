@@ -118,6 +118,8 @@ textarea {height: 400px; width: 100%; color: black;}
 .pointer {cursor: pointer;}
 .moveup {top: -20px; position: relative;}
 
+.width200 {width: 200px;}
+
 pre {color: #ffffff; border: none; font-family: tahoma,Arial,Helvetica,sans-serif;
     overflow: auto;
     word-wrap: normal;
@@ -262,6 +264,8 @@ pre a:hover{color: #33CC33;}
 .button6 {background: linear-gradient(#666666, #2e2e2e); color: #ffffff; font-size: 14px; border-radius: 4px;}
 .button6:hover {border: 1px solid #ffffff; color: #ffffff;}
 
+.button7 {background: linear-gradient(#666666, #2e2e2e); color: #ffffff; font-size: 14px; border-radius: 4px; width: 100px; height: 20px; min-height:50px;}
+.button7:hover {background: linear-gradient(#444444, #111111); color: #ffffff;}
 
 .tablebg {
     border: solid 1px #000;

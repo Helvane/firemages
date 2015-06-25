@@ -1,0 +1,38 @@
+<div class="alert alert-info" ng-hide="logindata">
+    You must be logged in, in order for you to post on these forums.
+</div>
+
+<div ng-if="error" class="alert alert-warning">{{error}}</div>
+
+
+<div ng-if="logindata.status!='Server Banned'">
+    <div class="form-group">
+        <label class="control-label">Choose A Topic</label>
+        <select class="form-control" ng-model="forum.topic">
+            <option ng-repeat="topic in topics track by $index" value="{{topic.id}}">{{topic.name}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Title</label>
+        <input type="text" class="form-control" ng-model="forum.title">
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Summary</label>
+        <textarea class="textspace" ng-model="forum.summary" wrap="hard"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Photo</label>
+        <input type="file" nv-file-select uploader="uploader" class="form-control input-sm"/>
+    </div>
+
+    <div class="form-group" ng-show="logindata">
+        <label class="control-label"></label>
+        <button class="btn button6" ng-click="save()">Submit</button> &nbsp;
+        <button class="btn button6" ng-click="emoticon()">Emoticon</button>
+        <button class="btn button6" ng-click="formattingpopup()">Formatting Help</button>
+    </div>
+</div>
+<br/>
