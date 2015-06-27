@@ -6,12 +6,6 @@
 
 
 <div ng-if="logindata.status!='Server Banned'">
-    <div class="form-group">
-        <label class="control-label">Choose A Topic</label>
-        <select class="form-control" ng-model="forum.topic">
-            <option ng-repeat="topic in topics track by $index" value="{{topic.id}}">{{topic.name}}</option>
-        </select>
-    </div>
 
     <div class="form-group">
         <label>Title</label>

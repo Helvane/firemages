@@ -164,7 +164,7 @@ a.color15:hover{ text-decoration:none; border-bottom:1px solid #ffffff; color: #
 .alertColor {color:#ff00ff;}
 
 .table-hover > tbody > tr:hover {
-    background-color: #999999;
+    background-color: #333333;
 }
 
 .alink {color: #67B168;}
@@ -204,7 +204,7 @@ pre a:hover{color: #33CC33;}
 
 .informationfonts {color: #CCC; font-size: 11px;}
 
-.toolsbackground2 {background-color: #333333;}
+.toolsbackground2 {background-color: #161616;}
 
 .forumtopicbackground {text-align:center; padding: 4px 0 4px 0; color:#FFF; background:#601c2e; font-size:larger; font-weight:bold; width:100%; float:left;}
 

@@ -8,8 +8,8 @@
 module.exports = {
 
   attributes: {
-      topic: {
-          model:'topic'
+      topicid: {
+          type:'integer'
       },
       userid: {
           model:'users'

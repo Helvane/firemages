@@ -3,8 +3,8 @@
  */
 
 
-appController.controller("forumpostController",['$scope','ajaxService','shareService','$location','$modal','$filter','FileUploader',function($scope, ajaxService, shareService, $location,$modal, $filter, FileUploader){
-    $scope.forum={"topic":"","title":"","summary":""};
+appController.controller("forumpostController",['$scope','ajaxService','shareService','$location','$modal','$filter','FileUploader','$stateParams',function($scope, ajaxService, shareService, $location,$modal, $filter, FileUploader, $stateParams){
+    $scope.forum={"topicid":$stateParams.id,"title":"","summary":""};
     $scope.topics=[];
     $scope.myforum=[];
     $scope.update='';
@@ -13,59 +13,20 @@ appController.controller("forumpostController",['$scope','ajaxService','shareSer
         shareService.setAlert('You must login before you can view the forums.');
         $location.path('/login');
     }
-    $scope.atopic={'id':0};
-    $scope.atopic2={'id':0};
-    $scope.atopic3={'id':0};
-
-    $scope.$watch("update",function() {
-        var param={};
-        param.number=new Date();
-        param.topic=[$scope.atopic.id,$scope.atopic2.id,$scope.atopic3.id];
-        param.number=Number(new Date);
-        var myajax=ajaxService.ajaxFactory(GETFORUMURL,param,'get');
-        myajax.then(
-            function(data){
-                $scope.myforum=data;
-            },
-            function(err){
-                console.log(err);
-            }
-        );
-    });
-
-    var param={};
-    param.number=Number(new Date);
-    var myajax2=ajaxService.ajaxFactory(TOPICURL,param,'get');
-    myajax2.then(
-        function(data){
-            $scope.topics=data;
-            $scope.atopic=$filter('filter')(data,{name: 'Media'})[0];
-            $scope.atopic2=$filter('filter')(data,{name: 'Gaming'})[0];
-            $scope.atopic3=$filter('filter')(data,{name: 'Announcement'})[0];
-            $scope.update=Number(new Date);
-        },
-        function(err){
-            console.log(err);
-        }
-    );
 
     $scope.error='';
     $scope.savebtn=function(){
-        if($scope.forum.topic==''){
-            $scope.error='Please select a topic.';
-        } else if($scope.forum.title==''){
+        if($scope.forum.title==''){
             $scope.error='Please enter a title.';
         } else if($scope.forum.summary==''){
             $scope.error='Please write a brief summary.';
         } else {
-
             var mycreate = ajaxService.ajaxFactory(CREATEFORUMURL, $scope.forum, 'post');
             mycreate.then(
                 function (data) {
-                    $scope.forum.topic = '';
                     $scope.forum.title = '';
                     $scope.forum.summary = '';
-                    $scope.update = Number(new Date);
+                    $location.path('/forumtopic/'+$stateParams.id);
                 },
                 function (err) {
                     console.log(err);
@@ -73,21 +34,6 @@ appController.controller("forumpostController",['$scope','ajaxService','shareSer
             );
         }
     };
-
-    $scope.gotosummary=function(data){
-        // you use a setter
-        shareService.setForum(data);
-
-        $location.path('/summary/'+data.id);
-
-    };
-
-    $scope.gotoforumlayout=function(){
-        // you use a setter
-        $location.path('/forumlayout');
-
-    };
-
 
     //emoticon button
     $scope.emoticon = function () {
@@ -164,7 +110,7 @@ appController.controller("forumpostController",['$scope','ajaxService','shareSer
         var imagetype = shareService.getImageType(item.file.type);
         console.log("imagetype = "+imagetype);
 
-        item.formData[0]={"topic":$scope.forum.topic,"title":$scope.forum.title,"summary":$scope.forum.summary,"imagetype":imagetype};
+        item.formData[0]={"topicid":$stateParams.id,"title":$scope.forum.title,"summary":$scope.forum.summary,"imagetype":imagetype};
         $scope.progressflag=true;
     };
     uploader.onProgressItem = function(fileItem, progress) {
@@ -190,16 +136,11 @@ appController.controller("forumpostController",['$scope','ajaxService','shareSer
 
     };
     uploader.onCompleteAll = function() {
-        $scope.forum.topic="";
         $scope.forum.title="";
         $scope.forum.summary="";
         $scope.progressflag=false;
         $scope.update=Number(new Date);
     };
-
-    $scope.$watch('forum.topic',function(){
-        $scope.error='';
-    });
 
     $scope.$watch('forum.title',function(){
         $scope.error='';

@@ -8,24 +8,21 @@ appController.controller("forumsController",['$scope','ajaxService','shareServic
     $scope.myforum=[];
     $scope.update='';
     $scope.forumtopic=shareService.getForum();
-    $scope.forumtopicid=$stateParams.id;
     $scope.logindata=shareService.getlogin();
     if(!$scope.logindata){
         shareService.setAlert('You must login before you can view the forums.');
         $location.path('/login');
     }
-    $scope.atopic={'id':0};
-    $scope.atopic2={'id':0};
-    $scope.atopic3={'id':0};
 
     $scope.$watch("update",function() {
-    var param={};
-        param.number=new Date();
-        param.topic=[$scope.atopic.id,$scope.atopic2.id,$scope.atopic3.id];
+        var myid=$stateParams.id;
+        var param={};
+        param.topicid=myid;
         param.number=Number(new Date);
     var myajax=ajaxService.ajaxFactory(GETFORUMURL,param,'get');
     myajax.then(
         function(data){
+
             $scope.myforum=data;
         },
         function(err){
@@ -33,23 +30,6 @@ appController.controller("forumsController",['$scope','ajaxService','shareServic
         }
     );
     });
-
-    var param={};
-    param.number=Number(new Date);
-    var myajax2=ajaxService.ajaxFactory(TOPICURL,param,'get');
-    myajax2.then(
-      function(data){
-          $scope.topics=data;
-          $scope.atopic=$filter('filter')(data,{name: 'Media'})[0];
-          $scope.atopic2=$filter('filter')(data,{name: 'Gaming'})[0];
-          $scope.atopic3=$filter('filter')(data,{name: 'Announcement'})[0];
-          $scope.update=Number(new Date);
-      },
-      function(err){
-          console.log(err);
-      }
-    );
-
 
     $scope.gotosummary=function(data){
         // you use a setter
@@ -62,7 +42,7 @@ appController.controller("forumsController",['$scope','ajaxService','shareServic
 
     //emoticon button
     $scope.newtopic = function () {
-        $location.path('/forumpost/'+$scope.forumtopicid);
+        $location.path('/forumpost/'+$stateParams.id);
 
 
     };

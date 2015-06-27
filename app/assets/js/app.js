@@ -7,9 +7,10 @@ var app=angular.module("app",['ui.router','appController', 'appService','appFilt
 app.config(['$stateProvider','$urlRouterProvider',
     function ($stateProvider, $urlRouterProvider){
 
-        $urlRouterProvider.otherwise("/home");
+        $urlRouterProvider.otherwise("/forums");
 
         $stateProvider
+            /*
             .state('home', {
                 url:'/home',
                 views: {
@@ -33,6 +34,16 @@ app.config(['$stateProvider','$urlRouterProvider',
                     'viewE@home':{
                         templateUrl: 'templates/announcement.html',
                         controller: 'announcementController'
+                    }
+                }
+            })
+            */
+            .state('home', {
+                url:'/home',
+                views: {
+                    "viewA": {
+                        templateUrl: 'templates/forumTopic.html',
+                        controller: 'forumTopicController'
                     }
                 }
             })

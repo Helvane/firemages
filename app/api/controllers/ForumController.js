@@ -12,7 +12,7 @@ module.exports = {
     create:function(req,res){
         var param=req.params.all();
         var userID=req.session.userid;
-        Forum.create({topic:param.topic,userid:userID,title:param.title,summary:param.summary})
+        Forum.create({topicid:param.topicid,userid:userID,title:param.title,summary:param.summary})
             .exec(function createCB(err, created) {
 
                 return res.json(created);
@@ -73,7 +73,7 @@ module.exports = {
                     });
                 });
 
-                Forum.create({topic:param.topic,userid:userID,title:param.title,summary:param.summary,photo:filename})
+                Forum.create({topicid:param.topicid,userid:userID,title:param.title,summary:param.summary,photo:filename})
                     .exec(function createCB(err, created) {
 
                         console.log(created)
@@ -94,7 +94,9 @@ module.exports = {
     },
     getForum:function(req, res){
         var param=req.params.all();
-        Forum.find({topic:{'!':param.topic}}).populateAll().sort('id desc').exec(function(err,result){
+        var topicid=parseInt(param.topicid);
+        Forum.find({"topicid":topicid}).populateAll().sort('id desc').exec(function(err,result){
+
            return res.json(result);
         });
     },

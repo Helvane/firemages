@@ -1,6 +1,8 @@
 <div class="panel panel-info" ng-if="logindata.status=='Community Owner' || logindata.status=='Community Guidance' || logindata.status=='Community Advisor' || logindata.status=='Community Founder'">
 
-    <div class="panel-heading">Moderator Tools</div>
+    <div class="cat-head">
+    <div class="cat-title"><span>Moderator Tools</span></div>
+    </div>
     <div class="panel-body toolsbackground">
         <ul class="list-group">
             <li class="list-group-item toolsbackground2 pointer" ng-show="info.delete==false"><button class="btn button5" ng-click="delete()"><i class="fa fa-trash"></i> Delete This Thread</button> </li>
