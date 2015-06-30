@@ -94,7 +94,7 @@ module.exports = {
     },
     getForum:function(req, res){
         var param=req.params.all();
-        var topicid=parseInt(param.topicid);
+        var topicid=param.topicid;
         Forum.find({"topicid":topicid}).populateAll().sort('id desc').exec(function(err,result){
 
            return res.json(result);
@@ -136,6 +136,23 @@ module.exports = {
         Forum.update({id:param.forumid},{title:param.title,summary:param.summary,topic:param.topic}).exec(function(err,result){
             return res.json(result);
         });
+    },
+    counttopic:function(req, res){
+        var param=req.params.all();
+        var subcat=param.subcat;
+
+        if(!subcat) {
+            var topicid = param.topicid;
+            Forum.count({'topicid': topicid}).exec(function (err, result) {
+                return res.json(result);
+            });
+        } else {
+
+
+            Forum.count({'topicid':subcat}).exec(function (err, result) {
+                return res.json(result);
+            });
+        }
     }
 
 };

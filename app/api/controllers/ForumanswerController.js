@@ -67,6 +67,25 @@ module.exports = {
         Pindata.findOne({forumid:param.forumid}).exec(function(err, result){
             return res.json(result);
         });
+    },
+
+    getcountforum:function(req, res){
+        var param=req.params.all();
+        Forum.find({topicid:param.topicid}).exec(function(err,output){
+           var temp=[];
+           if(output.length > 0) {
+               for (var i = 0; i < output.length; i++) {
+                   temp[i] = output[i].id;
+               }
+               ;
+               Forumanswer.count({forumid: temp}).exec(function (err, result) {
+                   return res.json(result);
+               });
+           } else {
+               return res.json(0);
+           }
+        });
+
     }
 };
 

@@ -9,7 +9,7 @@ module.exports = {
 
   attributes: {
       topicid: {
-          type:'integer'
+          type:'string'
       },
       userid: {
           model:'users'

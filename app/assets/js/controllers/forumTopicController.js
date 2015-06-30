@@ -3,19 +3,26 @@
  */
 
 
-appController.controller("forumTopicController",['$scope','$location','ajaxService','shareService','$filter',function($scope,$location,ajaxService, shareService, $filter){
+appController.controller("forumTopicController",['$scope','$location','ajaxService','shareService','$filter','$q',function($scope,$location,ajaxService, shareService, $filter, $q){
 
     $scope.update='';
     $scope.logindata=shareService.getlogin();
     $scope.forumTopics=[];
+    $scope.topics=[];
 
+    var param={};
+    param.number=Number(new Date());
+    var myajax=ajaxService.ajaxFactory('/Forum/counttopic',param,'get');
 
         var param={};
         param.number=Number(new Date);
         var ajax=ajaxService.ajaxFactory('/json/topic.json',param,'get');
-        ajax.then(
-            function(data){
-                $scope.forumTopics=data;
+
+        var allajax=$q.all([myajax,ajax]);
+        allajax.then(
+          function(data){
+            $scope.topics=data[0];
+            $scope.forumTopics=data[1];
 
             },
             function(error){

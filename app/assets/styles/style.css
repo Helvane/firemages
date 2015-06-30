@@ -196,7 +196,7 @@ pre a:hover{color: #33CC33;}
 .toolsbackground {background-color: #000000;}
 
 
-.profilebackground {background-color: #454545;}
+.profilebackground {background-color: #333333;}
 
 .changepasswordbackground {background-color: #666666;}
 .sendmessagebackground {background-color: #666666;}
@@ -266,6 +266,10 @@ pre a:hover{color: #33CC33;}
 
 .button7 {background: linear-gradient(#666666, #2e2e2e); color: #ffffff; font-size: 14px; border-radius: 4px; width: 100px; height: 20px; min-height:50px;}
 .button7:hover {background: linear-gradient(#444444, #111111); color: #ffffff;}
+
+.steamprofile:hover {
+    background-color: #121212;
+}
 
 .tablebg {
     border: solid 1px #000;

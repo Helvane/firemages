@@ -1,4 +1,4 @@
-[{"id":"1","name":"Announcements","subtopic":[{"name":"Mailbox","id":"10"}]},
+[{"id":"1","name":"Announcements","subtopic":[{"name":"Mailbox","id":"10","subcat":[]}]},
     {"id":"2","name":"General Discussion","subtopic":[
         {"name":"New To The Community","id":"20","subcat":[]},
         {"name":"Media","id":"21","subcat":[]},
