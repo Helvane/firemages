@@ -1,6 +1,6 @@
 <div class="space50">&nbsp;</div>
 
-<img class="pointer" ng-if="forum.lock==true" src="/myphoto/Locked.png" alt="This Forum Is Locked." title="This Forum Is Locked." ng-click="lockpopup()">
+<button class="btn button7" ng-if="forum.lock==true" alt="This Forum Is Locked." title="This Forum Is Locked." ng-click="lockpopup()">LOCKED <i class="fa fa-lock"></i></button>
 
 <table class="table">
 
@@ -242,3 +242,5 @@
 <div ng-if="total > 10">
  <pagination total-items="total" ng-model="currentPage" ng-click="nextpage(currentPage)" max-size="5" class="pagination-sm" boundary-links="true" rotate="true" items-per-page="10" previous-text="Prev" next-text="Next"></pagination>
 </div>
+
+<button class="btn button7" ng-if="forum.lock==true" alt="This Forum Is Locked." title="This Forum Is Locked." ng-click="lockpopup()">LOCKED <i class="fa fa-lock"></i></button>

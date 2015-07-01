@@ -1,8 +1,8 @@
 <h1 class="logo">Forums</h1>
 
 <ul class="list-inline list-unstyled">
-    <li><img class="pointer" src="/myphoto/Button-new-topic.png" alt="Post A New Topic." title="Post A New Topic." ng-click="newtopic()"></li>
-    <li><input type="search" ng-model="form.search" class="form-control width200" placeholder="Search This Forum"/></li>
+    <li><button class="btn button8" alt="Post A New Topic." title="Post A New Topic." ng-click="newtopic()"><img src="/myphoto/arrow-31-256-(2).png" alt=""> NEW TOPIC</button></li>
+    <li><input type="search" ng-model="form.search" class="form-control width200" placeholder="Search This Forum..."/></li>
     <li><button class="btn button2" ng-click="search()">Search</button></li>
 </ul>
 
@@ -31,3 +31,5 @@
         <td class="col-sm-2">{{f.createdAt|datetimefilter}}</td>
     </tr>
 </table>
+
+<button class="btn button8" alt="Post A New Topic." title="Post A New Topic." ng-click="newtopic()"><img src="/myphoto/arrow-31-256-(2).png" alt=""> NEW TOPIC</button>

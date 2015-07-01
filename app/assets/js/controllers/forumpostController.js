@@ -4,7 +4,7 @@
 
 
 appController.controller("forumpostController",['$scope','ajaxService','shareService','$location','$modal','$filter','FileUploader','$stateParams',function($scope, ajaxService, shareService, $location,$modal, $filter, FileUploader, $stateParams){
-    $scope.forum={"topicid":$stateParams.id,"title":"","summary":""};
+    $scope.forum={"topicid":$stateParams.id,"title":"","summary":"","lock":false};
     $scope.topics=[];
     $scope.myforum=[];
     $scope.update='';

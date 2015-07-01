@@ -71,7 +71,14 @@ module.exports = {
 
     getcountforum:function(req, res){
         var param=req.params.all();
-        Forum.find({topicid:param.topicid}).exec(function(err,output){
+        var subcat=param.subcat;
+        var mytopic=[];
+        if(!subcat) {
+           mytopic=param.topicid;
+        } else {
+           mytopic=subcat;
+        }
+        Forum.find({topicid:mytopic}).exec(function(err,output){
            var temp=[];
            if(output.length > 0) {
                for (var i = 0; i < output.length; i++) {

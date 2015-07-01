@@ -60,8 +60,8 @@ body
 .lightblue {color: #0066ff;}
 .darkcreator {color:#99CCFF;}
 .advisor {color: hotpink}
-.boxrectimgowner {border: 3px solid #AA0000;}
-.rectowner {background-color: #AA0000; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
+.boxrectimgowner {border: 3px solid #ff0000;}
+.rectowner {background-color: #ff0000; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
 
 .boxrect {margin-right: 10px;}
 .boxrectimg {border:3px solid #5890AD;}
@@ -129,7 +129,7 @@ pre {color: #ffffff; border: none; font-family: tahoma,Arial,Helvetica,sans-seri
 .popmenu { position:absolute; z-index: 1000; width: 100%;}
 
 .color1 {color:#5890AD; font-weight: bold;}
-.color2 {color:#AA0000; font-weight: bold;}
+.color2 {color:#ff0000; font-weight: bold;}
 .color3 {color: #99CCFF; font-weight: bold;}
 .color4 {color:#000088; font-weight: bold;}
 .color5 {color:deeppink; font-weight: bold;}
@@ -145,7 +145,7 @@ pre {color: #ffffff; border: none; font-family: tahoma,Arial,Helvetica,sans-seri
 .color15 {color: #ffffff; font-weight: bold;}
 
 a.color1:hover{ text-decoration:none; border-bottom:1px solid #5890AD; color: #5890AD;}
-a.color2:hover{ text-decoration:none; border-bottom:1px solid #AA0000; color: #AA0000;}
+a.color2:hover{ text-decoration:none; border-bottom:1px solid #ff0000; color: #ff0000;}
 a.color3:hover{ text-decoration:none; border-bottom:1px solid #99CCFF; color: lightskyblue;}
 a.color4:hover{ text-decoration:none; border-bottom:1px solid #000088; color: #000088;}
 a.color5:hover{ text-decoration:none; border-bottom:1px solid deeppink; color: deeppink;}
@@ -267,8 +267,19 @@ pre a:hover{color: #33CC33;}
 .button7 {background: linear-gradient(#666666, #2e2e2e); color: #ffffff; font-size: 14px; border-radius: 4px; width: 100px; height: 20px; min-height:50px;}
 .button7:hover {background: linear-gradient(#444444, #111111); color: #ffffff;}
 
+.button8 {background: linear-gradient(#666666, #2e2e2e); color: #ffffff; font-size: 14px; border-radius: 4px; width: 150px; height: 20px; min-height:50px;}
+.button8:hover {background: linear-gradient(#444444, #111111); color: #ffffff;}
+
+.button9 {background: linear-gradient(#EE8888, #AA0000); color: #ffffff; font-size: 14px; border-radius: 4px; width: 100px; height: 20px; min-height:50px;}
+.button9:hover {background: linear-gradient(#CC8888, Darkred); color: #ffffff;}
+
+.button10 {background: linear-gradient(lightgreen, #009000); color: #ffffff; font-size: 14px; border-radius: 4px; width: 100px; height: 20px; min-height:50px;}
+.button10:hover {background: linear-gradient(#33CC99, Darkgreen); color: #ffffff;}
+
+
+
 .steamprofile:hover {
-    background-color: #121212;
+    background-color: #313131;
 }
 
 .tablebg {
