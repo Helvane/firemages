@@ -165,7 +165,21 @@ module.exports = {
             mytopic=subcat;
         }
         Forum.findOne({topicid:mytopic}).populateAll().sort('id desc').exec(function(err,result){
-            return res.json(result);
+            if(result) {
+                Forumanswer.findOne({forumid: result.id}).populateAll().sort('id desc').exec(function (err, output) {
+                    if (output) {
+                        output.id=result.id;
+                        output.title=result.title;
+                        return res.json(output);
+                    } else {
+                        return res.json(result);
+                    }
+
+                });
+            } else {
+                return res.json(result);
+            }
+
         });
     }
 

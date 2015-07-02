@@ -125,9 +125,11 @@ angular.module('topicDirective',[])
             link: function(scope) {
                 scope.forum={};
                 var temp=[];
-                var subcat=scope.topicid.subcat;
-                for(var i=0; i < subcat.length; i ++){
-                    temp[i]=subcat[i].id;
+                if(scope.topicid.subcat) {
+                    var subcat = scope.topicid.subcat;
+                    for (var i = 0; i < subcat.length; i++) {
+                        temp[i] = subcat[i].id;
+                    }
                 }
                 var param={};
                 param.topicid=scope.topicid.id;

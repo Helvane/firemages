@@ -2,7 +2,7 @@
 
 <button class="btn button7" ng-if="forum.lock==true" alt="This Forum Is Locked." title="This Forum Is Locked." ng-click="lockpopup()">LOCKED <i class="fa fa-lock"></i></button>
 
-<table class="table">
+<table class="table forum-container">
 
     <tr>
         <th class="col-sm-2">Author</th><th class="col-sm-10" colspan="2">Message</th>
@@ -81,9 +81,9 @@
             <div ng-if="forum.userid.status=='Community Advisor'" class="rectadvisor">{{forum.userid.status}}</div>
             <div ng-if="forum.userid.status=='Registered User'" class="rectregistered">{{forum.userid.status}}</div>
             <div class="space">&nbsp;</div>
-            <div class="informationfonts">Total posts: {{totalpost}}</div>
-            <div class="informationfonts" ng-if="forum.userid.fursona">Fursona: {{forum.userid.fursona}}</div>
-            <div class="informationfonts" ng-if="forum.userid.location">Location: {{forum.userid.location}}</div>
+            <div class="informationfonts"><b>Total posts:</b> {{totalpost}}</div>
+            <div class="informationfonts" ng-if="forum.userid.fursona"><b>Fursona:</b> {{forum.userid.fursona}}</div>
+            <div class="informationfonts" ng-if="forum.userid.location"><b>Location:</b> {{forum.userid.location}}</div>
 
 
         </td>
@@ -224,8 +224,8 @@
             <div ng-if="a.userid.status=='Community Advisor'" class="rectadvisor">{{a.userid.status}}</div>
             <div ng-if="a.userid.status=='Registered User'" class="rectregistered">{{a.userid.status}}</div>
             <div class="space">&nbsp;</div>
-            <div class="space informationfonts" ng-if="a.userid.fursona">Fursona: {{a.userid.fursona}}</div>
-            <div class="space informationfonts" ng-if="a.userid.location">Location: {{a.userid.location}}</div>
+            <div class="informationfonts" ng-if="a.userid.fursona"><b>Fursona:</b> {{a.userid.fursona}}</div>
+            <div class="informationfonts" ng-if="a.userid.location"><b>Location:</b> {{a.userid.location}}</div>
 
 
 

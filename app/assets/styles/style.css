@@ -39,6 +39,7 @@ body
 }
 .bottomline {border-bottom: 1px solid #bbbbbb; margin-bottom: 10px;}
 .smallphoto {width: 50px; height: 50px;}
+.smallphoto2 {width: 39px; height: 39px;}
 
 .bigspace {height:300px;}
 
@@ -94,8 +95,8 @@ textarea {height: 400px; width: 100%; color: black;}
 .boxrectimgadmin {border: 3px solid #33CC99;}
 .rectadmin {background-color: #33CC99; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
 
-.boxrectimgannouncement {border: 3px solid #000088;}
-.rectannouncement {background-color: #000088; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
+.boxrectimgannouncement {border: 3px solid #1D526F;}
+.rectannouncement {background-color: #1D526F; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
 
 .boxrectimggmod {border: 3px solid #EF9AD8;}
 .rectgmod {background-color: #EF9AD8; color: #ffffff; padding: 2px; margin-top: 10px; text-align: center;}
@@ -120,18 +121,25 @@ textarea {height: 400px; width: 100%; color: black;}
 
 .width200 {width: 200px;}
 
-pre {color: #ffffff; border: none; font-family: tahoma,Arial,Helvetica,sans-serif;
+pre {font-family: Verdana,Arial,Helvetica,sans-serif;
+    color: #ffffff;
+    border: none;
     overflow: auto;
     word-wrap: normal;
     white-space: pre-wrap;
-    background:transparent !important;}
+    font-size: 12px;
+    line-height: 1.4em;
+    margin: 3px 0;
+    max-width:786px;
+    background:transparent !important;
+}
 
 .popmenu { position:absolute; z-index: 1000; width: 100%;}
 
 .color1 {color:#5890AD; font-weight: bold;}
 .color2 {color:#ff0000; font-weight: bold;}
 .color3 {color: #99CCFF; font-weight: bold;}
-.color4 {color:#000088; font-weight: bold;}
+.color4 {color:#1D526F; font-weight: bold;}
 .color5 {color:deeppink; font-weight: bold;}
 .color6 {color: #6633FF; font-weight: bold;}
 .color7 {color: #33CC99; font-weight: bold;}
@@ -147,7 +155,7 @@ pre {color: #ffffff; border: none; font-family: tahoma,Arial,Helvetica,sans-seri
 a.color1:hover{ text-decoration:none; border-bottom:1px solid #5890AD; color: #5890AD;}
 a.color2:hover{ text-decoration:none; border-bottom:1px solid #ff0000; color: #ff0000;}
 a.color3:hover{ text-decoration:none; border-bottom:1px solid #99CCFF; color: lightskyblue;}
-a.color4:hover{ text-decoration:none; border-bottom:1px solid #000088; color: #000088;}
+a.color4:hover{ text-decoration:none; border-bottom:1px solid #1D526F; color: #1D526F;}
 a.color5:hover{ text-decoration:none; border-bottom:1px solid deeppink; color: deeppink;}
 a.color6:hover{ text-decoration:none; border-bottom:1px solid #6633FF; color: #6633FF;}
 a.color7:hover{ text-decoration:none; border-bottom:1px solid #33CC99; color: #33CC99;}
@@ -170,8 +178,8 @@ a.color15:hover{ text-decoration:none; border-bottom:1px solid #ffffff; color: #
 .alink {color: #67B168;}
 .alink:hover{color: #67B168}
 
-.alink2 {color: #ff00ff;}
-.alink2:hover{color: #ff00ff}
+.alink2 {color: #ffffff;}
+.alink2:hover{color: #ffffff;}
 
 
 pre a{color: #33CC33}
@@ -276,7 +284,125 @@ pre a:hover{color: #33CC33;}
 .button10 {background: linear-gradient(lightgreen, #009000); color: #ffffff; font-size: 14px; border-radius: 4px; width: 100px; height: 20px; min-height:50px;}
 .button10:hover {background: linear-gradient(#33CC99, Darkgreen); color: #ffffff;}
 
+.hatched {
+    background: url(/myphoto/poster-background.png) repeat;
+    border-left: solid 1px #404040;
+    border-right: solid 1px #121212;
+    border-top: solid 1px #3C3C3C;
+    border-bottom: solid 1px #131313;
+}
 
+.hatched li > a {color: #ffffff; cursor: pointer;}
+.hatched li > a:hover {background: #555555; cursor: pointer;}
+.hatched li > a:active {background: #999999; cursor: pointer;}
+
+
+.wrap2 {
+    padding: 0;
+    min-width: 650px;
+    width: 990px;
+    margin: 0 auto;
+}
+
+div.poster_wrap { position: relative; width: 200px; }
+td.poster .postavatar { text-align: right; margin-top: 24px; padding-right: 24px; position: relative; }
+td.poster .postavatar .avatarborder { display: inline-block; display:-moz-inline-stack; zoom:1; *display:inline; border: 3px solid #3c3c3c; }
+td.poster .postavatar .avatarborder_minecraft_outer {
+    padding-right: 3px;
+    display: inline-block;
+    display:-moz-inline-stack; zoom:1;
+    *display:inline;
+    right: 42px;
+    bottom: 2px;
+    border: none;
+    position: absolute;
+}
+
+.navlink {
+    float: left;
+    font-family: Tahoma,"Helvetica Neue",Arial,sans-serif;
+    text-transform: uppercase;
+}
+
+.navlink ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navlink a img{
+    display: none;
+}
+
+
+.navlink a:hover {
+    color: #a2a2a2;
+    background: rgba(0,0,0,0.27);
+    -webkit-box-shadow: inset 0px 0px 10px rgba(0,0,0,0.3);
+    -moz-box-shadow: inset 0px 0px 10px rgba(0,0,0,0.3);
+    box-shadow: inset 0px 0px 10px rgba(0,0,0,0.3);
+}
+
+.navlink a strong {
+    color: #d9d9d9;
+    font-size: 14px;
+    padding-top: 5px;
+    line-height: 40px;
+}
+
+.navlink li {
+    float: left;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    background: url("/myphoto/navSplit.gif") no-repeat top right;
+    float: left;
+    padding-right: 2px;
+}
+
+.navlink a {
+    display: block;
+    color: #d9d9d9;
+    text-shadow: rgba(0,0,0,0.6) 0px -1px 0px;
+    text-decoration: none;
+    padding: 0 16px;
+    height: 40px;
+    position: relative;
+    -webkit-transition: color 350ms ease-in-out;
+    -moz-transition: color 350ms ease-in-out;
+    -o-transition: color 350ms ease-in-out;
+    transition: color 350ms ease-in-out;
+    -webkit-transition: all 350ms ease-in-out;
+    -moz-transition: all 350ms ease-in-out;
+    -ms-transition: all 350ms ease-in-out;
+    -o-transition: all 350ms ease-in-out;
+    transition: all 350ms ease-in-out;
+}
+
+ul.navlinks {
+    padding-bottom: 1px;
+    margin-bottom: 1px;
+    border-bottom: 1px solid #FFFFFF;
+    font-weight: bold;
+}
+
+ul.navlinks {
+    border: none;
+    padding-top: 3px;
+}
+
+.navmenu {
+    width: 100%;
+    background-color: #1e1e1e;
+    background-image: url("/myphoto/poster-background.png");
+    background-position: top;
+    overflow: hidden;
+    border-top: 1px solid #3C3C3C;
+    margin-bottom: 5px;
+    border-left: solid 1px #404040;
+    border-right: solid 1px #121212;
+    border-bottom: solid 1px #131313;
+}
 
 .steamprofile:hover {
     background-color: #313131;

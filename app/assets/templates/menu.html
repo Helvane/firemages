@@ -1,5 +1,4 @@
-
-<div ng-controller="menuController">
+<div ng-controller="menuController" xmlns="http://www.w3.org/1999/html">
     <!-- This is for small screen size -->
     <div class="dropdown hidden-sm hidden-md hidden-lg">
          <button class="btn btn-default" ng-click="toggle()"><il class="fa fa-bars"></il></button>
@@ -22,18 +21,24 @@
     </div>
 
 <!-- This is for big screen size -->
-<ul class="nav nav-tabs navbar-fixed-top hidden-xs menuColor">
+<ul class="nav nav-tabs navbar-fixed-top hidden-xs navmenu">
+   <div class="wrap2">
+   <div class="navlink">
 
    <li ng-repeat="menu in menus track by $index" ng-click="goto($index)" class="{{menu.myclass}}" ng-if="menu.status==0">
-  <a><i class="{{menu.icon}}"></i> {{menu.title}} </a>
+   <strong><a class="pointer" accesskey="h"><i class="{{menu.icon}}"></i>{{menu.title}}</a></strong>
     </li>
+
+
 
 
     <li ng-if="person.username" ng-click="logoff()">
-        <a>Log off {{person.username}}</a>
+       <strong><a class="pointer" accesskey="h">Log off {{person.username}}</a></strong>
     </li>
     <li ng-if="person.photo">
-        <img ng-src="/images/{{person.photo}}" class="img-responsive smallphoto"/>
+        <strong><img ng-src="/images/{{person.photo}}" class="img-responsive smallphoto2"/></strong>
     </li>
+   </div>
+   </div>
 </ul>
 </div>

@@ -3,7 +3,14 @@
     <img src='/images/{{forum.userid.photo}}' class='smallphoto img-thubnail' align='left'>
   </div>
    <div class="col-xs-7">
-    <a class='alink' href='#/summary/{{forum.id}}'>{{forum.title}}</a> by {{forum.userid.username}}
+   <a class='alink' href="#/summary/{{forum.id}}">
+    <span ng-bind-html="forum.title"></span>
+   </a>
+
+
+       <span ng-if="forum.userid.username">
+       by {{forum.userid.username}}
+       </span>
    </div>
    <div class="col-xs-3">
         {{forum.createdAt|datetimefilter}}
