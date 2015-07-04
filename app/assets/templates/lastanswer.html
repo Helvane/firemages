@@ -1,0 +1,10 @@
+<div ng-if="forum.id" class="row">
+    <div class="col-xs-8">
+
+
+        <span><a href="#/profile/{{forum.userid.id}}" class="{{forum.userid.fontcolor}}">{{forum.userid.username}}</a></span>
+    </div>
+    <div class="col-xs-4">
+        {{forum.createdAt|datetimefilter}}
+    </div>
+</div>

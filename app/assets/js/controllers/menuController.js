@@ -13,17 +13,17 @@ appController.controller("menuController",['$scope','shareService','$location','
         if($scope.menus) {
             if ($scope.person) {
                 // if a user login, it changes the register to update.
-                $scope.menus[4].title = "Update";
-                $scope.menus[4].status=1;
+                $scope.menus[5].title = "Update";
                 $scope.menus[5].status=1;
-                $scope.menus[6].status=0;
+                $scope.menus[6].status=1;
+                $scope.menus[7].status=0;
 
             } else {
                 // if a user is not login, it changes the update to register.
-                $scope.menus[4].title = "Register";
-                $scope.menus[4].status=0;
+                $scope.menus[5].title = "Register";
                 $scope.menus[5].status=0;
-                $scope.menus[6].status=1;
+                $scope.menus[6].status=0;
+                $scope.menus[7].status=1;
             }
 
         }
@@ -85,11 +85,11 @@ appController.controller("menuController",['$scope','shareService','$location','
             function(data){
                 shareService.setlogin({});
                 window.localStorage.clear();
-                $scope.menus[4].title ='Register';
-                $scope.menus[4].status=0;
-                $scope.menus[5].status =0;
-                $scope.menus[5].myclass ='active';
-                $scope.menus[6].status=1;
+                $scope.menus[5].title ='Register';
+                $scope.menus[5].status=0;
+                $scope.menus[6].status =0;
+                $scope.menus[6].myclass ='active';
+                $scope.menus[7].status=1;
                 $location.path('/login');
                 if(!$scope.$$phase){
                     $scope.$digest();

@@ -11,23 +11,22 @@
 <br/>
 <table class="table table-hover forum-container">
     <tr>
-        <th></th><th>Author</th><th>Title</th><th>Last Post</th><th>Date</th>
+        <th></th><th>Author</th><th>Title</th><th>Last Post</th>
     </tr>
-    <tr ng-repeat="f in myforum track by $index">
+    <tr ng-repeat="f in myforum | filter:form.search track by $index">
         <td class="col-sm-1">
 
-            <span ng-if="f.lock==true"><img src="/myphoto/Forum (Locked).png" alt="Forum Locked." title="This Forum Is Locked."></span>
-            <span ng-if="f.lock==false"><img src="/myphoto/Forum (Read).png" alt="No Unread Posts." title="No Unread Posts."></span>
+            <span ng-if="f.lock==true"><img src="/myphoto/Forum (Locked).png" alt="This topic is locked, you cannot edit posts or make further replies." title="This topic is locked, you cannot edit posts or make further replies."></span>
+            <span ng-if="f.lock==false"><img src="/myphoto/Forum (Read).png" alt="This topic is locked, you cannot edit posts or make further replies." title="This topic is locked, you cannot edit posts or make further replies."></span>
         </td>
 
-        <td class="col-sm-3">
+        <td class="col-sm-1">
 
             <a href="#/profile/{{f.userid.id}}" class="{{f.userid.fontcolor}}">{{f.userid.username}}</a>
 
         </td>
         <td class="pointer col-sm-4"><a class="alink2" ng-click="gotosummary(f)">{{f.title}}</a></td>
-        <td class="col-sm-2"><lastpost topicid="f"></lastpost></td>
-        <td class="col-sm-2">{{f.createdAt|datetimefilter}}</td>
+        <td class="col-sm-6"><lastanswer forumid="f.id"></lastanswer></td>
     </tr>
 </table>
 

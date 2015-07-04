@@ -18,7 +18,7 @@ module.exports = {
 
     getAnswer:function(req, res){
         var param=req.params.all();
-        Forumanswer.find({forumid:param.forumid}).populateAll().sort('id desc').paginate({page:param.page}).exec(function(err, result){
+        Forumanswer.find({forumid:param.forumid}).populateAll().sort('id asc').paginate({page:param.page}).exec(function(err, result){
            return res.json(result);
         });
     },
@@ -93,6 +93,13 @@ module.exports = {
            }
         });
 
+    },
+
+    lastanswer:function(req,res){
+        var param=req.params.all();
+        Forumanswer.findOne({forumid:param.forumid}).populateAll().sort('id desc').exec(function(err,result){
+           return res.json(result);
+        });
     }
 };
 

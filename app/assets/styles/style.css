@@ -284,6 +284,12 @@ pre a:hover{color: #33CC33;}
 .button10 {background: linear-gradient(lightgreen, #009000); color: #ffffff; font-size: 14px; border-radius: 4px; width: 100px; height: 20px; min-height:50px;}
 .button10:hover {background: linear-gradient(#33CC99, Darkgreen); color: #ffffff;}
 
+.servertable {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
 .hatched {
     background: url(/myphoto/poster-background.png) repeat;
     border-left: solid 1px #404040;
@@ -402,6 +408,16 @@ ul.navlinks {
     border-left: solid 1px #404040;
     border-right: solid 1px #121212;
     border-bottom: solid 1px #131313;
+}
+
+.navmenu2 {
+    width: 100%;
+    background-color: #1e1e1e;
+    background-image: url("/myphoto/navmenu.gif");
+    background-position: top;
+    overflow: hidden;
+    border-top: 1px solid #000;
+    margin-bottom: 5px;
 }
 
 .steamprofile:hover {

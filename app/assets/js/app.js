@@ -134,6 +134,15 @@ app.config(['$stateProvider','$urlRouterProvider',
                     }
                 }
             })
+            .state('servers', {
+                url:'/servers',
+                views: {
+                    "viewA": {
+                        templateUrl: 'templates/servers.html',
+                        controller: 'serversController'
+                    }
+                }
+            })
             .state('subcat', {
                 url:'/subcat/:id',
                 views: {

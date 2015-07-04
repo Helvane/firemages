@@ -4,11 +4,20 @@
     <div class="cat-title"><span>Moderator Tools</span></div>
     </div>
     <div class="panel-body toolsbackground">
-        <ul class="list-group">
-            <li class="list-group-item toolsbackground2 pointer" ng-show="info.delete==false"><button class="btn button5" ng-click="delete()"><i class="fa fa-trash"></i> Delete This Thread</button> </li>
-            <li class="list-group-item toolsbackground2 pointer" ng-show="forum.lock==false && pinflag==false"><button class="btn button5" ng-click="lock()"><i class="fa fa-lock"></i> Lock This Thread</button> </li>
-            <li class="list-group-item toolsbackground2 pointer" ng-show="info.delete==false"><button ng-show="pinflag==false" class="btn button5" ng-click="pin()"><i class="fa fa-thumb-tack"></i> Pin This Thread</button> </li>
-            <li class="list-group-item toolsbackground2 pointer" ng-show="forum.lock==false"><button class="btn button5" ng-click="edit()"><i class="fa fa-edit"></i> Edit This Thread</button> </li>
+        <ul class="nav nav-pills navbar-default">
+
+            <li class="pointer" ng-show="info.delete==false" ng-click="delete()">
+                <button class="btn navmenu2 navlink"><i class="fa fa-trash"></i><strong> Delete This Thread </strong></button>
+            </li>
+            <li class="pointer" ng-show="forum.lock==false && pinflag==false"ng-click="lock()">
+                <button class="btn navmenu2 navlink"><i class="fa fa-lock"></i><strong> Lock This Thread </strong></button>
+            </li>
+            <li class="pointer" ng-show="info.delete==false"ng-show="pinflag==false" ng-click="pin()">
+               <button class="btn navmenu2 navlink"><i class="fa fa-thumb-tack"></i><strong> Pin This Thread </strong></button>
+            </li>
+            <li class="pointer" ng-show="forum.lock==false" ng-click="edit()">
+                <button class="btn navmenu2 navlink"><i class="fa fa-edit"></i><strong> Edit This Thread </strong></button>
+            </li>
 
 
         </ul>

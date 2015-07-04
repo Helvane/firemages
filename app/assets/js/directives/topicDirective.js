@@ -146,4 +146,30 @@ angular.module('topicDirective',[])
                 );
             }
         }
+    }])
+
+
+    .directive("lastanswer", ['ajaxService', function(ajaxService) {
+        return {
+            restrict: 'EA',
+            templateUrl: 'templates/lastanswer.html',
+            scope: {
+                forumid: "="
+            },
+            link: function(scope) {
+                scope.forum={};
+
+                var param={};
+                param.forumid=scope.forumid;
+
+                var ajax=ajaxService.ajaxFactory('/Forumanswer/lastanswer',param,'get');
+                ajax.then(function(data){
+                        scope.forum=data;
+                    },
+                    function(err){
+                        console.log(err);
+                    }
+                );
+            }
+        }
     }]);

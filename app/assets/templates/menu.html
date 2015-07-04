@@ -26,14 +26,14 @@
    <div class="navlink">
 
    <li ng-repeat="menu in menus track by $index" ng-click="goto($index)" class="{{menu.myclass}}" ng-if="menu.status==0">
-   <strong><a class="pointer" accesskey="h"><i class="{{menu.icon}}"></i>{{menu.title}}</a></strong>
+   <a class="pointer" accesskey="h"><i class="{{menu.icon}}"></i><strong>{{menu.title}}</strong></a>
     </li>
 
 
 
 
     <li ng-if="person.username" ng-click="logoff()">
-       <strong><a class="pointer" accesskey="h">Log off {{person.username}}</a></strong>
+       <a class="pointer" accesskey="h"><strong>Log off {{person.username}}</strong></a>
     </li>
     <li ng-if="person.photo">
         <strong><img ng-src="/images/{{person.photo}}" class="img-responsive smallphoto2"/></strong>
