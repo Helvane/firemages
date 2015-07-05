@@ -81,4 +81,18 @@ appFilter.filter("statusfilter",function(shareService){
         return status;
     };
 
+})
+
+appFilter.filter("pinfilter",function(shareService){
+    return function(id) {
+        var pindata=shareService.getpin();
+        var myflag=false;
+        for(var i=0; i < pindata.length; i ++){
+            if(id==pindata[i].forumid.id){
+                myflag=true;
+            }
+        }
+        return myflag;
+    };
+
 });

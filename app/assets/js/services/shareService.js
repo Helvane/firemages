@@ -133,5 +133,15 @@ appService.factory('shareService',['$rootScope',function($rootscope){
         return pService.mstatus;
     };
 
+    pService.pin="";
+    pService.setpin=function(msg){
+        pService.pin=msg;
+        $rootscope.$broadcast('pinEvent')
+    };
+
+    pService.getpin=function(){
+        return pService.pin;
+    };
+
     return pService;
 }]);

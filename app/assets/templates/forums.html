@@ -3,21 +3,44 @@
 <ul class="list-inline list-unstyled">
     <li><button class="btn button8" alt="Post A New Topic." title="Post A New Topic." ng-click="newtopic()"><img src="/myphoto/arrow-31-256-(2).png" alt=""> NEW TOPIC</button></li>
     <li><input type="search" ng-model="form.search" class="form-control width200" placeholder="Search This Forum..."/></li>
-    <li><button class="btn button2" ng-click="search()">Search</button></li>
 </ul>
 
-<div ui-view="pinView"></div>
+<div ui-view="pinView" ng-hide="true"></div>
 
 <br/>
+<h3>Topics</h3>
 <table class="table table-hover forum-container">
     <tr>
-        <th></th><th>Author</th><th>Title</th><th>Last Post</th>
+        <th></th><th>Author</th><th>Title</th><th>Views</th><th>Last Post</th>
     </tr>
-    <tr ng-repeat="f in myforum | filter:form.search track by $index">
+
+    <!-- pindata start here -->
+
+    <tr ng-repeat="f in pindata | filter:form.search track by $index">
+        <td class="col-sm-1">
+
+            <span ng-if="f.forumid.lock==true"><img src="/myphoto/Sticky-Locked.png" alt="This topic is locked, you cannot edit posts or make further replies." title="This topic is locked, you cannot edit posts or make further replies."></span>
+            <span ng-if="f.forumid.lock==false"><img src="/myphoto/Sticky Read.png" alt="No unread posts." title="No unread posts."></span>
+        </td>
+
+        <td class="col-sm-1">
+
+            <a href="#/profile/{{f.userid.id}}" class="{{f.userid.fontcolor}}">{{f.userid.username}}</a>
+
+        </td>
+        <td class="pointer col-sm-4"><a class="alink2" ng-click="gotosummary(f.forumid)">{{f.forumid.title}}</a></td>
+        <td class="col-sm-1">{{f.forumid.totalviews}}</td>
+        <td class="col-sm-5"><lastanswer forumid="f.forumid.id"></lastanswer></td>
+    </tr>
+
+    <!-- pindata ends here -->
+
+
+    <tr ng-repeat="f in myforum | filter:form.search track by $index" ng-hide="pincheck(f.id)">
         <td class="col-sm-1">
 
             <span ng-if="f.lock==true"><img src="/myphoto/Forum (Locked).png" alt="This topic is locked, you cannot edit posts or make further replies." title="This topic is locked, you cannot edit posts or make further replies."></span>
-            <span ng-if="f.lock==false"><img src="/myphoto/Forum (Read).png" alt="This topic is locked, you cannot edit posts or make further replies." title="This topic is locked, you cannot edit posts or make further replies."></span>
+            <span ng-if="f.lock==false"><img src="/myphoto/Forum (Read).png" alt="No unread posts." title="No unread posts."></span>
         </td>
 
         <td class="col-sm-1">
@@ -26,7 +49,8 @@
 
         </td>
         <td class="pointer col-sm-4"><a class="alink2" ng-click="gotosummary(f)">{{f.title}}</a></td>
-        <td class="col-sm-6"><lastanswer forumid="f.id"></lastanswer></td>
+        <td class="col-sm-1">{{f.totalviews}}</td>
+        <td class="col-sm-5"><lastanswer forumid="f.id"></lastanswer></td>
     </tr>
 </table>
 

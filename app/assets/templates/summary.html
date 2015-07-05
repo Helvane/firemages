@@ -107,13 +107,7 @@
 
             <div ng-show="editflag==true">
                 <div class="space">
-                    <input type="text" ng-model="forum.title" class="form-control">/
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Choose A Topic</label>
-                    <select class="form-control" ng-model="forum.topic.id">
-                        <option ng-repeat="topic in topics track by $index" value="{{topic.id}}" ng-selected="topic.id==forum.topic.id">{{topic.name}}</option>
-                    </select>
+                    <input type="text" ng-model="forum.title" class="form-control">
                 </div>
                 <div class="space">
                 <textarea ng-model="forum.summary"></textarea>

@@ -49,15 +49,42 @@ module.exports = {
     pin:function(req, res){
         var param=req.params.all();
         var userID=req.session.userid;
-        Pindata.create({forumid:param.forumid,userid:userID}).exec(function(err, result){
-            return res.json(result);
+        Pindata.findOne({forumid:param.forumid}).exec(function(err,output){
+           // if the data exist
+           if(output){
+               // delete
+               Pindata.destroy({forumid:param.forumid}).exec(function(err,result){
+                  result.todo='delete';
+                  return res.json(result);
+               });
+           } else {
+               // insert date into mongo DB
+               Pindata.create({forumid:param.forumid,userid:userID}).exec(function(err, result){
+                   result.todo='create';
+                   return res.json(result);
+               });
+           }
         });
+
     },
     getpin:function(req, res){
         var param=req.params.all();
         var userID=req.session.userid;
         Pindata.find().populateAll().exec(function(err, result){
-            return res.json(result);
+           var temp=[];
+           var i=0;
+            if(result) {
+                for (var k = 0; k < result.length; k++) {
+                    if(result[k].forumid) {
+                        if (result[k].forumid.topicid == param.topicid) {
+                            temp[i] = result[k];
+                            i++;
+                        }
+                    }
+                }
+            }
+           return res.json(temp);
+
         });
     },
 

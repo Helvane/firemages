@@ -133,7 +133,7 @@ module.exports = {
 
     edit:function(req, res){
         var param=req.params.all();
-        Forum.update({id:param.forumid},{title:param.title,summary:param.summary,topic:param.topic}).exec(function(err,result){
+        Forum.update({id:param.forumid},{title:param.title,summary:param.summary}).exec(function(err,result){
             return res.json(result);
         });
     },
@@ -181,6 +181,20 @@ module.exports = {
             }
 
         });
+    },
+    addtotalviews:function(req, res){
+      var param=req.params.all();
+      Forum.findOne({id:param.forumid},{totalviews:1,id:1}).exec(function(err,result){
+         if (result){
+             var total=parseInt(result.totalviews) + 1;
+             if(isNaN(total)){
+                 total=1;
+             }
+             Forum.update({id:param.forumid},{totalviews:total}).exec(function(err,output){
+                return res.json(output)
+             });
+         }
+      });
     }
 
 };

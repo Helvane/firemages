@@ -7,6 +7,7 @@ appController.controller("forumsController",['$scope','ajaxService','shareServic
     $scope.topics=[];
     $scope.myforum=[];
     $scope.update='';
+    $scope.pindata=shareService.getpin();
     $scope.forumtopic=shareService.getForum();
     $scope.logindata=shareService.getlogin();
     if(!$scope.logindata){
@@ -44,9 +45,25 @@ appController.controller("forumsController",['$scope','ajaxService','shareServic
     $scope.newtopic = function () {
         $location.path('/forumpost/'+$stateParams.id);
 
-
     };
 
+    $scope.$on('pinEvent',function(){
+       $scope.pindata=shareService.getpin();
+       if(!$scope.$$phase){
+           $scope.$digest();
+       }
+    });
+
+
+    $scope.pincheck=function(id){
+        var myflag=false;
+        for(var i=0; i < $scope.pindata.length; i ++){
+            if(id==$scope.pindata[i].forumid.id){
+                myflag=true;
+            }
+        }
+        return myflag;
+    }
 
 
 }]);

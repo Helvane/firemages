@@ -31,6 +31,10 @@ module.exports = {
       lock:{
           type:'boolean',
           defaultsTo:false
+      },
+      totalviews:{
+          type:'integer',
+          defaultsTo:0
       }
   }
 };

@@ -108,12 +108,8 @@ app.config(['$stateProvider','$urlRouterProvider',
                     "viewA": {
                         templateUrl: 'templates/members.html',
                         controller: 'membersController'
-                    },
-                    "statusView@members":{
-                        templateUrl: 'templates/statusTopic.html',
-                        controller: 'statusTopicController'
-
                     }
+
                 }
             })
             .state('blog', {
@@ -160,7 +156,7 @@ app.config(['$stateProvider','$urlRouterProvider',
                         templateUrl: 'templates/forums.html',
                         controller: 'forumsController'
                     },
-                    "pinView@forums":{
+                    "pinView@forumtopic":{
                         templateUrl: 'templates/pindata.html',
                         controller: 'pindataController'
                     }

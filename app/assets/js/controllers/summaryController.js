@@ -14,6 +14,19 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
     $scope.updateforum='';
     $scope.info={"delete":false};
 
+    var param2={};
+    param2.forumid=$scope.forumid;
+    param2.number=Number(new Date);
+    var myajax3=ajaxService.ajaxFactory('/Forum/addtotalviews',param2,'post');
+    myajax3.then(
+        function(data){
+
+        },
+        function(err){
+            console.log(err);
+        }
+    );
+
     var param={};
     param.number=Number(new Date);
     var myajax2=ajaxService.ajaxFactory(TOPICURL,param,'get');
@@ -95,6 +108,7 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
        myajax.then(
          function(data){
              $scope.answers=data;
+             $scope.getanswercount($scope.forum.id);
          },
            function(err){
                console.log(err);
@@ -278,7 +292,7 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
     };
 
 
-
+    $scope.pinTitle='Pin This Thread';
     $scope.pin=function(){
         var param={};
         param.forumid=$scope.forum.id;
@@ -289,7 +303,11 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
             function(data){
                 // it will trigger the watch
                 $scope.update=Number(new Date);
-
+                if(data.todo=='create') {
+                    $scope.pinTitle = 'Unpin This Thread';
+                } else {
+                    $scope.pinTitle = 'Pin This Thread';
+                }
 
             },
             function(err){
@@ -310,7 +328,6 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
         param.forumid=$scope.forum.id;
         param.title=$scope.forum.title;
         param.summary=$scope.forum.summary;
-        param.topic=$scope.forum.topic.id;
 
         var myajax=ajaxService.ajaxFactory('/Forum/edit',param,'post');
         myajax.then(
@@ -338,6 +355,7 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
         function(data){
            if(data.forumid){
                $scope.pinflag=true;
+               $scope.pinTitle='Unpin This Thread';
            }
         },
         function(err){

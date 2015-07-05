@@ -9,7 +9,7 @@
 
 
        <span ng-if="forum.userid.username">
-       by {{forum.userid.username}}
+       by <a href="#/profile/{{forum.userid.id}}" class="{{forum.userid.fontcolor}}">{{forum.userid.username}}</a>
        </span>
    </div>
    <div class="col-xs-3">
