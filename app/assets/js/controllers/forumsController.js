@@ -2,11 +2,12 @@
  * Created by king on 4/10/15.
  */
 
-appController.controller("forumsController",['$scope','ajaxService','shareService','$location','$filter','$stateParams',function($scope, ajaxService, shareService, $location, $filter, $stateParams){
+appController.controller("forumsController",['$scope','ajaxService','shareService','$location','$filter','$stateParams','$modal',function($scope, ajaxService, shareService, $location, $filter, $stateParams, $modal){
     $scope.forum={"topic":"","title":"","summary":""};
     $scope.topics=[];
     $scope.myforum=[];
     $scope.update='';
+    $scope.topicid=$stateParams.id;
     $scope.pindata=shareService.getpin();
     $scope.forumtopic=shareService.getForum();
     $scope.logindata=shareService.getlogin();
@@ -65,5 +66,21 @@ appController.controller("forumsController",['$scope','ajaxService','shareServic
         return myflag;
     }
 
+    $scope.lockpopup = function () {
+
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/lock.html',
+            controller: 'lockController',
+            resolve: {
+                items: function () {
+                    return $scope.items;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+
+        });
+    };
 
 }]);

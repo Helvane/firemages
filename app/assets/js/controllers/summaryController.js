@@ -292,7 +292,7 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
     };
 
 
-    $scope.pinTitle='Pin This Thread';
+    $scope.pinTitle='Sticky This Thread';
     $scope.pin=function(){
         var param={};
         param.forumid=$scope.forum.id;
@@ -304,9 +304,9 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
                 // it will trigger the watch
                 $scope.update=Number(new Date);
                 if(data.todo=='create') {
-                    $scope.pinTitle = 'Unpin This Thread';
+                    $scope.pinTitle = 'Unsticky This Thread';
                 } else {
-                    $scope.pinTitle = 'Pin This Thread';
+                    $scope.pinTitle = 'Sticky This Thread';
                 }
 
             },
@@ -355,7 +355,7 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
         function(data){
            if(data.forumid){
                $scope.pinflag=true;
-               $scope.pinTitle='Unpin This Thread';
+               $scope.pinTitle='Unsticky This Thread';
            }
         },
         function(err){

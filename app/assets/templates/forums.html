@@ -1,7 +1,12 @@
-<h1 class="logo">Forums</h1>
+<div class="breadcrumb cat-head2">
+    <div class="cat-title"><span><a href="#/forums">Forum</a></span></div>
+    <div class="cat-title" style="margin-left: 5px;" ng-if="forumtopic.prevlevel"><span><a href="#/subcat/{{forumtopic.prevlevel.id}}">{{forumtopic.prevlevel.name}}</a></span></div>
+    <div class="cat-title" style="margin-left: 5px;" class="active"><span>{{forumtopic.name}}</span></div>
+</div>
 
 <ul class="list-inline list-unstyled">
-    <li><button class="btn button8" alt="Post A New Topic." title="Post A New Topic." ng-click="newtopic()"><img src="/myphoto/arrow-31-256-(2).png" alt=""> NEW TOPIC</button></li>
+    <li ng-if="topicid >= 52"><button class="btn button7" title="This topic is locked, you cannot edit posts or make further replies." ng-click="lockpopup()">LOCKED <i class="fa fa-lock"></i></button></li>
+    <li ng-if="topicid < 52"><button class="btn button8" alt="Post A New Topic." title="Post A New Topic." ng-click="newtopic()"><img src="/myphoto/arrow-31-256-(2).png" alt=""> NEW TOPIC</button></li>
     <li><input type="search" ng-model="form.search" class="form-control width200" placeholder="Search This Forum..."/></li>
 </ul>
 
@@ -54,4 +59,5 @@
     </tr>
 </table>
 
-<button class="btn button8" alt="Post A New Topic." title="Post A New Topic." ng-click="newtopic()"><img src="/myphoto/arrow-31-256-(2).png" alt=""> NEW TOPIC</button>
+<button ng-if="topicid < 52" class="btn button8" alt="Post A New Topic." title="Post A New Topic." ng-click="newtopic()"><img src="/myphoto/arrow-31-256-(2).png" alt=""> NEW TOPIC</button>
+<button class="btn button7" ng-if="topicid >= 52" title="This topic is locked, you cannot edit posts or make further replies." ng-click="lockpopup()">LOCKED <i class="fa fa-lock"></i></button>
