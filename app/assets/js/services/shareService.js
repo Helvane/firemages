@@ -143,5 +143,14 @@ appService.factory('shareService',['$rootScope',function($rootscope){
         return pService.pin;
     };
 
+    pService.item={};
+    pService.setItem=function(data){
+        pService.item=data;
+    };
+
+    pService.getItem=function(){
+        return pService.item;
+    };
+
     return pService;
 }]);

@@ -35,7 +35,7 @@ appController.controller("forumsController",['$scope','ajaxService','shareServic
 
     $scope.gotosummary=function(data){
         // you use a setter
-        shareService.setForum(data);
+        shareService.setItem(data);
 
         $location.path('/summary/'+data.id);
 

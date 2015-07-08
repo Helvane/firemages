@@ -1,5 +1,15 @@
 <div class="space50">&nbsp;</div>
 
+<div class="breadcrumb cat-head3">
+    <div class="cat-title"><span><a href="#/forums">Forum</a></span></div>
+    <div class="cat-title" style="margin-left: 5px;" ng-if="forumtopic.prevlevel"><span><a href="#/subcat/{{forumtopic.prevlevel.id}}">{{forumtopic.prevlevel.name}}</a></span></div>
+    <div class="cat-title" style="margin-left: 5px;"><span><a href="#/forumtopic/{{forumtopic.id}}">{{forumtopic.name}}</a></span></div>
+    <div class="cat-title active" style="margin-left: 5px;"><span>{{forum.title}}</span></div>
+</div>
+
+<br/>
+<br/>
+
 <button class="btn button7" ng-if="forum.lock==true" title="This topic is locked, you cannot edit posts or make further replies." ng-click="lockpopup()">LOCKED <i class="fa fa-lock"></i></button>
 
 <table class="table forum-container">
@@ -89,9 +99,9 @@
         </td>
         <td class="col-sm-7">
             <div ng-show="editflag==false">
-            <div class="cat-head">
-                <div class="cat-title"><span>{{forum.title}}</span></div>
-            </div>
+                <div class="cat-head">
+                    <div class="cat-title"><span>{{forum.title}}</span></div>
+                </div>
             <pre ng-bind-html="forum.summary|unsafe"></pre>
             <p ng-if="forum.photo">
                 <img ng-src="/forumimages/{{forum.photo}}" class="img-responsive"/>
@@ -226,7 +236,7 @@
 
         </td>
         <td class="col-sm-10" colspan="2">
-
+                <div class="postsubject">RE: {{forum.title}}</div>
             <pre ng-bind-html="a.answer|unsafe"></pre>
 
         </td>

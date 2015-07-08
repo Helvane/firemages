@@ -29,7 +29,7 @@ body
 
 }
 .container {
-    background: #222222;
+    background: #111111;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -37,6 +37,17 @@ body
     margin-bottom: 6px;
     color: #ffffff;
 }
+
+.forum-box {
+    background: #222222;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding: 5px 5px 5px 5px;
+    margin-bottom: 6px;
+}
+
+
 .bottomline {border-bottom: 1px solid #bbbbbb; margin-bottom: 10px;}
 .smallphoto {width: 50px; height: 50px;}
 .smallphoto2 {width: 39px; height: 39px;}
@@ -54,7 +65,7 @@ body
 .clearall {clear: both;}
 
 .center {margin:0 auto; width: 100%; text-align: center}
-.greencolor {color:#00FF00;}
+.green-color {color:#00FF00;}
 .smallspace {height: 100px;}
 
 .text-danger {color: #ff0000;}
@@ -204,7 +215,9 @@ pre a:hover{color: #33CC33;}
 .toolsbackground {background-color: #000000;}
 
 
-.profilebackground {background-color: #333333;}
+.profilebackground {background-color: #232323;}
+
+.inboxbackground {background-color: #232323;}
 
 .changepasswordbackground {background-color: #666666;}
 .sendmessagebackground {background-color: #666666;}
@@ -284,10 +297,46 @@ pre a:hover{color: #33CC33;}
 .button10 {background: linear-gradient(lightgreen, #009000); color: #ffffff; font-size: 14px; border-radius: 4px; width: 100px; height: 20px; min-height:50px;}
 .button10:hover {background: linear-gradient(#33CC99, Darkgreen); color: #ffffff;}
 
-.servertable {
-    border: 1px solid black;
-    border-collapse: collapse;
-    padding: 5px;
+.postsubject {
+    font-size: 12px;
+    font-weight: bold;
+    color: #204187;
+}
+
+.postlink {
+    text-decoration: none;
+    color: #d2d2d2;
+    border-bottom: 1px solid #d2d2d2;
+    padding-bottom: 0;
+}
+
+.postlink:active {
+    color: #d2d2d2;
+}
+
+.postlink:hover {
+    background-color: #f6f6f6;
+    text-decoration: none;
+    color: #404040;
+}
+
+.postlink {
+    color: #4A8A4A;
+    border-bottom-color: #4A8A4A;
+}
+
+.postlink:visited {
+    color: #1b5c92;
+    border-bottom-color: #1b5c92;
+}
+
+.postlink:active {
+    color: #4A8A4A;
+}
+
+.postlink:hover {
+    background-color: #353535;
+    color: #8c8b8b;
 }
 
 .hatched {
@@ -467,7 +516,7 @@ ul.navlinks {
 }
 
 .cat-head2 {
-    background: #252524 url("/myphoto/cat-head3.png") repeat-x 50% 50%;
+    background: #252524 url("/myphoto/cat-head5.png") repeat-x 50% 50%;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -501,6 +550,41 @@ ul.navlinks {
     color: #0a78ba;
 }
 
+.cat-head3 {
+    background: #252524 url("/myphoto/cat-head2.png") repeat-x 50% 50%;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #141414;
+    -webkit-box-shadow: 0px 1px 4px rgba(0,0,0,0.3), inset 0px 1px 0px rgba(255,255,255,0.13);
+    -moz-box-shadow: 0px 1px 4px rgba(0,0,0,0.3), inset 0px 1px 0px rgba(255,255,255,0.13);
+    box-shadow: 0px 1px 4px rgba(0,0,0,0.3), inset 0px 1px 0px rgba(255,255,255,0.13);
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    color: #a2a2a2;
+    text-transform: uppercase;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 4px;
+}
+
+.cat-head3 a:link {
+    color: #a2a2a2;
+    text-decoration: none;
+    -webkit-transition: color 350ms ease-in-out;
+    -moz-transition: color 350ms ease-in-out;
+    -o-transition: color 350ms ease-in-out;
+    transition: color 350ms ease-in-out;
+}
+
+.cat-head3 a:hover {
+    color: #0a78ba;
+}
+
 div.cat-title {
     background: transparent url("/myphoto/cat-title-r.png") no-repeat scroll top right;
     float: left;
@@ -525,3 +609,65 @@ div.cat-title span, div.cat-title span a {
     color: #a2a2a2;
     text-shadow: none;
 }
+
+input.button1, input.button11 {
+    font-size: 1em;
+}
+
+a.button1, input.button1, input.button12, a.button11, input.button11 {
+    width: auto !important;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    font-family: "Lucida Grande", Verdana, Helvetica, Arial, sans-serif;
+    color: #000;
+    background: #FAFAFA none repeat-x top left;
+}
+
+a.button11, input.button11, input.button12 {
+    border: 1px solid #666666;
+}
+
+a.button1, a.button1:link, a.button1:visited, a.button1:active, a.button11, a.button11:link, a.button11:visited, a.button11:active {
+    text-decoration: none;
+    color: #000000;
+    padding: 2px 8px;
+    line-height: 250%;
+    vertical-align: text-bottom;
+    background-position: 0 1px;
+}
+
+a.button1:hover, input.button1:hover, a.button11:hover, input.button11:hover, input.button12:hover {
+    border: 1px solid #BCBCBC;
+    background-position: 0 100%;
+    color: #BCBCBC;
+}
+
+* html input.button1, * html input.button11 {
+    padding-bottom: 0;
+    margin-bottom: 1px;
+}
+
+a.button1, input.button1, input.button12, a.button11, input.button11 {
+    background: linear-gradient(to bottom, #282827 0%, #3e3e3e 100%) repeat-x scroll 0px -1px #2d2d2d;
+    color: #d9d9d9;
+    box-shadow: 0px 1px 3px #000;
+    border-radius: 3px 3px 3px 3px;
+    display: inline-block;
+    padding: 0 9px;
+    font-size: 11px;
+    font-weight: normal;
+}
+
+a.button2, input.button11, input.button12 {
+    border-color: #2d2d2d;
+}
+
+a.button1, a.button1:link, a.button1:visited, a.button1:active, a.button11, a.button11:link, a.button11:visited, a.button11:active {
+    color: #808081;
+}
+
+a.button1:hover, input.button1:hover, a.button11:hover, input.button11:hover, input.button12:hover {
+    border-color: #4A8A4A;
+    color: #4A8A4A;
+}
+

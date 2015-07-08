@@ -195,6 +195,11 @@ module.exports = {
              });
          }
       });
+    },
+
+    acceptapplication:function(req,res){
+        var param=req.params.all();
+
     }
 
 };

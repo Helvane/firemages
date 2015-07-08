@@ -4,9 +4,10 @@
 
 appController.controller("summaryController",['$scope','ajaxService','shareService','$modal','$stateParams','$location',function($scope, ajaxService, shareService, $modal,$stateParams,$location){
 
+    $scope.forumtopic=shareService.getForum();
     $scope.logindata=shareService.getlogin();
     $scope.forumid=$stateParams.forumid;
-    $scope.forum=shareService.getForum();
+    $scope.forum=shareService.getItem();
     $scope.totalpost=0;
     $scope.currentPage=1;
     $scope.total=0;
@@ -363,5 +364,42 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
         }
 
     );
+
+    //This is for accept application
+    $scope.acceptappflag=false;
+    $scope.acceptapp=function(){
+        $scope.pinTitle='Sticky This Thread';
+        $scope.pin=function(){
+            var param={};
+            param.forumid=$scope.forum.id;
+            if($scope.forumtopic.prevlevel.id==40) {
+                param.topicid = 52;
+            }
+            if($scope.forumtopic.prevlevel.id==44) {
+                param.topicid = 53;
+            }
+            if($scope.forumtopic.prevlevel.id==48) {
+                param.topicid = 54;
+            }
+            param.todo='acceptapp';
+
+            var myajax=ajaxService.ajaxFactory('/Forum/acceptapplication',param,'post');
+            myajax.then(
+                function(data){
+                    $scope.acceptappflagtrue=true;
+                },
+                function(err){
+                    console.log(err);
+                }
+            );
+
+
+        };
+    };
+
+    //This is for decline application
+    $scope.declineapp=function(){
+
+    };
 
 }]);

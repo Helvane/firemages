@@ -1,4 +1,4 @@
-<div class="breadcrumb cat-head2">
+<div class="breadcrumb cat-head3">
     <div class="cat-title"><span><a href="#/forums">Forum</a></span></div>
     <div class="cat-title" style="margin-left: 5px;" ng-if="forumtopic.prevlevel"><span><a href="#/subcat/{{forumtopic.prevlevel.id}}">{{forumtopic.prevlevel.name}}</a></span></div>
     <div class="cat-title" style="margin-left: 5px;" class="active"><span>{{forumtopic.name}}</span></div>
@@ -13,7 +13,13 @@
 <div ui-view="pinView" ng-hide="true"></div>
 
 <br/>
-<h3>Topics</h3>
+
+<div class="cat-head2">
+    <div class="cat-title">
+        <span>Topics</span>
+    </div>
+</div>
+<div class="forum-box">
 <table class="table table-hover forum-container">
     <tr>
         <th></th><th>Author</th><th>Title</th><th>Views</th><th>Last Post</th>
@@ -58,6 +64,7 @@
         <td class="col-sm-5"><lastanswer forumid="f.id"></lastanswer></td>
     </tr>
 </table>
+</div>
 
 <button ng-if="topicid < 52" class="btn button8" alt="Post A New Topic." title="Post A New Topic." ng-click="newtopic()"><img src="/myphoto/arrow-31-256-(2).png" alt=""> NEW TOPIC</button>
 <button class="btn button7" ng-if="topicid >= 52" title="This topic is locked, you cannot edit posts or make further replies." ng-click="lockpopup()">LOCKED <i class="fa fa-lock"></i></button>
