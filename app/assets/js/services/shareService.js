@@ -152,5 +152,15 @@ appService.factory('shareService',['$rootScope',function($rootscope){
         return pService.item;
     };
 
+    pService.font="";
+    pService.setfont=function(msg){
+        pService.font=msg;
+        $rootscope.$broadcast('fontEvent')
+    };
+
+    pService.getfont=function(){
+        return pService.font;
+    };
+
     return pService;
 }]);

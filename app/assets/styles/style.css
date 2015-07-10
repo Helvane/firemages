@@ -466,10 +466,6 @@ ul.navlinks {
     margin-bottom: 5px;
 }
 
-.steamprofile:hover {
-    background-color: #313131;
-}
-
 .tablebg {
     border: solid 1px #000;
     background: #313131 url(/myphoto/cell.gif) top left repeat-x;

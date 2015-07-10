@@ -2,7 +2,7 @@
  * Created by king on 12/25/14.
  */
 
-var app=angular.module("app",['ui.router','appController', 'appService','appFilter','ngSanitize','angularFileUpload','emoji','ui.bootstrap','ngCookies','topicDirective']);
+var app=angular.module("app",['ui.router','appController', 'appService','appFilter','ngSanitize','angularFileUpload','emoji','ui.bootstrap','ngCookies','topicDirective','colorpicker.module']);
 
 app.config(['$stateProvider','$urlRouterProvider',
     function ($stateProvider, $urlRouterProvider){
@@ -169,6 +169,10 @@ app.config(['$stateProvider','$urlRouterProvider',
                     "viewA": {
                         templateUrl: 'templates/forumpost.html',
                         controller: 'forumpostController'
+                    },
+                    "texteditorMenu@forumpost":{
+                        templateUrl: 'templates/texteditorMenu.html',
+                        controller: 'texteditorMenuController'
                     }
                 }
             })

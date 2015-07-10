@@ -7,16 +7,16 @@
         <ul class="nav nav-pills navbar-default">
 
             <li class="pointer" ng-show="info.delete==false" ng-click="delete()">
-                <button class="btn navmenu2 navlink"><i class="fa fa-trash"></i><strong> Delete This Thread </strong></button>
+                <button class="btn navmenu2 navlink"><i class="fa fa-trash"></i><strong> Delete Thread </strong></button>
             </li>
             <li class="pointer" ng-show="forum.lock==false && pinflag==false"ng-click="lock()">
-                <button class="btn navmenu2 navlink"><i class="fa fa-lock"></i><strong> Lock This Thread </strong></button>
+                <button class="btn navmenu2 navlink"><i class="fa fa-lock"></i><strong> Lock Thread </strong></button>
             </li>
             <li class="pointer" ng-show="info.delete==false"ng-show="pinflag==false" ng-click="pin()">
                <button class="btn navmenu2 navlink"><i class="fa fa-thumb-tack"></i><strong> {{pinTitle}} </strong></button>
             </li>
             <li class="pointer" ng-show="forum.lock==false" ng-click="edit()">
-                <button class="btn navmenu2 navlink"><i class="fa fa-edit"></i><strong> Edit This Thread </strong></button>
+                <button class="btn navmenu2 navlink"><i class="fa fa-edit"></i><strong> Edit Thread </strong></button>
             </li>
 
             <li class="pointer" ng-click="acceptapp()" ng-hide="acceptappflag">
