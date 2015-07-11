@@ -65,7 +65,7 @@ body
 .clearall {clear: both;}
 
 .center {margin:0 auto; width: 100%; text-align: center}
-.green-color {color:#00FF00;}
+.greencolor {color:#00FF00;}
 .smallspace {height: 100px;}
 
 .text-danger {color: #ff0000;}
@@ -233,6 +233,26 @@ pre a:hover{color: #33CC33;}
 
 .forumborderstyle {border-top: 1px solid #999; border-bottom: 1px solid #999;}
 
+ul.post-row {
+    background-color: #1a1a1a;
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+    display: block;
+    list-style-type: none;
+    padding: 5px 5px 5px 0;
+    border-radius: 3px;
+}
+
+ul.post-row-reported {
+    background-color: #510b14;
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+    display: block;
+    list-style-type: none;
+    padding: 5px 5px 5px 0;
+    border-radius: 3px;
+}
+
 .forum-container {
     background-color: #161616;
     -webkit-border-radius: 3px;
@@ -268,6 +288,14 @@ pre a:hover{color: #33CC33;}
 
 .nobold {
     font-weight: normal;
+}
+
+.autowidth {
+    width: auto !important;
+}
+
+hr.divider {
+    display: none;
 }
 
 .button2 {background: linear-gradient(#666666, #2e2e2e); color: #ffffff; font-size: 14px; border-radius: 4px;}
@@ -667,3 +695,337 @@ a.button1:hover, input.button1:hover, a.button11:hover, input.button11:hover, in
     color: #4A8A4A;
 }
 
+fieldset.quick-login input.inputbox {
+    width: 15%;
+    vertical-align: middle;
+    margin-right: 5px;
+    background-color: #f3f3f3;
+}
+
+.inputbox {
+    background-color: #FFFFFF;
+    border: 1px solid #c0c0c0;
+    color: #333333;
+    padding: 2px;
+    cursor: text;
+}
+
+.inputbox:hover {
+    border: 1px solid #eaeaea;
+}
+
+.inputbox:focus {
+    border: 1px solid #eaeaea;
+    color: #4b4b4b;
+}
+
+input.inputbox	{ width: 85%; }
+
+textarea.inputbox {
+    width: 85%;
+}
+
+fieldset.quick-login input.inputbox {
+    background-color: #1a1a1a;
+}
+
+.inputbox {
+    border: 1px solid #090909;
+    background: #2f2f2f;
+    color: #dedede;
+    border-radius: 4px;
+}
+
+.inputbox:hover {
+    border-color: #1664c2;
+}
+
+.inputbox:focus {
+    border-color: #1664c2;
+    color: #dedede;
+}
+
+.signature a, .signature a:visited, .signature a:hover, .signature a:active {
+    border: none;
+    text-decoration: underline;
+    background-color: transparent;
+}
+
+.signature {
+    margin-top: 1.5em;
+    padding-top: 0.2em;
+    font-size: 1.1em;
+    border-top: 1px solid #CCCCCC;
+    clear: left;
+    line-height: 140%;
+    overflow: hidden;
+    width: 100%;
+}
+
+dd .signature {
+    margin: 0;
+    padding: 0;
+    clear: none;
+    border: none;
+}
+
+.signature li {
+    list-style-type: inherit;
+}
+
+.signature ul, .signature ol {
+    margin-bottom: 1em;
+    margin-left: 3em;
+}
+
+.signature a, .signature a:visited, .signature a:hover, .signature a:active {
+    background-color: transparent;
+}
+
+.signature {
+    border-top-color: #222222;
+}
+
+.postbody {
+    padding: 0;
+    line-height: 1.48em;
+    color: #333333;
+    width: 76%;
+    float: right;
+    clear: both;
+}
+
+.postbody .ignore {
+    font-size: 1.1em;
+}
+
+.postbody h3.first {
+    /* The first post on the page uses this */
+    font-size: 1.7em;
+}
+
+.postbody h3 {
+    /* Postbody requires a different h3 format - so change it here */
+    font-size: 1.5em;
+    padding: 2px 0 0 0;
+    margin: 0 0 0.3em 0 !important;
+    text-transform: none;
+    border: none;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    line-height: 125%;
+}
+
+.postbody h3 img {
+    /* Also see tweaks.css */
+    vertical-align: bottom;
+}
+
+.postbody .content {
+    font-size: 1.3em;
+}
+
+.search .postbody {
+    width: 68%
+}
+
+#topicreview .postbody {
+    width: auto;
+    float: none;
+    margin: 0;
+    height: auto;
+}
+
+.post-ignore .postbody {
+    display: none;
+}
+
+.postbody ul.profile-icons {
+    float: right;
+    width: auto;
+    padding: 0;
+}
+
+.postbody ul.profile-icons li {
+    margin: 0 3px;
+}
+
+#cp-main .postbody p {
+    font-size: 1.1em;
+}
+
+#cp-main .postbody h3, #cp-main .box2 h3 {
+    margin-top: 0;
+}
+
+.mcp-main .postbody {
+    width: 100%;
+}
+
+* html .postbody h3 img { vertical-align: middle; }
+
+.postbody {
+    color: #8c8b8b;
+}
+
+.postprofile a:link, .postprofile a:visited, .postprofile dt.author a {
+    font-weight: bold;
+    color: #898989;
+    text-decoration: none;
+}
+
+.postprofile a:hover, .postprofile dt.author a:hover {
+    text-decoration: underline;
+    color: #d3d3d3;
+}
+
+.postprofile a:active {
+    font-weight: bold;
+    color: #898989;
+    text-decoration: none;
+}
+
+.search .postprofile a {
+    color: #898989;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.search .postprofile a:hover {
+    color: #d3d3d3;
+    text-decoration: underline;
+}
+
+.postprofile {
+    /* Also see tweaks.css */
+    margin: 5px 0 10px 0;
+    min-height: 80px;
+    color: #666666;
+    border-right: 1px solid #FFFFFF;
+    width: 22%;
+    float: left;
+    display: inline;
+}
+
+.pm .postprofile {
+    border-right: 1px solid #DDDDDD;
+}
+
+.postprofile dd, .postprofile dt {
+    line-height: 1.2em;
+    margin-left: 8px;
+}
+
+.postprofile strong {
+    font-weight: normal;
+    color: #000000;
+}
+
+.search .postprofile {
+    width: 30%;
+}
+
+.postprofile a:link, .postprofile a:visited, .postprofile dt.author a {
+    color: #4A8A4A;
+}
+
+.postprofile a:hover, .postprofile dt.author a:hover {
+    color:	#B8B8B8;
+}
+
+.postprofile a:active {
+    color: #4A8A4A;
+}
+
+.search .postprofile a {
+    color: #4A8A4A;
+}
+
+.search .postprofile a:hover {
+    color: #B8B8B8;
+}
+
+.postprofile {
+    color: #666666;
+    border-right-color: #222222;
+}
+
+.rtl .postprofile {
+    border-right-color: #222222;
+    border-left-color: transparent;
+}
+
+.pm .postprofile {
+    border-right-color: #222222;
+}
+
+.rtl .pm .postprofile {
+    border-right-color: #222222;
+    border-left-color: transparent;
+}
+
+.postprofile strong {
+    color: #8c8b8b;
+    font-weight: bold;
+}
+
+.post:target .content {
+    color: #000000;
+}
+
+.content {
+    min-height: 3em;
+    overflow: hidden;
+    line-height: 1.4em;
+    font-family: "Lucida Grande", "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    color: #333333;
+    padding-bottom: 1px;
+}
+
+.content h2, .panel h2 {
+    font-weight: normal;
+    color: #989898;
+    border-bottom: 1px solid #CCCCCC;
+    font-size: 1.6em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.content p {
+    font-family: "Lucida Grande", "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    line-height: 1.4em;
+}
+
+.content dl.faq {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+.content li {
+    list-style-type: inherit;
+}
+
+.content ul, .content ol {
+    margin-bottom: 1em;
+    margin-left: 3em;
+}
+
+#cp-main .content {
+    padding: 0;
+}
+
+.post:target .content {
+    color: #808081;
+}
+
+.content {
+    color: #8c8b8b;
+}
+
+.content h2, .panel h2 {
+    color: #5CAD5C;
+    border-bottom-color:  #222222;
+}

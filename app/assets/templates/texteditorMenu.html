@@ -1,14 +1,18 @@
 <ul class="list-inline list-unstyled">
-    <li class="input-group">
-        <label class="control-label">Font Color</label><input type="button" class="input-group-addon button11" colorpicker="hex" colorpicker-position="top" ng-model="values.fontcolor">
+    <li>
+        <label class="label label-primary pointer" ng-click="opencolor()">Font Color</label><br/>
+        <input type="button" colorpicker-is-open="isOpen" class="input-group-addon button11" colorpicker="hex" colorpicker-position="top" ng-model="values.fontcolor">
     </li>
     <li>
-        <input type="button" class="button11" value="Bold" ng-model="values.boldtag">
+        <input type="button" class="button11" value="Bold" ng-model="values.boldtag" ng-click="bold()">
     </li>
     <li>
-        <input type="button" class="button11" value="Italics" ng-model="values.italictag">
+        <input type="button" class="button11" value="Italics" ng-model="values.italictag" ng-click="italic()">
     </li>
     <li>
-        <input type="button" class="button11" value="Underline">
+        <input type="button" class="button11" value="Underline" ng-click="underline()">
+    </li>
+    <li>
+        <input type="button" class="button11" value="Image" ng-click="imagetag()">
     </li>
 </ul>

@@ -162,5 +162,15 @@ appService.factory('shareService',['$rootScope',function($rootscope){
         return pService.font;
     };
 
+    pService.tag="";
+    pService.settag=function(msg){
+        pService.tag=msg;
+        $rootscope.$broadcast('tagEvent')
+    };
+
+    pService.gettag=function(){
+        return pService.tag;
+    };
+
     return pService;
 }]);

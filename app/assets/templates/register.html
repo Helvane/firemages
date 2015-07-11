@@ -8,7 +8,7 @@
 
 <div class="row">
     <label class="col-md-2">Last Name <span class="text-danger">*</span></label>
-    <div class="col-md-4"><input type="text" ng-model="person.lastname" maxlength="20" class="form-control input-sm"/></div>
+    <div class="col-md-4"><input type="text" ng-model="person.lastname" maxlength="20" class="form-control input-sm inputbox"/></div>
     <div class="col-md-6 text-danger" ng-show="error.lastname==true">Enter your LastName</div>
 </div>
 
@@ -16,7 +16,7 @@
 
 <div class="row">
     <label class="col-md-2">First Name <span class="text-danger">*</span></label>
-    <div class="col-md-4"><input type="text" ng-model="person.firstname" maxlength="20" class="form-control input-sm"/></div>
+    <div class="col-md-4"><input type="text" ng-model="person.firstname" maxlength="20" class="form-control input-sm inputbox"/></div>
     <div class="col-md-6 text-danger" ng-show="error.firstname==true">Enter your FirstName</div>
 </div>
 
@@ -24,7 +24,7 @@
 
 <div class="row">
     <label class="col-md-2">UserName <span class="text-danger">*</span></label>
-    <div class="col-md-4"><input type="text" ng-model="person.username" maxlength="20" class="form-control input-sm"/></div>
+    <div class="col-md-4"><input type="text" ng-model="person.username" maxlength="20" class="form-control input-sm inputbox"/></div>
     <div class="col-md-1"><button class="btn button5" ng-click="verify()">Verify</button></div>
     <div class="col-md-5 {{usernameclass}}" ng-show="error.username==true">{{usernamemsg}}</div>
 
@@ -34,35 +34,35 @@
 
 <div class="row">
     <label class="col-md-2">Password <span class="text-danger">*</span></label>
-    <div class="col-md-4"><input type="password" ng-model="person.password" maxlength="50" class="form-control input-sm"/></div>
+    <div class="col-md-4"><input type="password" ng-model="person.password" maxlength="50" class="form-control input-sm inputbox"/></div>
     <div class="col-md-6 text-danger" ng-show="error.password==true">Enter your Password</div>
 </div>
 <br/>
 
 <div class="row">
     <label class="col-md-2">Confirm Password <span class="text-danger">*</span></label>
-    <div class="col-md-4"><input type="password" ng-model="person.confirm" maxlength="50" class="form-control input-sm"/></div>
+    <div class="col-md-4"><input type="password" ng-model="person.confirm" maxlength="50" class="form-control input-sm inputbox"/></div>
     <div class="col-md-6 text-danger" ng-show="error.confirm==true">{{confirmmsg}}</div>
 </div>
 <br/>
 
 <div class="row">
     <label class="col-md-2">E-Mail <span class="text-danger">*</span></label>
-    <div class="col-md-4"><input type="email" ng-model="person.email" maxlength="100" class="form-control input-sm"/></div>
+    <div class="col-md-4"><input type="email" ng-model="person.email" maxlength="100" class="form-control input-sm inputbox"/></div>
     <div class="col-md-6 text-danger" ng-show="error.email==true">{{emailmsg}}</div>
 </div>
 <br/>
 
 <div class="row">
     <label class="col-md-2">Steam id <span class="text-danger">*</span></label>
-    <div class="col-md-4"><input type="text" ng-model="person.steamid" maxlength="100" class="form-control input-sm"/></div>
+    <div class="col-md-4"><input type="text" ng-model="person.steamid" maxlength="100" class="form-control input-sm inputbox"/></div>
     <div class="col-md-6 text-danger" ng-show="error.steamid==true">Enter your Steam id</div> <b><a href="http://steamidfinder.com" target="_blank" style="color:#33CC33">Steam ID Finder</a></b>
 </div>
 <br/>
 
 <div class="row">
     <label class="col-md-2">Profile Picture</label>
-    <div class="col-md-4"><input type="file" nv-file-select uploader="uploader" class="form-control input-sm"/></div>
+    <div class="col-md-4"><input type="file" nv-file-select uploader="uploader" class="form-control input-sm inputbox autowidth pointer"/></div>
 </div>
 <br/>
 

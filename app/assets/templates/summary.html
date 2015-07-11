@@ -6,236 +6,32 @@
     <div class="cat-title" style="margin-left: 5px;"><span><a href="#/forumtopic/{{forumtopic.id}}">{{forumtopic.name}}</a></span></div>
     <div class="cat-title active" style="margin-left: 5px;"><span>{{forum.title}}</span></div>
 </div>
+<h3>{{forum.title}}</h3>
 
 <br/>
 <br/>
 
 <button class="btn button7" ng-if="forum.lock==true" title="This topic is locked, you cannot edit posts or make further replies." ng-click="lockpopup()">LOCKED <i class="fa fa-lock"></i></button>
+<div class="cat-head">
+    <div class="cat-title">
+        <span>{{forum.title}}</span>
+    </div>
+</div>
 
-<table class="table forum-container">
-
-    <tr>
-        <th class="col-sm-2">Author</th><th class="col-sm-10" colspan="2">Message</th>
-    </tr>
-    <tr>
-        <td class="col-sm-2">
-            <a ng-if="forum.userid.status=='Community Member'">
-                <img src="/images/{{forum.userid.photo}}" class="boxrectimg"/>
-            </a>
-            <a ng-if="forum.userid.status=='Community Full-Admin'">
-                <img src="/images/{{forum.userid.photo}}" class="boxrectimgcreator"/>
-            </a>
-            <a ng-if="forum.userid.status=='Designer Bot'">
-                <img src="/images/{{forum.userid.photo}}" class="boxrectimgdesigner"/>
-            </a>
-
-            <a ng-if="forum.userid.status=='Community Founder'">
-                <img src="/images/{{forum.userid.photo}}" class="boxrectimgowner"/>
-            </a>
-            <a ng-if="forum.userid.status=='No Ranking'">
-                <img src="/images/{{forum.userid.photo}}" class="boxrectimgnorank"/>
-            </a>
-            <a ng-if="forum.userid.status=='Server Banned'">
-                <img src="/images/{{forum.userid.photo}}" class="boxrectimgnorank"/>
-            </a>
-            <a ng-if="forum.userid.status=='Community Head-Admin (TF2)'">
-                <img src="/images/{{forum.userid.photo}}" class="boxrectimgheadadmin"/>
-            </a>
-            <a ng-if="forum.userid.status=='Community Tech'">
-                <img src="/images/{{forum.userid.photo}}" class="boxrectimgtech"/>
-            </a>
-            <a ng-if="forum.userid.status=='TF2 Admin'">
-                <img src="/images/{{forum.userid.photo}}" class="boxrectimgadmin"/>
-            </a>
-            <a ng-if="forum.userid.status=='MC Admin'">
-                <img src="/images/{{forum.userid.photo}}" class="boxrectimgmcadmin"/>
-            </a>
-            <a ng-if="forum.userid.status=='Gmod Admin'">
-                <img src="/images/{{forum.userid.photo}}" class="boxrectimggmodadmin"/>
-            </a>
-            <a ng-if="forum.userid.status=='Community Owner'">
-                <img src="/images/{{forum.userid.photo}}" class="boxrectimgcoowner"/>
-            </a>
-            <a ng-if="forum.userid.status=='Announcement Bot'">
-                <img src="/images/{{forum.userid.photo}}" class="boxrectimgannouncement"/>
-            </a>
-            <a ng-if="forum.userid.status=='Community Head-Admin (Gmod)'">
-                <img src="/images/{{forum.userid.photo}}" class="boxrectimggmod"/>
-            </a>
-            <a ng-if="forum.userid.status=='Community Head-Admin (MC)'">
-                <img src="/images/{{forum.userid.photo}}" class="boxrectimgmc"/>
-            </a>
-            <a ng-if="forum.userid.status=='Community Advisor'">
-                <img src="/images/{{forum.userid.photo}}" class="boxrectimgadvisor"/>
-            </a>
-            <a ng-if="forum.userid.status=='Registered User'">
-                <img src="/images/{{forum.userid.photo}}" class="boxrectimgregistered"/>
-            </a>
-
-            <div class="text-center smallfont"><a ng-click="gotoprofile('/profile/'+forum.userid.id)" class="whiteColor pointer">{{forum.userid.username}}</a></div>
-            <div ng-if="forum.userid.status=='Community Member'" class="rect">{{forum.userid.status}}</div>
-            <div ng-if="forum.userid.status=='Community Full-Admin'" class="rectcreator">{{forum.userid.status}}</div>
-            <div ng-if="forum.userid.status=='Designer Bot'" class="designerbot">{{forum.userid.status}}</div>
-            <div ng-if="forum.userid.status=='Community Founder'" class="rectowner">{{forum.userid.status}}</div>
-            <div ng-if="forum.userid.status=='No Ranking'" class="rectnorank">{{forum.userid.status}}</div>
-            <div ng-if="forum.userid.status=='Server Banned'" class="rectnorank">{{forum.userid.status}}</div>
-            <div ng-if="forum.userid.status=='Community Head-Admin (TF2)'" class="rectheadadmin">Community Head-Admin</div>
-            <div ng-if="forum.userid.status=='Community Tech'" class="recttech">{{forum.userid.status}}</div>
-            <div ng-if="forum.userid.status=='TF2 Admin'" class="rectadmin">Community Admin</div>
-            <div ng-if="forum.userid.status=='MC Admin'" class="rectmcadmin">Community Admin</div>
-            <div ng-if="forum.userid.status=='Gmod Admin'" class="rectgmodadmin">Community Admin</div>
-            <div ng-if="forum.userid.status=='Community Owner'" class="rectcoowner">{{forum.userid.status}}</div>
-            <div ng-if="forum.userid.status=='Announcement Bot'" class="rectannouncement">{{forum.userid.status}}</div>
-            <div ng-if="forum.userid.status=='Community Head-Admin (Gmod)'" class="rectgmod">Community Head-Admin</div>
-            <div ng-if="forum.userid.status=='Community Head-Admin (MC)'" class="rectmc">Community Head-Admin</div>
-            <div ng-if="forum.userid.status=='Community Advisor'" class="rectadvisor">{{forum.userid.status}}</div>
-            <div ng-if="forum.userid.status=='Registered User'" class="rectregistered">{{forum.userid.status}}</div>
-            <div class="space">&nbsp;</div>
-            <div class="informationfonts"><b>Total posts:</b> {{totalpost}}</div>
-            <div class="informationfonts" ng-if="forum.userid.fursona"><b>Fursona:</b> {{forum.userid.fursona}}</div>
-            <div class="informationfonts" ng-if="forum.userid.location"><b>Location:</b> {{forum.userid.location}}</div>
-
-
-        </td>
-        <td class="col-sm-7">
-            <div ng-show="editflag==false">
-                <div class="cat-head">
-                    <div class="cat-title"><span>{{forum.title}}</span></div>
-                </div>
-            <pre ng-bind-html="forum.summary|unsafe"></pre>
-            <p ng-if="forum.photo">
-                <img ng-src="/forumimages/{{forum.photo}}" class="img-responsive"/>
-            </p>
+<div class="forum-box">
+    <ul class="post-row">
+        <li>
+            <div class="postbody">
+                <br/>
+                <div class="content"></div>
+                <div class="signature"></div>
             </div>
-
-
-            <div ng-show="editflag==true">
-                <div class="space">
-                    <input type="text" ng-model="forum.title" class="form-control">
-                </div>
-                <div class="space">
-                <textarea ng-model="forum.summary"></textarea>
-                </div>
-                <div class="space">
-                    <button class="btn button6" ng-click="editsave()">Save</button>
-                    <button class="btn button6" ng-click="emoticon2()">Emoticon</button>
-                    <button class="btn button6" ng-click="formattingpopup()">Formatting Help</button>
-                </div>
-            </div>
-        </td>
-        <td class="col-sm-3">
-            <div ui-view="moderatorView"></div>
-        </td>
-    </tr>
-    <tr ng-show="logindata && forum.lock==false && logindata.status!='Server Banned'">
-
-        <td class="col-sm-2">
-            <button class="btn button5" ng-click="reply()">Reply</button>
-            <br/>
-        </td>
-        <td class="col-sm-10" colspan="2">
-            <div ng-show="replyflag==true">
-                <div class="space">
-            <textarea ng-model=" msg.responseText" class="form-control" maxlength="4000" wrap="hard"></textarea>
-                </div>
-                <div class="space">
-                    <button class="btn button6" ng-click="save()">Submit</button>
-                    <button class="btn button6" ng-click="emoticon()">Emoticon</button>
-                    <button class="btn button6" ng-click="formattingpopup()">Formatting Help</button>
-                </div>
-            </div>
-        </td>
-    </tr>
-
-    <tr ng-repeat="a in answers track by $index">
-        <td class="col-sm-2">
-
-            <a ng-if="a.userid.status=='Community Member'">
-                <img src="/images/{{a.userid.photo}}" class="boxrectimg"/>
-            </a>
-            <a ng-if="a.userid.status=='Community Full-Admin'">
-                <img src="/images/{{a.userid.photo}}" class="boxrectimgcreator"/>
-            </a>
-            <a ng-if="a.userid.status=='Designer Bot'">
-                <img src="/images/{{a.userid.photo}}" class="boxrectimgdesigner"/>
-            </a>
-
-            <a ng-if="a.userid.status=='Community Founder'">
-                <img src="/images/{{a.userid.photo}}" class="boxrectimgowner"/>
-            </a>
-            <a ng-if="a.userid.status=='No Ranking'">
-                <img src="/images/{{a.userid.photo}}" class="boxrectimgnorank"/>
-            </a>
-            <a ng-if="a.userid.status=='Server Banned'">
-                <img src="/images/{{a.userid.photo}}" class="boxrectimgnorank"/>
-            </a>
-            <a ng-if="a.userid.status=='Community Head-Admin (TF2)'">
-                <img src="/images/{{a.userid.photo}}" class="boxrectimgheadadmin"/>
-            </a>
-            <a ng-if="a.userid.status=='Community Tech'">
-                <img src="/images/{{a.userid.photo}}" class="boxrectimgtech"/>
-            </a>
-            <a ng-if="a.userid.status=='TF2 Admin'">
-                <img src="/images/{{a.userid.photo}}" class="boxrectimgadmin"/>
-            </a>
-            <a ng-if="a.userid.status=='MC Admin'">
-                <img src="/images/{{a.userid.photo}}" class="boxrectimgmcadmin"/>
-            </a>
-            <a ng-if="a.userid.status=='Gmod Admin'">
-                <img src="/images/{{a.userid.photo}}" class="boxrectimggmodadmin"/>
-            </a>
-            <a ng-if="a.userid.status=='Community Owner'">
-                <img src="/images/{{a.userid.photo}}" class="boxrectimgcoowner"/>
-            </a>
-            <a ng-if="a.userid.status=='Announcement Bot'">
-                <img src="/images/{{a.userid.photo}}" class="boxrectimgannouncement"/>
-            </a>
-            <a ng-if="a.userid.status=='Community Head-Admin (Gmod)'">
-                <img src="/images/{{a.userid.photo}}" class="boxrectimggmod"/>
-            </a>
-            <a ng-if="a.userid.status=='Community Head-Admin (MC)'">
-                <img src="/images/{{a.userid.photo}}" class="boxrectimgmc"/>
-            </a>
-            <a ng-if="a.userid.status=='Community Advisor'">
-                <img src="/images/{{a.userid.photo}}" class="boxrectimgadvisor"/>
-            </a>
-            <a ng-if="a.userid.status=='Registered User'">
-                <img src="/images/{{a.userid.photo}}" class="boxrectimgregistered"/>
-            </a>
-
-            <div class="text-center smallfont"><a ng-click="gotoprofile('/profile/'+a.userid.id)" class="whiteColor pointer">{{a.userid.username}}</a></div>
-            <div ng-if="a.userid.status=='Community Member'" class="rect">{{a.userid.status}}</div>
-            <div ng-if="a.userid.status=='Community Full-Admin'" class="rectcreator">{{a.userid.status}}</div>
-            <div ng-if="a.userid.status=='Designer Bot'" class="designerbot">{{a.userid.status}}</div>
-            <div ng-if="a.userid.status=='Community Founder'" class="rectowner">{{a.userid.status}}</div>
-            <div ng-if="a.userid.status=='No Ranking'" class="rectnorank">{{a.userid.status}}</div>
-            <div ng-if="a.userid.status=='Server Banned'" class="rectnorank">{{a.userid.status}}</div>
-            <div ng-if="a.userid.status=='Community Head-Admin (TF2)'" class="rectheadadmin">Community Head-Admin</div>
-            <div ng-if="a.userid.status=='Community Tech'" class="recttech">{{a.userid.status}}</div>
-            <div ng-if="a.userid.status=='TF2 Admin'" class="rectadmin">Community Admin</div>
-            <div ng-if="a.userid.status=='MC Admin'" class="rectmcadmin">Community Admin</div>
-            <div ng-if="a.userid.status=='Gmod Admin'" class="rectgmodadmin">Community Admin</div>
-            <div ng-if="a.userid.status=='Community Owner'" class="rectcoowner">{{a.userid.status}}</div>
-            <div ng-if="a.userid.status=='Announcement Bot'" class="rectannouncement">{{a.userid.status}}</div>
-            <div ng-if="a.userid.status=='Community Head-Admin (Gmod)'" class="rectgmod">Community Head-Admin</div>
-            <div ng-if="a.userid.status=='Community Head-Admin (MC)'" class="rectmc">Community Head-Admin</div>
-            <div ng-if="a.userid.status=='Community Advisor'" class="rectadvisor">{{a.userid.status}}</div>
-            <div ng-if="a.userid.status=='Registered User'" class="rectregistered">{{a.userid.status}}</div>
-            <div class="space">&nbsp;</div>
-            <div class="informationfonts" ng-if="a.userid.fursona"><b>Fursona:</b> {{a.userid.fursona}}</div>
-            <div class="informationfonts" ng-if="a.userid.location"><b>Location:</b> {{a.userid.location}}</div>
-
-
-
-
-        </td>
-        <td class="col-sm-10" colspan="2">
-                <div class="postsubject">RE: {{forum.title}}</div>
-            <pre ng-bind-html="a.answer|unsafe"></pre>
-
-        </td>
-    </tr>
-</table>
+            <dl class="postprofile">
+               <dt></dt>
+            </dl>
+        </li>
+    </ul>
+</div>
 
 <div ng-if="total > 10">
  <pagination total-items="total" ng-model="currentPage" ng-click="nextpage(currentPage)" max-size="5" class="pagination-sm" boundary-links="true" rotate="true" items-per-page="10" previous-text="Prev" next-text="Next"></pagination>

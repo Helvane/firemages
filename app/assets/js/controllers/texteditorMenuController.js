@@ -12,5 +12,34 @@ appController.controller("texteditorMenuController",['$scope','ajaxService','sha
         }
     });
 
+    $scope.bold=function(){
+        var htmltag='<b>Enter Text</b>';
+       shareService.settag(htmltag);
+    };
+
+    $scope.italic=function(){
+        var htmltag='<i>Enter Text</i>';
+        shareService.settag(htmltag);
+    };
+
+    $scope.underline=function(){
+        var htmltag='<u>Enter Text</u>';
+        shareService.settag(htmltag);
+    };
+
+    $scope.imagetag=function(){
+        var htmltag='<img src="Enter Img Url"/>';
+        shareService.settag(htmltag);
+    };
+
+    $scope.isOpen=false;
+    $scope.opencolor=function(){
+       if($scope.isOpen==false){
+           $scope.isOpen=true;
+       } else {
+         $scope.isOpen=false;
+       }
+    };
+
 
 }]);
