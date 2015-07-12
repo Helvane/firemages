@@ -325,6 +325,12 @@ hr.divider {
 .button10 {background: linear-gradient(lightgreen, #009000); color: #ffffff; font-size: 14px; border-radius: 4px; width: 100px; height: 20px; min-height:50px;}
 .button10:hover {background: linear-gradient(#33CC99, Darkgreen); color: #ffffff;}
 
+.username-coloured {
+    font-weight: bold;
+    display: inline !important;
+    padding: 0 !important;
+}
+
 .postsubject {
     font-size: 12px;
     font-weight: bold;
@@ -382,6 +388,20 @@ hr.divider {
     min-width: 650px;
     width: 990px;
     margin: 0 auto;
+}
+
+#wrap3 {
+    padding: 5px 5px;
+    min-width: 650px;
+    width: 990px;
+    margin: 5px auto;                /* This center aligns your wrap width on the browser page */
+    background-color: #131311;     /* Gives the wrap a white background */
+    border-radius: 3px;    /* The Rounded corners for all modern browsers */
+}
+
+#page-body {
+    margin: 4px 0;
+    clear: both;
 }
 
 div.poster_wrap { position: relative; width: 200px; }

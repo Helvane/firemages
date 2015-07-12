@@ -7,24 +7,24 @@
         <ul class="nav nav-pills navbar-default">
 
             <li class="pointer" ng-show="info.delete==false" ng-click="delete()">
-                <button class="btn navmenu2 navlink"><i class="fa fa-trash"></i><strong> Delete Thread </strong></button>
+                <button class="btn navmenu2 navlink" title="Delete this thread"><i class="fa fa-trash"></i><strong> Delete Thread </strong></button>
             </li>
             <li class="pointer" ng-show="forum.lock==false && pinflag==false"ng-click="lock()">
-                <button class="btn navmenu2 navlink"><i class="fa fa-lock"></i><strong> Lock Thread </strong></button>
+                <button class="btn navmenu2 navlink" title="Lock this thread"><i class="fa fa-lock"></i><strong> Lock Thread </strong></button>
             </li>
             <li class="pointer" ng-show="info.delete==false"ng-show="pinflag==false" ng-click="pin()">
-               <button class="btn navmenu2 navlink"><i class="fa fa-thumb-tack"></i><strong> {{pinTitle}} </strong></button>
+               <button class="btn navmenu2 navlink" title="Sticky/Pin this thread"><i class="fa fa-thumb-tack"></i><strong> {{pinTitle}} </strong></button>
             </li>
             <li class="pointer" ng-show="forum.lock==false" ng-click="edit()">
-                <button class="btn navmenu2 navlink"><i class="fa fa-edit"></i><strong> Edit Thread </strong></button>
+                <button class="btn navmenu2 navlink" title="Edit this thread"><i class="fa fa-edit"></i><strong> Edit Thread </strong></button>
             </li>
 
             <li class="pointer" ng-click="acceptapp()" ng-hide="acceptappflag">
-                <button class="btn navmenu2 navlink"><i class="fa fa-edit"></i><strong> Accept Application </strong></button>
+                <button class="btn navmenu2 navlink" title="Accept this application"><i class="fa fa-edit"></i><strong> Accept Application </strong></button>
             </li>
 
             <li class="pointer" ng-click="declineapp()">
-                <button class="btn navmenu2 navlink"><i class="fa fa-edit"></i><strong> Decline Application </strong></button>
+                <button class="btn navmenu2 navlink" title="Decline this application"><i class="fa fa-edit"></i><strong> Decline Application </strong></button>
             </li>
 
 
