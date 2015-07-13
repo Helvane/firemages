@@ -2,19 +2,24 @@
 
 
 <div class="breadcrumb cat-head3">
-    <div class="cat-title"><span><a href="#/forums">Forum</a></span></div>
+    <div class="cat-title"><span><a href="#/forums">Forums</a></span></div>
     <div class="cat-title" style="margin-left: 5px;" ng-if="forumtopic.prevlevel"><span><a href="#/subcat/{{forumtopic.prevlevel.id}}">{{forumtopic.prevlevel.name}}</a></span></div>
     <div class="cat-title" style="margin-left: 5px;"><span><a href="#/forumtopic/{{forumtopic.id}}">{{forumtopic.name}}</a></span></div>
     <div class="cat-title active" style="margin-left: 5px;"><span>{{forum.title}}</span></div>
 </div>
 
-<h3>{{forum.title}}</h3>
+
+<h4 style="color: #4A8A4A;">{{forum.title}}</h4>
 
 <br/>
 <br/>
-
-<button class="btn button7" ng-if="forum.lock==true" title="This topic is locked, you cannot edit posts or make further replies." ng-click="lockpopup()">LOCKED <i class="fa fa-lock"></i></button>
-<div class="cat-head">
+<div class="topic-actions">
+<div class="buttons">
+<div class="locked-icon" ng-if="forum.lock==true" title="This topic is locked, you cannot edit posts or make further replies."><a href="#/forumlock"><span></span></a></div>
+</div>
+</div>
+<div class="clear"></div>
+<div class="cat-head4">
     <div class="cat-title">
         <span>{{forum.title}}</span>
     </div>
@@ -33,10 +38,9 @@
             </div>
             <dl class="postprofile">
                <dt>
-               <a href="#/profile/{{forum.userid.id}}">
                <img src="/images/{{forum.userid.photo}}" class="{{forum.userid.cssclass}}"/>
-               <div class="whiteColor">{{forum.userid.username}}</div>
-               </a>
+               <div><a class="username-coloured" href="#/profile/{{forum.userid.id}}">{{forum.userid.username}}</a></div>
+
                </dt>
             </dl>
         </li>
@@ -45,8 +49,9 @@
 
 
 <div ng-repeat="a in answers track by $index">
-<hr class="divider">
-<div class="cat-head">
+
+
+<div class="cat-head4">
     <div class="cat-title">
         <span>RE: {{forum.title}}</span>
     </div>
@@ -64,21 +69,23 @@
             </div>
             <dl class="postprofile">
                 <dt>
-                    <a href="#/profile/{{a.userid.id}}">
                         <img src="/images/{{a.userid.photo}}" class="{{a.userid.cssclass}}"/>
-                        <div class="whiteColor">{{a.userid.username}}</div>
-                    </a>
+                        <div><a class="username-coloured" href="#/profile/{{a.userid.id}}">{{a.userid.username}}</a></div>
+
                 </dt>
             </dl>
         </li>
     </ul>
 </div>
-
 </div>
 
+
+<div class="topic-actions">
+<div class="buttons">
 <div ng-if="total > 10">
  <pagination total-items="total" ng-model="currentPage" ng-click="nextpage(currentPage)" max-size="5" class="pagination-sm" boundary-links="true" rotate="true" items-per-page="10" previous-text="Prev" next-text="Next"></pagination>
 </div>
-
-<button class="btn button7" ng-if="forum.lock==true" title="This topic is locked, you cannot edit posts or make further replies." ng-click="lockpopup()">LOCKED <i class="fa fa-lock"></i></button>
+    <div class="locked-icon" ng-if="forum.lock==true" title="This topic is locked, you cannot edit posts or make further replies."><a href="#/forumlock"><span></span></a></div>
+</div>
+</div>
 

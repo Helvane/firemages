@@ -325,6 +325,30 @@ hr.divider {
 .button10 {background: linear-gradient(lightgreen, #009000); color: #ffffff; font-size: 14px; border-radius: 4px; width: 100px; height: 20px; min-height:50px;}
 .button10:hover {background: linear-gradient(#33CC99, Darkgreen); color: #ffffff;}
 
+.locked-icon span	{ background: transparent none 0 0 no-repeat; }
+.buttons div.locked-icon	{ width: 96px; height: 25px; }
+.locked-icon span	{ background-image: url("/myphoto/button_topic_locked.gif"); }
+
+.post-icon span		{ background: transparent none 0 0 no-repeat; }
+.buttons div.post-icon		{ width: 96px; height: 25px; }
+.post-icon span		{ background-image: url("/myphoto/button_topic_new.gif"); }
+
+.reply-icon span	{ background: transparent none 0 0 no-repeat; }
+.buttons div.reply-icon		{ width: 96px; height: 25px; }
+.reply-icon span	{ background-image: url("/myphoto/button_topic_reply.gif"); }
+
+.forumbg-table > .inner {
+    margin: 0 -1px;
+}
+
+.forumbg-table > .inner > span.corners-top {
+    margin: 0 -4px -1px -4px;
+}
+
+.forumbg-table > .inner > span.corners-bottom {
+    margin: -1px -4px 0 -4px;
+}
+
 .username-coloured {
     font-weight: bold;
     display: inline !important;
@@ -626,6 +650,41 @@ ul.navlinks {
 }
 
 .cat-head3 a:hover {
+    color: #0a78ba;
+}
+
+.cat-head4 {
+    background: #252524 url("/myphoto/cat-head6.png") repeat-x 50% 50%;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #141414;
+    -webkit-box-shadow: 0px 1px 4px rgba(0,0,0,0.3), inset 0px 1px 0px rgba(255,255,255,0.13);
+    -moz-box-shadow: 0px 1px 4px rgba(0,0,0,0.3), inset 0px 1px 0px rgba(255,255,255,0.13);
+    box-shadow: 0px 1px 4px rgba(0,0,0,0.3), inset 0px 1px 0px rgba(255,255,255,0.13);
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    color: #a2a2a2;
+    text-transform: uppercase;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 4px;
+}
+
+.cat-head4 a:link {
+    color: #a2a2a2;
+    text-decoration: none;
+    -webkit-transition: color 350ms ease-in-out;
+    -moz-transition: color 350ms ease-in-out;
+    -o-transition: color 350ms ease-in-out;
+    transition: color 350ms ease-in-out;
+}
+
+.cat-head4 a:hover {
     color: #0a78ba;
 }
 
@@ -1048,4 +1107,168 @@ dd .signature {
 .content h2, .panel h2 {
     color: #5CAD5C;
     border-bottom-color:  #222222;
+}
+
+.buttons {
+    float: left;
+    width: auto;
+    height: auto;
+}
+.buttons div {
+    float: left;
+    margin: 0 5px 0 0;
+    background-position: 0 100%;
+}
+
+.buttons div a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-position: 0 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.buttons div span			{ position: absolute; width: 100%; height: 100%; cursor: pointer;}
+.buttons div a:hover span	{ background-position: 0 100%; }
+
+#cp-main .buttons {
+    margin-left: 0;
+}
+
+fieldset.submit-buttons {
+    text-align: center;
+    vertical-align: middle;
+    margin: 5px 0;
+}
+
+fieldset.submit-buttons input {
+    vertical-align: middle;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+#format-buttons {
+    margin: 15px 0 2px 0;
+}
+
+#format-buttons input, #format-buttons select {
+    vertical-align: middle;
+}
+
+html>body dd label input { vertical-align: text-bottom; }	/* Align checkboxes/radio buttons nicely */
+
+.topic-actions {
+    margin-bottom: 3px;
+    font-size: 1.1em;
+    height: 28px;
+    min-height: 28px;
+}
+div[class].topic-actions {
+    height: auto;
+}
+
+.panel {
+    margin-bottom: 4px;
+    padding: 0 10px;
+    background-color: #f3f3f3;
+    color: #3f3f3f;
+}
+
+.post span.corners-top, .post span.corners-bottom, .panel span.corners-top, .panel span.corners-bottom, .navbar span.corners-top, .navbar span.corners-bottom {
+    margin: 0 -10px;
+}
+
+.content h2, .panel h2 {
+    font-weight: normal;
+    color: #989898;
+    border-bottom: 1px solid #CCCCCC;
+    font-size: 1.6em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.panel h3 {
+    margin: 0.5em 0;
+}
+
+.panel p {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    line-height: 1.4em;
+}
+
+#cp-main .panel p {
+    font-size: 1.1em;
+}
+
+#cp-main .panel ol {
+    margin-left: 2em;
+    font-size: 1.1em;
+}
+
+#cp-main .panel li.row {
+    border-bottom: 1px solid #cbcbcb;
+    border-top: 1px solid #F9F9F9;
+}
+
+#cp-main .panel li.header dd, #cp-main .panel li.header dt {
+    color: #000000;
+    margin-bottom: 2px;
+}
+
+#cp-main .panel {
+    background-color: #F9F9F9;
+}
+
+#cp-main .panel #topicreview span.corners-top, #cp-menu .panel #topicreview span.corners-top {
+    background-image: none;
+}
+
+.panel {
+    background-color: #1a1a1a;
+    color: #838181;
+}
+
+.content h2, .panel h2 {
+    color: #5CAD5C;
+    border-bottom-color:  #222222;
+}
+
+#cp-main .panel li.row {
+    border-bottom-color: #222222;
+    border-top-color: #151515;
+}
+
+#cp-main .panel li.header dd, #cp-main .panel li.header dt {
+    color: #808081;
+}
+
+#cp-main .panel {
+    background-color: #151515;
+}
+
+#cp-main .panel #topicreview span.corners-top, #cp-menu .panel #topicreview span.corners-top {
+    background-image: url("/myphoto/corners_left.png");
+}
+
+#cp-main .panel #topicreview span.corners-top span, #cp-menu .panel #topicreview span.corners-top span {
+    background-image: url("/myphoto/corners_right.png");
+}
+
+#cp-main .panel #topicreview span.corners-bottom, #cp-menu .panel #topicreview span.corners-bottom {
+    background-image: url("/myphoto/corners_left.png");
+}
+
+#cp-main .panel #topicreview span.corners-bottom span, #cp-menu .panel #topicreview span.corners-bottom span {
+    background-image: url("/myphoto/corners_right.png");
+}
+
+.clear {
+    display: block;
+    clear: both;
+    font-size: 1px;
+    line-height: 1px;
+    background: transparent;
 }

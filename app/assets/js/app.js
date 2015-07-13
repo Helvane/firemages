@@ -199,6 +199,14 @@ app.config(['$stateProvider','$urlRouterProvider',
                     }
                 }
             })
+            .state('forumlock', {
+                url:'/forumlock',
+                views: {
+                    "viewA": {
+                        templateUrl: 'templates/forumlock.html'
+                    }
+                }
+            })
 
 
     }

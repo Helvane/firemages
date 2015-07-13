@@ -6,7 +6,7 @@
  },
 
     {
-        "name":"Community Full-Admin",
+        "name":"Full Admin",
         "cssclass": "boxrectimgcreator",
         "cssclass2":"rectcreator"
     },
@@ -18,7 +18,7 @@
     },
 
     {
-        "name":"Community Founder",
+        "name":"Owner",
         "cssclass": "boxrectimgowner",
         "cssclass2":"rectowner"
     },
@@ -36,7 +36,7 @@
     },
 
     {
-        "name":"Community Head-Admin (TF2)",
+        "name":"Head-Admin (TF2)",
         "cssclass": "boxrectimgheadadmin",
         "cssclass2":"rectheadadmin"
     },
@@ -66,7 +66,7 @@
     },
 
     {
-        "name":"Community Owner",
+        "name":"Co-Owner",
         "cssclass": "boxrectimgcoowner",
         "cssclass2":"rectcoowner"
     },
@@ -78,13 +78,13 @@
     },
 
     {
-        "name":"Community Head-Admin (Gmod)",
+        "name":"Head-Admin (Gmod)",
         "cssclass": "boxrectimggmod",
         "cssclass2":"rectgmod"
     },
 
     {
-        "name":"Community Head-Admin (MC)",
+        "name":"Head-Admin (MC)",
         "cssclass": "boxrectimgmc",
         "cssclass2":"rectmc"
     },
