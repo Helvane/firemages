@@ -2,103 +2,120 @@
  {
     "name":"Community Member",
     "cssclass": "boxrectimg",
-    "cssclass2":"rect"
+    "cssclass2":"rect",
+     "fontcolor":"color1"
  },
 
     {
         "name":"Full Admin",
         "cssclass": "boxrectimgcreator",
-        "cssclass2":"rectcreator"
+        "cssclass2":"rectcreator",
+        "fontcolor":"color3"
     },
 
     {
         "name":"Designer Bot",
         "cssclass": "boxrectimgdesigner",
-        "cssclass2":"designerbot"
+        "cssclass2":"designerbot",
+        "fontcolor":"color5"
     },
 
     {
         "name":"Owner",
         "cssclass": "boxrectimgowner",
-        "cssclass2":"rectowner"
+        "cssclass2":"rectowner",
+        "fontcolor":"color2"
     },
 
     {
         "name":"No Ranking",
         "cssclass": "boxrectimgnorank",
-        "cssclass2":"rectnorank"
+        "cssclass2":"rectnorank",
+        "fontcolor":"color11"
     },
 
     {
         "name":"Server Banned",
         "cssclass": "boxrectimgnorank",
-        "cssclass2":"rectnorank"
+        "cssclass2":"rectnorank",
+        "fontcolor":"color11"
     },
 
     {
         "name":"Head-Admin (TF2)",
         "cssclass": "boxrectimgheadadmin",
-        "cssclass2":"rectheadadmin"
+        "cssclass2":"rectheadadmin",
+        "fontcolor":"color8"
     },
 
     {
         "name":"Community Tech",
         "cssclass": "boxrectimgtech",
-        "cssclass2":"recttech"
+        "cssclass2":"recttech",
+        "fontcolor":"color9"
     },
 
     {
         "name":"TF2 Admin",
         "cssclass": "boxrectimgadmin",
-        "cssclass2":"rectadmin"
+        "cssclass2":"rectadmin",
+        "fontcolor":"color7"
     },
 
     {
         "name":"MC Admin",
         "cssclass": "boxrectimgmcadmin",
-        "cssclass2":"rectmcadmin"
+        "cssclass2":"rectmcadmin",
+        "fontcolor":"color13"
     },
 
     {
         "name":"Gmod Admin",
         "cssclass": "boxrectimggmodadmin",
-        "cssclass2":"rectgmodadmin"
+        "cssclass2":"rectgmodadmin",
+        "fontcolor":"color14"
     },
 
     {
         "name":"Co-Owner",
         "cssclass": "boxrectimgcoowner",
-        "cssclass2":"rectcoowner"
+        "cssclass2":"rectcoowner",
+        "fontcolor":"color6"
     },
 
     {
         "name":"Announcement Bot",
         "cssclass": "boxrectimgannouncement",
-        "cssclass2":"rectannouncement"
+        "cssclass2":"rectannouncement",
+        "fontcolor":"color4"
     },
 
     {
         "name":"Head-Admin (Gmod)",
         "cssclass": "boxrectimggmod",
-        "cssclass2":"rectgmod"
+        "cssclass2":"rectgmod",
+        "fontcolor":"color9"
     },
 
     {
         "name":"Head-Admin (MC)",
         "cssclass": "boxrectimgmc",
-        "cssclass2":"rectmc"
+        "cssclass2":"rectmc",
+        "fontcolor":"color10"
     },
 
     {
         "name":"Community Advisor",
         "cssclass": "boxrectimgadvisor",
-        "cssclass2":"rectadvisor"
+        "cssclass2":"rectadvisor",
+        "fontcolor":"color12"
     },
 
     {
         "name":"Registered User",
         "cssclass": "boxrectimgregistered",
-        "cssclass2":"rectregistered"
+        "cssclass2":"rectregistered",
+        "fontcolor":"color15"
     }
 
 ]

@@ -120,7 +120,7 @@ appService.factory('shareService',['$rootScope',function($rootscope){
     };
 
     pService.getStatus=function(){
-        return pService.status;
+        return pService.mystatus;
     };
 
     pService.mstatus="";

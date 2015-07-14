@@ -6,7 +6,8 @@
 appController.controller("emojiController",['$scope','$modalInstance', 'items',function($scope,$modalInstance, items){
 
     $scope.icons=[
-        {"url":"/myphoto/Face 2.gif"},
+        {"url":"/styles/images/PNG/icontexto-emoticons-01-016x016.png"}
+
 
 
 

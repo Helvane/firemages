@@ -14,7 +14,7 @@ appFilter.filter("datefilter",function(){
 appFilter.filter("datetimefilter",function($filter){
     return function(input) {
 
-        var mynewdate=$filter('date')(input,'MM/dd/yyyy h:mm a');
+        var mynewdate=$filter('date')(input,'EEE MMM dd, yyyy h:mm a');
         return mynewdate;
     };
 });
@@ -74,14 +74,44 @@ appFilter.filter("statusfilter",function(shareService){
         var mystatus=shareService.getStatus();
         for(var i=0; i < mystatus.length; i ++){
             if(mystatus[i].name==str){
-                status=mystatus[i];
+                status=mystatus[i].cssclass;
             }
         }
 
         return status;
     };
 
-})
+});
+
+appFilter.filter("statusfilter2",function(shareService){
+    return function(str) {
+        var status={};
+        var mystatus=shareService.getStatus();
+        for(var i=0; i < mystatus.length; i ++){
+            if(mystatus[i].name==str){
+                status=mystatus[i].cssclass2;
+            }
+        }
+
+        return status;
+    };
+
+});
+
+appFilter.filter("fontcolor",function(shareService){
+    return function(str) {
+        var status={};
+        var mystatus=shareService.getStatus();
+        var pattern=new RegExp(str);
+        for(var i=0; i < mystatus.length; i ++){
+            if(pattern.test(mystatus[i].name)){
+                status=mystatus[i].fontcolor;
+            }
+        }
+        return status;
+    };
+
+});
 
 appFilter.filter("pinfilter",function(shareService){
     return function(id) {

@@ -23,7 +23,14 @@
     <div class="cat-title">
         <span>{{forum.title}}</span>
     </div>
+    <div style="float: right;">
+        <div class="cat-title">
+            <span>{{forum.createdAt|datetimefilter}}</span>
+        </div>
+    </div>
+
 </div>
+
 
 <div class="forum-box">
     <ul class="post-row">
@@ -38,11 +45,13 @@
             </div>
             <dl class="postprofile">
                <dt>
-               <img src="/images/{{forum.userid.photo}}" class="{{forum.userid.cssclass}}"/>
-               <div><a class="username-coloured" href="#/profile/{{forum.userid.id}}">{{forum.userid.username}}</a></div>
+               <img src="/images/{{forum.userid.photo}}" class="{{forum.userid.status|statusfilter}}"/>
+               <div><a class="{{forum.userid.status|fontcolor}}" href="#/profile/{{forum.userid.id}}">{{forum.userid.username}}</a></div>
+                <div class="{{forum.userid.status|statusfilter2}}">{{forum.userid.status}}</div>
 
                </dt>
             </dl>
+            <div class="clearall"></div>
         </li>
     </ul>
 </div>
@@ -55,6 +64,12 @@
     <div class="cat-title">
         <span>RE: {{forum.title}}</span>
     </div>
+    <div style="float: right;">
+        <div class="cat-title">
+            <span>{{a.createdAt|datetimefilter}}</span>
+        </div>
+    </div>
+
 </div>
 
 <div class="forum-box">
@@ -69,23 +84,29 @@
             </div>
             <dl class="postprofile">
                 <dt>
-                        <img src="/images/{{a.userid.photo}}" class="{{a.userid.cssclass}}"/>
-                        <div><a class="username-coloured" href="#/profile/{{a.userid.id}}">{{a.userid.username}}</a></div>
+                        <img src="/images/{{a.userid.photo}}" class="{{a.userid.status|statusfilter}}"/>
+                        <div><a class="{{a.userid.status|fontcolor}}" href="#/profile/{{a.userid.id}}">{{a.userid.username}}</a></div>
+                        <div class="{{a.userid.status|statusfilter2}}">{{a.userid.status}}</div>
 
                 </dt>
             </dl>
+            <div class="clearall"></div>
         </li>
     </ul>
 </div>
 </div>
 
-
+<div class="row">
+    <div class="col-sm-3">
 <div class="topic-actions">
 <div class="buttons">
-<div ng-if="total > 10">
- <pagination total-items="total" ng-model="currentPage" ng-click="nextpage(currentPage)" max-size="5" class="pagination-sm" boundary-links="true" rotate="true" items-per-page="10" previous-text="Prev" next-text="Next"></pagination>
-</div>
-    <div class="locked-icon" ng-if="forum.lock==true" title="This topic is locked, you cannot edit posts or make further replies."><a href="#/forumlock"><span></span></a></div>
+<div class="locked-icon" ng-if="forum.lock==true" title="This topic is locked, you cannot edit posts or make further replies."><a href="#/forumlock"><span></span></a></div>
 </div>
 </div>
+    </div>
 
+ <div class="col-sm-9 text-right" ng-show="total > 10">
+    <pagination total-items="total" ng-model="currentPage" ng-click="nextpage(currentPage)" max-size="5" class="pagination-sm" boundary-links="true" rotate="true" items-per-page="10" previous-text="Prev" next-text="Next"></pagination>
+ </div>
+
+</div>

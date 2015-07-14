@@ -31,7 +31,7 @@ appController.controller("menuController",['$scope','shareService','$location','
     };
 
     // load member status
-    var mystatus=ajaxService.ajaxFactory('json/status.json',{},'GET');
+    var mystatus=ajaxService.ajaxFactory('json/status2.json',{},'GET');
     mystatus.then(
         function(data){
         shareService.setStatus(data);
