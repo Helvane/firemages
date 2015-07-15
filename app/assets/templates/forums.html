@@ -21,15 +21,12 @@
         <span>Topics</span>
     </div>
 </div>
-<table width="100%" class="forum-box">
-<div class="forum-container">
-    <ul class="topiclist">
-        <li class="header">
-        <td></td><td style="padding-left: 45px;">Author</td><td>Replies</td><td>Views</td><td>Last Post</td>
-        </li>
-    </ul>
+<table class="table table-hover forum-box">
+<tr>
+    <th>&nbsp;</th><th>Topics</th><th>Replies</th><th>Views</th><th>Last Post</th>
+</tr>
 
-    <ul class="topiclist forums">
+
     <!-- pindata start here -->
 
     <tr ng-repeat="f in pindata | filter:form.search track by $index">
@@ -39,14 +36,13 @@
             <span ng-if="f.forumid.lock==false"><img src="/myphoto/Sticky Read.png" alt="No unread posts" title="No unread posts"></span>
         </td>
 
-        <td class="col-sm-1">
-
-            <a href="#/profile/{{f.userid.id}}" class="{{f.userid.fontcolor}}">{{f.userid.username}}</a>
-
+        <td class="pointer col-sm-5">
+            <a class="topictitle" ng-click="gotosummary(f.forumid)">{{f.forumid.title}}</a>
+            <div>by <a href="#/profile/{{f.userid.id}}" class="{{f.userid.status|fontcolor}}">{{f.userid.username}}</a> » <span>{{f.createdAt|datetimefilter}}</span></div>
         </td>
-        <td class="pointer col-sm-4"><a class="alink" ng-click="gotosummary(f.forumid)">{{f.forumid.title}}</a></td>
+        <td class="col-sm-1"><countreply forumid="f.forumid.id"></countreply></td>
         <td class="col-sm-1">{{f.forumid.totalviews}}</td>
-        <td class="col-sm-5"><lastanswer forumid="f.forumid.id"></lastanswer></td>
+        <td class="col-sm-4"><lastanswer forumid="f.forumid.id"></lastanswer></td>
     </tr>
 
     <!-- pindata ends here -->
@@ -59,17 +55,15 @@
             <span ng-if="f.lock==false"><img src="/myphoto/Forum (Read).png" alt="No unread posts" title="No unread posts"></span>
         </td>
 
-        <td class="col-sm-1">
 
-            <a href="#/profile/{{f.userid.id}}" class="{{f.userid.fontcolor}}">{{f.userid.username}}</a>
-
+        <td class="pointer col-sm-5">
+            <a class="topictitle" ng-click="gotosummary(f)">{{f.title}}</a>
+            <div>by <a href="#/profile/{{f.userid.id}}" class="{{f.userid.status|fontcolor}}">{{f.userid.username}}</a> » <span>{{f.createdAt|datetimefilter}}</span></div>
         </td>
-        <td class="pointer col-sm-4"><a class="alink" ng-click="gotosummary(f)">{{f.title}}</a></td>
+        <td class="col-sm-1"><countreply forumid="f.id"></countreply></td>
         <td class="col-sm-1">{{f.totalviews}}</td>
-        <td class="col-sm-5"><lastanswer forumid="f.id"></lastanswer></td>
+        <td class="col-sm-4"><lastanswer forumid="f.id"></lastanswer></td>
     </tr>
-    </ul>
-</div>
 </table>
 
 <div class="topic-actions">

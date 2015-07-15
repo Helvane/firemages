@@ -127,6 +127,13 @@ module.exports = {
         Forumanswer.findOne({forumid:param.forumid}).populateAll().sort('id desc').exec(function(err,result){
            return res.json(result);
         });
+    },
+
+    getcountreply:function(req,res){
+        var param=req.params.all();
+        Forumanswer.count({forumid:param.forumid}).exec(function(err,result){
+            return res.json(result);
+        });
     }
 };
 

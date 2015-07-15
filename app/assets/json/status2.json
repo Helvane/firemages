@@ -42,7 +42,7 @@
     },
 
     {
-        "name":"Head-Admin (TF2)",
+        "name":"Head Admin (TF2)",
         "cssclass": "boxrectimgheadadmin",
         "cssclass2":"rectheadadmin",
         "fontcolor":"color8"
@@ -91,14 +91,14 @@
     },
 
     {
-        "name":"Head-Admin (Gmod)",
+        "name":"Head Admin (Gmod)",
         "cssclass": "boxrectimggmod",
         "cssclass2":"rectgmod",
         "fontcolor":"color9"
     },
 
     {
-        "name":"Head-Admin (MC)",
+        "name":"Head Admin (MC)",
         "cssclass": "boxrectimgmc",
         "cssclass2":"rectmc",
         "fontcolor":"color10"

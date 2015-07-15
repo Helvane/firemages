@@ -75,6 +75,7 @@ appFilter.filter("statusfilter",function(shareService){
         for(var i=0; i < mystatus.length; i ++){
             if(mystatus[i].name==str){
                 status=mystatus[i].cssclass;
+                return status
             }
         }
 
@@ -90,6 +91,7 @@ appFilter.filter("statusfilter2",function(shareService){
         for(var i=0; i < mystatus.length; i ++){
             if(mystatus[i].name==str){
                 status=mystatus[i].cssclass2;
+                return status
             }
         }
 
@@ -102,10 +104,10 @@ appFilter.filter("fontcolor",function(shareService){
     return function(str) {
         var status={};
         var mystatus=shareService.getStatus();
-        var pattern=new RegExp(str);
         for(var i=0; i < mystatus.length; i ++){
-            if(pattern.test(mystatus[i].name)){
+            if(mystatus[i].name==str){
                 status=mystatus[i].fontcolor;
+                return status;
             }
         }
         return status;

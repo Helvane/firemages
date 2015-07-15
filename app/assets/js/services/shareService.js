@@ -114,7 +114,7 @@ appService.factory('shareService',['$rootScope',function($rootscope){
     };
 
     pService.mystatus="";
-    pService.myStatus=function(status){
+    pService.setStatus=function(status){
         pService.mystatus=status;
 
     };

@@ -11,10 +11,11 @@
 
 <h4 style="color: #4A8A4A;">{{forum.title}}</h4>
 
-<br/>
-<br/>
 <div class="topic-actions">
 <div class="buttons">
+<div class="reply-icon" ng-if="forum.lock==false;">
+    <a href="#/replyforum/{{forum.id}}"><span></span></a>
+</div>
 <div class="locked-icon" ng-if="forum.lock==true" title="This topic is locked, you cannot edit posts or make further replies."><a href="#/forumlock"><span></span></a></div>
 </div>
 </div>
@@ -100,13 +101,18 @@
     <div class="col-sm-3">
 <div class="topic-actions">
 <div class="buttons">
+    <div class="reply-icon" ng-if="forum.lock==false;">
+        <a href="#/replyforum/{{forum.id}}"><span></span></a>
+    </div>
 <div class="locked-icon" ng-if="forum.lock==true" title="This topic is locked, you cannot edit posts or make further replies."><a href="#/forumlock"><span></span></a></div>
 </div>
 </div>
     </div>
 
  <div class="col-sm-9 text-right" ng-show="total > 10">
-    <pagination total-items="total" ng-model="currentPage" ng-click="nextpage(currentPage)" max-size="5" class="pagination-sm" boundary-links="true" rotate="true" items-per-page="10" previous-text="Prev" next-text="Next"></pagination>
+     <div class="pagination">
+    <span><pagination total-items="total" ng-model="currentPage" ng-click="nextpage(currentPage)" max-size="5" boundary-links="true" rotate="true" items-per-page="10" previous-text="Prev" next-text="Next"></pagination></span>
+     </div>
  </div>
 
 </div>

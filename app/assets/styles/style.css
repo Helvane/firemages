@@ -132,7 +132,7 @@ textarea {height: 400px; width: 100%; color: black;}
 
 .width200 {width: 200px;}
 
-pre {font-family: Verdana,Arial,Helvetica,sans-serif;
+pre {font-family: "Lucida Grande", "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
     color: #ffffff;
     border: none;
     overflow: auto;
@@ -142,6 +142,7 @@ pre {font-family: Verdana,Arial,Helvetica,sans-serif;
     line-height: 1.4em;
     margin: 3px 0;
     max-width:786px;
+    margin-bottom: 1em;
     background:transparent !important;
 }
 
@@ -187,8 +188,8 @@ a.color15:hover{ text-decoration:none; border-bottom:1px solid #ffffff; color: #
     background-color: #333333;
 }
 
-.alink {color: #67B168;}
-.alink:hover{color: #67B168}
+.alink {color: #738A66;; font-family: 'Lucida Grande', Helvetica, Arial, sans-serif; height: 18px; font-size: 13px; font-weight: bold;}
+.alink:hover{color: #536048}
 
 .alink2 {color: #ffffff;}
 .alink2:hover{color: #ffffff;}
@@ -337,6 +338,12 @@ hr.divider {
 .reply-icon span	{ background: transparent none 0 0 no-repeat; }
 .buttons div.reply-icon		{ width: 96px; height: 25px; }
 .reply-icon span	{ background-image: url("/myphoto/button_topic_reply.gif"); }
+
+.last_subject { color: #999; text-align: left; position: absolute; top: 10px; left: 8px; width: 345px; overflow: hidden; text-overflow: ellipsis; font-family: 'Lucida Grande', Helvetica, Arial, sans-serif; height: 18px; font-size: 12px; font-weight: bold; }
+.last_subject a
+{ color: #738A66; }
+.last_subject a:visited, .last_subject a:active
+{ color: #536048; }
 
 .forumbg-table > .inner {
     margin: 0 -1px;
@@ -1503,4 +1510,146 @@ li.header dt a:hover, li.header dd a:hover {
 
 #cp-main .panel li.header dd, #cp-main .panel li.header dt {
     color: #808081;
+}
+
+a.topictitle {
+    font-family: "Trebuchet MS", Helvetica, Arial, Sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #898989;
+    text-decoration: none;
+}
+
+a.topictitle:hover {
+    color: #bcbcbc;
+    text-decoration: underline;
+}
+
+a.topictitle:active {
+    color: #898989;
+}
+
+a.topictitle {
+    color: #d8d8d8;
+}
+
+a.topictitle:hover {
+    color: #eaeaea;
+}
+
+a.topictitle:active {
+    color: #d8d8d8;
+}
+
+.pagination {
+    height: 1%; /* IE tweak (holly hack) */
+    width: auto;
+    text-align: right;
+    margin-top: 5px;
+    float: right;
+}
+
+.pagination span.page-sep {
+    display: none;
+}
+
+li.pagination {
+    margin-top: 0;
+}
+
+.pagination strong, .pagination b {
+    font-weight: normal;
+}
+
+.pagination span strong {
+    padding: 0 2px;
+    margin: 0 2px;
+    font-weight: normal;
+    color: #FFFFFF;
+    background-color: #bfbfbf;
+    border: 1px solid #bfbfbf;
+    font-size: 0.9em;
+}
+
+.pagination span a, .pagination span a:link, .pagination span a:visited, .pagination span a:active {
+    font-weight: normal;
+    text-decoration: none;
+    color: #747474;
+    margin: 0 2px;
+    padding: 0 2px;
+    background-color: #eeeeee;
+    border: 1px solid #bababa;
+    font-size: 0.9em;
+    line-height: 1.5em;
+}
+
+.pagination span a:hover {
+    border-color: #d2d2d2;
+    background-color: #d2d2d2;
+    color: #FFF;
+    text-decoration: none;
+}
+
+.pagination img {
+    vertical-align: middle;
+}
+
+.row .pagination {
+    display: block;
+    float: right;
+    width: auto;
+    margin-top: 0;
+    padding: 1px 0 1px 15px;
+    font-size: 0.9em;
+    background: none 0 50% no-repeat;
+}
+
+.row .pagination span a, li.pagination span a {
+    background-color: #FFFFFF;
+}
+
+.row .pagination span a:hover, li.pagination span a:hover {
+    background-color: #d2d2d2;
+}
+
+#cp-main .pagination {
+    float: right;
+    width: auto;
+    padding-top: 1px;
+}
+
+.pagination span strong {
+    color: #a2a2a2;
+    background-color: #4A8A4A;
+    border-color: #121212;
+}
+
+.pagination span a, .pagination span a:link, .pagination span a:visited {
+    color: #a2a2a2;
+    background-color: #222222;
+    border-color: #121212;
+}
+
+.pagination span a:hover {
+    border-color: #121212;
+    background-color: #4A8A4A;
+    color: #a2a2a2;
+}
+
+.pagination span a:active {
+    color: #121212;
+    background-color: #4A8A4A;
+    border-color: #a2a2a2;
+}
+
+.row .pagination {
+    background-image: url("./styles/darkfx/theme/images/icon_pages.gif");
+}
+
+.row .pagination span a, li.pagination span a {
+    background-color: #353535;
+}
+
+.row .pagination span a:hover, li.pagination span a:hover {
+    background-color: #4A8A4A;
 }

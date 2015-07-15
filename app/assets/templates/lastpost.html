@@ -3,10 +3,10 @@
     <img src='/images/{{forum.userid.photo}}' class='smallphoto img-thubnail' align='left'>
   </div>
    <div class="col-xs-7">
-   <a class='alink' href="#/summary/{{forum.id}}">
-    <span ng-bind-html="forum.title"></span>
-   </a>
+   <a class="alink" href="#/summary/{{forum.id}}">
 
+       <span ng-bind-html="forum.title"></span>
+   </a>
 
        <span ng-if="forum.userid.username">
        by <a href="#/profile/{{forum.userid.id}}" class="{{forum.userid.fontcolor}}">{{forum.userid.username}}</a>

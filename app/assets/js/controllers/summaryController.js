@@ -120,16 +120,6 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
 
     $scope.getanswercount();
 
-    $scope.replyflag=false;
-
-    $scope.reply=function(){
-
-        if($scope.replyflag==false){
-            $scope.replyflag=true;
-        } else {
-            $scope.replyflag=false;
-        }
-    };
 
     $scope.save=function(){
          var param={};

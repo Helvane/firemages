@@ -172,4 +172,28 @@ angular.module('topicDirective',[])
                 );
             }
         }
+    }])
+
+    .directive("countreply", ['ajaxService', function(ajaxService) {
+        return {
+            restrict: 'EA',
+            template: "<span>{{name}}</span>",
+            scope: {
+                forumid: "="
+            },
+            link: function(scope) {
+                scope.name=0;
+                var param={};
+                param.forumid=scope.forumid;
+
+                var ajax=ajaxService.ajaxFactory('/Forumanswer/getcountreply',param,'get');
+                ajax.then(function(data){
+                        scope.name=data;
+                    },
+                    function(err){
+                        console.log(err);
+                    }
+                );
+            }
+        }
     }]);

@@ -177,6 +177,20 @@ app.config(['$stateProvider','$urlRouterProvider',
                 }
             })
 
+            .state('replyforum', {
+                url:'/replyforum/:id',
+                views: {
+                    "viewA": {
+                        templateUrl: 'templates/replyforum.html',
+                        controller: 'replyforumController'
+                    },
+                    "texteditorMenu@forumpost":{
+                        templateUrl: 'templates/texteditorMenu.html',
+                        controller: 'texteditorMenuController'
+                    }
+                }
+            })
+
             .state('summary', {
                 url:'/summary/:forumid',
                 views: {
