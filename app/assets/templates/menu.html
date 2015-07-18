@@ -14,7 +14,7 @@
                 <a>Log off {{person.username}}</a>
             </li>
             <li ng-if="person.photo">
-                <img ng-src="/images/{{person.photo}}" class="img-responsive smallphoto"/>
+                <img ng-src="/images/{{person.photo}}" class="img-responsive last_avatar" alt="Poster avatar" style="max-height: 50px;"/>
             </li>
         </ul>
 
@@ -36,7 +36,7 @@
        <a class="pointer" accesskey="h"><strong>Log off {{person.username}}</strong></a>
     </li>
     <li ng-if="person.photo">
-        <strong><img ng-src="/images/{{person.photo}}" class="img-responsive smallphoto2"/></strong>
+        <strong><img ng-src="/images/{{person.photo}}" class="img-responsive last_avatar2" alt="User avatar icon" style="max-width: 39px;"/></strong>
     </li>
    </div>
    </div>

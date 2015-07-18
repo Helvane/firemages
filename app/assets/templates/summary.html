@@ -2,7 +2,7 @@
 
 
 <div class="breadcrumb cat-head3">
-    <div class="cat-title"><span><a href="#/forums">Forums</a></span></div>
+    <div class="cat-title"><span><a href="#/forums">Home</a></span></div>
     <div class="cat-title" style="margin-left: 5px;" ng-if="forumtopic.prevlevel"><span><a href="#/subcat/{{forumtopic.prevlevel.id}}">{{forumtopic.prevlevel.name}}</a></span></div>
     <div class="cat-title" style="margin-left: 5px;"><span><a href="#/forumtopic/{{forumtopic.id}}">{{forumtopic.name}}</a></span></div>
     <div class="cat-title active" style="margin-left: 5px;"><span>{{forum.title}}</span></div>
@@ -39,18 +39,19 @@
             <div class="postbody">
                 <br/>
                 <div class="content">
-                    <pre ng-bind-html="forum.summary"></pre>
+                    <resize-image summary="forum.summary"></resize-image>
                     <div ng-if="forum.photo"><img src="/forum/{{forum.photo}}"/></div>
                 </div>
                 <div class="signature"></div>
             </div>
             <dl class="postprofile">
                <dt>
-               <img src="/images/{{forum.userid.photo}}" class="{{forum.userid.status|statusfilter}}"/>
+               <img src="/images/{{forum.userid.photo}}" class="{{forum.userid.status|statusfilter}}" alt="User avatar"/>
                <div><a class="{{forum.userid.status|fontcolor}}" href="#/profile/{{forum.userid.id}}">{{forum.userid.username}}</a></div>
                 <div class="{{forum.userid.status|statusfilter2}}">{{forum.userid.status}}</div>
 
                </dt>
+
             </dl>
             <div class="clearall"></div>
         </li>
@@ -79,17 +80,18 @@
             <div class="postbody">
                 <br/>
                 <div class="content">
-                    <pre ng-bind-html="a.answer"></pre>
+                    <resize-image summary="a.answer"></resize-image >
                 </div>
                 <div class="signature"></div>
             </div>
             <dl class="postprofile">
                 <dt>
-                        <img src="/images/{{a.userid.photo}}" class="{{a.userid.status|statusfilter}}"/>
+                        <img src="/images/{{a.userid.photo}}" class="{{a.userid.status|statusfilter}}" alt="User avatar"/>
                         <div><a class="{{a.userid.status|fontcolor}}" href="#/profile/{{a.userid.id}}">{{a.userid.username}}</a></div>
                         <div class="{{a.userid.status|statusfilter2}}">{{a.userid.status}}</div>
 
                 </dt>
+
             </dl>
             <div class="clearall"></div>
         </li>

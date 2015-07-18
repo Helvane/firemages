@@ -31,6 +31,14 @@ appController.controller("texteditorMenuController",['$scope','ajaxService','sha
         var htmltag='<img src="Enter Img Url"/>';
         shareService.settag(htmltag);
     };
+    $scope.urltag=function(){
+        var htmltag='<a href="Enter Url"></a>';
+        shareService.settag(htmltag);
+    };
+    $scope.strikethroughtag=function(){
+        var htmltag='<strike>Enter Text</strike>';
+        shareService.settag(htmltag);
+    };
 
     $scope.isOpen=false;
     $scope.opencolor=function(){

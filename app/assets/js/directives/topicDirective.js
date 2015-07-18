@@ -196,4 +196,28 @@ angular.module('topicDirective',[])
                 );
             }
         }
+    }])
+
+    .directive("resizeImage", ['$sce','$timeout', function($sce, $timeout) {
+        return {
+            restrict: 'EA',
+            template: '<pre ng-bind-html="name"></pre>',
+            scope: {
+                summary: "="
+            },
+            link: function(scope, element, attr) {
+                scope.name=$sce.trustAsHtml(scope.summary);
+
+                $timeout(function(){
+                    $('pre img').each(function(i,e){
+                        var w=$(this).width();
+                        var h=$(this).height();
+                        if(w > 550 && h > 500) {
+                            $(this).css({width:'550px', height:'500px'});
+                        }
+                    });
+                },100);
+
+            }
+        }
     }]);

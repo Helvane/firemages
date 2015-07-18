@@ -22,7 +22,7 @@
         <div class="room">
         <ul class="media-list">
             <li class="media" ng-repeat="user in members track by $index">
-              <a class="pull-left"><img src="images/{{user.userid.photo}}" class="smallphoto img-thumbnail img-responsive"/></a>
+              <a class="pull-left"><img src="images/{{user.userid.photo}}" class="img-thumbnail img-responsive" alt="User avatar" style="max-height: 50px; height: 50px;"/></a>
                 <div class="media-body">{{user.userid.username}} <span class="{{user.userid.fontcolor}}">({{user.userid.status}})</span></div>
                 <div class="clearfix"></div>
                 <hr/>

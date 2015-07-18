@@ -1,13 +1,13 @@
 <div ng-if="forum.id" class="row">
   <div class="col-xs-2">
-    <img src='/images/{{forum.userid.photo}}' class='smallphoto img-thubnail' align='left'>
+    <img src='/images/{{forum.userid.photo}}' class='last_avatar img-thubnail' align='left' alt="Poster avatar" style="max-height: 50px;">
   </div>
    <div class="col-xs-7">
    <a class="alink" href="#/summary/{{forum.id}}">
 
        <span ng-bind-html="forum.title"></span>
    </a>
-
+       <br/>
        <span ng-if="forum.userid.username">
        by <a href="#/profile/{{forum.userid.id}}" class="{{forum.userid.fontcolor}}">{{forum.userid.username}}</a>
        </span>
