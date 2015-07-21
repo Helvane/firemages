@@ -2,93 +2,29 @@
  * Created by king on 4/12/15.
  */
 
-appController.controller("summaryController",['$scope','ajaxService','shareService','$modal','$stateParams','$location',function($scope, ajaxService, shareService, $modal,$stateParams,$location){
+appController.controller("summaryController",['$scope','ajaxService','shareService','$modal','$stateParams','$location','$q',function($scope, ajaxService, shareService, $modal,$stateParams,$location,$q){
 
     $scope.forumtopic=shareService.getForum();
     $scope.logindata=shareService.getlogin();
     $scope.forumid=$stateParams.forumid;
-    $scope.forum=shareService.getItem();
+    //$scope.forum=shareService.getItem();
+
+    $scope.msg={responseText:''};
+    $scope.answers=[];
     $scope.totalpost=0;
     $scope.currentPage=1;
     $scope.total=0;
     $scope.forumdata=[];
     $scope.updateforum='';
     $scope.info={"delete":false};
-
-    var param2={};
-    param2.forumid=$scope.forumid;
-    param2.number=Number(new Date);
-    var myajax3=ajaxService.ajaxFactory('/Forum/addtotalviews',param2,'post');
-    myajax3.then(
-        function(data){
-
-        },
-        function(err){
-            console.log(err);
-        }
-    );
-
-    var param={};
-    param.number=Number(new Date);
-    var myajax2=ajaxService.ajaxFactory(TOPICURL,param,'get');
-    myajax2.then(
-        function(data){
-            $scope.topics=data;
-        },
-        function(err){
-            console.log(err);
-        }
-    );
-
-    $scope.getcount=function(userid){
-        var param={};
-        param.userid=userid;
-        var ajax=ajaxService.ajaxFactory('/Forum/gettotalpost',param,'get');
-        ajax.then(
-            function(data){
-              $scope.totalpost=data;
-
-            },
-            function(err){
-                console.log(err);
-            }
-
-        );
-    };
-
-    if($scope.forum.userid) {
-    $scope.getcount($scope.forum.userid.id);
-    }
-
-    $scope.$watch('updateforum',function(){
-        var param={};
-        param.forumid=$stateParams.forumid;
-        var myajax=ajaxService.ajaxFactory(GETAFORUMURL,param,'get');
-        myajax.then(
-          function(data){
-              $scope.forum=data;
-              $scope.getcount($scope.forum.userid.id);
-              $scope.update=Number(new Date);
-          },
-            function(err){
-                console.log(err);
-            }
-
-        );
-
-    });
-
-
-    $scope.msg={responseText:''};
-    $scope.answers=[];
-    $scope.update='';
+    $scope.statefrom=shareService.getStatefrom();
 
     $scope.getanswercount=function(forum_id){
         var param={};
-        param.forumid=$scope.forum.id;
+        param.forumid=forum_id;
         param.number=Number(new Date);
-        var myajax2=ajaxService.ajaxFactory('/Forumanswer/getcount',param,'get');
-        myajax2.then(
+        var myajax5=ajaxService.ajaxFactory('/Forumanswer/getcount',param,'get');
+        myajax5.then(
             function(data){
                 $scope.total=data;
             },
@@ -99,27 +35,63 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
 
     };
 
+    $scope.getcount=function(userid){
+        var param={};
+        param.userid=userid;
+        var ajax=ajaxService.ajaxFactory('/Forum/gettotalpost',param,'get');
+        ajax.then(
+            function(data){
+                $scope.totalpost=data;
 
-    $scope.$watch('update',function(){
-       var param={};
-       param.forumid=$scope.forum.id;
-       param.page=$scope.currentPage;
-       param.number=Number(new Date);
-       var myajax=ajaxService.ajaxFactory(GETANSWERURL,param,'get');
-       myajax.then(
-         function(data){
-             $scope.answers=data;
-             $scope.getanswercount($scope.forum.id);
-         },
-           function(err){
-               console.log(err);
-           }
-       );
+            },
+            function(err){
+                console.log(err);
+            }
 
+        );
+    };
+
+    var param2={};
+    param2.forumid=$scope.forumid;
+    param2.number=Number(new Date);
+    var myajax2=ajaxService.ajaxFactory('/Forum/addtotalviews',param2,'post');
+    $scope.totalviews=[];
+
+    var param={};
+    param.forumid=$stateParams.forumid;
+    var myajax=ajaxService.ajaxFactory(GETAFORUMURL,param,'get');
+
+    var param3={};
+    param3.forumid=$scope.forumid;
+    param3.page=$scope.currentPage;
+    param3.number=Number(new Date);
+    var myajax3=ajaxService.ajaxFactory(GETANSWERURL,param,'get');
+
+    $scope.pinflag=false;
+    var param4={};
+    param4.forumid=$stateParams.forumid;
+    param4.number=Number(new Date);
+    var myajax4=ajaxService.ajaxFactory('/Forumanswer/getapin',param,'get');
+
+
+    var allajax=$q.all([myajax2,myajax,myajax3,myajax4]);
+    allajax.then(function(data){
+        $scope.totalviews=data[0];
+        $scope.forum=data[1];
+        $scope.getcount($scope.forum.userid.id);
+        $scope.answers=data[2];
+        $scope.getanswercount($scope.forumid);
+
+        var data4=data[3];
+        if(data4.forumid){
+            $scope.pinflag=true;
+            $scope.pinTitle='Unsticky Thread';
+        }
+
+        if(!$scope.$$phase){
+            $scope.$digest();
+        }
     });
-
-    $scope.getanswercount();
-
 
     $scope.save=function(){
          var param={};
@@ -336,24 +308,6 @@ appController.controller("summaryController",['$scope','ajaxService','shareServi
 
 
     };
-
-    $scope.pinflag=false;
-    var param={};
-    param.forumid=$stateParams.forumid;
-    param.number=Number(new Date);
-    var myajax2=ajaxService.ajaxFactory('/Forumanswer/getapin',param,'get');
-    myajax2.then(
-        function(data){
-           if(data.forumid){
-               $scope.pinflag=true;
-               $scope.pinTitle='Unsticky Thread';
-           }
-        },
-        function(err){
-            console.log(err);
-        }
-
-    );
 
     //This is for accept application
     $scope.acceptappflag=false;

@@ -172,5 +172,15 @@ appService.factory('shareService',['$rootScope',function($rootscope){
         return pService.tag;
     };
 
+    pService.statefrom="";
+    pService.setStatefrom=function(msg){
+        pService.statefrom=msg;
+        $rootscope.$broadcast('statefromEvent')
+    };
+
+    pService.getStatefrom=function(){
+        return pService.statefrom;
+    };
+
     return pService;
 }]);

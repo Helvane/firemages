@@ -1,5 +1,5 @@
 [
-{"title":"Forums","myclass":"","link":"/forums","status":0},
+{"title":"Forums","myclass":"","link":"/home","status":0},
 {"title":"Servers","myclass":"","link":"/servers","status":0},
 {"title":"Blog","myclass":"","link":"/blog","status":0},
 {"title":"Chat Room","myclass":"","link":"/chatroom","status":0},

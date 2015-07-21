@@ -141,4 +141,8 @@ appController.controller("menuController",['$scope','shareService','$location','
       }
     };
 
+    $scope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
+        shareService.setStatefrom(fromState)
+    });
+
 }]);

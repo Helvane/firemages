@@ -39,6 +39,10 @@ appController.controller("texteditorMenuController",['$scope','ajaxService','sha
         var htmltag='<strike>Enter Text</strike>';
         shareService.settag(htmltag);
     };
+    $scope.quotetag=function(){
+        var htmltag='[quote]Enter Text[/quote]';
+        shareService.settag(htmltag);
+    };
 
     $scope.isOpen=false;
     $scope.opencolor=function(){

@@ -149,7 +149,7 @@ angular.module('topicDirective',[])
     }])
 
 
-    .directive("lastanswer", ['ajaxService', function(ajaxService) {
+    .directive("lastanswer", ['ajaxService','shareService', function(ajaxService,shareService) {
         return {
             restrict: 'EA',
             templateUrl: 'templates/lastanswer.html',
@@ -157,6 +157,7 @@ angular.module('topicDirective',[])
                 forumid: "="
             },
             link: function(scope) {
+                shareService.getItem({});
                 scope.forum={};
 
                 var param={};
@@ -201,12 +202,14 @@ angular.module('topicDirective',[])
     .directive("resizeImage", ['$sce','$timeout', function($sce, $timeout) {
         return {
             restrict: 'EA',
-            template: '<pre ng-bind-html="name"></pre>',
+            template: '<pre ng-bind-html="names"></pre>',
             scope: {
                 summary: "="
             },
             link: function(scope, element, attr) {
-                scope.name=$sce.trustAsHtml(scope.summary);
+                scope.$watch('summary',function() {
+                    scope.names = $sce.trustAsHtml(scope.summary);
+                });
 
                 $timeout(function(){
                     $('pre img').each(function(i,e){

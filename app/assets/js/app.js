@@ -7,7 +7,7 @@ var app=angular.module("app",['ui.router','appController', 'appService','appFilt
 app.config(['$stateProvider','$urlRouterProvider',
     function ($stateProvider, $urlRouterProvider){
 
-        $urlRouterProvider.otherwise("/forums");
+        $urlRouterProvider.otherwise("/home");
 
         $stateProvider
             /*
@@ -121,6 +121,7 @@ app.config(['$stateProvider','$urlRouterProvider',
                     }
                 }
             })
+            /*
             .state('forums', {
                 url:'/forums',
                 views: {
@@ -130,6 +131,7 @@ app.config(['$stateProvider','$urlRouterProvider',
                     }
                 }
             })
+            */
             .state('servers', {
                 url:'/servers',
                 views: {
