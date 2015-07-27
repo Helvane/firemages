@@ -199,7 +199,7 @@ angular.module('topicDirective',[])
         }
     }])
 
-    .directive("resizeImage", ['$sce','$timeout', function($sce, $timeout) {
+    .directive("resizeImage", ['$sce','$timeout','$filter', function($sce, $timeout, $filter) {
         return {
             restrict: 'EA',
             template: '<pre ng-bind-html="names"></pre>',
@@ -208,7 +208,8 @@ angular.module('topicDirective',[])
             },
             link: function(scope, element, attr) {
                 scope.$watch('summary',function() {
-                    scope.names = $sce.trustAsHtml(scope.summary);
+                    var summary=$filter('bbcodefilter')(scope.summary);
+                    scope.names = $sce.trustAsHtml(summary);
                 });
 
                 $timeout(function(){

@@ -77,7 +77,7 @@
     },
 
     {
-        "name":"Co-Owner",
+        "name":"Community Manager",
         "cssclass": "boxrectimgcoowner",
         "cssclass2":"rectcoowner",
         "fontcolor":"color6"
@@ -105,7 +105,7 @@
     },
 
     {
-        "name":"Community Advisor",
+        "name":"Advisor",
         "cssclass": "boxrectimgadvisor",
         "cssclass2":"rectadvisor",
         "fontcolor":"color12"

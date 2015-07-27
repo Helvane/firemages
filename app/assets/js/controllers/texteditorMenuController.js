@@ -4,6 +4,7 @@
 
 appController.controller("texteditorMenuController",['$scope','ajaxService','shareService','$location',function($scope,ajaxService,shareService,$location){
 
+   $scope.logindata=shareService.getlogin();
    $scope.values={"fontcolor":"#ffffff","boldtag":"b","italictag":"i"};
 
     $scope.$watch('values.fontcolor',function(){
@@ -40,7 +41,7 @@ appController.controller("texteditorMenuController",['$scope','ajaxService','sha
         shareService.settag(htmltag);
     };
     $scope.quotetag=function(){
-        var htmltag='[quote]Enter Text[/quote]';
+        var htmltag='[quote=""][/quote]';
         shareService.settag(htmltag);
     };
 

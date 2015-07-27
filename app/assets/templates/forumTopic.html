@@ -1,9 +1,27 @@
+<div class="forum-box">
+    <div class="jcarousel-wrapper">
+        <div class="jcarousel" data-jcarousel="true" data-jcarouselautoscroll="true">
+        <ul style="left: 0px; top: 0px;">
+            <li>
+                <div id="announcement" style="margin-left: 40%;"></div>
+            </li>
+            <li>
+                <div id="announcement" style="margin-left: 40%;"></div>
+            </li>
+        </ul>
+        </div>
+        <p class="jcarousel-pagination" data-jcarouselpagination="true">
+            <a href="#1" class="active">1</a>
+        </p>
+    </div>
+</div>
+
 <div class="forum-container">
         <div ng-repeat="t in forumTopics track by $index">
             <div class="forumtopicbackground">
                 <b>{{t.name}}</b>
             </div>
-        <table class="table tablebg">
+        <table class="table tablebg table-hover1">
         <tr>
             <th class="col-sm-4 forumrowbackground">Forum</th><th class="col-sm-1 forumrowbackground">Topics</th><th class="col-sm-1 forumrowbackground">Posts</th><th class="col-sm-6 forumrowbackground">Last Post</th>
         </tr>
@@ -22,8 +40,8 @@
     <b class="gensmall">
         Legend:
         <span class="color2">Owner</span>,
-        <span class="color6">Co-Owner</span>,
-        <span class="color12">Community Advisor</span>,
+        <span class="color6">Community Manager</span>,
+        <span class="color12">Advisor</span>,
         <span class="color8">Head Admin (TF2)</span>,
         <span class="color10">Head Admin (MC)</span>,
         <span class="color9">Head Admin (Gmod)</span>,
@@ -38,6 +56,16 @@
     </tbody>
     </table>
 </div>
-<div class="copyright">© Flubber Gaming 2015</div>
+<span class="corners-top"><span></span></span>
+<ul class="linklist">
+    <li class="icon-home postlink"><a href="#/home">Home</a></li>
+    <li class="rightside"></li>
+</ul>
+<span class="corners-bottom"><span></span></span>
+<div class="copyright">
+© Flubber Gaming 2015
+<br/>
+Color scheme, Template, and Live Stats by <a class="postlink" target="_blank" href="http://steamcommunity.com/id/MissVane">Miss Helvane</a>
+</div>
 
 

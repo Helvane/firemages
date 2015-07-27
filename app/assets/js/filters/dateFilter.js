@@ -11,13 +11,13 @@ appFilter.filter("datefilter",function(){
 });
 
 
-appFilter.filter("datetimefilter",function($filter){
+appFilter.filter("datetimefilter",['$filter', function($filter){
     return function(input) {
 
         var mynewdate=$filter('date')(input,'EEE MMM dd, yyyy h:mm a');
         return mynewdate;
     };
-});
+}]);
 
 appFilter.filter("onlinefilter",function() {
     return function (flag) {
@@ -57,7 +57,7 @@ appFilter.filter("newlinefilter",function(){
 
 
 
-appFilter.filter("unsafe",function($sce,$sanitize,$filter){
+appFilter.filter("unsafe",['$sce','$sanitize','$filter',function($sce,$sanitize,$filter){
     return function(str) {
         //var str2=$filter('linky')(str);
         var str3=$filter('emoji')(str);
@@ -65,10 +65,10 @@ appFilter.filter("unsafe",function($sce,$sanitize,$filter){
         return $sce.trustAsHtml(str3);
     };
 
-});
+}]);
 
 
-appFilter.filter("statusfilter",function(shareService){
+appFilter.filter("statusfilter",['shareService',function(shareService){
     return function(str) {
         var status={};
         var mystatus=shareService.getStatus();
@@ -82,9 +82,9 @@ appFilter.filter("statusfilter",function(shareService){
         return status;
     };
 
-});
+}]);
 
-appFilter.filter("statusfilter2",function(shareService){
+appFilter.filter("statusfilter2",['shareService',function(shareService){
     return function(str) {
         var status={};
         var mystatus=shareService.getStatus();
@@ -98,9 +98,9 @@ appFilter.filter("statusfilter2",function(shareService){
         return status;
     };
 
-});
+}]);
 
-appFilter.filter("fontcolor",function(shareService){
+appFilter.filter("fontcolor",['shareService',function(shareService){
     return function(str) {
         var status={};
         var mystatus=shareService.getStatus();
@@ -113,9 +113,9 @@ appFilter.filter("fontcolor",function(shareService){
         return status;
     };
 
-});
+}]);
 
-appFilter.filter("pinfilter",function(shareService){
+appFilter.filter("pinfilter",['shareService',function(shareService){
     return function(id) {
         var pindata=shareService.getpin();
         var myflag=false;
@@ -125,6 +125,26 @@ appFilter.filter("pinfilter",function(shareService){
             }
         }
         return myflag;
+    };
+
+}]);
+
+
+appFilter.filter("bbcodefilter",function(){
+    return function(str) {
+        var mystr='';
+        console.log(str);
+        if(str) {
+            var pattern = /\[quote(.*(?=[a0-z9]))\](.*([a0-z9]))\[\/quote\]/gi;
+            var newstr=str.replace(pattern,'$1');
+            newstr=newstr.replace(/[\="]+/g,'');
+            console.log('The ** newstr **');
+            console.log(newstr);
+            var replacestr1 = '<blockquote><div><cite>'+newstr+' wrote:</cite> $2</div></blockquote>';
+            mystr = str.replace(pattern,replacestr1);
+            console.log(mystr);
+        }
+        return mystr;
     };
 
 });

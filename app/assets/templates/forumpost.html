@@ -7,6 +7,9 @@
 
 <div ng-if="logindata.status!='Server Banned'">
 
+    <fieldset class="fields1">
+
+    <p><a href="http://www.bbcode.org/reference.php">BBcode</a> is on</p>
     <div class="form-group">
         <label>Title</label>
         <input type="text" class="form-control inputbox" ng-model="forum.title">
@@ -22,6 +25,7 @@
         <label class="control-label">Photo</label>
         <input type="file" nv-file-select uploader="uploader" class="form-control input-sm inputbox autowidth pointer"/>
     </div>
+    </fieldset>
 
     <div class="form-group" ng-show="logindata">
         <label class="control-label"></label>
