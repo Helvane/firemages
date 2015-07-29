@@ -174,7 +174,7 @@ appController.controller("forumpostController",['$scope','ajaxService','shareSer
 
     $scope.$on('fontEvent',function(){
         $scope.fontcolor=shareService.getfont();
-        $scope.forum.summary = angular.copy($scope.forum.summary) + '<font color="'+$scope.fontcolor+'">Enter Text</font>';
+        $scope.forum.summary = angular.copy($scope.forum.summary) + '[color="'+$scope.fontcolor+'"][/color]';
     });
 
     $scope.$on('tagEvent',function(){

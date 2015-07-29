@@ -1,3 +1,7 @@
+
+
+
+
 <div class="breadcrumb cat-head3">
     <div class="cat-title"><span><a href="#/forums">Home</a></span></div>
     <div class="cat-title" style="margin-left: 5px;" ng-if="forumtopic.prevlevel"><span><a href="#/subcat/{{forumtopic.prevlevel.id}}">{{forumtopic.prevlevel.name}}</a></span></div>
@@ -28,6 +32,7 @@
 
 
     <!-- pindata start here -->
+
 
     <tr ng-repeat="f in pindata | filter:form.search track by $index">
         <td class="col-sm-1">

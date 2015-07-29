@@ -209,6 +209,8 @@ angular.module('topicDirective',[])
             link: function(scope, element, attr) {
                 scope.$watch('summary',function() {
                     var summary=$filter('bbcodefilter')(scope.summary);
+                    summary=$filter('bbcodecolorfilter')(summary);
+                    summary=$filter('bbcodeboldfilter')(summary);
                     scope.names = $sce.trustAsHtml(summary);
                 });
 

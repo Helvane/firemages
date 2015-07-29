@@ -133,18 +133,47 @@ appFilter.filter("pinfilter",['shareService',function(shareService){
 appFilter.filter("bbcodefilter",function(){
     return function(str) {
         var mystr='';
-        console.log(str);
         if(str) {
             var pattern = /\[quote(.*(?=[a0-z9]))\](.*([a0-z9]))\[\/quote\]/gi;
             var newstr=str.replace(pattern,'$1');
             newstr=newstr.replace(/[\="]+/g,'');
-            console.log('The ** newstr **');
-            console.log(newstr);
             var replacestr1 = '<blockquote><div><cite>'+newstr+' wrote:</cite> $2</div></blockquote>';
             mystr = str.replace(pattern,replacestr1);
-            console.log(mystr);
+
         }
         return mystr;
     };
 
 });
+
+
+appFilter.filter("bbcodecolorfilter",function(){
+    return function(str) {
+        var mystr='';
+        if(str) {
+
+            var pattern2 = /\[color(.*(?=[a0-z9]))\](.*([a0-z9]))\[\/color\]/gi;
+            var replacestr2 = '<font color$1>$2</font>';
+            mystr = str.replace(pattern2,replacestr2);
+
+        }
+        return mystr;
+    };
+
+});
+
+appFilter.filter("bbcodeboldfilter",function(){
+    return function(str) {
+        var mystr='';
+        if(str) {
+
+            var pattern3 = /\[b(.*(?=[a0-z9]))\](.*([a0-z9]))\[\/b\]/gi;
+            var replacestr3 = '<b>$2</b>';
+            mystr = str.replace(pattern3,replacestr3);
+
+        }
+        return mystr;
+    };
+
+});
+

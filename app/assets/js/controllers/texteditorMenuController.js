@@ -14,7 +14,7 @@ appController.controller("texteditorMenuController",['$scope','ajaxService','sha
     });
 
     $scope.bold=function(){
-        var htmltag='<b>Enter Text</b>';
+        var htmltag='[b]Enter Text[/b]';
        shareService.settag(htmltag);
     };
 
